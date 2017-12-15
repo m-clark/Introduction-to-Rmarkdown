@@ -1,0 +1,4 @@
+[
+["index.html", "Introduction to RMarkdown", " Introduction to RMarkdown Michael Clark https://m-clark.github.io 2017-12-15 "],
+["introduction.html", "Introduction Overview", " Introduction Overview What is Markdown Markdown files Text Chunks Labels Customization Running code Customization &amp; Configuration YAML Themes Output options html, pdf, doc, notebooks Related languages CSS, HTML, \\(\\LaTeX\\) Alternative Modes Slides Bookdown Shiny Using templates and DRY Other How necessary is an R script for your project? Goals Prerequisites Note the following color coding used in this document: emphasis package function object/class link "]
+]

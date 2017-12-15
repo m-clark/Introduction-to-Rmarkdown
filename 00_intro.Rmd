@@ -1,0 +1,41 @@
+# Introduction
+
+
+## Overview
+
+- What is Markdown
+- Markdown files
+    - Text
+    - Chunks
+        - Labels
+        - Customization
+        - Running code
+- Customization & Configuration
+    - YAML
+    - Themes
+    - Output options
+        - html, pdf, doc, notebooks
+- Related languages 
+    - CSS, HTML, $\LaTeX$
+- Alternative Modes
+    - Slides
+    - Bookdown
+    - Shiny
+- Using templates and DRY
+- Other
+    - How necessary is an R script for your project?
+
+
+### Goals
+
+
+### Prerequisites
+
+
+Note the following color coding used in this document:
+
+- <span class="emph">emphasis</span>
+- <span class="pack">package</span>
+- <span class="func">function</span>
+- <span class="objclass">object/class</span>
+- [link]()
