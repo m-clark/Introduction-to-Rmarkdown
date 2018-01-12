@@ -1,10 +1,16 @@
 # Introduction
 
+R Markdown
 
 ## Overview
 
-- What is Markdown
-- Markdown files
+- Key ideas
+  - Literate programming
+  - Replicability & reproducible research
+  - Dynamic data analysis & report generation
+- Why it's better than some alternatives
+- What is Markdown?
+- R Markdown files
     - Text
     - Chunks
         - Labels
@@ -28,9 +34,12 @@
 
 ### Goals
 
+The goal is for you to be able to get started with your own document, and understand the possibilities available to you.  You will be able to understand the basic mechanics at play, as well as have ideas on how to customize the result to your own tastes.  You should also understand it well enought to use it for your next paper/project/whatever.
+
 
 ### Prerequisites
 
+The only prerquisite is a basic understanding of R.  The code in the document won't be dwealt upon or really explained, as what the code is doesn't matter in this context.
 
 Note the following color coding used in this document:
 

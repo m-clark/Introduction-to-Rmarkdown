@@ -1,1 +1,14 @@
 base
+magrittr
+tidyverse
+ggplot2
+tibble
+tidyr
+readr
+purrr
+dplyr
+stringr
+forcats
+pander
+plotly
+lazerhawk

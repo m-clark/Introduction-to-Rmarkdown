@@ -1,0 +1,64 @@
+# Concepts
+
+To use R Markdown effectively, it helps to know why you'd even want to. Let's talk about some ideas, all of which are inter-related, and will give you some sense of the goals of effective document generation, and why this approach is superior to others you might try.
+
+
+## Literate Programming
+
+<span class="emph">Literate programming</span>, or in the context of research, literate statistical programming, is actually an [old idea](http://www.literateprogramming.com/knuthweb.pdf) at this point.  
+
+> I believe that the time is ripe for significantly better documentation of programs, and that we can best achieve this by considering programs to be works of literature. <br> ~ Donald Knuth (1984)
+
+...
+
+The interweaving of code and text is something you do already in normal scripting.  Comments in code are not only useful, they are practically required.  But in a program script, almost all the emphasis is on the code.  With literate programming, we focus on the text, and the code exists to help facilitate our ability to tell a (data-driven) story.
+
+In the early days the idea was largely to communicate the idea of the computer program itself. Now, at least in the context we'll be discussing, our usage of literate programming is generate results that tell the story in a completely human-oriented fashion, possibly without any reference to the code at all.  However, the document, in whatever format, does not exist independently of the code, and cannot be generated without it.
+
+Consider the following example.
+
+
+
+This code shows how to do an unordered list in markdown using two different methods.  Either a `-` or a `*` will denote a list item.
+
+```markdown
+- item 1
+- item 2
+
+* item 3
+* item 4
+```
+
+In the previous we have a statement explaining the code, followed by the code itself. We actually don't need a code comment, because the text explains the code in everyday language.  This is a simple example but gets at the essence of the approach.  In the document you're reading right now, there is a delineation for the code itself, but this isn't visible. However it's clear what the code part is and what the text part is.  
+
+The following table shows the results of a regression analysis.
+
+```{r lm_demo,echo=FALSE}
+summary(lm(mpg ~ wt, mtcars)) %>% 
+  pander(round=3)
+```
+
+So imagine a paper in which the previous text content explains the results while the analysis code resides right where the text is.  You didn't see the code, but you saw some nicely formatted results. I personally didn't format anything however, those are using default settings.  Here is the underlying code.
+
+
+```{r lm_demo2, eval=FALSE}
+lm(mpg ~ wt, mtcars) %>% 
+  summary() %>% 
+  pander()
+```
+
+Here we see the code, but it isn't evaluated, because the goal of the text here is not the result but to understand the code.  Nothing is copied and pasted, the code and text both reside in the same document.
+
+The idea of literate programming, i.e. creating human-understandable programs, can extend beyond reports or slides that you might put together for an analysis, but in fact be used for any setting in which you have to write code at all.
+
+
+## Replicability & reproducible research
+  
+## Dynamic data analysis & report generation
+
+
+## Comparison to alternatives
+
+MS Word
+
+$\LaTeX$

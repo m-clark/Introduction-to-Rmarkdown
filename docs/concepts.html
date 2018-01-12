@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   <link rel="shortcut icon" href="img/R.ico" type="image/x-icon">
-<link rel="prev" href="index.html">
-<link rel="next" href="concepts.html">
+<link rel="prev" href="introduction.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -137,70 +137,104 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>R Markdown</p>
-<div id="overview" class="section level2">
-<h2>Overview</h2>
-<ul>
-<li>Key ideas</li>
-<li>Literate programming</li>
-<li>Replicability &amp; reproducible research</li>
-<li>Dynamic data analysis &amp; report generation</li>
-<li>Why it’s better than some alternatives</li>
-<li>What is Markdown?</li>
-<li>R Markdown files
-<ul>
-<li>Text</li>
-<li>Chunks
-<ul>
-<li>Labels</li>
-<li>Customization</li>
-<li>Running code</li>
-</ul></li>
-</ul></li>
-<li>Customization &amp; Configuration
-<ul>
-<li>YAML</li>
-<li>Themes</li>
-<li>Output options
-<ul>
-<li>html, pdf, doc, notebooks</li>
-</ul></li>
-</ul></li>
-<li>Related languages
-<ul>
-<li>CSS, HTML, <span class="math inline">\(\LaTeX\)</span></li>
-</ul></li>
-<li>Alternative Modes
-<ul>
-<li>Slides</li>
-<li>Bookdown</li>
-<li>Shiny</li>
-</ul></li>
-<li>Using templates and DRY</li>
-<li>Other
-<ul>
-<li>How necessary is an R script for your project?</li>
-</ul></li>
-</ul>
-<div id="goals" class="section level3">
-<h3>Goals</h3>
-<p>The goal is for you to be able to get started with your own document, and understand the possibilities available to you. You will be able to understand the basic mechanics at play, as well as have ideas on how to customize the result to your own tastes. You should also understand it well enought to use it for your next paper/project/whatever.</p>
-</div>
-<div id="prerequisites" class="section level3">
-<h3>Prerequisites</h3>
-<p>The only prerquisite is a basic understanding of R. The code in the document won’t be dwealt upon or really explained, as what the code is doesn’t matter in this context.</p>
-<p>Note the following color coding used in this document:</p>
-<ul>
-<li><span class="emph">emphasis</span></li>
-<li><span class="pack">package</span></li>
-<li><span class="func">function</span></li>
-<li><span class="objclass">object/class</span></li>
-<li><a href="">link</a></li>
-</ul>
+<div id="concepts" class="section level1">
+<h1>Concepts</h1>
+<p>To use R Markdown effectively, it helps to know why you’d even want to. Let’s talk about some ideas, all of which are inter-related, and will give you some sense of the goals of effective document generation, and why this approach is superior to others you might try.</p>
+<div id="literate-programming" class="section level2">
+<h2>Literate Programming</h2>
+<p><span class="emph">Literate programming</span>, or in the context of research, literate statistical programming, is actually an <a href="http://www.literateprogramming.com/knuthweb.pdf">old idea</a> at this point.</p>
+<blockquote>
+<p>I believe that the time is ripe for significantly better documentation of programs, and that we can best achieve this by considering programs to be works of literature. <br> ~ Donald Knuth (1984)</p>
+</blockquote>
+<p>…</p>
+<p>The interweaving of code and text is something you do already in normal scripting. Comments in code are not only useful, they are practically required. But in a program script, almost all the emphasis is on the code. With literate programming, we focus on the text, and the code exists to help facilitate our ability to tell a (data-driven) story.</p>
+<p>In the early days the idea was largely to communicate the idea of the computer program itself. Now, at least in the context we’ll be discussing, our usage of literate programming is generate results that tell the story in a completely human-oriented fashion, possibly without any reference to the code at all. However, the document, in whatever format, does not exist independently of the code, and cannot be generated without it.</p>
+<p>Consider the following example.</p>
+<p>This code shows how to do an unordered list in markdown using two different methods. Either a <code>-</code> or a <code>*</code> will denote a list item.</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">- <span class="fl">item 1</span>
+<span class="fl">- item 2</span>
 
+* <span class="fl">item 3</span>
+<span class="fl">* item 4</span></code></pre></div>
+<p>In the previous we have a statement explaining the code, followed by the code itself. We actually don’t need a code comment, because the text explains the code in everyday language. This is a simple example but gets at the essence of the approach. In the document you’re reading right now, there is a delineation for the code itself, but this isn’t visible. However it’s clear what the code part is and what the text part is.</p>
+<p>The following table shows the results of a regression analysis.</p>
+<table style="width:86%;">
+<colgroup>
+<col width="25%" />
+<col width="15%" />
+<col width="18%" />
+<col width="13%" />
+<col width="13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"> </th>
+<th align="center">Estimate</th>
+<th align="center">Std. Error</th>
+<th align="center">t value</th>
+<th align="center">Pr(&gt;|t|)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>(Intercept)</strong></td>
+<td align="center">37.28</td>
+<td align="center">1.878</td>
+<td align="center">19.86</td>
+<td align="center">0</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>wt</strong></td>
+<td align="center">-5.344</td>
+<td align="center">0.559</td>
+<td align="center">-9.559</td>
+<td align="center">0</td>
+</tr>
+</tbody>
+</table>
+<table style="width:86%;">
+<caption>Fitting linear model: mpg ~ wt</caption>
+<colgroup>
+<col width="20%" />
+<col width="30%" />
+<col width="12%" />
+<col width="22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Observations</th>
+<th align="center">Residual Std. Error</th>
+<th align="center"><span class="math inline">\(R^2\)</span></th>
+<th align="center">Adjusted <span class="math inline">\(R^2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">32</td>
+<td align="center">3.046</td>
+<td align="center">0.7528</td>
+<td align="center">0.7446</td>
+</tr>
+</tbody>
+</table>
+<p>So imagine a paper in which the previous text content explains the results while the analysis code resides right where the text is. You didn’t see the code, but you saw some nicely formatted results. I personally didn’t format anything however, those are using default settings. Here is the underlying code.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>wt, mtcars) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">summary</span>() <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">pander</span>()</code></pre></div>
+<p>Here we see the code, but it isn’t evaluated, because the goal of the text here is not the result but to understand the code. Nothing is copied and pasted, the code and text both reside in the same document.</p>
+<p>The idea of literate programming, i.e. creating human-understandable programs, can extend beyond reports or slides that you might put together for an analysis, but in fact be used for any setting in which you have to write code at all.</p>
 </div>
+<div id="replicability-reproducible-research" class="section level2">
+<h2>Replicability &amp; reproducible research</h2>
+</div>
+<div id="dynamic-data-analysis-report-generation" class="section level2">
+<h2>Dynamic data analysis &amp; report generation</h2>
+</div>
+<div id="comparison-to-alternatives" class="section level2">
+<h2>Comparison to alternatives</h2>
+<p>MS Word</p>
+<p><span class="math inline">\(\LaTeX\)</span></p>
+
 </div>
 </div>
             </section>
@@ -208,8 +242,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="concepts.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="introduction.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
