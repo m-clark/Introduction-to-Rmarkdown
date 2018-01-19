@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2018-01-12">
+<meta name="date" content="2018-01-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -139,7 +139,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="concepts" class="section level1">
 <h1>Concepts</h1>
-<p>To use R Markdown effectively, it helps to know why you’d even want to. Let’s talk about some ideas, all of which are inter-related, and will give you some sense of the goals of effective document generation, and why this approach is superior to others you might try.</p>
+<p>To use R Markdown effectively, it helps to know why you’d even want to. Let’s talk about some ideas, all of which are related, and which will give you some sense of the goals of effective document generation, and why this approach is superior to others you might try.</p>
 <div id="literate-programming" class="section level2">
 <h2>Literate Programming</h2>
 <p><span class="emph">Literate programming</span>, or in the context of research, literate statistical programming, is actually an <a href="http://www.literateprogramming.com/knuthweb.pdf">old idea</a> at this point.</p>
@@ -149,8 +149,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>…</p>
 <p>The interweaving of code and text is something you do already in normal scripting. Comments in code are not only useful, they are practically required. But in a program script, almost all the emphasis is on the code. With literate programming, we focus on the text, and the code exists to help facilitate our ability to tell a (data-driven) story.</p>
 <p>In the early days the idea was largely to communicate the idea of the computer program itself. Now, at least in the context we’ll be discussing, our usage of literate programming is generate results that tell the story in a completely human-oriented fashion, possibly without any reference to the code at all. However, the document, in whatever format, does not exist independently of the code, and cannot be generated without it.</p>
-<p>Consider the following example.</p>
-<p>This code shows how to do an unordered list in markdown using two different methods. Either a <code>-</code> or a <code>*</code> will denote a list item.</p>
+<p>Consider the following example. This code shows how to do an unordered list in markdown using two different methods. Either a <code>-</code> or a <code>*</code> will denote a list item.</p>
 <div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown">- <span class="fl">item 1</span>
 <span class="fl">- item 2</span>
 
@@ -222,10 +221,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="st">  </span><span class="kw">summary</span>() <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">pander</span>()</code></pre></div>
 <p>Here we see the code, but it isn’t evaluated, because the goal of the text here is not the result but to understand the code. Nothing is copied and pasted, the code and text both reside in the same document.</p>
-<p>The idea of literate programming, i.e. creating human-understandable programs, can extend beyond reports or slides that you might put together for an analysis, but in fact be used for any setting in which you have to write code at all.</p>
+<p>The idea of literate programming, i.e. creating human-understandable programs, can extend beyond reports or slides that you might put together for an analysis, and in fact be used for any setting in which you have to write code at all.</p>
 </div>
 <div id="replicability-reproducible-research" class="section level2">
 <h2>Replicability &amp; reproducible research</h2>
+<p>The ideas of <span class="emph">replicability</span> and <span class="emph">reproducible research</span> are hot topics in various disciplines of late. To begin, neither is precisely defined, and depending on the definition one selects, possibly not very likely or even impossible. They are more ideals to strive for, or goals for certain aspects of the research process. For example, nothing is exactly replicable, if only because time will have passed, and with it some things about the process, people involved, data collection, analytical tools, that will have changed since the initial research was conducted. However, we can replicate some things, possibly even exactly, and thus make the results reproducible.</p>
+<p>Our focus will be on the data analysis side. Let’s start with the following scenario. Various versions of a dataset used in analysis, named <code>finaldata7</code>, is spread across the computers of the faculty advisor, two graduate students and one undergrad. Two of those finaldata7 data sets, specifically named <code>finaldata7a</code> and <code>finaldata7b</code>, are slightly different from the other two and each other. The undergraduate, who helped with the processing of finaldata2 through finaldata6 has graduated and no longer resides in the same state, nor likely cares any more about the project. Some of the data processing was done with a menus in a software package that shall not be named.</p>
+<p>The script that did the final analysis, called <code>model.Results.C</code>, calls the data using a directory location which no longer exists (and refers only to <code>finaldata7</code>. It does several data processing steps, but has no comments that would indicate why any of them are being done. Some of the variables are named things like PDQ and V3, but there is no document that would say what those mean.</p>
+<p>When writing their document in Microsoft Word, all the values from the analyses were copied and pasted into the tables and text<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>. The variable names in the document have no exact match to any of the names in any of the finaldatas. Furthermore, no reference was provided in the text what software or specific packages were used for the analysis.</p>
+<p>And now, six months later, the journal reviewers have made their comments on the paper, and it’s time to dive back into the analysis. Now, what do you think the odds are that this research group could even reproduce the main analysis of the paper?</p>
+<p>Sadly, up until a couple years ago this not uncommon, and even certain issues described are still very common. The approach just described is essentially the antithesis of replicability and reproducbile research.</p>
 </div>
 <div id="dynamic-data-analysis-report-generation" class="section level2">
 <h2>Dynamic data analysis &amp; report generation</h2>
@@ -236,6 +241,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><span class="math inline">\(\LaTeX\)</span></p>
 
 </div>
+</div>
+
+
+
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>And since this journal still thinks it’s 1990, all the tables had to be at the end of the document.<a href="concepts.html#fnref1">↩</a></p></li>
+</ol>
 </div>
             </section>
 
