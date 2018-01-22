@@ -2,6 +2,15 @@
 
 To use R Markdown effectively, it helps to know why you'd even want to. Let's talk about some ideas, all of which are related, and which will give you some sense of the goals of effective document generation, and why this approach is superior to others you might try.
 
+Some terminology you might have come across:
+
+- Reproducible research
+- Replicable science
+- Reproducible data analysis
+- Dynamic data analysis
+- Dynamic report generation
+- Literate programming
+
 
 ## Literate Programming
 
@@ -50,18 +59,19 @@ The idea of literate programming, i.e. creating human-understandable programs, c
 
 ## Replicability & reproducible research
 
-The ideas of <span class="emph">replicability</span> and <span class="emph">reproducible research</span> are hot topics in various disciplines of late.  To begin, neither is precisely defined, and depending on the definition one selects, possibly not very likely or even impossible.  They are more ideals to strive for, or goals for certain aspects of the research process.  For example, nothing is exactly replicable, if only because time will have passed, and with it some things about the process, people involved, data collection, analytical tools, that will have changed since the initial research was conducted.  However, we can replicate some things, possibly even exactly, and thus make the results reproducible.
+The ideas of <span class="emph">replicability</span> and <span class="emph">reproducible research</span> are hot topics in various disciplines of late.  To begin, neither is precisely defined, and depending on the definition one selects, possibly not very likely or even impossible.  They are more ideals to strive for, or goals for certain aspects of the research process.  For example, nothing is exactly replicable, if only because time will have passed, and with it some things will have changed about the process, the people involved, the data collection, the analytical tools, etc., since the initial research was conducted.  However, we can replicate some things, possibly even exactly, and thus make the results reproducible.
 
-Our focus will be on the data analysis side.  Let's start with the following scenario. Various versions of a dataset used in analysis, named  `finaldata7`, is spread across the computers of the faculty advisor, two graduate students and one undergrad. Two of those finaldata7 data sets, specifically named `finaldata7a` and `finaldata7b`, are slightly different from the other two and each other.  The undergraduate, who helped with the processing of finaldata2 through finaldata6 has graduated and no longer resides in the same state, nor likely cares any more about the project.  Some of the data processing was done with a menus in a software package that shall not be named.
+Our focus will be on the data analysis side.  Let's start with the following scenario. Various versions of a dataset used in analysis, and after several iterations, `finaldata7` is now spread across the computers of the faculty advisor, two graduate students and one undergrad. Two of those finaldata7 data sets, specifically named `finaldata7a` and `finaldata7b`, are slightly different from the other two and each other.  The undergraduate, who helped with the processing of finaldata2 through finaldata6 has graduated and no longer resides in the same state, nor likely cares any more about the project.  Some of the data processing was done with menus in a software package that shall not be named.
 
-The script that did the final analysis, called `model.Results.C`, calls the data using a directory location which no longer exists (and refers only to `finaldata7`.  It does several data processing steps, but has no comments that would indicate why any of them are being done.  Some of the variables are named things like PDQ and V3, but there is no document that would say what those mean.
+The script that did the final analysis, called `model.Results.C`, calls the data using a directory location which no longer exists (and refers only to `finaldata7`).  It does several more data processing steps, but has no comments that would indicate why any of them are being done.  Some of the variables are named things like PDQ and V3, but there is no document that would say what those mean.
 
 When writing their document in Microsoft Word, all the values from the analyses were copied and pasted into the tables and text[^intheback].  The variable names in the document have no exact match to any of the names in any of the finaldatas.  Furthermore, no reference was provided in the text what software or specific packages were used for the analysis.  
 
+And now, several months later, the journal reviewers have made their comments on the paper, and it's time to dive back into the analysis.  Now, what do you think the odds are that this research group could even reproduce the main analysis of the paper?
 
-And now, six months later, the journal reviewers have made their comments on the paper, and it's time to dive back into the analysis.  Now, what do you think the odds are that this research group could even reproduce the main analysis of the paper?
+Sadly, up until a couple years ago this was not uncommon, and even certain issues described are still very common.  Such an approach is essentially the antithesis of replicability and reproducible research.  Anything that was only done with menus cannot be replicated, and without sufficient documentation it's not clear what was done even when there is potentially reproducible code.  The naming of files, variables and other objects was done poorly, so it will take unnecessary effort to figure out what was done and when.  And even after most things get squared away, there is still a chance the numbers won't match what was in the paper anyway.
 
-Sadly, up until a couple years ago this not uncommon, and even certain issues described are still very common.  The approach just described is essentially the antithesis of replicability and reproducbile research.
+While certain tools like Box, Dropbox, Google drive etc. have perhaps helped some, people generally don't use them for version control, and they are not geared toward academic research specifically.  However, using proper naming procedures, the approach of literate programming
 
 
   
@@ -76,4 +86,4 @@ $\LaTeX$
 
 
 
-[^intheback]: And since this journal still thinks it's 1990, all the tables had to be at the end of the document.
+[^intheback]: And since this journal still thinks it's 1990, all the tables had to be at the end of the document, so they aren't even near the text which refers to them.
