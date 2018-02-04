@@ -14,6 +14,7 @@
     color: #585858;
     padding: 5px 15px;
     font-family: Roboto;
+    font-size: 100%;
     word-wrap: break-word;
     overflow: hidden;
     line-height: 1.7;
@@ -55,7 +56,7 @@
 
 .book .book-header {
     overflow: visible;
-    height: 50px;
+    height: 48px;
     padding: 0 8px;
     z-index: 2;
     font-family: Roboto sans-serif;
@@ -124,6 +125,7 @@ i {
 
 .book .book-body .page-wrapper .page-inner section.normal code, .book .book-body .page-wrapper .page-inner section.normal pre {
     font-family: 'Roboto Mono',Consolas,"Liberation Mono",Menlo,Courier,monospace;
+    width: 80%;    /* adjust to body width */
     direction: ltr;
     border: none;
     color: inherit;
@@ -146,4 +148,49 @@ i {
 .img-note {
   vertical-align: central;
   width: 2em;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal dl,
+.book .book-body .page-wrapper .page-inner section.normal ol,
+.book .book-body .page-wrapper .page-inner section.normal p,
+.book .book-body .page-wrapper .page-inner section.normal ul {
+    margin-top: 0;
+    margin-bottom: .85em;
+    width: 80%;                 /*fiddle with this relative to marginnote; div.sourceCode should be the same*/
+}
+
+
+.book .book-body .page-wrapper .page-inner section.normal table {
+  max-width: 80%;
+  margin-left: 0%;
+  font-size: 75%;
+}
+
+div.sourceCode {
+  width: 80%;
+}
+
+/* marginnote, sidenotes, footnotes */
+.book .book-body .page-wrapper .page-inner section.normal .marginnote span.mjx-chtml, span.mjx-block {
+    display: block;
+    font-size: 80%;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal .marginnote { 
+  float: right;
+  clear: right;
+  margin-right: -25%;
+  color: #858585;   /*blockquote color*/
+  width: 22.5%;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 66%;
+  line-height: 1;
+  vertical-align: baseline;
+  position: relative; 
+}
+
+.book .book-body .page-wrapper .page-inner section.normal .footnotes p, ol {
+  width: 100%;
+  font-size: 90%;
 }

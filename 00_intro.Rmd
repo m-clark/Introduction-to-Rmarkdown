@@ -1,6 +1,6 @@
 # Introduction
 
-R Markdown
+<span class="emph">R Markdown</span> is a a flavor of Markdown, a markup language.  Markdown can be converted to other formats like html, but is as easy to use as normal text editing. R Markdown allows one to combine normal R code with text to produce a wide variety of document formats.  This allows for a continuous transition from initial data import and processing to a finished product, whether journal article, slide presentation, or even a website.
 
 ## Overview
 
@@ -8,7 +8,7 @@ R Markdown
   - Literate programming
   - Replicability & reproducible research
   - Dynamic data analysis & report generation
-- Why it's better than some alternatives
+  - Why it's better than some alternatives
 - What is Markdown?
 - R Markdown files
     - Text
@@ -34,7 +34,7 @@ R Markdown
 
 ### Goals
 
-The goal is for you to be able to get started with your own document, and understand the possibilities available to you.  You will be able to understand the basic mechanics at play, as well as have ideas on how to customize the result to your own tastes.  You should also understand it well enought to use it for your next paper/project/whatever.
+The goal is for you to be able to get started with your own document, and understand the possibilities available to you.  You will get a feel for the basic mechanics at play, as well as have ideas on how to customize the result to your own tastes.  You should also understand it well enought to use it for your next paper/project/whatever.
 
 
 ### Prerequisites

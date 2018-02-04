@@ -1,0 +1,17 @@
+# Standard Documents
+
+
+## R Markdown files
+### HTML
+
+I personally do everything in html because it's the most flexible and easiest to get things looking the way you want.
+
+
+## Text
+## Chunks
+### Labels
+### Customization
+### Running code
+
+
+

@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   <link rel="shortcut icon" href="img/R.ico" type="image/x-icon">
-
-<link rel="next" href="introduction.html">
+<link rel="prev" href="concepts.html">
+<link rel="next" href="standard-documents.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -164,25 +164,89 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title"><span style="font-size:125%; font-family:Roboto; font-style:normal">Introduction to R Markdown</span></h1>
-<h3 class="subtitle"><em><span style="font-size:125%; font-style:normal; font-variant:small-caps; font-family:&#39;Open Sans&#39;"></span></em></h3>
-<h4 class="author"><em><p><span style="font-size:125%; font-style:normal; font-variant:small-caps; font-family:&#39;Open Sans&#39;">Michael Clark</span> <br> <span style="font-size:75%"><a href="https://m-clark.github.io" class="uri">https://m-clark.github.io</a></span><br><br> <img src="img/CSCAR_logos/signature-acronym.png" style="width:30%; padding:10px 0;" alt="University of Michigan: CSCAR"> <br> <img src="img/ARC_logos/ARC-acronym-signature.png" style="width:21%; padding:10px 0;" alt="University of Michigan: Advanced Research Computing"></p></em></h4>
-<h4 class="date"><em><span style="font-style:normal;font-family:&#39;Open Sans&#39;">2018-02-04</span></em></h4>
+<div id="getting-started" class="section level1">
+<h1>Getting Started</h1>
+<p><br> <img src="img/RMarkdownOutputFormats.png" style="display:block; margin: 0 auto;" width=50%> <br></p>
+<div id="what-is-markdown" class="section level2">
+<h2>What is Markdown?</h2>
+<p><br> <img src="img/Markdown-mark.svg" style="display:block; margin: 0 auto;" width=25%> <br></p>
+<p><span class="emph">Markdown</span> is basically a syntax that allows you to use plain text for a document, but which will ultimately be converted to any number of other languages, especially HMTL. The basic markdown syntax hasn’t even really been developed for many years, but there are now dozens of <em>flavors</em>, of which R Markdown is one.</p>
+<p>Most Markdown syntax is preserved and works identically no matter what flavor you use. However the different flavors will have different options or slightly different implementations of certain things. The main point is knowing one flavor means you know some Markdown, and thus would easily work with others.</p>
 </div>
-<div id="section" class="section level1">
-<h1></h1>
-<p><img src="img/198R.png" width="300" style="display: block; margin: auto;" /></p>
-<p><img src="img/ccbysa.png" width="0" style="display: block; margin: auto;" /><img src="img/mc.png" width="0" style="display: block; margin: auto;" /></p>
+<div id="documents" class="section level2">
+<h2>Documents</h2>
+<p>To start using R markdown, simply go to File/New File/R Markdown…</p>
+<p><br> <img src="img/new_markdown.png" style="display:block; margin: 0 auto;" width=50%> <br></p>
+<p>As you can see right away, you have your choice of outlets for documents, but can also see other things that will be of interest to you as you get more used to using R Markdown.</p>
+<p>Documents are what you’ll probably use primarily, especially since they can be used in place of normal R scripts. You have the choice of HTML, PDF and MS Word. The main thing you’ll want to do is make your choice early, because it is not really possible to have the document look like you’d want in all formats simultaneously. As these are the focus of this document, more detail is forthcoming.</p>
+</div>
+<div id="presentations" class="section level2">
+<h2>Presentations</h2>
+<p><br> <img src="img/presentation_opts.png" style="display:block; margin: 0 auto;" width=50%> <br></p>
+<p>You can do slide-style presentations with R Markdown, with three options shown, though two are bizarrely absent. Two shown are HTML based, and you should not even consider Beamer/pdf. Slides are not for printing, and in fact, really don’t work for text in general. They should be very visual if they are to be effective. The two notable formats not shown are <a href="http://rmarkdown.rstudio.com/revealjs_presentation_format.html">revealjs</a><a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a> and the kind you can create by going to File/New File/R Presentation. I do not recommend the latter.</p>
+<p>Creating a presentation is easy enough, and the following shows an example.</p>
+<pre><code>---
+title: &quot;Habits&quot;
+author: John Doe
+date: March 22, 2005
+output: ioslides_presentation
+---
 
+# In the morning
+
+## Getting up
+
+- Turn off alarm
+- Get out of bed
+
+## Breakfast
+
+- Eat eggs
+- Drink coffee
+
+# In the evening
+
+## Dinner
+
+- Eat spaghetti
+- Drink wine
+
+----
+
+![picture of spaghetti](images/spaghetti.jpg)
+
+## Going to sleep
+
+- Get in bed
+- Count sheep</code></pre>
+<p>You should really question whether you need slides. They are a highly restrictive format, do not work well with text, and often don’t work well with interactive images. Furthermore, their development and maintenance has never been a priority of the RStudio crowd. Furthermore, there is nothing substantive they offer that can’t be done with standard HTML.</p>
+</div>
+<div id="shiny-apps" class="section level2">
+<h2>Shiny Apps</h2>
+<p><br> <img src="img/shiny_opts.png" style="display:block; margin: 0 auto;" width=50%> <br></p>
+<p><span class="emph">Shiny</span> is an inherently interactive format geared toward the creation of websites and applications. While there are far more apt programming languages than R for creating a website/app, at least Shiny allows you to stay completely within the R environment, and that means you don’t have to be expert in those other languages.</p>
+<p>You can run shiny apps on your machine well enough, though usually the point is to make something other people can interact with. This means you’ll need some place to house your work, and <a href="https://www.shinyapps.io">shinyapps.io</a> allows for some free hosting and other options. As long as you have a web server people will be able to acces your work. Other formats in this area to be aware of are <code>websites</code> and <code>flexdashboard</code>.</p>
+</div>
+<div id="templates" class="section level2">
+<h2>Templates</h2>
+<p><br> <img src="img/template_opts.png" style="display:block; margin: 0 auto;" width=50%> <br></p>
+<p>Templates are available for any number of things, and one can find plenty among specific packages. Once a package with a particular template is installed, you’ll then have it as an option here. All these typically do is provide a R Markdown file similar to when you open a document, with a couple specific options, and demonstration of them if applicable. It’s not much but at least you won’t have to mess with some of it.</p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="6">
+<li id="fn6"><p>When I did slides more often I found revealjs the most viable format. The fact that it’s listed second among the slide formats on the R Markdown website yet not a default when choosing, while the base R Presentation isn’t even mentioned on the website, kind of speaks to how much the RStudio folks are interested in these formats.<a href="getting-started.html#fnref6">↩</a></p></li>
+</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="introduction.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="concepts.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="standard-documents.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
