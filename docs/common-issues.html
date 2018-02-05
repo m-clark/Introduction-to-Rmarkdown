@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   <link rel="shortcut icon" href="img/R.ico" type="image/x-icon">
-
-<link rel="next" href="introduction.html">
+<link rel="prev" href="standard-documents.html">
+<link rel="next" href="customization-configuration.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -180,25 +180,70 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title"><span style="font-size:125%; font-family:Roboto; font-style:normal">Introduction to R Markdown</span></h1>
-<h3 class="subtitle"><em><span style="font-size:125%; font-style:normal; font-variant:small-caps; font-family:&#39;Open Sans&#39;"></span></em></h3>
-<h4 class="author"><em><p><span style="font-size:125%; font-style:normal; font-variant:small-caps; font-family:&#39;Open Sans&#39;">Michael Clark</span> <br> <span style="font-size:75%"><a href="https://m-clark.github.io" class="uri">https://m-clark.github.io</a></span><br><br> <img src="img/CSCAR_logos/signature-acronym.png" style="width:30%; padding:10px 0;" alt="University of Michigan: CSCAR"> <br> <img src="img/ARC_logos/ARC-acronym-signature.png" style="width:21%; padding:10px 0;" alt="University of Michigan: Advanced Research Computing"></p></em></h4>
-<h4 class="date"><em><span style="font-style:normal;font-family:&#39;Open Sans&#39;">2018-02-04</span></em></h4>
+<div id="common-issues" class="section level1">
+<h1>Common issues</h1>
+<p>In creating a document there several things that consistently come up that you’ll want to be aware of, and we’ll visit some of those here.</p>
+<div id="using-html" class="section level2">
+<h2>Using HTML</h2>
 </div>
-<div id="section" class="section level1">
-<h1></h1>
-<p><img src="img/198R.png" width="300" style="display: block; margin: auto;" /></p>
-<p><img src="img/ccbysa.png" width="0" style="display: block; margin: auto;" /><img src="img/mc.png" width="0" style="display: block; margin: auto;" /></p>
+<div id="chunk-options" class="section level2">
+<h2>Chunk options</h2>
+<p><a href="https://yihui.name/knitr/options/" class="uri">https://yihui.name/knitr/options/</a></p>
+</div>
+<div id="image-options" class="section level2">
+<h2>Image options</h2>
+<p>There are primarily three ways you’ll display images. Some will be the result of R code, possibly even interactive. In other instances, you’ll already have access to an image file and want to display it. Technically you could do this with R code as well, but it’d be more trouble than necessary, as markdown and HTML already provide the means.</p>
+<div id="r-graphics" class="section level3">
+<h3>R graphics</h3>
+<p>Where to begin? As near as I can tell there are no less than five ways to manipulate an image that is produced by your R code, and this is not a good thing. Thankfully, the default settings may be enough, but in my experience it rarely is.</p>
+<div id="html-vs.others" class="section level4">
+<h4>HTML vs. Others</h4>
+<p>To begin, there are different systems for PDF or MS Word vs. HTML-based documents. The former are what the chunk options of <code>fig.width</code> and <code>fig.height</code> apply to. For reasons I can’t figure out, these are expressed in inches, though no reference to images outside of family portraits ever is. At least it is easy enough to manipulate to your liking. These will not affect your images in html documents, but this isn’t actually mentioned in the documentation. You can also supply <code>fig.width</code> plus <code>fig.asp</code> which will produce a height that is <code>fig.width*fig.height</code>. There is also <code>fig.dim</code>, which will take the two values you would have specified for <code>fig.width</code> and <code>fig.height</code>. If you supply <code>fig.dim</code> with <code>fig.asp</code>, the latter will be ignored. If inches doesn’t make sense to you, you can use <code>dpi</code>, and which will allow you to know think of <code>dpi*out.width</code> as what to expect in terms of pixels. You also have <code>fig.align</code> with options like ‘left’ and ‘center’, and while the documentation suggests it will work in html_documents, it has no effect on <span class="pack">htmlwidgets</span> and similar packages that rely on other languages like javascript.</p>
+<p>Isn’t this fun? What’s funny is that you think we’re even halfway through this.</p>
+<p>The <code>out.width</code> and <code>out.height</code> options are geared toward HTML based plotting, and are expressed in pixels, or most usefully, percentages. There is also <code>out.extra</code> that will apply additional arguments (e.g. css/img styling). These <code>out.*</code> can also apply to Latex figures but I can’t figure out why. I also find that <code>out.height</code> actually does nothing in many cases. What’s more, you can use them alongside <code>fig.width</code> and <code>fig.height</code> to ensure you’ll have utterly no idea what will be produced in the finished product. The option <code>fig.retina</code> will only work for HTML documents, and will scale your image such that it will “change the chunk option dpi to dpi * fig.retina, and out.width to fig.width * dpi / fig.retina internally; for example, the physical size of an image is doubled and its display size is halved when fig.retina = 2”. Or it might not have any discernable effect that you can actually see in the document.</p>
+<p>In the following, apparently all of these arguments might have an effect on the resulting image.</p>
+<pre><code>``{r, fig.width=3, fig.height=4, out.width=&#39;30%&#39;, fig.retina=2}
+library(plotly)
+data %&gt;% 
+  plot_ly(width=500) %&gt;% # in pixels!
+  add_markers(~x, ~y)
+``</code></pre>
+<p>In short, for my typical usage, having all these options is not helpful, and mostly just confusing. See the summary for a simplified approach. In addition there are many options, e.g. image file type, captions etc. that may come in handy.</p>
+</div>
+<div id="package-options" class="section level4">
+<h4>Package options</h4>
+<p>As depicted in the above example, you often can modify the display settings of the plot with options of the visualization package you’re using. This will possibly override the chunk options, so use with caution.</p>
+</div>
+</div>
+<div id="markdown" class="section level3">
+<h3>Markdown</h3>
+<p>Markdown provides a basic way to insert images into the document as follows.</p>
+<pre><code>![alt-text](img/myimage.png)</code></pre>
+<p>It’s identical to a link just with an exclamation point. Unfortunately that’s it. You can’t specify anything about the image, so it’s rarely going to be useful.</p>
+</div>
+<div id="img" class="section level3">
+<h3>img</h3>
+<p>The typical way to insert an image is with HTML. This allows you to specify all the options you need to align and style it.</p>
+<pre><code>&lt;img src=&quot;img/myimage.png&quot; style=&quot;display:block; margin: 0 auto;&quot;&gt;</code></pre>
+<p>This should probably be your default approach to inserting images in your document.</p>
+</div>
+<div id="image-summary" class="section level3">
+<h3>Image summary</h3>
+<p>If you are going to do PDF or MS Word, <code>fig.width</code>, <code>fig.height</code>, and <code>fig.align</code> will likely take care of most of your needs. For HTML, I use <code>out.width</code> plus <code>fig.asp</code>, and that has solved a lot of my issues. For image files I use <img> because the markdown approach is really too barebones. I suggest you set your figure options at the beginning of the document so that your images will be consistent, and modify if necessary for a specific chunk. I don’t see much need for anything beyond svg and png, the latter if file size is a concern only. You’ll want scalable images, as provided by svg<span class="marginnote">The <span class="pack">svglite</span> package will create smaller svg files, and can be specified with <code>fig.dev</code> just like svg or png.</span>, because you don’t know what device people are using or if they want to zoom.</p>
+</div>
+</div>
+<div id="caching" class="section level2">
+<h2>Caching</h2>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="introduction.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="standard-documents.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="customization-configuration.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

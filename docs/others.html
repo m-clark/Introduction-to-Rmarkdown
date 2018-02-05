@@ -168,7 +168,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1>Others</h1>
 <div id="pdf" class="section level3">
 <h3>PDF</h3>
-<p>To create PDF documents, you’ll need a <span class="math inline">\(\TeX\)</span> installation. I suggest <a href="https://yihui.name/tinytex/">tinytex</a></p>
+<p>To create PDF documents, you’ll need a <span class="math inline">\(\TeX\)</span> installation, and for that I suggest <a href="https://yihui.name/tinytex/">tinytex</a>. Once installed, you’ll not need to use it directly, but will now be to knit documents to PDF.</p>
+<p>With the Tex installation, you’ll also be able to intermingle standard text, Latex, and R code seamlessly.</p>
+<pre><code>Here is some text!
+
+\medskip
+
+ 
+ ```r
+ x = rnorm(10)
+ ```
+
+$$\mathrm{SomeFormula} = Q_{123}^2$$
+
+\pagebreak</code></pre>
 </div>
 <div id="ms-word-1" class="section level3">
 <h3>MS Word</h3>

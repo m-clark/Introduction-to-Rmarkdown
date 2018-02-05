@@ -15,7 +15,7 @@ Each of these may mean slightly different things depending on the context and ba
 
 ## How to read this chapter
 
-While you are looking at this section, collapse the menu (the button next to the magnifying glass), and snap the document to one side of your screen.  Now open [this version of it](https://raw.githubusercontent.com/m-clark/Introduction-to-Rmarkdown/master/01_concepts.Rmd), or save it to your computer and open it in RStudio so you can get the syntax highlighting. Then snap it to the other side of the screen. This will get you well on your way to understanding how to use R Markdown.
+While you are looking at this section, collapse the menu (the button next to the magnifying glass), and snap the document to one side of your screen.  Now open [this version of it](https://raw.githubusercontent.com/m-clark/Introduction-to-Rmarkdown/master/01_concepts.Rmd), or save it to your computer and open it in RStudio so you can get the syntax highlighting. Then snap it to the other side of the screen. See the R Markdown used to create this section will get you well on your way to understanding how to use R Markdown.
 
 ## Literate Programming
 

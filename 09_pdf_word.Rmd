@@ -1,0 +1,32 @@
+# PDF & Word
+
+
+### PDF
+
+To create PDF documents, you'll need a $\TeX$ installation, and for that I suggest [tinytex](https://yihui.name/tinytex/). Once installed, you'll not need to use it directly, but will now be to knit documents to PDF.
+
+With the Tex installation, you'll also be able to intermingle standard text, Latex, and R code seamlessly.
+
+
+```
+Here is some text!
+
+\medskip
+
+ ```{r}
+x = rnorm(10)
+ ```
+
+$$\mathrm{SomeFormula} = Q_{123}^2$$
+
+\pagebreak
+```
+
+
+### MS Word
+
+As might be obvious, you'll need MS Word if you're going to create such documents. I wouldn't recommend this for anything, and so I will spend very little effort explaining to you how to do it.  
+
+The main thing you need to know is how to use a template.  MS Word defaults have been terrible since its inception.
+
+M

@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   <link rel="shortcut icon" href="img/R.ico" type="image/x-icon">
+<link rel="prev" href="pdf-word.html">
 
-<link rel="next" href="introduction.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -139,25 +139,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="standard-documents.html"><a href="standard-documents.html#running-code"><i class="fa fa-check"></i>Running code</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="common-issues.html"><a href="common-issues.html"><i class="fa fa-check"></i>Common issues</a><ul>
-<li class="chapter" data-level="" data-path="common-issues.html"><a href="common-issues.html#using-html"><i class="fa fa-check"></i>Using HTML</a></li>
-<li class="chapter" data-level="" data-path="common-issues.html"><a href="common-issues.html#chunk-options"><i class="fa fa-check"></i>Chunk options</a></li>
-<li class="chapter" data-level="" data-path="common-issues.html"><a href="common-issues.html#image-options"><i class="fa fa-check"></i>Image options</a><ul>
-<li class="chapter" data-level="" data-path="common-issues.html"><a href="common-issues.html#r-graphics"><i class="fa fa-check"></i>R graphics</a></li>
-<li class="chapter" data-level="" data-path="common-issues.html"><a href="common-issues.html#markdown"><i class="fa fa-check"></i>Markdown</a></li>
-<li class="chapter" data-level="" data-path="common-issues.html"><a href="common-issues.html#img"><i class="fa fa-check"></i>img</a></li>
-<li class="chapter" data-level="" data-path="common-issues.html"><a href="common-issues.html#image-summary"><i class="fa fa-check"></i>Image summary</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="common-issues.html"><a href="common-issues.html#caching"><i class="fa fa-check"></i>Caching</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html"><i class="fa fa-check"></i>Customization &amp; Configuration</a><ul>
-<li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#yaml"><i class="fa fa-check"></i>YAML</a></li>
-<li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#themes"><i class="fa fa-check"></i>Themes</a></li>
-<li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#css"><i class="fa fa-check"></i>CSS</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="pdf-word.html"><a href="pdf-word.html"><i class="fa fa-check"></i>PDF &amp; Word</a><ul>
 <li class="chapter" data-level="" data-path="pdf-word.html"><a href="pdf-word.html#pdf"><i class="fa fa-check"></i>PDF</a></li>
 <li class="chapter" data-level="" data-path="pdf-word.html"><a href="pdf-word.html#ms-word-1"><i class="fa fa-check"></i>MS Word</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="pdf-word-1.html"><a href="pdf-word-1.html"><i class="fa fa-check"></i>PDF &amp; Word</a><ul>
+<li class="chapter" data-level="" data-path="pdf-word-1.html"><a href="pdf-word-1.html#pdf-1"><i class="fa fa-check"></i>PDF</a></li>
+<li class="chapter" data-level="" data-path="pdf-word-1.html"><a href="pdf-word-1.html#ms-word-2"><i class="fa fa-check"></i>MS Word</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://m-clark.github.io/"><img src="img/mc.png" style="width:50%; padding:0px 0; display:block; margin: 0 auto;" alt="MC logo"></a></li>
@@ -180,25 +168,51 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title"><span style="font-size:125%; font-family:Roboto; font-style:normal">Introduction to R Markdown</span></h1>
-<h3 class="subtitle"><em><span style="font-size:125%; font-style:normal; font-variant:small-caps; font-family:&#39;Open Sans&#39;"></span></em></h3>
-<h4 class="author"><em><p><span style="font-size:125%; font-style:normal; font-variant:small-caps; font-family:&#39;Open Sans&#39;">Michael Clark</span> <br> <span style="font-size:75%"><a href="https://m-clark.github.io" class="uri">https://m-clark.github.io</a></span><br><br> <img src="img/CSCAR_logos/signature-acronym.png" style="width:30%; padding:10px 0;" alt="University of Michigan: CSCAR"> <br> <img src="img/ARC_logos/ARC-acronym-signature.png" style="width:21%; padding:10px 0;" alt="University of Michigan: Advanced Research Computing"></p></em></h4>
-<h4 class="date"><em><span style="font-style:normal;font-family:&#39;Open Sans&#39;">2018-02-04</span></em></h4>
+<div id="pdf-word-1" class="section level1">
+<h1>PDF &amp; Word</h1>
+<div id="pdf-1" class="section level3">
+<h3>PDF</h3>
+<p>To create PDF documents, you’ll need a <span class="math inline">\(\TeX\)</span> installation, and for that I suggest <a href="https://yihui.name/tinytex/">tinytex</a>. Once installed, you’ll not need to use it directly, but will now be to knit documents to PDF.</p>
+<p>With the Tex installation, you’ll also be able to intermingle standard text, Latex, and R code seamlessly.</p>
+<pre><code>Here is some text!
+
+\medskip
+
+ 
+ ```r
+ x = rnorm(10)
+ ```
+
+$$\mathrm{SomeFormula} = Q_{123}^2$$
+
+\pagebreak</code></pre>
 </div>
-<div id="section" class="section level1">
-<h1></h1>
-<p><img src="img/198R.png" width="300" style="display: block; margin: auto;" /></p>
-<p><img src="img/ccbysa.png" width="0" style="display: block; margin: auto;" /><img src="img/mc.png" width="0" style="display: block; margin: auto;" /></p>
+<div id="ms-word-2" class="section level3">
+<h3>MS Word</h3>
+<p>As might be obvious, you’ll need MS Word if you’re going to create such documents. I wouldn’t recommend this for anything, and so I will spend very little effort explaining to you how to do it.</p>
+<p>The main thing you need to know is how to use a template. MS Word defaults have been terrible since its inception.</p>
+<p>M</p>
 
 </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
             </section>
 
           </div>
         </div>
       </div>
+<a href="pdf-word.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="introduction.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

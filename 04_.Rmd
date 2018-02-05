@@ -1,0 +1,81 @@
+# Common issues
+
+In creating a document there several things that consistently come up that you'll want to be aware of, and we'll visit some of those here.
+
+## Using HTML
+## Chunk options
+
+https://yihui.name/knitr/options/
+
+## Image options
+
+There are primarily three ways you'll display images. Some will be the result of R code, possibly even interactive. In other instances, you'll already have access to an image file and want to display it. Technically you could do this with R code as well, but it'd be more trouble than necessary, as markdown and HTML already provide the means.
+
+### R graphics
+
+Where to begin?  As near as I can tell there are no less than five ways to manipulate an image that is produced by your R code, and this is not a good thing.  Thankfully, the default settings may be enough, but in my experience it rarely is.
+
+#### HTML vs. Others
+
+To begin, there are different systems for PDF or MS Word vs. HTML-based documents. The former are what the chunk options of `fig.width` and `fig.height` apply to. For reasons I can't figure out, these are expressed in inches, though no reference to images outside of family portraits ever is.  At least it is easy enough to manipulate to your liking.  These will not affect your images in html documents, but this isn't actually mentioned in the documentation.  You can also supply `fig.width` plus `fig.asp` which will produce a height that is `fig.width*fig.height`.  There is also `fig.dim`, which will take the two values you would have specified for `fig.width` and `fig.height`.  If you supply `fig.dim` with `fig.asp`, the latter will be ignored.  If inches doesn't make sense to you, you can use `dpi`, and which will allow you to know think of `dpi*out.width` as what to expect in terms of pixels.  You also have `fig.align` with options like 'left' and 'center', and while the documentation suggests it will work in html_documents, it has no effect on <span class="pack">htmlwidgets</span> and similar packages that rely on other languages like javascript.
+
+Isn't this fun?  What's funny is that you think we're even halfway through this.
+
+The `out.width` and `out.height` options are geared toward HTML based plotting, and are expressed in pixels, or most usefully, percentages.  There is also `out.extra` that will apply additional arguments (e.g. css/img styling).  These `out.*` can also apply to Latex figures but I can't figure out why.   I also find that `out.height` actually does nothing in many cases. What's more, you can use them alongside `fig.width` and `fig.height` to ensure you'll have utterly no idea what will be produced in the finished product.  The option `fig.retina` will only work for HTML documents, and will scale your image such that it will "change the chunk option dpi to dpi * fig.retina, and out.width to fig.width * dpi / fig.retina internally; for example, the physical size of an image is doubled and its display size is halved when fig.retina = 2". Or it might not have any discernable effect that you can actually see in the document.
+
+
+In the following, apparently all of these arguments might have an effect on the resulting image.
+
+```
+``{r, fig.width=3, fig.height=4, out.width='30%', fig.retina=2}
+library(plotly)
+data %>% 
+  plot_ly(width=500) %>% # in pixels!
+  add_markers(~x, ~y)
+``
+```
+
+In short, for my typical usage, having all these options is not helpful, and mostly just confusing.  See the summary for a simplified approach.  In addition there are many options, e.g. image file type, captions etc. that may come in handy. 
+
+
+#### Package options
+
+As depicted in the above example, you often can modify the display settings of the plot with options of the visualization package you're using.  This will possibly override the chunk options, so use with caution.
+
+
+### Markdown
+
+Markdown provides a basic way to insert images into the document as follows.
+
+```
+![alt-text](img/myimage.png)
+```
+
+It's identical to a link just with an exclamation point. Unfortunately that's it. You can't specify anything about the image, so it's rarely going to be useful.
+
+### img
+
+The typical way to insert an image is with HTML.  This allows you to specify all the options you need to align and style it.
+
+```
+<img src="img/myimage.png" style="display:block; margin: 0 auto;">
+```
+
+This should probably be your default approach to inserting images in your document. 
+
+### Image summary
+
+If you are going to do PDF or MS Word, `fig.width`, `fig.height`, and `fig.align` will likely take care of most of your needs. For HTML, I use `out.width` plus `fig.asp`, and that has solved a lot of my issues.  For image files I use <img> because the markdown approach is really too barebones. I suggest you set your figure options at the beginning of the document so that your images will be consistent, and modify if necessary for a specific chunk.  I don't see much need for anything beyond svg and png, the latter if file size is a concern only.  You'll want scalable images, as provided by svg<span class="marginnote">The <span class="pack">svglite</span> package will create smaller svg files, and can be specified with `fig.dev` just like svg or png.</span>, because you don't know what device people are using or if they want to zoom. 
+
+
+## Caching
+
+
+
+
+
+
+
+
+
+
