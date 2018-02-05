@@ -13,18 +13,18 @@ There are primarily three ways you'll display images. Some will be the result of
 
 ### R graphics
 
-Where to begin?  As near as I can tell there are no less than five ways to manipulate an image that is produced by your R code, and this is not a good thing.  Thankfully, the default settings may be enough, but in my experience it rarely is.
+Where to begin?  There are many, many ways to manipulate an image that is produced by your R code, and this is not necessarily a good thing.  Thankfully, the default settings may be enough, but in my experience it rarely is.
 
 #### HTML vs. Others
 
-To begin, there are different systems for PDF or MS Word vs. HTML-based documents. The former are what the chunk options of `fig.width` and `fig.height` apply to. For reasons I can't figure out, these are expressed in inches, though no reference to images outside of family portraits ever is.  At least it is easy enough to manipulate to your liking.  These will not affect your images in html documents, but this isn't actually mentioned in the documentation.  You can also supply `fig.width` plus `fig.asp` which will produce a height that is `fig.width*fig.height`.  There is also `fig.dim`, which will take the two values you would have specified for `fig.width` and `fig.height`.  If you supply `fig.dim` with `fig.asp`, the latter will be ignored.  If inches doesn't make sense to you, you can use `dpi`, and which will allow you to know think of `dpi*out.width` as what to expect in terms of pixels.  You also have `fig.align` with options like 'left' and 'center', and while the documentation suggests it will work in html_documents, it has no effect on <span class="pack">htmlwidgets</span> and similar packages that rely on other languages like javascript.
+To begin, there are different systems for PDF or MS Word vs. HTML-based documents. The former are what the chunk options of `fig.width` and `fig.height` generally apply to. Oddly, these are expressed in inches, but at least it is easy enough to manipulate to your liking.  These will not affect interactive and possibly other images in HTML documents except in unexpected ways[^widthplotly].  You can also supply `fig.width` plus `fig.asp` which will produce a height that is `fig.width*fig.asp`.  There is also `fig.dim`, which will take the two values you would have specified for `fig.width` and `fig.height`.  If you supply `fig.dim` with `fig.asp`, the latter will be ignored.  If inches doesn't make sense to you, you can use `dpi`, and which will allow you to know think of `dpi*out.width` as what to expect in terms of pixels.  You also have `fig.align` with options like 'left' and 'center', but it apparently has no effect on <span class="pack">htmlwidgets</span> and similar packages that rely on other languages like javascript.
 
-Isn't this fun?  What's funny is that you think we're even halfway through this.
+Isn't this fun?  Here is some more.
 
-The `out.width` and `out.height` options are geared toward HTML based plotting, and are expressed in pixels, or most usefully, percentages.  There is also `out.extra` that will apply additional arguments (e.g. css/img styling).  These `out.*` can also apply to Latex figures but I can't figure out why.   I also find that `out.height` actually does nothing in many cases. What's more, you can use them alongside `fig.width` and `fig.height` to ensure you'll have utterly no idea what will be produced in the finished product.  The option `fig.retina` will only work for HTML documents, and will scale your image such that it will "change the chunk option dpi to dpi * fig.retina, and out.width to fig.width * dpi / fig.retina internally; for example, the physical size of an image is doubled and its display size is halved when fig.retina = 2". Or it might not have any discernable effect that you can actually see in the document.
+The `out.width` and `out.height` options are geared toward HTML based plotting, and are expressed in pixels, or most usefully, percentages, but they will also affect other documents via $\LaTeX$.  There is also `out.extra` that will apply additional arguments (e.g. css/img styling).  These `out.*` can also apply to Latex figures but I can't figure out why.   I also find that `out.height` actually does nothing in many cases. What's more, you can use them alongside `fig.width` and `fig.height` to ensure you'll have utterly no idea what will be produced in the finished product.  The option `fig.retina` will only work for HTML documents, and will scale your image such that it will "change the chunk option dpi to dpi * fig.retina, and out.width to fig.width * dpi / fig.retina internally; for example, the physical size of an image is doubled and its display size is halved when fig.retina = 2". Or it might not have any discernable effect that you can actually see in the document depending on your default settings.
 
 
-In the following, apparently all of these arguments might have an effect on the resulting image.
+In the following, all of these arguments might have an effect on the resulting image.
 
 ```
 ``{r, fig.width=3, fig.height=4, out.width='30%', fig.retina=2}
@@ -35,7 +35,32 @@ data %>%
 ``
 ```
 
-In short, for my typical usage, having all these options is not helpful, and mostly just confusing.  See the summary for a simplified approach.  In addition there are many options, e.g. image file type, captions etc. that may come in handy. 
+In short, for my typical usage, having all these options is nice but mostly just confusing.  See the summary for a simplified approach.  In addition there are many options, e.g. image file type, captions etc. that may come in handy. 
+
+
+```{r}
+# fig.width default
+library(plotly)
+mtcars %>% 
+  plot_ly(x=~wt, y=~mpg)
+```
+```{r fig.width=2}
+# fig.width = 2
+mtcars %>% 
+  plot_ly(x=~wt, y=~mpg)
+```
+
+```{r fig.height=2}
+# fig.height = 2; same as default
+mtcars %>% 
+  plot_ly(x=~wt, y=~mpg)
+```
+
+```{r fig.width=10}
+# fig.width = 10
+mtcars %>% 
+  plot_ly(x=~wt, y=~mpg)
+```
 
 
 #### Package options
@@ -65,7 +90,7 @@ This should probably be your default approach to inserting images in your docume
 
 ### Image summary
 
-If you are going to do PDF or MS Word, `fig.width`, `fig.height`, and `fig.align` will likely take care of most of your needs. For HTML, I use `out.width` plus `fig.asp`, and that has solved a lot of my issues.  For image files I use <img> because the markdown approach is really too barebones. I suggest you set your figure options at the beginning of the document so that your images will be consistent, and modify if necessary for a specific chunk.  I don't see much need for anything beyond svg and png, the latter if file size is a concern only.  You'll want scalable images, as provided by svg<span class="marginnote">The <span class="pack">svglite</span> package will create smaller svg files, and can be specified with `fig.dev` just like svg or png.</span>, because you don't know what device people are using or if they want to zoom. 
+If you are going to do PDF or MS Word, or doing static plots in HTML, `fig.width`, `fig.height`, and `fig.align` will likely take care of most of your needs. For HTML, I use `out.width` with a given percentage, plus `fig.asp`, and that has solved a lot of my remaining issues.  For image files I use <img> because the markdown approach is really too barebones. I suggest you set your figure options at the beginning of the document so that your images will be consistent, and modify if necessary for a specific chunk.  I don't see much need for anything beyond svg and png, the latter if file size is a concern only.  You'll want scalable images, as provided by svg<span class="marginnote">The <span class="pack">svglite</span> package will create smaller svg files, and can be specified with `fig.dev` just like svg or png.</span>, because you don't know what device people are using or if they want to zoom. 
 
 
 ## Caching
@@ -79,3 +104,5 @@ If you are going to do PDF or MS Word, `fig.width`, `fig.height`, and `fig.align
 
 
 
+
+[^widthplotly]: Changing `fig.width` for a <span class="pack">plotly</span> image seems to affect the height, while `fig.height` doesn't do anything.

@@ -75,8 +75,17 @@ And now, several months later, the journal reviewers have made their comments on
 
 Sadly, up until a couple years ago this was not uncommon, and even certain issues just described are still very common.  Such an approach is essentially the antithesis of replicability and reproducible research.  Anything that was only done with menus cannot be replicated, and without sufficient documentation it's not clear what was done even when there is potentially reproducible code.  The naming of files, variables and other objects was done poorly, so it will take unnecessary effort to figure out what was done, to what, and when.  And even after most things get squared away, there is still a chance the numbers won't match what was in the paper anyway.
 
-While certain tools like Box, Dropbox, Google drive etc. have perhaps helped some, people generally don't use them for version control, and they are not geared toward academic research specifically.  However, using proper naming procedures, the approach of literate programming, and utilizing proper documentation could go a long way even with those tools.
+While certain tools like Box, Dropbox, Google drive etc. have perhaps helped somewhat, people generally don't use them for <span class="emph">version control</span>, and they are not geared toward academic research specifically.  However, using proper naming procedures, the approach of literate programming, and utilizing proper documentation could go a long way even with those tools.
 
+In summary, truly reproducible data analysis requires:
+
+- Data
+- Code
+- Clear documentation (of data and code)
+- Version control
+- Standard means of distribution
+
+As an example, one could start their research as an RStudio project using Git for version control, write their research products using R Markdown, set seeds for random variables, and use <span class="pack">packrat</span> to keep the packages used in analysis specific to the project.  Doing so would make it essentially *impossible* not to reproduce the results at any stage.
 
   
 ## Dynamic data analysis & report generation
@@ -85,7 +94,7 @@ Sometimes the goal is to create an expression of the analysis that is not only t
 
 I can tell you from first hand experience that R markdown can allow one to automatically create custom reports for different audiences on a regular basis without even touching the data for explicit processing, nor the reports after the templates are created, even as the data continues to come in over time.  Furthermore, any academic effort that would fall under the heading of science is applicable here.
 
-The notion of <span class="emph">science as software development</span> is something you should get used to. Print has had its day, but is not viable for scientific advancement as it should take place.  Waiting months for feedback or a year to get a paper published after it's first sent for review is unacceptable.  Furthermore, what if more data comes in? A data or modeling bug is found? Other studies shed additional light on the conclusions?  In this day an age, are we supposed to just continue to cite a work that may no longer be applicable?
+The notion of <span class="emph">science as software development</span> is something you should get used to. Print has had its day, but is not really viable for scientific advancement as it should take place.  Waiting months for feedback or a year to get a paper published after it's first sent for review is unacceptable.  Furthermore, what if more data comes in? A data or modeling bug is found? Other studies shed additional light on the conclusions?  In this day and age, are we supposed to just continue to cite a work that may no longer be applicable while waiting another year or so for updates?
 
 ```{r arxiv, echo=FALSE}
 library(rvest)
@@ -151,7 +160,7 @@ It's exactly the same. Thus, for those who use $\LaTeX$, their life just got ext
 
 ### Why you should switch
 
-The main problem for MS Word and $\LaTeX$, beside those already mentioned, is that they were created for printed documents.  In this day and age, not only is printing unnecessary (and environmentally problematic), contorting a document to the confines of print potentially distorts the meaning an author wishes to convey, as well as restricting the means with which they can convey it.  In addition, we don't primarily read print documents anymore.  Even avid print readers will admit they see much more text on a screen than they do on a page.
+The main problem for MS Word and $\LaTeX$, beside those already mentioned, is that they were created for printed documents.  In modern times, not only is printing unnecessary (and environmentally problematic), contorting a document to the confines of print potentially distorts or hinders the meaning an author wishes to convey, as well as restricting the means with which they can convey it.  In addition, we don't primarily read print documents anymore.  Even avid print readers must admit they see much more text on a screen than they do on a page on a typical day.
 
 
 Let's recap the issues with traditional approaches:
@@ -162,7 +171,7 @@ Let's recap the issues with traditional approaches:
 - Wasteful if printed
 - Often very difficult to get figures/tables to look as desired
 
-The case for using a markdown approach is now years old and well established. Unfortunately many, but not all, journals are still print-oriented, because their income depends on a closed-source, broken, and un-scientific system of review and publication.  Consider the fact that you could blog about your research while conducting it, present preliminary results via R Markdown (because your blog itself is done via R Markdown), get regular feedback from peers along the way, and all this before you'd ever send it off to a journal.  Now ask yourself what a print-oriented journal actually offers you? When was the last time you actually opened a print version of a journal? Do you go to a journal site to look for something as opposed to a simple web search or using Google scholar?  How many journals do adequate retractions when problems are found[^retract]? Is it possible you may actually get more eyeballs and clicks on your work just having it on your own website[^noaccess]?
+<span class="marginnote">Some journals still charge extra for color plots. First, there obviously is no cost for color for electronic documents, which is how the vast majority of research articles are accessed. They often don't ask whether you actually want it printed in color (they'll simply charge you for any color), nor do they seem to care that you can use color schemes that would look fine in black and white.  This situation is ridiculous.</span>The case for using a markdown approach is now years old and well established. Unfortunately many, but not all, journals are still print-oriented, because their income depends on a closed-source, broken, and un-scientific system of review and publication.  Consider the fact that you could blog about your research while conducting it, present preliminary results via R Markdown (because your blog itself is done via R Markdown), get regular feedback from peers along the way via your sites comment system, and all this before you'd ever send it off to a journal.  Now ask yourself what a print-oriented journal actually offers you? When was the last time you actually opened a print version of a journal? Do you go to a journal site to look for something as opposed to a simple web search or using Google scholar?  How many journals do adequate retractions when problems are found[^retract]? Is it possible you may actually get more eyeballs and clicks on your work just having it on your own website[^noaccess]?
 
 The current paradigm is going to change because it has to, and there is practically no justification for the traditional approach to academic publication. Indeed the change is underway, with some outlets requiring pre-registration, code, and other changes to the usual send-a-pdf-and-we'll-get-back-to-you approach.  You might as well be using tools and an approach that will already accommodate such change.
 

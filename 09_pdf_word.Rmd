@@ -27,6 +27,13 @@ $$\mathrm{SomeFormula} = Q_{123}^2$$
 
 As might be obvious, you'll need MS Word if you're going to create such documents. I wouldn't recommend this for anything, and so I will spend very little effort explaining to you how to do it.  
 
-The main thing you need to know is how to use a template.  MS Word defaults have been terrible since its inception.
+The main thing you need to know is how to use a template.  MS Word defaults have been terrible since its inception, so after customizing a document to look the way you want, you can then use it as a template.  Just specify the document you've created in the YAML as follows:
 
-M
+
+```{r word_yaml, eval=F}
+output:
+  word_document:
+    reference_docx: my_template.docx
+```
+
+

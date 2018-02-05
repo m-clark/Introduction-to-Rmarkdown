@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2018-02-04">
+<meta name="date" content="2018-02-05">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -46,6 +46,13 @@
 
 
 
+<script src="libs/htmlwidgets-1.0/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.7.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/plotlyjs-1.29.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotlyjs-1.29.2/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -86,8 +93,8 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css/book.css" type="text/css" />
-<link rel="stylesheet" href="css/standard_html.css" type="text/css" />
+<link rel="stylesheet" href="css\book.css" type="text/css" />
+<link rel="stylesheet" href="css\standard_html.css" type="text/css" />
 </head>
 
 <body>
@@ -287,13 +294,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>When writing their research document in Microsoft Word, all the values from the analyses were copied and pasted into the tables and text<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>. The variable names in the document have no exact match to any of the names in any of the data objects. Furthermore, no reference was provided in the text what software or specific packages were used for the analysis.</p>
 <p>And now, several months later, the journal reviewers have made their comments on the paper, and it’s time to dive back into the analysis. Now, what do you think the odds are that this research group could even reproduce the values reported in the main analysis of the paper?</p>
 <p>Sadly, up until a couple years ago this was not uncommon, and even certain issues just described are still very common. Such an approach is essentially the antithesis of replicability and reproducible research. Anything that was only done with menus cannot be replicated, and without sufficient documentation it’s not clear what was done even when there is potentially reproducible code. The naming of files, variables and other objects was done poorly, so it will take unnecessary effort to figure out what was done, to what, and when. And even after most things get squared away, there is still a chance the numbers won’t match what was in the paper anyway.</p>
-<p>While certain tools like Box, Dropbox, Google drive etc. have perhaps helped some, people generally don’t use them for version control, and they are not geared toward academic research specifically. However, using proper naming procedures, the approach of literate programming, and utilizing proper documentation could go a long way even with those tools.</p>
+<p>While certain tools like Box, Dropbox, Google drive etc. have perhaps helped somewhat, people generally don’t use them for <span class="emph">version control</span>, and they are not geared toward academic research specifically. However, using proper naming procedures, the approach of literate programming, and utilizing proper documentation could go a long way even with those tools.</p>
+<p>In summary, truly reproducible data analysis requires:</p>
+<ul>
+<li>Data</li>
+<li>Code</li>
+<li>Clear documentation (of data and code)</li>
+<li>Version control</li>
+<li>Standard means of distribution</li>
+</ul>
+<p>As an example, one could start their research as an RStudio project using Git for version control, write their research products using R Markdown, set seeds for random variables, and use <span class="pack">packrat</span> to keep the packages used in analysis specific to the project. Doing so would make it essentially <em>impossible</em> not to reproduce the results at any stage.</p>
 </div>
 <div id="dynamic-data-analysis-report-generation" class="section level2">
 <h2>Dynamic data analysis &amp; report generation</h2>
 <p>Sometimes the goal is to create an expression of the analysis that is not only to be disseminated to a particular audience, but one which possibly will change over time, as the data itself evolves temporally. In this dynamic setting, the document must be able to handle changes with minimal effort.</p>
 <p>I can tell you from first hand experience that R markdown can allow one to automatically create custom reports for different audiences on a regular basis without even touching the data for explicit processing, nor the reports after the templates are created, even as the data continues to come in over time. Furthermore, any academic effort that would fall under the heading of science is applicable here.</p>
-<p>The notion of <span class="emph">science as software development</span> is something you should get used to. Print has had its day, but is not viable for scientific advancement as it should take place. Waiting months for feedback or a year to get a paper published after it’s first sent for review is unacceptable. Furthermore, what if more data comes in? A data or modeling bug is found? Other studies shed additional light on the conclusions? In this day an age, are we supposed to just continue to cite a work that may no longer be applicable?</p>
+<p>The notion of <span class="emph">science as software development</span> is something you should get used to. Print has had its day, but is not really viable for scientific advancement as it should take place. Waiting months for feedback or a year to get a paper published after it’s first sent for review is unacceptable. Furthermore, what if more data comes in? A data or modeling bug is found? Other studies shed additional light on the conclusions? In this day and age, are we supposed to just continue to cite a work that may no longer be applicable while waiting another year or so for updates?</p>
 <p>Consider <a href="https://arxiv.org/">arxiv.org</a>. Researchers will put papers there before they are published in journals, ostensibly to provide an openly available, if not <em>necessarily</em> 100% complete, work. Others put working drafts or just use it as a place to float some ideas out there. It is a serious outlet however, and a good chunk of the articles I read in the stats world are there.</p>
 <p>Look closely at <a href="https://arxiv.org/abs/1507.02646">this particular entry</a>. As I write this there have been 5 versions of it, and one has access to any of them. <span class="marginnote">The number of versions in that sentence, 5, is not typed. It is based on R code that scraped the arXiv website and processed the submission history.</span> If something changes, there is no reason not to have a version 6 or however many one wants. In a similar vein, many of my own documents on machine learning, Bayesian analysis, generalized additive models etc. have been regularly updated for several years now.</p>
 <p>Research is never complete. Data can be augmented, analyses tweaked, visualizations improved. Will the products of your own efforts adapt?</p>
@@ -326,7 +342,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="why-you-should-switch" class="section level3">
 <h3>Why you should switch</h3>
-<p>The main problem for MS Word and <span class="math inline">\(\LaTeX\)</span>, beside those already mentioned, is that they were created for printed documents. In this day and age, not only is printing unnecessary (and environmentally problematic), contorting a document to the confines of print potentially distorts the meaning an author wishes to convey, as well as restricting the means with which they can convey it. In addition, we don’t primarily read print documents anymore. Even avid print readers will admit they see much more text on a screen than they do on a page.</p>
+<p>The main problem for MS Word and <span class="math inline">\(\LaTeX\)</span>, beside those already mentioned, is that they were created for printed documents. In modern times, not only is printing unnecessary (and environmentally problematic), contorting a document to the confines of print potentially distorts or hinders the meaning an author wishes to convey, as well as restricting the means with which they can convey it. In addition, we don’t primarily read print documents anymore. Even avid print readers must admit they see much more text on a screen than they do on a page on a typical day.</p>
 <p>Let’s recap the issues with traditional approaches:</p>
 <ul>
 <li>Possibly not usable for reproducible scholarly research</li>
@@ -335,7 +351,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Wasteful if printed</li>
 <li>Often very difficult to get figures/tables to look as desired</li>
 </ul>
-<p>The case for using a markdown approach is now years old and well established. Unfortunately many, but not all, journals are still print-oriented, because their income depends on a closed-source, broken, and un-scientific system of review and publication. Consider the fact that you could blog about your research while conducting it, present preliminary results via R Markdown (because your blog itself is done via R Markdown), get regular feedback from peers along the way, and all this before you’d ever send it off to a journal. Now ask yourself what a print-oriented journal actually offers you? When was the last time you actually opened a print version of a journal? Do you go to a journal site to look for something as opposed to a simple web search or using Google scholar? How many journals do adequate retractions when problems are found<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>? Is it possible you may actually get more eyeballs and clicks on your work just having it on your own website<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>?</p>
+<p><span class="marginnote">Some journals still charge extra for color plots. First, there obviously is no cost for color for electronic documents, which is how the vast majority of research articles are accessed. They often don’t ask whether you actually want it printed in color (they’ll simply charge you for any color), nor do they seem to care that you can use color schemes that would look fine in black and white. This situation is ridiculous.</span>The case for using a markdown approach is now years old and well established. Unfortunately many, but not all, journals are still print-oriented, because their income depends on a closed-source, broken, and un-scientific system of review and publication. Consider the fact that you could blog about your research while conducting it, present preliminary results via R Markdown (because your blog itself is done via R Markdown), get regular feedback from peers along the way via your sites comment system, and all this before you’d ever send it off to a journal. Now ask yourself what a print-oriented journal actually offers you? When was the last time you actually opened a print version of a journal? Do you go to a journal site to look for something as opposed to a simple web search or using Google scholar? How many journals do adequate retractions when problems are found<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>? Is it possible you may actually get more eyeballs and clicks on your work just having it on your own website<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>?</p>
 <p>The current paradigm is going to change because it has to, and there is practically no justification for the traditional approach to academic publication. Indeed the change is underway, with some outlets requiring pre-registration, code, and other changes to the usual send-a-pdf-and-we’ll-get-back-to-you approach. You might as well be using tools and an approach that will already accommodate such change.</p>
 <p>For more on tools for reproducible research in R see the <a href="https://cran.r-project.org/web/views/ReproducibleResearch.html">task view</a>.</p>
 
