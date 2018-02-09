@@ -1,11 +1,31 @@
-# Common issues
+# Common Considerations
 
 In creating a document there several things that consistently come up that you'll want to be aware of, and we'll visit some of those here.
 
 ## Using HTML
 ## Chunk options
 
-https://yihui.name/knitr/options/
+A ridiculous number of [options](https://yihui.name/knitr/options/) are available to you for each, or all chunks.  Spend a little time to see what all is available.  The options I commonly use are: 
+
+`echo`: controls whether and how you want to *show* your code
+`eval`: controls whether and how you want to *run* your code
+figure controls: fig.* out.\* etc.
+
+### Setup to apply to all
+
+Then there are other options that I set at the beginning of a document. The reason for doing so is because I will rarely, if ever, want these options changed.  As such, I specify them at the beginning and only change as need be.
+
+```{r knit_opts, eval=FALSE}
+knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F, comment=NA, R.options=list(width=220),   # code 
+                      dev.args=list(bg = 'transparent'), dev='svglite',                                 # viz
+                      fig.align='center', out.width='75%', fig.asp=.75,                 
+                      cache.rebuild=F, cache=T)                                                         # cache
+```
+
+These options do things like make sure messages, warnings, and errors don't show up in the document.<span class="marginnote">You can still get errors, and they will keep your document from compiling.</span>
+
+
+Note that any specific chunk options will override these.  So you'll always have fine control over how things work.
 
 ## Image options
 

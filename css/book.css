@@ -166,7 +166,7 @@ i {
   font-size: 75%;
 }
 
-div.sourceCode {
+div.sourceCode.r {
   width: 80%;
 }
 
@@ -193,4 +193,9 @@ div.sourceCode {
 .book .book-body .page-wrapper .page-inner section.normal .footnotes p, ol {
   width: 100%;
   font-size: 90%;
+}
+
+
+.footnotes {
+  color: #00000080;
 }

@@ -4,6 +4,7 @@
 <img src="img/RMarkdownOutputFormats.png" style="display:block; margin: 0 auto;" width=50%>
 <br>
 
+
 ## What is Markdown?
 
 <br>
@@ -23,7 +24,7 @@ To start using R markdown, simply go to File/New File/R Markdown...
 <img src="img/new_markdown.png" style="display:block; margin: 0 auto;" width=50%>
 <br>
 
-As you can see right away, you have your choice of outlets for documents, but can also see other things that will be of interest to you as you get more used to using R Markdown.
+As you can see right away, you have your choice of several types of formats, some of which will be of interest to you as you get more used to using R Markdown.
 
 
 Documents are what you'll probably use primarily, especially since they can be used in place of normal R scripts. You have the choice of HTML, PDF and MS Word.  The main thing you'll want to do is make your choice early, because it is not really possible to have the document look like you'd want in all formats simultaneously.  As these are the focus of this document, more detail is forthcoming. 
@@ -42,8 +43,6 @@ Creating a presentation is easy enough, and the following shows an example.
 ```
 ---
 title: "Habits"
-author: John Doe
-date: March 22, 2005
 output: ioslides_presentation
 ---
 
@@ -65,18 +64,10 @@ output: ioslides_presentation
 
 - Eat spaghetti
 - Drink wine
-
-----
-
-![picture of spaghetti](images/spaghetti.jpg)
-
-## Going to sleep
-
-- Get in bed
-- Count sheep
 ```
 
-You should really question whether you need slides.  They are a highly restrictive format, do not work well with text, and often don't work well with interactive images.  Furthermore, their development and maintenance has never been a priority of the RStudio crowd.  Furthermore, there is nothing substantive they offer that can't be done with standard HTML.
+You should really question whether you need slides.  They are a highly restrictive format, do not work well with text, and often don't work well with interactive images.  Furthermore, their development doesn't appear to be as much of a priority for the RStudio crowd relative to other formats (rightly so in my opinion).  Furthermore, there is nothing substantive they offer that can't be done with standard HTML.
+
 
 ## Shiny Apps
 
