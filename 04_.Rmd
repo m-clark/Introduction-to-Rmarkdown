@@ -3,29 +3,38 @@
 In creating a document there several things that consistently come up that you'll want to be aware of, and we'll visit some of those here.
 
 ## Using HTML
+
+The first thing to do is simply get used to HTML as your primary output.  Unless you know something is to be printed you won't gain anything but an uglier document without having to put notably more effort into development.  
+
 ## Chunk options
 
 A ridiculous number of [options](https://yihui.name/knitr/options/) are available to you for each, or all chunks.  Spend a little time to see what all is available.  The options I commonly use are: 
 
-`echo`: controls whether and how you want to *show* your code
-`eval`: controls whether and how you want to *run* your code
-figure controls: fig.* out.\* etc.
+- `echo`: controls whether and how you want to *show* your code
+- `eval`: controls whether and how you want to *run* your code
+- figure controls: `fig.*` `out.* `etc.
 
 ### Setup to apply to all
 
 Then there are other options that I set at the beginning of a document. The reason for doing so is because I will rarely, if ever, want these options changed.  As such, I specify them at the beginning and only change as need be.
 
 ```{r knit_opts, eval=FALSE}
-knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F, comment=NA, R.options=list(width=220),   # code 
-                      dev.args=list(bg = 'transparent'), dev='svglite',                                 # viz
-                      fig.align='center', out.width='75%', fig.asp=.75,                 
-                      cache.rebuild=F, cache=T)                                                         # cache
+knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F, 
+                      comment=NA, cache=T, R.options=list(width=220), 
+                      fig.align='center', out.width='75%', fig.asp=.75)
 ```
 
 These options do things like make sure messages, warnings, and errors don't show up in the document.<span class="marginnote">You can still get errors, and they will keep your document from compiling.</span>
 
 
 Note that any specific chunk options will override these.  So you'll always have fine control over how things work.
+
+You can also specify options for the way <span class="pack">knitr</span> itself works.  For example, Rmd documents by default ignore the fact that you are using an RStudio project, and instead work from wherever the Rmd file is. Using `root.dir` can correct this[^rmdrstudio].
+
+```{r knit_opts2, eval=FALSE}
+knitr::opts_knit$set(root.dir = '../', child = 'someotherdoc.Rmd')
+```
+
 
 ## Image options
 
@@ -37,11 +46,11 @@ Where to begin?  There are many, many ways to manipulate an image that is produc
 
 #### HTML vs. Others
 
-To begin, there are different systems for PDF or MS Word vs. HTML-based documents. The former are what the chunk options of `fig.width` and `fig.height` generally apply to. Oddly, these are expressed in inches, but at least it is easy enough to manipulate to your liking.  These will not affect interactive and possibly other images in HTML documents except in unexpected ways[^widthplotly].  You can also supply `fig.width` plus `fig.asp` which will produce a height that is `fig.width*fig.asp`.  There is also `fig.dim`, which will take the two values you would have specified for `fig.width` and `fig.height`.  If you supply `fig.dim` with `fig.asp`, the latter will be ignored.  If inches doesn't make sense to you, you can use `dpi`, and which will allow you to know think of `dpi*out.width` as what to expect in terms of pixels.  You also have `fig.align` with options like 'left' and 'center', but it apparently has no effect on <span class="pack">htmlwidgets</span> and similar packages that rely on other languages like javascript.
+To begin, there are different systems for PDF or MS Word vs. HTML-based documents. The former are what the chunk options of `fig.width` and `fig.height` generally apply to. Oddly, these are expressed in inches, but at least it is easy enough to manipulate to your liking.  These will not affect interactive and possibly other images in HTML documents except in unexpected ways[^widthplotly].  You can also supply `fig.width` plus `fig.asp` which will produce a height that is `fig.width*fig.asp`.  There is also `fig.dim`, which will take the two values you would have specified for `fig.width` and `fig.height`.  If you supply `fig.dim` with `fig.asp`, the latter will be ignored.  If inches doesn't make sense to you, you can use `dpi`, and which will allow you to know think of `dpi*out.width` as what to expect in terms of pixels.  You also have `fig.align` with options like 'left' and 'center', but it apparently has no effect on <span class="pack">htmlwidgets</span> and similar packages that rely on other languages like JavaScript.
 
 Isn't this fun?  Here is some more.
 
-The `out.width` and `out.height` options are geared toward HTML based plotting, and are expressed in pixels, or most usefully, percentages, but they will also affect other documents via $\LaTeX$.  There is also `out.extra` that will apply additional arguments (e.g. css/img styling).  These `out.*` can also apply to Latex figures but I can't figure out why.   I also find that `out.height` actually does nothing in many cases. What's more, you can use them alongside `fig.width` and `fig.height` to ensure you'll have utterly no idea what will be produced in the finished product.  The option `fig.retina` will only work for HTML documents, and will scale your image such that it will "change the chunk option dpi to dpi * fig.retina, and out.width to fig.width * dpi / fig.retina internally; for example, the physical size of an image is doubled and its display size is halved when fig.retina = 2". Or it might not have any discernable effect that you can actually see in the document depending on your default settings.
+The `out.width` and `out.height` options are geared toward HTML-based visualization, and are expressed in pixels, or perhaps most usefully, percentages, but they will also affect other documents via $\LaTeX$.  There is also `out.extra` that will apply additional arguments (e.g. css/img styling).  These `out.*` can also apply to Latex figures but I can't figure out why.   I also find that `out.height` actually does nothing in many cases. What's more, you can use them alongside `fig.width` and `fig.height` to ensure you'll have utterly no idea what will be produced in the finished product.  The option `fig.retina` will only work for HTML documents, and will scale your image such that it will "change the chunk option dpi to dpi * fig.retina, and out.width to fig.width * dpi / fig.retina internally; for example, the physical size of an image is doubled and its display size is halved when fig.retina = 2". Or it might not have any discernible effect that you can actually see in the document depending on your default settings.
 
 
 In the following, all of these arguments might have an effect on the resulting image.
@@ -55,32 +64,32 @@ data %>%
 ``
 ```
 
-In short, for my typical usage, having all these options is nice but mostly just confusing.  See the summary for a simplified approach.  In addition there are many options, e.g. image file type, captions etc. that may come in handy. 
+In short, for my typical usage, having all these options is nice, but mostly just confusing.  See the summary for a simplified approach.  In addition there are many options, e.g. image file type, captions etc. that may come in handy. 
 
 
-```{r}
-# fig.width default
-library(plotly)
-mtcars %>% 
-  plot_ly(x=~wt, y=~mpg)
-```
-```{r fig.width=2}
-# fig.width = 2
-mtcars %>% 
-  plot_ly(x=~wt, y=~mpg)
-```
+<!-- ```{r} -->
+<!-- # fig.width default -->
+<!-- library(plotly) -->
+<!-- mtcars %>%  -->
+<!--   plot_ly(x=~wt, y=~mpg) -->
+<!-- ``` -->
+<!-- ```{r fig.width=2} -->
+<!-- # fig.width = 2 -->
+<!-- mtcars %>%  -->
+<!--   plot_ly(x=~wt, y=~mpg) -->
+<!-- ``` -->
 
-```{r fig.height=2}
-# fig.height = 2; same as default
-mtcars %>% 
-  plot_ly(x=~wt, y=~mpg)
-```
+<!-- ```{r fig.height=2} -->
+<!-- # fig.height = 2; same as default -->
+<!-- mtcars %>%  -->
+<!--   plot_ly(x=~wt, y=~mpg) -->
+<!-- ``` -->
 
-```{r fig.width=10}
-# fig.width = 10
-mtcars %>% 
-  plot_ly(x=~wt, y=~mpg)
-```
+<!-- ```{r fig.width=10} -->
+<!-- # fig.width = 10 -->
+<!-- mtcars %>%  -->
+<!--   plot_ly(x=~wt, y=~mpg) -->
+<!-- ``` -->
 
 
 #### Package options
@@ -110,19 +119,83 @@ This should probably be your default approach to inserting images in your docume
 
 ### Image summary
 
-If you are going to do PDF or MS Word, or doing static plots in HTML, `fig.width`, `fig.height`, and `fig.align` will likely take care of most of your needs. For HTML, I use `out.width` with a given percentage, plus `fig.asp`, and that has solved a lot of my remaining issues.  For image files I use <img> because the markdown approach is really too barebones. I suggest you set your figure options at the beginning of the document so that your images will be consistent, and modify if necessary for a specific chunk.  I don't see much need for anything beyond svg and png, the latter if file size is a concern only.  You'll want scalable images, as provided by svg<span class="marginnote">The <span class="pack">svglite</span> package will create smaller svg files, and can be specified with `fig.dev` just like svg or png.</span>, because you don't know what device people are using or if they want to zoom. 
+If you are going to do PDF or MS Word, or doing static plots in HTML, `fig.width`, `fig.height`, and `fig.align` will likely take care of most of your needs. For HTML, I use `out.width` with a given percentage, plus `fig.asp`, and that has solved a lot of my remaining issues.  For image files I use <img> because the markdown approach is really too bare bones. I suggest you set your figure options at the beginning of the document so that your images will be consistent, and modify if necessary for a specific chunk.  I don't see much need for anything beyond svg and png, the latter if file size is a concern only.  You'll want scalable images, as provided by svg<span class="marginnote">The <span class="pack">svglite</span> package will create smaller svg files, and can be specified with `fig.dev` just like svg or png.</span>, because you don't know what device people are using or if they want to zoom. 
 
 
 ## Caching
 
 
+<span class="emph">Caching</span> is both a great thing and continuous source of frustration.  First, what is it?  Caching saves the output of your R chunks into compressed files (*RData) into a folder in the directory of your current project (or some sub-directory of your choosing).  The next time you compile the document, you don't actually have to run any code, it will just call the cached object.  When your document has a lot of computations, or in the spirit of Reproducibility, actually runs your models, this will save a lot of time.
+
+<img src="img/cache.png" style="display:block; margin: 0 auto;" width=50%>
+
+However, this is not a straightforward process.  When things change, the cache for the chunk must change. But what about subsequent chunks that depend on those results? The following is from the <span class="pack">knitr</span> package author Yihui Xie:
+
+>Let me repeat the three factors that can affect cache (any change on them will invalidate old cache):
+
+>- all chunk options except include; e.g. change tidy=TRUE to FALSE will break the old cache, but changing include will not R code in a chunk; 
+- a tiny change in the R code will lead to removal of old cache, even if it is a change of a space or a blank line
+- the R option width (getOption('width'))
+
+I'll add you also don't typically cache an interactive visualization.  You'll get a message to that effect if you try.
+
+However, things often don't work the way you expect with caching.  If something unexpected happens, and if you're naming the chunks, you can easily find and delete the offending files.  You can also rebuild the cache as needed by setting `cache-rebuild` to true. However, if you delete or change the name of the chunk those files will have to be explicitly removed, because they'll never be called again.  There is a `depends-on` chunk option that will allow you to update a cache if whatever previous chunk a chunk depends on has changed. In theory. In practice you should probably just put `auto.dep` to true and let knitr sort out such dependencies, and even then issues may arise. Finally, some packages simply don't work well with caching. <span class="marginnote">If you ever use <span class="pack">DiagrammeR</span> for visualization, let me save you a lot of headache and tell you to never cache the chunks where you use it. The results are mind-boggling if you do.</span> Just know that as great a feature this is, odd things will happen at some point.  When something about your document starts breaking or doing unexpected things, if you can't see a code problem, assume it's a cache problem, and rebuild.
+
+I usually set cache to true, otherwise I'd be waiting minutes for some documents to compile.  I set that as an option at the beginning, but at various points in development I'll set `cache-rebuild=TRUE` to refresh everything[^cleandoc], and at times I'll  set it to rebuild specific chunks (e.g. the code might change, but underlying object has)[^checksum].  I've gotten to where I will set cache to false as an option for the (entire) current page I'm working on, so that I don't have to rebuild everything, but for something in a more fluid stage, I probably don't want to cache at all.
 
 
+## Cleaning up output
+
+Several packages are available to make your R results look better.  Here's a default data.frame, ugly. 
+
+```{r dataframe}
+head(mtcars)
+```
+
+One can start with <span class="pack">knitr's</span> <span class="func">kable</span> to create simple tables that look much better.
+
+```{r kable}
+knitr::kable(head(mtcars))
+```
+<br>
+
+For interactivity, consider the <span class="pack">DT</span> package.
+
+```{r dt}
+DT::datatable(mtcars)
+```
+
+<br>
 
 
+<span class="marginnote">Often after displaying tables and figures you'll want to put an extra line with \<br\> to give some more space before your next bit of text.</span>
+Even model objects can go straight to publication ready tables with no effort on your part. The <span class="pack">broom</span> package works with many common model objects to convert their output to a <span class="objclass">data.frame</span> via <span class="func">tidy</span>. Then you can use <span class="pack">kable</span> or another package to pretty it up.
+
+```{r broom_kable, out.width='50%'}
+broom::tidy(lm(mpg ~ wt, mtcars)) %>% 
+  knitr::kable(digits = 2)
+```
+<br>
+
+The <span class="pack">pander</span> package provides more control over tables, but also can work with some model objects directly.
+
+```{r broom_pander, out.width='50%'}
+lm(mpg ~ wt, mtcars) %>% 
+  pander::pander(round=2, justify='lrrrr', caption='Regression results')
+```
+
+<br>
+
+For converting such things to $\LaTeX$ syntax, you will want to look at <span class="pack">xtable</span>, <span class="pack">stargazer</span>, and <span class="pack">Hmisc</span>.<span class="marginnote">Even if you don't need interactivity, I would add <span class="pack">DT</span> to your regular toolbox for tables, especially for HTML documents.</span>
 
 
-
+In summary, you can get to publication ready results with figures, tables and text by just using the standard options or available packages, without having to go through the usual tedium.  
 
 
 [^widthplotly]: Changing `fig.width` for a <span class="pack">plotly</span> image seems to affect the height, while `fig.height` doesn't do anything.
+
+[^cleandoc]: For building website like documents, e.g. using <span class="pack">bookdown</span>, there is a `Clean All` option. However, all this does is delete files that get overwritten already, and so serves almost no purpose.  It'd be nice if it nuked the cache.
+
+[^checksum]: A better way to probably do this is with `cache.extra = tools::md5sum('myfile.csv')`. That will, for example, rebuild the cache if that csv file has changed.
+
+[^rmdrstudio]: There is a global option in RStudio to change this default behavior. By default, it is still setting a document to work from where the document file is, I've yet to see it actually work if you try to change it to anything else.

@@ -2,7 +2,7 @@
 
 ## R Markdown files
 
-R Markdown files, with extension `*.Rmd`, are a combination of text, <span class="emph">chunks</span> of R code, and possibly other code within a single document. Various packages, e.g. rmarkdown, knitr, pandoc, etc., work behind the scenes to knit all those pieces into one coherent whole, in whatever format is desired.<span class="marginnote">Pandoc is the universal translator that takes various formats, particularly markup languages, and converts them into others.</span>
+R Markdown files, with extension `*.Rmd`, are a combination of text, <span class="emph">chunks</span> of R code, and possibly other code, all within a single file. Various packages, e.g. <span class="pack">rmarkdown</span>, <span class="pack">knitr</span>, <span class="pack">pandoc</span>, etc., work behind the scenes to knit all those pieces into one coherent whole, in whatever format is desired.<span class="marginnote">Pandoc is the universal translator that takes various formats, particularly markup languages, and converts them into others.</span>  The <span class="pack">knitr</span> package is the driving force behind most of what is done to create the final product.
 
 ### HTML
 
@@ -14,7 +14,7 @@ I personally do everything in HTML because it's the most flexible and easiest to
 Writing text in a R Markdown document is the same as anywhere else.  There are a couple things you'll use frequently though.
 
 - Headers: Specified #, ##, ### etc. corresponding to H1 H2 H3 etc.
-- Italics & bold:  \*word*\ for italics \*\*word\*\* for bold.  You can also use underscores for bold.
+- Italics & bold:  \*word*\ for italics \*\*word\*\* for bold.  You can also use underscores (some flavors may require it).
 - Lists: Start with a - or 1. and make sure the first element is separated from preceding text by a full blank line. Then separate each element by a line.
 
 ```
@@ -81,7 +81,7 @@ A single `.Rmd` file can call others, referred to as <span class="emph">child do
 
 <span class="emph">R Notebooks</span> are a format one can use that might be more suitable for collaboration.  They are identical to the standard HTML document in most respects, but chunks will by default print output in the Rmd file itself.  For example, a graduate student could write up a notebook, and their advisor could then look at the document, change the code as needed etc. Of course, you could just do this with a standard R script as well.
 
-For more involved collaborations, I would suggest partitioning the sections into their own document, then use version control to merge respective contributions.  Such a process was designed for code, but there's no reason it wouldn't work for a document in general (and in my experience, has).
+For more involved collaborations, I would suggest partitioning the sections into their own document, then use version control to merge respective contributions.  Such a process was designed for code, but there's no reason it wouldn't work for a document in general, and in my experience, it has quite well.
 
 
-[^preload]: There is not yet a way within R Markdown that I'm aware of to load on demand as many websites do.  However, waiting for things to load until you come to them is annoying at best, and I personally get tired of waiting and move on to other things.
+[^preload]: There is not yet a way within R Markdown that I'm aware of to load on demand as many websites do.  However, waiting for things to load until you come to them is annoying at best, and I usually get tired of waiting and move on to other things.

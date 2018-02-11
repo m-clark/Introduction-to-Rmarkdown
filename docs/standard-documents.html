@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2018-02-09">
+<meta name="date" content="2018-02-11">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,12 +47,10 @@
 
 
 <script src="libs/htmlwidgets-1.0/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.7.1/plotly.js"></script>
-<script src="libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="libs/plotlyjs-1.29.2/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotlyjs-1.29.2/plotly-latest.min.js"></script>
+<script src="libs/datatables-binding-0.2/datatables.js"></script>
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.12/js/jquery.dataTables.min.js"></script>
 
 
 <style type="text/css">
@@ -161,11 +159,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="common-considerations.html"><a href="common-considerations.html#image-summary"><i class="fa fa-check"></i>Image summary</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="common-considerations.html"><a href="common-considerations.html#caching"><i class="fa fa-check"></i>Caching</a></li>
+<li class="chapter" data-level="" data-path="common-considerations.html"><a href="common-considerations.html#cleaning-up-output"><i class="fa fa-check"></i>Cleaning up output</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html"><i class="fa fa-check"></i>Customization &amp; Configuration</a><ul>
 <li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#yaml"><i class="fa fa-check"></i>YAML</a></li>
 <li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#themes"><i class="fa fa-check"></i>Themes</a></li>
-<li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#css"><i class="fa fa-check"></i>CSS</a></li>
+<li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#html-css"><i class="fa fa-check"></i>HTML &amp; CSS</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="pdf-word.html"><a href="pdf-word.html"><i class="fa fa-check"></i>PDF &amp; Word</a><ul>
 <li class="chapter" data-level="" data-path="pdf-word.html"><a href="pdf-word.html#pdf"><i class="fa fa-check"></i>PDF</a></li>
@@ -196,7 +195,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1>Standard Documents</h1>
 <div id="r-markdown-files" class="section level2">
 <h2>R Markdown files</h2>
-<p>R Markdown files, with extension <code>*.Rmd</code>, are a combination of text, <span class="emph">chunks</span> of R code, and possibly other code within a single document. Various packages, e.g. rmarkdown, knitr, pandoc, etc., work behind the scenes to knit all those pieces into one coherent whole, in whatever format is desired.<span class="marginnote">Pandoc is the universal translator that takes various formats, particularly markup languages, and converts them into others.</span></p>
+<p>R Markdown files, with extension <code>*.Rmd</code>, are a combination of text, <span class="emph">chunks</span> of R code, and possibly other code, all within a single file. Various packages, e.g. <span class="pack">rmarkdown</span>, <span class="pack">knitr</span>, <span class="pack">pandoc</span>, etc., work behind the scenes to knit all those pieces into one coherent whole, in whatever format is desired.<span class="marginnote">Pandoc is the universal translator that takes various formats, particularly markup languages, and converts them into others.</span> The <span class="pack">knitr</span> package is the driving force behind most of what is done to create the final product.</p>
 <div id="html" class="section level3">
 <h3>HTML</h3>
 <p>I personally do everything in HTML because it’s the most flexible and easiest to get things looking the way you want. Presumably at some point these will simply be the default that people both use and expect in the academic realm, as there is little additional value that one can get with PDF or MS Word, and often notably less. Furthermore, academia is an anachronism. How much do you use PDF and Word for <em>anything</em> else relative to HTML?</p>
@@ -207,7 +206,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Writing text in a R Markdown document is the same as anywhere else. There are a couple things you’ll use frequently though.</p>
 <ul>
 <li>Headers: Specified #, ##, ### etc. corresponding to H1 H2 H3 etc.</li>
-<li>Italics &amp; bold: *word* for italics **word** for bold. You can also use underscores for bold.</li>
+<li>Italics &amp; bold: *word* for italics **word** for bold. You can also use underscores (some flavors may require it).</li>
 <li>Lists: Start with a - or 1. and make sure the first element is separated from preceding text by a full blank line. Then separate each element by a line.</li>
 </ul>
 <pre><code>Some *text*.
@@ -233,7 +232,7 @@ x = rnorm(10)
 <pre><code>This sentence has a value of `r x[1]`.</code></pre>
 <p>When you knit the document it will look like ordinary text because you aren’t using an R chunk:</p>
 <p>Here is a sentence whose sum is 4.</p>
-<p>This sentence has a value of -0.2482372.</p>
+<p>This sentence has a value of 1.6926203.</p>
 <p>This effect of this in scientific reporting cannot be understated. <strong><em>Your goal in writing a document should be to not explicitly write a single number!</em></strong></p>
 </div>
 <div id="labels" class="section level3">
@@ -255,14 +254,14 @@ x = rnorm(10)
 <div id="collaboration" class="section level2">
 <h2>Collaboration</h2>
 <p><span class="emph">R Notebooks</span> are a format one can use that might be more suitable for collaboration. They are identical to the standard HTML document in most respects, but chunks will by default print output in the Rmd file itself. For example, a graduate student could write up a notebook, and their advisor could then look at the document, change the code as needed etc. Of course, you could just do this with a standard R script as well.</p>
-<p>For more involved collaborations, I would suggest partitioning the sections into their own document, then use version control to merge respective contributions. Such a process was designed for code, but there’s no reason it wouldn’t work for a document in general (and in my experience, has).</p>
+<p>For more involved collaborations, I would suggest partitioning the sections into their own document, then use version control to merge respective contributions. Such a process was designed for code, but there’s no reason it wouldn’t work for a document in general, and in my experience, it has quite well.</p>
 
 </div>
 </div>
 <div class="footnotes">
 <hr />
 <ol start="7">
-<li id="fn7"><p>There is not yet a way within R Markdown that I’m aware of to load on demand as many websites do. However, waiting for things to load until you come to them is annoying at best, and I personally get tired of waiting and move on to other things.<a href="standard-documents.html#fnref7">↩</a></p></li>
+<li id="fn7"><p>There is not yet a way within R Markdown that I’m aware of to load on demand as many websites do. However, waiting for things to load until you come to them is annoying at best, and I usually get tired of waiting and move on to other things.<a href="standard-documents.html#fnref7">↩</a></p></li>
 </ol>
 </div>
             </section>

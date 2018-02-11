@@ -126,7 +126,11 @@ h1, h2, h3, h4, h5 {
 
 div.datatables {
     margin-left: auto;     /* to center them when full is not necessary. */
-    margin-right: auto;
+    margin-right: 0;
+}
+
+.dataTables_wrapper {
+ width: 80%; 
 }
 
 table {

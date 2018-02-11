@@ -1,4 +1,4 @@
 # Customization & Configuration
 ## YAML
 ## Themes
-## CSS
+## HTML & CSS
