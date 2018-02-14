@@ -36,9 +36,9 @@ documentclass: book
 # bibliography: refs.bib
 biblio-style: apalike
 link-citations: yes
-description: "An Introduction to RMarkdown"    # leaving this blank will actually screw things up in the same way as the url issue; even commenting will
+description: "An Introduction to RMarkdown"    
 cover-image: img/nineteeneightyR.png
-url: 'https\://m-clark.github.io/'  # evidently the \: is required or you'll get text in the title/toc area
+url: 'https\://m-clark.github.io/' 
 favicon: 'img/R.ico'
 github-repo:  m-clark/
 ---

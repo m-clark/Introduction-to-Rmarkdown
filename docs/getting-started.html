@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2018-02-11">
+<meta name="date" content="2018-02-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -132,6 +132,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#presentations"><i class="fa fa-check"></i>Presentations</a></li>
 <li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#shiny-apps"><i class="fa fa-check"></i>Shiny Apps</a></li>
 <li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#templates"><i class="fa fa-check"></i>Templates</a></li>
+<li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#how-to-start"><i class="fa fa-check"></i>How to start</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="standard-documents.html"><a href="standard-documents.html"><i class="fa fa-check"></i>Standard Documents</a><ul>
 <li class="chapter" data-level="" data-path="standard-documents.html"><a href="standard-documents.html#r-markdown-files"><i class="fa fa-check"></i>R Markdown files</a><ul>
@@ -162,9 +163,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="common-considerations.html"><a href="common-considerations.html#cleaning-up-output"><i class="fa fa-check"></i>Cleaning up output</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html"><i class="fa fa-check"></i>Customization &amp; Configuration</a><ul>
+<li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#output-options"><i class="fa fa-check"></i>Output options</a><ul>
+<li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#themes-etc."><i class="fa fa-check"></i>Themes etc.</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#yaml"><i class="fa fa-check"></i>YAML</a></li>
-<li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#themes"><i class="fa fa-check"></i>Themes</a></li>
 <li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#html-css"><i class="fa fa-check"></i>HTML &amp; CSS</a></li>
+<li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#personal-templates"><i class="fa fa-check"></i>Personal Templates</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="pdf-word.html"><a href="pdf-word.html"><i class="fa fa-check"></i>PDF &amp; Word</a><ul>
 <li class="chapter" data-level="" data-path="pdf-word.html"><a href="pdf-word.html#pdf"><i class="fa fa-check"></i>PDF</a></li>
@@ -247,6 +251,11 @@ output: ioslides_presentation
 <h2>Templates</h2>
 <p><br> <img src="img/template_opts.png" style="display:block; margin: 0 auto;" width=50%> <br></p>
 <p>Templates are available for any number of things, and one can find plenty among specific packages. Once a package with a particular template is installed, you’ll then have it as an option here. All these typically do is provide a R Markdown file similar to when you open a document, with a couple specific options, and demonstration of them if applicable. It’s not much, but at least you won’t have to mess with some of it.</p>
+</div>
+<div id="how-to-start" class="section level2">
+<h2>How to start</h2>
+<p>The best way to get started with R Markdown is to see a document you like, copy the relevant parts for your own document, and get to it! It really is the best way in my opinion. Many people host their files on <a href="https://github.com">GitHub</a>, so you can just download it directly from there. The author of the bookdown, a particular format for R Markdown, actually suggests people simply clone his repository for his book that teaches bookdown, and go from there. That’s how I started using bookdown, which became my favored format for longer documents.</p>
+<p>Again though, just see what others are doing, and then tailor it to your own needs.</p>
 
 </div>
 </div>
@@ -294,7 +303,7 @@ gitbook.start({
 "download": null,
 "toc": {
 "collapse": "section",
-"depth": 2,
+"depth": 1,
 "scroll_highlight": true
 },
 "highlight": "pygments",

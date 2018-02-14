@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2018-02-11">
+<meta name="date" content="2018-02-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -132,6 +132,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#presentations"><i class="fa fa-check"></i>Presentations</a></li>
 <li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#shiny-apps"><i class="fa fa-check"></i>Shiny Apps</a></li>
 <li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#templates"><i class="fa fa-check"></i>Templates</a></li>
+<li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#how-to-start"><i class="fa fa-check"></i>How to start</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="standard-documents.html"><a href="standard-documents.html"><i class="fa fa-check"></i>Standard Documents</a><ul>
 <li class="chapter" data-level="" data-path="standard-documents.html"><a href="standard-documents.html#r-markdown-files"><i class="fa fa-check"></i>R Markdown files</a><ul>
@@ -162,9 +163,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="common-considerations.html"><a href="common-considerations.html#cleaning-up-output"><i class="fa fa-check"></i>Cleaning up output</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html"><i class="fa fa-check"></i>Customization &amp; Configuration</a><ul>
+<li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#output-options"><i class="fa fa-check"></i>Output options</a><ul>
+<li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#themes-etc."><i class="fa fa-check"></i>Themes etc.</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#yaml"><i class="fa fa-check"></i>YAML</a></li>
-<li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#themes"><i class="fa fa-check"></i>Themes</a></li>
 <li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#html-css"><i class="fa fa-check"></i>HTML &amp; CSS</a></li>
+<li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#personal-templates"><i class="fa fa-check"></i>Personal Templates</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="pdf-word.html"><a href="pdf-word.html"><i class="fa fa-check"></i>PDF &amp; Word</a><ul>
 <li class="chapter" data-level="" data-path="pdf-word.html"><a href="pdf-word.html#pdf"><i class="fa fa-check"></i>PDF</a></li>
@@ -193,14 +197,36 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="customization-configuration" class="section level1">
 <h1>Customization &amp; Configuration</h1>
+<p>Now that you have a document ready to go, you’ll want to customize it to make it look the way you want. There is basically nothing you can’t change by using R packages to enhance output, custom themes to control the overall look, and various other aspects which all can be fiddled with to your liking.</p>
+<div id="output-options" class="section level2">
+<h2>Output options</h2>
+<p>The basic document comes with several options to apply to your output. You’ll find a cog wheel in the toolbar area underneath the tabs.</p>
+<p><img src="img/knitr_output_opts.png" style="display:block; margin: 0 auto;" width='50%'></p>
+<p>Note the inline vs. console stuff mostly just has to do with the actual .Rmd file, not the output, so we’re going to ignore it. Within the options you can apply some default settings to images, code, and more.</p>
+<div id="themes-etc." class="section level3">
+<h3>Themes etc.</h3>
+<p>As a fist step, simply play around with the <span class="emph">themes</span> you already have available. For quick one-off documents you want to share without a lot of fuss, choosing one of these will make your document look good without breaking a sweat.</p>
+<p><img src="img/theme_dropdown.png" style="display:block; margin: 0 auto;" width='50%'></p>
+<p>As another example, choose a new code style with the syntax highlighting. If you have headings in your current document, go ahead and turn on table of contents.</p>
+<p>For many of the things you do, these changing the defaults this way may be enough. So be familiar with your options.</p>
+<p>Now note what has changed at the top of your document. You might see something like the following.</p>
+<p><img src="img/selected_options.png" style="display:block; margin: 0 auto;" width='50%'></p>
+<p>I’m sure you’ve been wondering at this point, so what is that stuff anyway? That is <span class="emph">YAML</span>.<span class="marginnote"><a href="https://en.wikipedia.org/wiki/YAML">YAML</a> used to stand for Yet Another Markup Language, and now stands for YAML Aint Markup Language, presumably for reasons no one but the developers care about.</span> So let’s see what’s going on.</p>
+</div>
+</div>
 <div id="yaml" class="section level2">
 <h2>YAML</h2>
-</div>
-<div id="themes" class="section level2">
-<h2>Themes</h2>
+<p>For your purposes, all you really need to know is that YAML is like configuration code for your document. You can see that it specifies what the output is, and whatever options you selected previously. You can change the title, add a date etc. There is a lot of other stuff too. Here is the YAML for this document.</p>
+<p><img src="img/yaml.png" style="display:block; margin: 0 auto;" width='50%'></p>
+<p>Clearly there is a lot to play with, but it will depend on the type of document you’re doing. For example the <code>always_allow_html: yes</code> is pointless for an HTML document, but would allow certain things to be (very likely poorly) attempted in a PDF or Word document. Other options <em>only</em> make sense for bookdown documents.</p>
+<p>There a lot more available too. So how deep you want to get into is up to you. The best way, just like learning R Markdown generally, is to simply see what others do and apply to your own. It may take a bit of trial and error, but you’ll eventually get the hang of it.</p>
 </div>
 <div id="html-css" class="section level2">
 <h2>HTML &amp; CSS</h2>
+</div>
+<div id="personal-templates" class="section level2">
+<h2>Personal Templates</h2>
+<p>If you start using R Markdown a lot, and there is a good chance of that, once you get settings you use often, save a file that just has the YAML and maybe some <span class="pack">knitr</span> options specified, and start from that each time. Same goes for CSS or other files you use often. Then you may have very little to do to make the document look great the first time you knit it!</p>
 
 </div>
 </div>
@@ -242,7 +268,7 @@ gitbook.start({
 "download": null,
 "toc": {
 "collapse": "section",
-"depth": 2,
+"depth": 1,
 "scroll_highlight": true
 },
 "highlight": "pygments",

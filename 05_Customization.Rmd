@@ -1,4 +1,47 @@
 # Customization & Configuration
+
+Now that you have a document ready to go, you'll want to customize it to make it look the way you want.  There is basically nothing you can't change by using R packages to enhance output, custom themes to control the overall look, and various other aspects which all can be fiddled with to your liking.
+
+
+## Output options
+
+The basic document comes with several options to apply to your output.  You'll find a cog wheel in the toolbar area underneath the tabs.
+
+<img src="img/knitr_output_opts.png" style="display:block; margin: 0 auto;" width='50%'>
+
+Note the inline vs. console stuff mostly just has to do with the actual .Rmd file, not the output, so we're going to ignore it. Within the options you can apply some default settings to images, code, and more. 
+
+### Themes etc.
+
+As a fist step, simply play around with the <span class="emph">themes</span> you already have available.  For quick one-off documents you want to share without a lot of fuss, choosing one of these will make your document look good without breaking a sweat.
+
+<img src="img/theme_dropdown.png" style="display:block; margin: 0 auto;" width='50%'>
+
+As another example, choose a new code style with the syntax highlighting.  If you have headings in your current document, go ahead and turn on table of contents.
+
+For many of the things you do, these changing the defaults this way may be enough. So be familiar with your options.  
+
+Now note what has changed at the top of your document.  You might see something like the following.
+
+<img src="img/selected_options.png" style="display:block; margin: 0 auto;" width='50%'>
+
+
+I'm sure you've been wondering at this point, so what is that stuff anyway?  That is <span class="emph">YAML</span>.<span class="marginnote">[YAML](https://en.wikipedia.org/wiki/YAML) used to stand for Yet Another Markup Language, and now stands for YAML Aint Markup Language, presumably for reasons no one but the developers care about.</span>  So let's see what's going on.
+
+
 ## YAML
-## Themes
+
+For your purposes, all you really need to know is that YAML is like configuration code for your document.  You can see that it specifies what the output is, and whatever options you selected previously.  You can change the title, add a date etc.  There is a lot of other stuff too.  Here is the YAML for this document.
+
+<img src="img/yaml.png" style="display:block; margin: 0 auto;" width='50%'>
+
+Clearly there is a lot to play with, but it will depend on the type of document you're doing.  For example the `always_allow_html: yes` is pointless for an HTML document, but would allow certain things to be (very likely poorly) attempted in a PDF or Word document.  Other options *only* make sense for bookdown documents.
+
+There a lot more available too. So how deep you want to get into is up to you.  The best way, just like learning R Markdown generally, is to simply see what others do and apply to your own.  It may take a bit of trial and error, but you'll eventually get the hang of it.
+
 ## HTML & CSS
+
+
+## Personal Templates
+
+If you start using R Markdown a lot, and there is a good chance of that, once you get settings you use often, save a file that just has the YAML and maybe some <span class="pack">knitr</span> options specified, and start from that each time.  Same goes for CSS or other files you use often. Then you may have very little to do to make the document look great the first time you knit it!
