@@ -41,7 +41,74 @@ There a lot more available too. So how deep you want to get into is up to you.  
 
 ## HTML & CSS
 
+### HTML
+
+Knowing some basic HTML can add little things to your document to make it look better.  As a minimal example, here is a plot followed by text.
+
+
+```{r plotly_text, echo=FALSE}
+mgcv::gamSim() %>% 
+  modelr::add_predictions(., model=mgcv::gam(y~s(x2), data=.)) %>% 
+  plot_ly(x=~x2, y=~y) %>% 
+  add_lines() %>% 
+  add_lines(y=~pred)
+```
+
+Even with a return line between it and the plot, this text is smack against is. I do not prefer this.
+
+
+This fix is easy, just add `<br>` after the R chunk that creates the plot to add a line break.
+
+```{r plotly_text2, echo=FALSE}
+mgcv::gamSim() %>% 
+  modelr::add_predictions(., model=mgcv::gam(y~s(x2), data=.)) %>% 
+  plot_ly(x=~x2, y=~y) %>% 
+  add_lines() %>% 
+  add_lines(y=~pred)
+```
+
+<br>
+
+This text has some room to breath.  Alternatively, I could use <span class="pack">htmltools</span> and put `br()` in the code after the plot.
+
+<span class='myclass' style="color:#66023C; font-size:150%; font-weight:600">This sentence is tyrian purple, bold, and has bigger font because I put `<span style='color:#66023C; font-size:150%; font-weight:600'>` before it and `</span>` after it.</span>
+
+
+Say you want to center and resize an image.  Basic Markdown is too limited to do much more than display the image, so use some HTML instead.
+
+Here is basic markdown image
+
+`![](img/R.ico)`
+
+![](img/R.ico)
+
+Next I use HTML instead.
+
+`<img src="img/R.ico" style="display:block; margin: 0 auto;">`
+
+<img src="img/R.ico" style="display:block; margin: 0 auto;">
+
+
+The next thing you'll want to do is hone your ascii art skills because sometimes that's the best way to display an image, like this ocean sunset.
+
+```{sunset, eval=FALSE}
+
+           ^^                   @@@@@@@@@
+      ^^       ^^            @@@@@@@@@@@@@@@
+                           @@@@@@@@@@@@@@@@@@              ^^
+                          @@@@@@@@@@@@@@@@@@@@
+~~~~ ~~ ~~~~~ ~~~~~~~~ ~~ &&&&&&&&&&&&&&&&&&&& ~~~~~~~ ~~~~~~~~~~~ ~~~
+~         ~~   ~  ~       ~~~~~~~~~~~~~~~~~~~~ ~       ~~     ~~ ~
+  ~      ~~      ~~ ~~ ~~  ~~~~~~~~~~~~~ ~~~~  ~     ~~~    ~ ~~~  ~ ~~
+  ~  ~~     ~         ~      ~~~~~~  ~~ ~~~       ~~ ~ ~~  ~~ ~
+~  ~       ~ ~      ~           ~~ ~~~~~~  ~      ~~  ~             ~~
+      ~             ~        ~      ~      ~~   ~             ~
+
+```
+
+
+### CSS
 
 ## Personal Templates
 
-If you start using R Markdown a lot, and there is a good chance of that, once you get settings you use often, save a file that just has the YAML and maybe some <span class="pack">knitr</span> options specified, and start from that each time.  Same goes for CSS or other files you use often. Then you may have very little to do to make the document look great the first time you knit it!
+A common mantra in computer programming and beyond is DRY, or Don't Repeat Yourself.  If you start using R Markdown a lot, and there is a good chance of that, once you get settings you use often, you'll not want to start from scratch, but simply reuse them.  While this can be done [formally](https://rmarkdown.rstudio.com/developer_document_templates.html) by creating an R package, it can also be as simple as saving a file that just has the YAML and maybe some <span class="pack">knitr</span> options specified, and starting from that each time.  Same goes for CSS or other files you use often. Then you may have very little to do to make the document look great the first time you knit it!
