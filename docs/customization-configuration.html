@@ -177,8 +177,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#html-css"><i class="fa fa-check"></i>HTML &amp; CSS</a><ul>
 <li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#html-1"><i class="fa fa-check"></i>HTML</a></li>
 <li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#css"><i class="fa fa-check"></i>CSS</a></li>
+<li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#custom-classes"><i class="fa fa-check"></i>Custom classes</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#personal-templates"><i class="fa fa-check"></i>Personal Templates</a></li>
+<li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#the-rabbit-hole-goes-deep"><i class="fa fa-check"></i>The Rabbit Hole Goes Deep</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="pdf-word.html"><a href="pdf-word.html"><i class="fa fa-check"></i>PDF &amp; Word</a><ul>
 <li class="chapter" data-level="" data-path="pdf-word.html"><a href="pdf-word.html#pdf"><i class="fa fa-check"></i>PDF</a></li>
@@ -227,7 +229,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="yaml" class="section level2">
 <h2>YAML</h2>
 <p>For your purposes, all you really need to know is that YAML is like configuration code for your document. You can see that it specifies what the output is, and whatever options you selected previously. You can change the title, add a date etc. There is a lot of other stuff too. Here is the YAML for this document.</p>
-<p><img src="img/yaml.png" style="display:block; margin: 0 auto;" width='50%'></p>
+<p><img src="img/yaml.png" style="display:block; margin: 0 auto;" width='100%' height='150%'></p>
 <p>Clearly there is a lot to play with, but it will depend on the type of document you’re doing. For example the <code>always_allow_html: yes</code> is pointless for an HTML document, but would allow certain things to be (very likely poorly) attempted in a PDF or Word document. Other options <em>only</em> make sense for bookdown documents.</p>
 <p>There a lot more available too. So how deep you want to get into is up to you. The best way, just like learning R Markdown generally, is to simply see what others do and apply to your own. It may take a bit of trial and error, but you’ll eventually get the hang of it.</p>
 </div>
@@ -248,7 +250,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>This text has some room to breath. Alternatively, I could use <span class="pack">htmltools</span> and put <code>br()</code> in the code after the plot.</p>
 <p><span class="myclass" style="color:#66023C; font-size:150%; font-weight:600">This sentence is tyrian purple, bold, and has bigger font because I put <code>&lt;span style='color:#66023C; font-size:150%; font-weight:600'&gt;</code> before it and <code>&lt;/span&gt;</code> after it.</span></p>
 <p>Say you want to center and resize an image. Basic Markdown is too limited to do much more than display the image, so use some HTML instead.</p>
-<p>Here is basic markdown image</p>
+<p>Here is basic markdown image.</p>
 <p><code>![](img/R.ico)</code></p>
 <div class="figure">
 <img src="img/R.ico" />
@@ -273,11 +275,49 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="css" class="section level3">
 <h3>CSS</h3>
+<p>Recall the style section in some of the HTML examples above. For example, the part <code>style='color:#66023C; font-size:150%; font-weight:600'</code> changed the font. <span class="marginnote">CSS stands for cascading style sheets</span>It’s actually CSS, and if we need to do the same thing each time, we can take an alternative approach to creating a style that would apply to all objects of the same class throughout the document.</p>
+<p>The first step is to create a <code>*.css</code> file that your R Markdown document can refer. Let’s say we want to make every link <span style="color:dodgerblue">dodgerblue</span>. Links in HTML are tagged with the letter <strong>a</strong>, and to insert a link with HTML you can do something like:</p>
+<pre><code>&lt;a href=&#39;https://m-clark.github.io&gt;wowee zowee!&lt;/a&gt;</code></pre>
+<p>It would look like this: <a href='https://m-clark.github.io'>wowee zowee!</a>. If we want to change the color from the default setting for all links, we go into our CSS file.</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">a <span class="kw">{</span>
+  <span class="kw">color:</span> dodgerblue<span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
+<p>You can use hexadecimal, rgb and other representations of practically any color. CSS, like HTML, has a fairly simple syntax, but is very flexible and can do a ton of stuff you wouldn’t think of. With experience and looking at other people’s CSS, you’ll pick up the basics.</p>
+<p>Now that you have a css file. Note that you want to use it in the YAML section of your R Markdown document.</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">output:</span>
+  <span class="fu">html_document:</span>
+    <span class="fu">css:</span><span class="at"> mystyle.css</span></code></pre></div>
+<p>Now every link you create will be that color. We could add a subtle background to it, make them bold or whatever.</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">a <span class="kw">{</span>
+  <span class="kw">color:</span> dodgerblue<span class="kw">;</span>
+  <span class="kw">background-color:</span> gray95<span class="kw">;</span>
+  <span class="kw">font-weight:</span> <span class="dt">400</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
+<p>You could make images always display at 50% width by default.</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">img <span class="kw">{</span>
+  <span class="kw">width:</span> <span class="dt">50%</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
+</div>
+<div id="custom-classes" class="section level3">
+<h3>Custom classes</h3>
+<p>You can also create custom classes. For example, all R functions in my documents are a specific color, as they are wrapped in a custom css class called ‘func’ as follows.</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="fl">.func</span> <span class="kw">{</span>
+  <span class="kw">color:</span> <span class="dt">#007199</span><span class="kw">;</span>  
+  <span class="kw">font-weight:</span> <span class="dt">500</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
+<p>Then I can do <code>&lt;span class=&quot;func&quot;&gt;crossprod&lt;/span&gt;</code> and the text of the function name, or any text of class func, will have the appropriate color and weight.</p>
 </div>
 </div>
 <div id="personal-templates" class="section level2">
 <h2>Personal Templates</h2>
 <p>A common mantra in computer programming and beyond is DRY, or Don’t Repeat Yourself. If you start using R Markdown a lot, and there is a good chance of that, once you get settings you use often, you’ll not want to start from scratch, but simply reuse them. While this can be done <a href="https://rmarkdown.rstudio.com/developer_document_templates.html">formally</a> by creating an R package, it can also be as simple as saving a file that just has the YAML and maybe some <span class="pack">knitr</span> options specified, and starting from that each time. Same goes for CSS or other files you use often. Then you may have very little to do to make the document look great the first time you knit it!</p>
+</div>
+<div id="the-rabbit-hole-goes-deep" class="section level2">
+<h2>The Rabbit Hole Goes Deep</h2>
+<p>How much you want to get into customization is up to you. Using the developer tools of any web browser allows you to inspect what anyone else has done as far as styling with CSS. Here is an example of Chrome Developer Tools.</p>
+<p><img src="img/chrome_dev.png" style="display:block; margin: 0 auto;" height=150%></p>
+<p>All browsers have this, making it easy to see exactly what’s going on with any webpage.</p>
+<p>For some of you, if you aren’t careful, you’ll spend an afternoon on an already finished document trying to make it look perfect. It takes very little effort to make a great looking document with R Markdown. Making it <em>perfect</em> is impossible. You have been warned.</p>
 
 </div>
 </div>
