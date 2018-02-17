@@ -47,11 +47,12 @@ Knowing some basic HTML can add little things to your document to make it look b
 
 
 ```{r plotly_text, echo=FALSE}
-mgcv::gamSim() %>% 
+mgcv::gamSim(verbose = F) %>% 
   modelr::add_predictions(., model=mgcv::gam(y~s(x2), data=.)) %>% 
   plot_ly(x=~x2, y=~y) %>% 
-  add_lines() %>% 
-  add_lines(y=~pred)
+  add_lines(color=I(palettes$orange$complementary[2]), showlegend=F, opacity=.5) %>% 
+  add_lines(y=~pred, color=I(palettes$orange$orange), showlegend=F) %>% 
+  theme_plotly()
 ```
 
 Even with a return line between it and the plot, this text is smack against is. I do not prefer this.
@@ -60,11 +61,12 @@ Even with a return line between it and the plot, this text is smack against is. 
 This fix is easy, just add `<br>` after the R chunk that creates the plot to add a line break.
 
 ```{r plotly_text2, echo=FALSE}
-mgcv::gamSim() %>% 
+mgcv::gamSim(verbose = F) %>% 
   modelr::add_predictions(., model=mgcv::gam(y~s(x2), data=.)) %>% 
   plot_ly(x=~x2, y=~y) %>% 
-  add_lines() %>% 
-  add_lines(y=~pred)
+  add_lines(color=I(palettes$orange$complementary[2]), showlegend=F, opacity=.5) %>% 
+  add_lines(y=~pred, color=I(palettes$orange$orange), showlegend=F) %>% 
+  theme_plotly()
 ```
 
 <br>
@@ -76,13 +78,13 @@ This text has some room to breath.  Alternatively, I could use <span class="pack
 
 Say you want to center and resize an image.  Basic Markdown is too limited to do much more than display the image, so use some HTML instead.
 
-Here is basic markdown image.
+Here is the basic markdown image.
 
 `![](img/R.ico)`
 
 ![](img/R.ico)
 
-Next I use HTML instead.
+Next we use HTML instead.
 
 `<img src="img/R.ico" style="display:block; margin: 0 auto;">`
 
@@ -92,7 +94,6 @@ Next I use HTML instead.
 The next thing you'll want to do is hone your ascii art skills because sometimes that's the best way to display an image, like this ocean sunset.
 
 ```{sunset, eval=FALSE}
-
            ^^                   @@@@@@@@@
       ^^       ^^            @@@@@@@@@@@@@@@
                            @@@@@@@@@@@@@@@@@@              ^^
@@ -103,7 +104,6 @@ The next thing you'll want to do is hone your ascii art skills because sometimes
   ~  ~~     ~         ~      ~~~~~~  ~~ ~~~       ~~ ~ ~~  ~~ ~
 ~  ~       ~ ~      ~           ~~ ~~~~~~  ~      ~~  ~             ~~
       ~             ~        ~      ~      ~~   ~             ~
-
 ```
 
 
@@ -180,9 +180,9 @@ A common mantra in computer programming and beyond is DRY, or Don't Repeat Yours
 
 ## The Rabbit Hole Goes Deep
 
-How much you want to get into customization is up to you.  Using the developer tools of any web browser allows you to inspect what anyone else has done as far as styling with CSS.  Here is an example of Chrome Developer Tools.
+How much you want to get into customization is up to you.  Using the developer tools of any web browser allows you to inspect what anyone else has done as far as styling with CSS.  Here is an example of Chrome Developer Tools, which you can acess through its menus.
 
-<img src="img/chrome_dev.png" style="display:block; margin: 0 auto;" height=150%>
+<img src="img/chrome_dev.png" style="display:block; margin: 0 auto;" width=100% height=100%>
 
 
 All browsers have this, making it easy to see exactly what's going on with any webpage.

@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Introduction to R Markdown</title>
   <meta name="description" content="An Introduction to RMarkdown">
-  <meta name="generator" content="bookdown 0.6 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="Introduction to R Markdown" />
   <meta property="og:type" content="book" />
@@ -47,15 +47,14 @@
 
 
 <script src="libs/htmlwidgets-1.0/htmlwidgets.js"></script>
-<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.4/datatables.js"></script>
-<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
-<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<script src="libs/datatables-binding-0.2/datatables.js"></script>
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.12/js/jquery.dataTables.min.js"></script>
 <script src="libs/plotly-binding-4.7.1/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
 <link href="libs/plotlyjs-1.29.2/plotly-htmlwidgets.css" rel="stylesheet" />
 <script src="libs/plotlyjs-1.29.2/plotly-latest.min.js"></script>
 
@@ -98,8 +97,8 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css\book.css" type="text/css" />
-<link rel="stylesheet" href="css\standard_html.css" type="text/css" />
+<link rel="stylesheet" href="css/book.css" type="text/css" />
+<link rel="stylesheet" href="css/standard_html.css" type="text/css" />
 </head>
 
 <body>
@@ -126,11 +125,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="concepts.html"><a href="concepts.html#how-to-read-this-chapter"><i class="fa fa-check"></i>How to read this chapter</a></li>
 <li class="chapter" data-level="" data-path="concepts.html"><a href="concepts.html#literate-programming"><i class="fa fa-check"></i>Literate Programming</a></li>
 <li class="chapter" data-level="" data-path="concepts.html"><a href="concepts.html#replicability-reproducible-research"><i class="fa fa-check"></i>Replicability &amp; reproducible research</a></li>
-<li class="chapter" data-level="" data-path="concepts.html"><a href="concepts.html#dynamic-data-analysis-report-generation"><i class="fa fa-check"></i>Dynamic data analysis &amp; report generation</a></li>
-<li class="chapter" data-level="" data-path="concepts.html"><a href="concepts.html#comparison-to-alternatives"><i class="fa fa-check"></i>Comparison to alternatives</a><ul>
-<li class="chapter" data-level="" data-path="concepts.html"><a href="concepts.html#ms-word"><i class="fa fa-check"></i>MS Word</a></li>
-<li><a href="concepts.html#latex"><span class="math inline">\(\LaTeX\)</span></a></li>
-<li class="chapter" data-level="" data-path="concepts.html"><a href="concepts.html#why-you-should-switch"><i class="fa fa-check"></i>Why you should switch</a></li>
+<li class="chapter" data-level="" data-path="concepts.html"><a href="concepts.html#dynamic-data-analysis-report-generation"><i class="fa fa-check"></i>Dynamic data analysis &amp; report generation</a><ul>
+<li class="chapter" data-level="" data-path="concepts.html"><a href="concepts.html#why-you-should-switch-from-your-current-approach"><i class="fa fa-check"></i>Why you should switch from your current approach</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i>Getting Started</a><ul>
@@ -182,9 +178,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#personal-templates"><i class="fa fa-check"></i>Personal Templates</a></li>
 <li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#the-rabbit-hole-goes-deep"><i class="fa fa-check"></i>The Rabbit Hole Goes Deep</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="pdf-word.html"><a href="pdf-word.html"><i class="fa fa-check"></i>PDF &amp; Word</a><ul>
-<li class="chapter" data-level="" data-path="pdf-word.html"><a href="pdf-word.html#pdf"><i class="fa fa-check"></i>PDF</a></li>
-<li class="chapter" data-level="" data-path="pdf-word.html"><a href="pdf-word.html#ms-word-1"><i class="fa fa-check"></i>MS Word</a></li>
+<li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html"><i class="fa fa-check"></i>Comparison to Alternatives</a><ul>
+<li><a href="comparison-to-alternatives.html#pdf-latex">PDF &amp; <span class="math inline">\(\LaTeX\)</span></a><ul>
+<li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html#tufte"><i class="fa fa-check"></i>Tufte</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html#ms-word"><i class="fa fa-check"></i>MS Word</a><ul>
+<li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html#word-like-alternatives"><i class="fa fa-check"></i>Word-like Alternatives</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://m-clark.github.io/"><img src="img/mc.png" style="width:50%; padding:0px 0; display:block; margin: 0 auto;" alt="MC logo"></a></li>
@@ -333,36 +333,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Consider <a href="https://arxiv.org/">arxiv.org</a>. Researchers will put papers there before they are published in journals, ostensibly to provide an openly available, if not <em>necessarily</em> 100% complete, work. Others put working drafts or just use it as a place to float some ideas out there. It is a serious outlet however, and a good chunk of the articles I read in the stats world are there.</p>
 <p>Look closely at <a href="https://arxiv.org/abs/1507.02646">this particular entry</a>. As I write this there have been 5 versions of it, and one has access to any of them. <span class="marginnote">The number of versions in that sentence, 5, is not typed. It is based on R code that scraped the arXiv website and processed the submission history.</span> If something changes, there is no reason not to have a version 6 or however many one wants. In a similar vein, many of my own documents on machine learning, Bayesian analysis, generalized additive models etc. have been regularly updated for several years now.</p>
 <p>Research is never complete. Data can be augmented, analyses tweaked, visualizations improved. Will the products of your own efforts adapt?</p>
-</div>
-<div id="comparison-to-alternatives" class="section level2">
-<h2>Comparison to alternatives</h2>
-<div id="ms-word" class="section level3">
-<h3>MS Word</h3>
-<p>Probably the most common tool I see people use for their scientific and related reporting is Microsoft Word. They fight it for all the normal ‘features’ it provides, then they fight it to get their images to look okay after pasting it from somewhere else, then they fight it early and often to get the tables just the way they like it. Even the slightest change to the data will result in redoing practically everything. In addition, all the pasting and finagling with numbers after almost guarantees errors will arise, and they regularly do. And finally, Word documents look like word documents, even if you convert it to something else. In other words, unimpressive.</p>
-<p>People using Word directly are not engaged in reproducible research, and if they are coupling it with menu driven statistical analyses, their work should be rejected by any serious journal. If you feel you must have a MS Word document, and you’re wrong about this, because excellent academic research is regularly done without it, know that you can still create a Word document as a final product with R Markdown<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>.</p>
-</div>
-<div id="latex" class="section level3">
-<h3><span class="math inline">\(\LaTeX\)</span></h3>
-<p>If you’re reading a printed or pdf document and it appears to be massaging your eyeballs in both its look and feel, it likely was constructed with <span class="math inline">\(\LaTeX\)</span><a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>. <span class="math inline">\(\LaTeX\)</span>, along with its derivatives, is a type-setting system specifically designed for scientific or other technical documents by Donald Knuth <em>back in the 1970s</em>. If you aren’t familiar with it, you should know that whole disciplines have essentially required it for communication in their field for many years. What’s more, R has been <span class="math inline">\(\LaTeX\)</span>-able since the beginning via S expressions and code chunks, allowing one to weave the code and results together in one document. The following shows an example of <span class="math inline">\(\LaTeX\)</span> syntax.</p>
-<pre><code>\documentclass{article}
-\title{Use R Markdown in lieu of $\LaTeX$}
-\author{Me, Myself, and I}
-\date{November 5th}
-\begin{document}
-   \maketitle
-   Hello world!
-   
-   $$ E = mc^2 $$
-\end{document}</code></pre>
-<p><span class="math inline">\(\LaTeX\)</span> requires a Tex installation. But once you have that you can write a document using the syntax, with the end result typically being a pdf document. When the document is complete, it will look utterly beautiful, precisely because you had fine control over the look and feel of everything. Just like you can tell a Word document by its looks in a bad way, you can often tell if someone used <span class="math inline">\(\LaTeX\)</span> because of how nice the document looks.</p>
-<p>Unfortunately, <span class="math inline">\(\LaTeX\)</span> is also a complete pain in the ass. Your writing is constantly interrupted by the syntax even for the most minor things, you will pull your hair out trying to get images and tables the way you want, and so forth. Your document will look fantastic, but you will not feel better about yourself afterward.</p>
-<p>The great thing about R Markdown is that you can use <span class="math inline">\(\LaTeX\)</span> syntax as much or little as you like, still get the same results, and, using the same Tex installation, produce a nice pretty pdf document. The following shows how to do the formula above in R Markdown, and what it produces.</p>
-<pre><code>$$ E = mc^2 $$</code></pre>
-<p><span class="math display">\[ E = mc^2 \]</span> It’s exactly the same. Thus, for those who use <span class="math inline">\(\LaTeX\)</span>, their life just got extremely easier, because they can essentially create a <span class="math inline">\(\LaTeX\)</span> document without any explicit <span class="math inline">\(\LaTeX\)</span>. But if they do want to use it for some things, they can do so just as they did before. There are some who still seem to think <span class="math inline">\(\LaTeX\)</span> is in fact necessary instead of R Markdown, but they are wrong. You can only do the same or less with it.</p>
-</div>
-<div id="why-you-should-switch" class="section level3">
-<h3>Why you should switch</h3>
-<p>The main problem for MS Word and <span class="math inline">\(\LaTeX\)</span>, beside those already mentioned, is that they were created for printed documents. In modern times, not only is printing unnecessary (and environmentally problematic), contorting a document to the confines of print potentially distorts or hinders the meaning an author wishes to convey, as well as restricting the means with which they can convey it. In addition, we don’t primarily read print documents anymore. Even avid print readers must admit they see much more text on a screen than they do on a page on a typical day.</p>
+<div id="why-you-should-switch-from-your-current-approach" class="section level3">
+<h3>Why you should switch from your current approach</h3>
+<p>The main problem for other avenues you might use, like MS Word and <span class="math inline">\(\LaTeX\)</span>, is that they were created for printed documents. In modern times, not only is printing unnecessary (and environmentally problematic), contorting a document to the confines of print potentially distorts or hinders the meaning an author wishes to convey, as well as restricting the means with which they can convey it. In addition, we don’t primarily read print documents anymore. Even avid print readers must admit they see much more text on a screen than they do on a page on a typical day.</p>
 <p>Let’s recap the issues with traditional approaches:</p>
 <ul>
 <li>Possibly not usable for reproducible scholarly research</li>
@@ -371,7 +344,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Wasteful if printed</li>
 <li>Often very difficult to get figures/tables to look as desired</li>
 </ul>
-<p><span class="marginnote">Some journals still charge extra for color plots. First, there obviously is no cost for color for electronic documents, which is how the vast majority of research articles are accessed. They often don’t ask whether you actually want it printed in color (they’ll simply charge you for any color), nor do they seem to care that you can use color schemes that would look fine in black and white. This situation is ridiculous.</span>The case for using a markdown approach is now years old and well established. Unfortunately many, but not all, journals are still print-oriented, because their income depends on a closed-source, broken, and un-scientific system of review and publication. Consider the fact that you could blog about your research while conducting it, present preliminary results via R Markdown (because your blog itself is done via R Markdown), get regular feedback from peers along the way via your sites comment system, and all this before you’d ever send it off to a journal. Now ask yourself what a print-oriented journal actually offers you? When was the last time you actually opened a print version of a journal? Do you go to a journal site to look for something as opposed to a simple web search or using Google scholar? How many journals do adequate retractions when problems are found<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>? Is it possible you may actually get more eyeballs and clicks on your work just having it on your own website<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>?</p>
+<p><span class="marginnote">Some journals still charge extra for color plots. First, there obviously is no cost for color for electronic documents, which is how the vast majority of research articles are accessed. They often don’t ask whether you actually want it printed in color (they’ll simply charge you for any color), nor do they seem to care that you can use color schemes that would look fine in black and white. This situation is ridiculous.</span> The case for using a markdown approach is now years old and well established. Unfortunately many, but not all, journals are still print-oriented, because their income depends on the assumption of print, not to mention a closed-source, broken, and un-scientific system of review and publication. Consider the fact that you could blog about your research while conducting it, present preliminary results via R Markdown (because your blog itself is done via R Markdown), get regular feedback from peers along the way via your sites comment system, and all this before you’d ever send it off to a journal. Now ask yourself what a print-oriented journal actually offers you? When was the last time you actually opened a print version of a journal? Do you go to a journal site to look for something as opposed to a simple web search or using Google scholar? How many journals do adequate retractions when problems are found<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>? Is it possible you may actually get more eyeballs and clicks on your work just having it on your own website<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>?</p>
 <p>The current paradigm is going to change because it has to, and there is practically no justification for the traditional approach to academic publication. Indeed the change is underway, with some outlets requiring pre-registration, code, and other changes to the usual send-a-pdf-and-we’ll-get-back-to-you approach. You might as well be using tools and an approach that will already accommodate such change.</p>
 <p>For more on tools for reproducible research in R see the <a href="https://cran.r-project.org/web/views/ReproducibleResearch.html">task view</a>.</p>
 
@@ -382,10 +355,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <hr />
 <ol start="1">
 <li id="fn1"><p>And since this journal still thinks it’s 1990, all the tables had to be at the end of the document, so they aren’t even near the text which refers to them.<a href="concepts.html#fnref1">↩</a></p></li>
-<li id="fn2"><p>People sometimes tell me they have to use it because of a collaborator. I would suggest that they explain that it isn’t in the best interest of the research or its products to do so. If the person insists, their role in the research, and certainly the document, should be diminished.<a href="concepts.html#fnref2">↩</a></p></li>
-<li id="fn3"><p>You can pronounce it lah-tek or lay-tek, just don’t pronounce it -teks or people who know better will look at you funny. The ‘tex’ is based on the Greek. Also, the stress is on the first syllable.<a href="concepts.html#fnref3">↩</a></p></li>
-<li id="fn4"><p>The answer is none, because none of them can seem to do it in a timely fashion, and even top journals such as Nature, Science and others have been known to actually delay and even refuse to do so even in the face of overwhelming evidence of problematic articles. See <a href="https://retractionwatch.com/the-retraction-watch-leaderboard/top-10-most-highly-cited-retracted-papers/">Retraction Watch</a> for some insight.<a href="concepts.html#fnref4">↩</a></p></li>
-<li id="fn5"><p>You certainly will from those who don’t have paid access to journals.<a href="concepts.html#fnref5">↩</a></p></li>
+<li id="fn2"><p>The answer is none, because none of them can seem to do it in a timely fashion, and even top journals such as Nature, Science and others have been known to actually delay and even refuse to do so even in the face of overwhelming evidence of problematic articles. See <a href="https://retractionwatch.com/the-retraction-watch-leaderboard/top-10-most-highly-cited-retracted-papers/">Retraction Watch</a> for some insight.<a href="concepts.html#fnref2">↩</a></p></li>
+<li id="fn3"><p>You certainly will from those who don’t have paid access to journals.<a href="concepts.html#fnref3">↩</a></p></li>
 </ol>
 </div>
             </section>
@@ -440,11 +411,9 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
-    script.src = src;
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

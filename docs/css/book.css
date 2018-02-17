@@ -8,6 +8,10 @@
   background-color: #fffff8;
 }
 
+.book .book-body {
+  background-color: #fffff8;  
+}
+
 .book .book-body .page-wrapper .page-inner section.normal {
     display: block;
     background-color: #fffff8;
@@ -49,7 +53,7 @@
 }
 
 .book .book-body .page-wrapper .page-inner {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px 0 40px;
 }
@@ -125,7 +129,7 @@ i {
 
 .book .book-body .page-wrapper .page-inner section.normal code, .book .book-body .page-wrapper .page-inner section.normal pre {
     font-family: 'Roboto Mono',Consolas,"Liberation Mono",Menlo,Courier,monospace;
-    width: 80%;    /* adjust to body width */
+    width: 75%;    /* adjust to body width */
     direction: ltr;
     border: none;
     color: inherit;
@@ -156,18 +160,18 @@ i {
 .book .book-body .page-wrapper .page-inner section.normal ul {
     margin-top: 0;
     margin-bottom: .85em;
-    width: 80%;                 /*fiddle with this relative to marginnote; div.sourceCode should be the same*/
+    width: 75%;                 /*fiddle with this relative to marginnote; div.sourceCode should be the same*/
 }
 
 
 .book .book-body .page-wrapper .page-inner section.normal table {
-  max-width: 80%;
-  margin-left: 0%;
-  font-size: 75%;
+  max-width: 50%;
+  margin-left: 0;
+  font-size: 80%;
 }
 
 div.sourceCode.r {
-  width: 80%;
+  width: 75%;
 }
 
 /* marginnote, sidenotes, footnotes */
@@ -179,9 +183,9 @@ div.sourceCode.r {
 .book .book-body .page-wrapper .page-inner section.normal .marginnote { 
   float: right;
   clear: right;
-  margin-right: -25%;
+  margin-right: -27.5%;
   color: #858585;   /*blockquote color*/
-  width: 22.5%;
+  width: 25%;
   margin-top: 0;
   margin-bottom: 0;
   font-size: 66%;

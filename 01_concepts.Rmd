@@ -117,50 +117,10 @@ Look closely at [this particular entry](https://arxiv.org/abs/1507.02646). As I 
 Research is never complete.  Data can be augmented, analyses tweaked, visualizations improved. Will the products of your own efforts adapt?
 
 
-## Comparison to alternatives
 
+### Why you should switch from your current approach
 
-### MS Word
-
-Probably the most common tool I see people use for their scientific and related reporting is Microsoft Word. They fight it for all the normal 'features' it provides, then they fight it to get their images to look okay after pasting it from somewhere else, then they fight it early and often to get the tables just the way they like it.  Even the slightest change to the data will result in redoing practically everything.  In addition, all the pasting and finagling with numbers after almost guarantees errors will arise, and they regularly do.  And finally, Word documents look like word documents, even if you convert it to something else.  In other words, unimpressive.  
-
-People using Word directly are not engaged in reproducible research, and if they are coupling it with menu driven statistical analyses, their work should be rejected by any serious journal.  If you feel you must have a MS Word document, and you're wrong about this, because excellent academic research is regularly done without it, know that you can still create a Word document as a final product with R Markdown[^msword].
-
-### $\LaTeX$
-
-If you're reading a printed or pdf document and it appears to be massaging your eyeballs in both its look and feel, it likely was constructed with $\LaTeX$[^layteks]. $\LaTeX$, along with its derivatives, is a type-setting system specifically designed for scientific or other technical documents by Donald Knuth *back in the 1970s*.  If you aren't familiar with it, you should know that whole disciplines have essentially required it for communication in their field for many years.  What's more, R has been $\LaTeX$-able since the beginning via S expressions and code chunks, allowing one to weave the code and results together in one document.  The following shows an example of $\LaTeX$ syntax.
-
-```
-\documentclass{article}
-\title{Use R Markdown in lieu of $\LaTeX$}
-\author{Me, Myself, and I}
-\date{November 5th}
-\begin{document}
-   \maketitle
-   Hello world!
-   
-   $$ E = mc^2 $$
-\end{document}
-```
-
-
-
-$\LaTeX$ requires a Tex installation. But once you have that you can write a document using the syntax, with the end result typically being a  pdf document. When the document is complete, it will look utterly beautiful, precisely because you had fine control over the look and feel of everything.  Just like you can tell a Word document by its looks in a bad way, you can often tell if someone used $\LaTeX$ because of how nice the document looks.
-
-Unfortunately, $\LaTeX$ is also a complete pain in the ass.  Your writing is constantly interrupted by the syntax even for the most minor things, you will pull your hair out trying to get images and tables the way you want, and so forth.  Your document will look fantastic, but you will not feel better about yourself afterward.
-
-The great thing about R Markdown is that you can use $\LaTeX$ syntax as much or little as you like, still get the same results, and, using the same Tex installation, produce a nice pretty pdf document.  The following shows how to do the formula above in R Markdown, and what it produces.
-
-```
-$$ E = mc^2 $$
-```
-
-$$ E = mc^2 $$
-It's exactly the same. Thus, for those who use $\LaTeX$, their life just got extremely easier, because they can essentially create a $\LaTeX$ document without any explicit $\LaTeX$.  But if they do want to use it for some things, they can do so just as they did before.  There are some who still seem to think $\LaTeX$ is in fact necessary instead of R Markdown, but they are wrong.  You can only do the same or less with it.
-
-### Why you should switch
-
-The main problem for MS Word and $\LaTeX$, beside those already mentioned, is that they were created for printed documents.  In modern times, not only is printing unnecessary (and environmentally problematic), contorting a document to the confines of print potentially distorts or hinders the meaning an author wishes to convey, as well as restricting the means with which they can convey it.  In addition, we don't primarily read print documents anymore.  Even avid print readers must admit they see much more text on a screen than they do on a page on a typical day.
+The main problem for other avenues you might use, like MS Word and $\LaTeX$, is that they were created for printed documents.  In modern times, not only is printing unnecessary (and environmentally problematic), contorting a document to the confines of print potentially distorts or hinders the meaning an author wishes to convey, as well as restricting the means with which they can convey it.  In addition, we don't primarily read print documents anymore.  Even avid print readers must admit they see much more text on a screen than they do on a page on a typical day.
 
 
 Let's recap the issues with traditional approaches:
@@ -171,7 +131,8 @@ Let's recap the issues with traditional approaches:
 - Wasteful if printed
 - Often very difficult to get figures/tables to look as desired
 
-<span class="marginnote">Some journals still charge extra for color plots. First, there obviously is no cost for color for electronic documents, which is how the vast majority of research articles are accessed. They often don't ask whether you actually want it printed in color (they'll simply charge you for any color), nor do they seem to care that you can use color schemes that would look fine in black and white.  This situation is ridiculous.</span>The case for using a markdown approach is now years old and well established. Unfortunately many, but not all, journals are still print-oriented, because their income depends on a closed-source, broken, and un-scientific system of review and publication.  Consider the fact that you could blog about your research while conducting it, present preliminary results via R Markdown (because your blog itself is done via R Markdown), get regular feedback from peers along the way via your sites comment system, and all this before you'd ever send it off to a journal.  Now ask yourself what a print-oriented journal actually offers you? When was the last time you actually opened a print version of a journal? Do you go to a journal site to look for something as opposed to a simple web search or using Google scholar?  How many journals do adequate retractions when problems are found[^retract]? Is it possible you may actually get more eyeballs and clicks on your work just having it on your own website[^noaccess]?
+<span class="marginnote">Some journals still charge extra for color plots. First, there obviously is no cost for color for electronic documents, which is how the vast majority of research articles are accessed. They often don't ask whether you actually want it printed in color (they'll simply charge you for any color), nor do they seem to care that you can use color schemes that would look fine in black and white.  This situation is ridiculous.</span>
+The case for using a markdown approach is now years old and well established. Unfortunately many, but not all, journals are still print-oriented, because their income depends on the assumption of print, not to mention a closed-source, broken, and un-scientific system of review and publication.  Consider the fact that you could blog about your research while conducting it, present preliminary results via R Markdown (because your blog itself is done via R Markdown), get regular feedback from peers along the way via your sites comment system, and all this before you'd ever send it off to a journal.  Now ask yourself what a print-oriented journal actually offers you? When was the last time you actually opened a print version of a journal? Do you go to a journal site to look for something as opposed to a simple web search or using Google scholar?  How many journals do adequate retractions when problems are found[^retract]? Is it possible you may actually get more eyeballs and clicks on your work just having it on your own website[^noaccess]?
 
 The current paradigm is going to change because it has to, and there is practically no justification for the traditional approach to academic publication. Indeed the change is underway, with some outlets requiring pre-registration, code, and other changes to the usual send-a-pdf-and-we'll-get-back-to-you approach.  You might as well be using tools and an approach that will already accommodate such change.
 
@@ -180,7 +141,7 @@ For more on tools for reproducible research in R see the [task view](https://cra
 
 [^intheback]: And since this journal still thinks it's 1990, all the tables had to be at the end of the document, so they aren't even near the text which refers to them.
 
-[^msword]: People sometimes tell me they have to use it because of a collaborator.  I would suggest that they explain that it isn't in the best interest of the research or its products to do so.  If the person insists, their role in the research, and certainly the document, should be diminished.
+
 
 [^layteks]: You can pronounce it lah-tek or lay-tek, just don't pronounce it -teks or people who know better will look at you funny.  The 'tex' is based on the Greek.  Also, the stress is on the first syllable.
 

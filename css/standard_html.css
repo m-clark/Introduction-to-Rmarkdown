@@ -125,14 +125,15 @@ h1, h2, h3, h4, h5 {
 
 
 div.datatables {
-    margin-left: auto;     /* to center them when full is not necessary. */
-    margin-right: 0;
+  margin-left: auto;     /* to center them when full is not necessary. */
+  margin-right: 0;
+  width: 75%;
 }
 
 .dataTables_wrapper {
- width: 80%; 
+  max-width: 65%;  /* for whatever reason, the wrapper is on a different width than the data table itself; and search bar floats beyond footer stuff
 }
 
 table {
-  margin: auto;
+  /*margin: auto;*/
 }

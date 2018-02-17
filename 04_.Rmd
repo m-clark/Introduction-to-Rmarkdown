@@ -198,4 +198,4 @@ In summary, you can get to publication ready results with figures, tables and te
 
 [^checksum]: A better way to probably do this is with `cache.extra = tools::md5sum('myfile.csv')`. That will, for example, rebuild the cache if that csv file has changed.
 
-[^rmdrstudio]: There is a global option in RStudio to change this default behavior. By default, it is still setting a document to work from where the document file is, I've yet to see it actually work if you try to change it to anything else.
+[^rmdrstudio]: There is a global option in RStudio to change this default behavior, though this doesn't seem to work at times.
