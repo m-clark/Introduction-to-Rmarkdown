@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/css?family=Roboto|Open+Sans|Stalemate");
 
 .book  {
   background-color: #fffff8;
@@ -61,6 +61,8 @@
 .book .book-header {
     overflow: visible;
     height: 48px;
+    border-width: 2;
+    border-color: red;
     padding: 0 8px;
     z-index: 2;
     font-family: Roboto sans-serif;
@@ -76,6 +78,11 @@ element .style {
 
 .book.with-summary .book-header.fixed {
   background-color: #fffff8;
+  font-family: Stalemate Roboto Sans;
+  border-bottom: 0px solid rgba(0,0,0,.07);
+    border-bottom-width: 0px;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(0, 0, 0, 0.07);  
 }
 
 i {
