@@ -1,6 +1,8 @@
 # Comparison to Alternatives
 
-## PDF & $\LaTeX$
+## PDF & LaTeX
+
+### $\LaTeX$
 
 If you're reading a printed or pdf document and it appears to be massaging your eyeballs in both its look and feel, it likely was constructed with $\LaTeX$[^layteks]. $\LaTeX$, along with its derivatives, is a type-setting system specifically designed for scientific or other technical documents by Donald Knuth *back in the 1970s*.  If you aren't familiar with it, you should know that whole disciplines have essentially required it for communication in their field for many years.  What's more, R has been $\LaTeX$-able since the beginning via S expressions and code chunks, allowing one to weave the code and results together in one document.  The following shows an example of $\LaTeX$ syntax.
 
@@ -10,16 +12,25 @@ If you're reading a printed or pdf document and it appears to be massaging your 
 \author{Me, Myself, and I}
 \date{November 5th}
 \begin{document}
-   \maketitle
-   Hello world!
+ 
+  \maketitle
+  Hello world!
    
-   $$ E = mc^2 $$
+  $$ E = mc^2 $$
+   
+  <<r chunk>>=
+  x = runif(10)
+  @
+  
 \end{document}
 ```
 
-$\LaTeX$ requires a Tex installation. But once you have that you can write a document using the syntax, with the end result typically being a PDF document. When the document is complete, it will look utterly beautiful, precisely because you had fine control over the look and feel of everything.  Just like you can tell a Word document by its looks in a bad way, you can often tell if someone used $\LaTeX$ because of how nice the document looks.
+$\LaTeX$ requires a Tex installation. But once you have that you can write a document using the syntax (`File/New File/R Sweave...`), with the end result typically being a PDF document (or e.g. Beamer slides). When the document is complete, it will look utterly beautiful, precisely because you had fine control over the look and feel of everything.  Just like you can tell a PDF created originally in MS Word by its looks in a bad way, you can often tell if someone used $\LaTeX$ because of how nice the document looks.  As for some examples, every R vignette that is PDF was created using $\LaTeX$ or, more recently R Markdown.  Here is one [example](https://cran.r-project.org/web/packages/brms/vignettes/brms_overview.pdf).  In addition, practically the vast majority of scientific texts are written with it.
 
 Unfortunately, $\LaTeX$ is also a complete pain in the ass.  Your writing is constantly interrupted by the syntax even for the most minor things, you will pull your hair out trying to get images and tables the way you want, and so forth.  Your document will look fantastic, but you will not feel better about yourself afterward.
+
+
+### PDF via R Markdown
 
 The great thing about R Markdown is that you can use $\LaTeX$ syntax as much or little as you like, still get the same results, and, using the same Tex installation, produce a nice pretty pdf document.  The following shows how to do the formula above in R Markdown, and what it produces.
 
@@ -32,7 +43,7 @@ $$ E = mc^2 $$
 It's exactly the same. Thus, for those who use $\LaTeX$, their life just got extremely easier, because they can essentially create a $\LaTeX$ document without any explicit $\LaTeX$.  But if they do want to use it for some things, they can do so just as they did before.  
 
 
-Once you've installed $\TeX$, you'll not need to use it directly, but will now be to knit documents to PDF<span class="marginnote">I suggest [tinytex](https://yihui.name/tinytex/) for your $\TeX$ installation. </span>. With the $\TeX$ installation, you'll also be able to intermingle standard text, Latex, and R code seamlessly in your R Markdown document.
+Once you've installed $\TeX$, you'll not need to use it directly, but will now be to knit documents to PDF<span class="marginnote">I suggest [tinytex](https://yihui.name/tinytex/) for your TeX installation.</span>. With the $\TeX$ installation, you'll also be able to intermingle standard text, $\LaTeX$, and R code seamlessly in your R Markdown document.
 
 ```latex
 Here is some text!
@@ -48,7 +59,7 @@ $$\mathrm{SomeFormula} = Q_{123}^2$$
 \pagebreak
 ```
 
-The YAML for your document will look similar as an HMTL document.
+The YAML for your document will look similar to an HMTL document.
 
 ```yaml
 ---
@@ -85,16 +96,15 @@ output:
 
 ### Tufte
 
-One nice thing in the PDF department is the option of using Tufte styling.
+One nice thing in the PDF department is the option of using Tufte styling.  Edward Tufte did much to bring statistical graphics and presentation into forms far more suitable for communication and just simply more beautiful.<span class="marginnote">I would still recommend Tufte's *The Visual Display of Quantitative Information*, as the ideas are still useful for printed work.</span>
+
+In the past, I used the Tufte handout and book classes for my PDF documents, because I liked the <span class="emph">sidenote</span> and <span class="emph">marginnote</span> capabilities. R Markdown offers Tufte stylings for PDF, which is great, and makes it easy for anyone to make their $\LaTeX$ approach to PDF even better.  They are also offered for HTML, but very little developed at this point[^tuftehtml].  I still like the marginnote approach, to the point I made my own CSS class to use them.  Sidenotes, which were used to create footnotes at the point they are created rather than at the bottom of a page, are unnecessary with HTML, because a link is created that makes it easy to go back and forth from the footnote.
 
 
 
-##### A final word
+### A final word
 
-There are some who still seem to think $\LaTeX$ is in fact necessary instead of R Markdown, but they are wrong.  You can only do the same.  It's really not worth the hassle.
-
-
-
+There are some who still seem to think using raw $\LaTeX$ is in fact necessary instead of R Markdown, but they are wrong.  You can only do the same.  It's really not worth the hassle.
 
 
 
@@ -106,7 +116,7 @@ Probably the most common tool I see people use for their scientific and related 
 People using Word directly are not engaged in reproducible research, and if they are coupling it with menu driven statistical analyses, their work is problematic from any scientific viewpoint[^econfail].  If you feel you must have a MS Word document, and you're wrong about this, because excellent academic research is regularly done without it and always has been, know that you can still create a Word document as a final product with R Markdown[^msword].
 
 
-As might be obvious, you'll need MS Word if you're going to create such documents. I wouldn't recommend this for anything, and so I will spend very little effort explaining to you how to do it.  
+As might be obvious, you'll need MS Word installed if you're going to create such documents. I wouldn't recommend this for anything, and so I will spend very little effort explaining to you how to do it.  
 
 The main thing you need to know is how to use a template.  MS Word defaults have been terrible since its inception, so after customizing a document to look the way you want, you can then use it as a template.  Just specify the document you've created in the YAML as follows:
 
@@ -119,12 +129,11 @@ output:
 
 
 
-Even then it likely won't be a 100% match. Besides that, some of the other typical things will apply, such as syntax highlighting and figure sizes.  However don't be surprised that you lose a lot of functionality.  MS Word is a wysiwyg<span class="marginnote">'wysiwyg' means what you see is what you get.</span> text editor, and what you're doing is definitely not merely text editing. While R Markdown can at least introduce some reproducibility to your word document, just know that it won't even be the second best option you could have chosen for scholarly or professional publication.
+Even then it likely won't be a 100% match. Besides that, some of the other typical things will apply, such as syntax highlighting and figure sizes.  However, don't be surprised that you lose a lot of functionality.  MS Word is a <span class="emph hoverfoot" title='what you see is what you get'>wysiwyg</span> text editor, and what you're doing is definitely not merely text editing. While R Markdown can at least introduce some reproducibility to your word document, just know that it won't even be the second best option you could have chosen for scholarly or professional publication.
 
 ### Word-like Alternatives
 
 There are a couple more alternatives in the MS Word area.  You can also output Rich Text Format or OpenDocument Text (ODT) format.  In your YAML specify the following.
-
 
 ```yaml
 output: rtf_document
@@ -134,9 +143,11 @@ output: rtf_document
 output: odt_document
 ```
 
-Don't expect too much here. They are relatively little used and probably don't have near the functionality.  Again the basic stuff should still work.
+Don't expect too much here. They are relatively little used and probably don't have near the functionality.  Again, the basic stuff should still work.
 
 
 [^msword]: People sometimes tell me they have to use it because of a collaborator.  I would suggest that they explain that it isn't in the best interest of the research or its products to do so.  If the person insists, their role in the research, and certainly the document, should be diminished.
 
-[^econfail]: You shouldn't be using MS Excel for statistical analysis, so why would you use MS Word to report it? While I'm thinking about it, let's never forget the economists who brought failed austerity measures to many countries because people followed their advice based on their borked analysis in Excel in which they had 'accidentally' hidden some of the data.  Regardless of the fact they made a mistake, or used problematic analysis, the more damning issue was using Excel in the first place.
+[^econfail]: You shouldn't be using MS Excel for statistical analysis, so why would you use MS Word to report it? While I'm thinking about it, let's never forget the economists who brought failed austerity measures to many countries because people followed their advice based on their borked analysis in Excel in which they had 'accidentally' hidden some of the data.  Regardless of the fact they made a mistake, or used problematic analysis, the more damning issue was using Excel for analysis in the first place.
+
+[^tuftehtml]: They really are useless at the time of this document's creation (2018-03-01), neither adhering to basic Tufte or web principles.  Avoid it until updated.

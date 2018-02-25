@@ -1,45 +1,16 @@
 # Introduction
 
-<span class="emph">R Markdown</span> is a a flavor of Markdown, a markup language.  Markdown can be converted to other formats like HTML, but is as easy to use as normal text editing. R Markdown allows one to combine normal R code with text to produce a wide variety of document formats.  This allows for a continuous transition from initial data import and processing to a finished product, whether journal article, slide presentation, or even a website.
-
-## Overview
-
-- Key ideas
-  - Literate programming
-  - Replicability & reproducible research
-  - Dynamic data analysis & report generation
-  - Why it's better than some alternatives
-- What is Markdown?
-- R Markdown files
-    - Text
-    - Chunks
-        - Labels
-        - Customization
-        - Running code
-- Customization & Configuration
-    - YAML
-    - Themes
-    - Output options
-        - html, pdf, doc, notebooks
-- Related languages 
-    - CSS, HTML, $\LaTeX$
-- Alternative Modes
-    - Slides
-    - Bookdown
-    - Shiny
-- Using templates and DRY
-- Other
-    - How necessary is an R script for your project?
+<span class="emph">R Markdown</span> is a flavor of Markdown, a markup language.  Markdown can be converted to other formats like HTML, but is as easy to use as normal text editing. R Markdown allows one to combine normal R code with text to produce a wide variety of document formats.  This allows for a continuous transition from initial data import and processing to a finished product, whether journal article, slide presentation, or even a website.
 
 
 ### Goals
 
-The goal is for you to be able to get started with your own document, and understand the possibilities available to you.  You will get a feel for the basic mechanics at play, as well as have ideas on how to customize the result to your own tastes.  You should also understand it well enought to use it for your next paper/project/whatever.
+The goal is for you to be able to get started with your own document, and understand the possibilities available to you.  You will get a feel for the basic mechanics at play, as well as have ideas on how to customize the result to your own tastes.  You should also understand it well enough to use it for your next paper/project/whatever.
 
 
 ### Prerequisites
 
-The only prerequisite is a basic understanding of R.  The code in the document won't be dwealt upon or really explained, as what the code is doesn't matter in this context.
+The only prerequisite is a basic understanding of R.  The code in the document won't be dwelt upon or really explained, as what the code is doesn't matter in this context.
 
 Note the following color coding used in this document:
 

@@ -49,7 +49,7 @@ cat("Here is a sentence whose sum is `r 2 + 2`.")
 cat("This sentence has a value of `r x[1]`.")
 ```
 
-When you knit the document it will look like ordinary text because you aren't using an R chunk:
+When you knit the document, it will look like ordinary text because you aren't using an R chunk:
 
 Here is a sentence whose sum is `r 2 + 2`.
 
@@ -72,7 +72,7 @@ You don't have to knit the document to run the code, and often you'll be using t
 
 <img src="img/run_chunk.png" style="display:block; margin: 0 auto;" width=75%>
 
-By default, when you knit the document all code will be run.  Depending on a variety of factors, this may or may not be what you want to do, especially if it is time-consuming toa do so.  We'll talk about how to deal with this issue in the next section.
+By default, when you knit the document all code will be run.  Depending on a variety of factors, this may or may not be what you want to do, especially if it is time-consuming to do so.  We'll talk about how to deal with this issue in the next section.
 
 ## Multiple documents
 

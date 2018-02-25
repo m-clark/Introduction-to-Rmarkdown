@@ -212,3 +212,11 @@ div.sourceCode.r {
   color: #00000080;
 }
 
+.hoverfoot {
+  border: 1px;
+  border-color: #bfbfbf;  
+  border-style: solid;
+  border-radius: 5px;
+  padding: 2px;
+  /*text-shadow: 1px 0 0;*/
+}

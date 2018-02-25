@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2018-02-24">
+<meta name="date" content="2018-02-25">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -116,10 +116,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="divider"></li>
 <li><a href="index.html#section"></a></li>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a><ul>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#overview"><i class="fa fa-check"></i>Overview</a><ul>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#goals"><i class="fa fa-check"></i>Goals</a></li>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#prerequisites"><i class="fa fa-check"></i>Prerequisites</a></li>
-</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="concepts.html"><a href="concepts.html"><i class="fa fa-check"></i>Concepts</a><ul>
 <li class="chapter" data-level="" data-path="concepts.html"><a href="concepts.html#how-to-read-this-chapter"><i class="fa fa-check"></i>How to read this chapter</a></li>
@@ -178,13 +176,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#the-rabbit-hole-goes-deep"><i class="fa fa-check"></i>The Rabbit Hole Goes Deep</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html"><i class="fa fa-check"></i>Comparison to Alternatives</a><ul>
-<li><a href="comparison-to-alternatives.html#pdf-latex">PDF &amp; <span class="math inline">\(\LaTeX\)</span></a><ul>
+<li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html#pdf-latex"><i class="fa fa-check"></i>PDF &amp; LaTeX</a><ul>
+<li><a href="comparison-to-alternatives.html#latex"><span class="math inline">\(\LaTeX\)</span></a></li>
+<li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html#pdf-via-r-markdown"><i class="fa fa-check"></i>PDF via R Markdown</a></li>
 <li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html#tufte"><i class="fa fa-check"></i>Tufte</a></li>
+<li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html#a-final-word"><i class="fa fa-check"></i>A final word</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html#ms-word"><i class="fa fa-check"></i>MS Word</a><ul>
 <li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html#word-like-alternatives"><i class="fa fa-check"></i>Word-like Alternatives</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i>Summary</a></li>
 <li class="chapter" data-level="" data-path="exercise.html"><a href="exercise.html"><i class="fa fa-check"></i>Exercise</a></li>
 <li class="divider"></li>
 <li><a href="https://m-clark.github.io/"><img src="img/mc.png" style="width:50%; padding:0px 0; display:block; margin: 0 auto;" alt="MC logo"></a></li>
@@ -209,58 +211,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p><span class="emph">R Markdown</span> is a a flavor of Markdown, a markup language. Markdown can be converted to other formats like HTML, but is as easy to use as normal text editing. R Markdown allows one to combine normal R code with text to produce a wide variety of document formats. This allows for a continuous transition from initial data import and processing to a finished product, whether journal article, slide presentation, or even a website.</p>
-<div id="overview" class="section level2">
-<h2>Overview</h2>
-<ul>
-<li>Key ideas</li>
-<li>Literate programming</li>
-<li>Replicability &amp; reproducible research</li>
-<li>Dynamic data analysis &amp; report generation</li>
-<li>Why it’s better than some alternatives</li>
-<li>What is Markdown?</li>
-<li>R Markdown files
-<ul>
-<li>Text</li>
-<li>Chunks
-<ul>
-<li>Labels</li>
-<li>Customization</li>
-<li>Running code</li>
-</ul></li>
-</ul></li>
-<li>Customization &amp; Configuration
-<ul>
-<li>YAML</li>
-<li>Themes</li>
-<li>Output options
-<ul>
-<li>html, pdf, doc, notebooks</li>
-</ul></li>
-</ul></li>
-<li>Related languages
-<ul>
-<li>CSS, HTML, <span class="math inline">\(\LaTeX\)</span></li>
-</ul></li>
-<li>Alternative Modes
-<ul>
-<li>Slides</li>
-<li>Bookdown</li>
-<li>Shiny</li>
-</ul></li>
-<li>Using templates and DRY</li>
-<li>Other
-<ul>
-<li>How necessary is an R script for your project?</li>
-</ul></li>
-</ul>
+<p><span class="emph">R Markdown</span> is a flavor of Markdown, a markup language. Markdown can be converted to other formats like HTML, but is as easy to use as normal text editing. R Markdown allows one to combine normal R code with text to produce a wide variety of document formats. This allows for a continuous transition from initial data import and processing to a finished product, whether journal article, slide presentation, or even a website.</p>
 <div id="goals" class="section level3">
 <h3>Goals</h3>
-<p>The goal is for you to be able to get started with your own document, and understand the possibilities available to you. You will get a feel for the basic mechanics at play, as well as have ideas on how to customize the result to your own tastes. You should also understand it well enought to use it for your next paper/project/whatever.</p>
+<p>The goal is for you to be able to get started with your own document, and understand the possibilities available to you. You will get a feel for the basic mechanics at play, as well as have ideas on how to customize the result to your own tastes. You should also understand it well enough to use it for your next paper/project/whatever.</p>
 </div>
 <div id="prerequisites" class="section level3">
 <h3>Prerequisites</h3>
-<p>The only prerequisite is a basic understanding of R. The code in the document won’t be dwealt upon or really explained, as what the code is doesn’t matter in this context.</p>
+<p>The only prerequisite is a basic understanding of R. The code in the document won’t be dwelt upon or really explained, as what the code is doesn’t matter in this context.</p>
 <p>Note the following color coding used in this document:</p>
 <ul>
 <li><span class="emph">emphasis</span></li>
@@ -270,7 +228,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="">link</a></li>
 </ul>
 
-</div>
 </div>
 </div>
             </section>

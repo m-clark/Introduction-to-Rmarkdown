@@ -13,7 +13,7 @@
 
 <span class="emph">Markdown</span> is basically a syntax that allows you to use plain text for a document, but which will ultimately be converted to any number of other languages, especially HMTL.  The basic markdown syntax hasn't even really been developed for many years, but there are now dozens of *flavors*, of which R Markdown is one.
 
-Most Markdown syntax is preserved and works identically no matter what flavor you use.  However the different flavors will have different options or slightly different implementations of certain things.  The main point is knowing one flavor means you know some Markdown, and thus would easily work with others. 
+Most Markdown syntax is preserved and works identically no matter what flavor you use.  However, the different flavors will have different options or slightly different implementations of certain things.  The main point is knowing one flavor means you know some Markdown, and thus would easily work with others. 
 
 
 
@@ -78,7 +78,7 @@ You should really question whether you need slides.  They are a highly restricti
 
 <span class="emph">Shiny</span> is an inherently interactive format geared toward the creation of websites and applications.  While there are far more apt programming languages than R for creating a website/app, at least Shiny allows you to stay completely within the R environment, and that means you don't have to be expert in those other languages.
 
-You can run shiny apps on your machine well enough, though usually the point is to make something other people can interact with.  This means you'll need some place to house your work, and [shinyapps.io](https://www.shinyapps.io) allows for some free hosting and other options.  As long as you have a web server people will be able to acces your work.  Other formats in this area to be aware of are `websites` and `flexdashboard`.
+You can run shiny apps on your machine well enough, though usually the point is to make something other people can interact with.  This means you'll need some place to house your work, and [shinyapps.io](https://www.shinyapps.io) allows for some free hosting and other options.  As long as you have a web server people will be able to access your work.  Other formats in this area to be aware of are `websites` and `flexdashboard`.
 
 
 ## Templates

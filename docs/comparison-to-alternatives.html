@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2018-02-24">
+<meta name="date" content="2018-02-25">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -32,7 +32,7 @@
   
   <link rel="shortcut icon" href="img/R.ico" type="image/x-icon">
 <link rel="prev" href="customization-configuration.html">
-<link rel="next" href="exercise.html">
+<link rel="next" href="summary.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -116,10 +116,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="divider"></li>
 <li><a href="index.html#section"></a></li>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a><ul>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#overview"><i class="fa fa-check"></i>Overview</a><ul>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#goals"><i class="fa fa-check"></i>Goals</a></li>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#prerequisites"><i class="fa fa-check"></i>Prerequisites</a></li>
-</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="concepts.html"><a href="concepts.html"><i class="fa fa-check"></i>Concepts</a><ul>
 <li class="chapter" data-level="" data-path="concepts.html"><a href="concepts.html#how-to-read-this-chapter"><i class="fa fa-check"></i>How to read this chapter</a></li>
@@ -178,13 +176,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#the-rabbit-hole-goes-deep"><i class="fa fa-check"></i>The Rabbit Hole Goes Deep</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html"><i class="fa fa-check"></i>Comparison to Alternatives</a><ul>
-<li><a href="comparison-to-alternatives.html#pdf-latex">PDF &amp; <span class="math inline">\(\LaTeX\)</span></a><ul>
+<li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html#pdf-latex"><i class="fa fa-check"></i>PDF &amp; LaTeX</a><ul>
+<li><a href="comparison-to-alternatives.html#latex"><span class="math inline">\(\LaTeX\)</span></a></li>
+<li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html#pdf-via-r-markdown"><i class="fa fa-check"></i>PDF via R Markdown</a></li>
 <li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html#tufte"><i class="fa fa-check"></i>Tufte</a></li>
+<li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html#a-final-word"><i class="fa fa-check"></i>A final word</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html#ms-word"><i class="fa fa-check"></i>MS Word</a><ul>
 <li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html#word-like-alternatives"><i class="fa fa-check"></i>Word-like Alternatives</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i>Summary</a></li>
 <li class="chapter" data-level="" data-path="exercise.html"><a href="exercise.html"><i class="fa fa-check"></i>Exercise</a></li>
 <li class="divider"></li>
 <li><a href="https://m-clark.github.io/"><img src="img/mc.png" style="width:50%; padding:0px 0; display:block; margin: 0 auto;" alt="MC logo"></a></li>
@@ -210,25 +212,36 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="comparison-to-alternatives" class="section level1">
 <h1>Comparison to Alternatives</h1>
 <div id="pdf-latex" class="section level2">
-<h2>PDF &amp; <span class="math inline">\(\LaTeX\)</span></h2>
+<h2>PDF &amp; LaTeX</h2>
+<div id="latex" class="section level3">
+<h3><span class="math inline">\(\LaTeX\)</span></h3>
 <p>If you’re reading a printed or pdf document and it appears to be massaging your eyeballs in both its look and feel, it likely was constructed with <span class="math inline">\(\LaTeX\)</span><a href="#fn11" class="footnoteRef" id="fnref11"><sup>11</sup></a>. <span class="math inline">\(\LaTeX\)</span>, along with its derivatives, is a type-setting system specifically designed for scientific or other technical documents by Donald Knuth <em>back in the 1970s</em>. If you aren’t familiar with it, you should know that whole disciplines have essentially required it for communication in their field for many years. What’s more, R has been <span class="math inline">\(\LaTeX\)</span>-able since the beginning via S expressions and code chunks, allowing one to weave the code and results together in one document. The following shows an example of <span class="math inline">\(\LaTeX\)</span> syntax.</p>
 <pre><code>\documentclass{article}
 \title{Use R Markdown in lieu of $\LaTeX$}
 \author{Me, Myself, and I}
 \date{November 5th}
 \begin{document}
-   \maketitle
-   Hello world!
+ 
+  \maketitle
+  Hello world!
    
-   $$ E = mc^2 $$
+  $$ E = mc^2 $$
+   
+  &lt;&lt;r chunk&gt;&gt;=
+  x = runif(10)
+  @
+  
 \end{document}</code></pre>
-<p><span class="math inline">\(\LaTeX\)</span> requires a Tex installation. But once you have that you can write a document using the syntax, with the end result typically being a PDF document. When the document is complete, it will look utterly beautiful, precisely because you had fine control over the look and feel of everything. Just like you can tell a Word document by its looks in a bad way, you can often tell if someone used <span class="math inline">\(\LaTeX\)</span> because of how nice the document looks.</p>
+<p><span class="math inline">\(\LaTeX\)</span> requires a Tex installation. But once you have that you can write a document using the syntax (<code>File/New File/R Sweave...</code>), with the end result typically being a PDF document (or e.g. Beamer slides). When the document is complete, it will look utterly beautiful, precisely because you had fine control over the look and feel of everything. Just like you can tell a PDF created originally in MS Word by its looks in a bad way, you can often tell if someone used <span class="math inline">\(\LaTeX\)</span> because of how nice the document looks. As for some examples, every R vignette that is PDF was created using <span class="math inline">\(\LaTeX\)</span> or, more recently R Markdown. Here is one <a href="https://cran.r-project.org/web/packages/brms/vignettes/brms_overview.pdf">example</a>. In addition, practically the vast majority of scientific texts are written with it.</p>
 <p>Unfortunately, <span class="math inline">\(\LaTeX\)</span> is also a complete pain in the ass. Your writing is constantly interrupted by the syntax even for the most minor things, you will pull your hair out trying to get images and tables the way you want, and so forth. Your document will look fantastic, but you will not feel better about yourself afterward.</p>
+</div>
+<div id="pdf-via-r-markdown" class="section level3">
+<h3>PDF via R Markdown</h3>
 <p>The great thing about R Markdown is that you can use <span class="math inline">\(\LaTeX\)</span> syntax as much or little as you like, still get the same results, and, using the same Tex installation, produce a nice pretty pdf document. The following shows how to do the formula above in R Markdown, and what it produces.</p>
 <pre><code>$$ E = mc^2 $$</code></pre>
 <p><span class="math display">\[ E = mc^2 \]</span></p>
 <p>It’s exactly the same. Thus, for those who use <span class="math inline">\(\LaTeX\)</span>, their life just got extremely easier, because they can essentially create a <span class="math inline">\(\LaTeX\)</span> document without any explicit <span class="math inline">\(\LaTeX\)</span>. But if they do want to use it for some things, they can do so just as they did before.</p>
-<p>Once you’ve installed <span class="math inline">\(\TeX\)</span>, you’ll not need to use it directly, but will now be to knit documents to PDF<span class="marginnote">I suggest <a href="https://yihui.name/tinytex/">tinytex</a> for your <span class="math inline">\(\TeX\)</span> installation. </span>. With the <span class="math inline">\(\TeX\)</span> installation, you’ll also be able to intermingle standard text, Latex, and R code seamlessly in your R Markdown document.</p>
+<p>Once you’ve installed <span class="math inline">\(\TeX\)</span>, you’ll not need to use it directly, but will now be to knit documents to PDF<span class="marginnote">I suggest <a href="https://yihui.name/tinytex/">tinytex</a> for your TeX installation.</span>. With the <span class="math inline">\(\TeX\)</span> installation, you’ll also be able to intermingle standard text, <span class="math inline">\(\LaTeX\)</span>, and R code seamlessly in your R Markdown document.</p>
 <div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">Here is some text!
 
 <span class="fu">\medskip</span>
@@ -241,7 +254,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="ss">$$</span><span class="sc">\mathrm</span><span class="ss">{SomeFormula} = Q_{123}^2$$</span>
 
 <span class="fu">\pagebreak</span></code></pre></div>
-<p>The YAML for your document will look similar as an HMTL document.</p>
+<p>The YAML for your document will look similar to an HMTL document.</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
 <span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Habits&quot;</span>
 <span class="fu">output:</span>
@@ -265,31 +278,33 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <span class="fu">after_body:</span><span class="at"> doc_suffix.tex</span>
     <span class="fu">template:</span><span class="at"> quarterly_report.tex</span>
 <span class="ot">---</span></code></pre></div>
+</div>
 <div id="tufte" class="section level3">
 <h3>Tufte</h3>
-<p>One nice thing in the PDF department is the option of using Tufte styling.</p>
-<div id="a-final-word" class="section level5">
-<h5>A final word</h5>
-<p>There are some who still seem to think <span class="math inline">\(\LaTeX\)</span> is in fact necessary instead of R Markdown, but they are wrong. You can only do the same. It’s really not worth the hassle.</p>
+<p>One nice thing in the PDF department is the option of using Tufte styling. Edward Tufte did much to bring statistical graphics and presentation into forms far more suitable for communication and just simply more beautiful.<span class="marginnote">I would still recommend Tufte’s <em>The Visual Display of Quantitative Information</em>, as the ideas are still useful for printed work.</span></p>
+<p>In the past, I used the Tufte handout and book classes for my PDF documents, because I liked the <span class="emph">sidenote</span> and <span class="emph">marginnote</span> capabilities. R Markdown offers Tufte stylings for PDF, which is great, and makes it easy for anyone to make their <span class="math inline">\(\LaTeX\)</span> approach to PDF even better. They are also offered for HTML, but very little developed at this point<a href="#fn12" class="footnoteRef" id="fnref12"><sup>12</sup></a>. I still like the marginnote approach, to the point I made my own CSS class to use them. Sidenotes, which were used to create footnotes at the point they are created rather than at the bottom of a page, are unnecessary with HTML, because a link is created that makes it easy to go back and forth from the footnote.</p>
 </div>
+<div id="a-final-word" class="section level3">
+<h3>A final word</h3>
+<p>There are some who still seem to think using raw <span class="math inline">\(\LaTeX\)</span> is in fact necessary instead of R Markdown, but they are wrong. You can only do the same. It’s really not worth the hassle.</p>
 </div>
 </div>
 <div id="ms-word" class="section level2">
 <h2>MS Word</h2>
 <p>Probably the most common tool I see people use for their scientific and related reporting is Microsoft Word. They fight it for all the ‘features’ it provides, then they fight it to get their images to look okay after pasting it from somewhere else, then they fight it early and often to get the tables just the way they like it. Even the slightest change to the data will result in having to redo practically everything. Because of all the pasting and finagling with numbers after changes, it’s almost guaranteed that errors will arise, and they regularly do. And finally, MS Word documents look like MS Word documents, even if you convert it to something else. In other words, unimpressive.</p>
-<p>People using Word directly are not engaged in reproducible research, and if they are coupling it with menu driven statistical analyses, their work is problematic from any scientific viewpoint<a href="#fn12" class="footnoteRef" id="fnref12"><sup>12</sup></a>. If you feel you must have a MS Word document, and you’re wrong about this, because excellent academic research is regularly done without it and always has been, know that you can still create a Word document as a final product with R Markdown<a href="#fn13" class="footnoteRef" id="fnref13"><sup>13</sup></a>.</p>
-<p>As might be obvious, you’ll need MS Word if you’re going to create such documents. I wouldn’t recommend this for anything, and so I will spend very little effort explaining to you how to do it.</p>
+<p>People using Word directly are not engaged in reproducible research, and if they are coupling it with menu driven statistical analyses, their work is problematic from any scientific viewpoint<a href="#fn13" class="footnoteRef" id="fnref13"><sup>13</sup></a>. If you feel you must have a MS Word document, and you’re wrong about this, because excellent academic research is regularly done without it and always has been, know that you can still create a Word document as a final product with R Markdown<a href="#fn14" class="footnoteRef" id="fnref14"><sup>14</sup></a>.</p>
+<p>As might be obvious, you’ll need MS Word installed if you’re going to create such documents. I wouldn’t recommend this for anything, and so I will spend very little effort explaining to you how to do it.</p>
 <p>The main thing you need to know is how to use a template. MS Word defaults have been terrible since its inception, so after customizing a document to look the way you want, you can then use it as a template. Just specify the document you’ve created in the YAML as follows:</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">output:</span>
   <span class="fu">word_document:</span>
     <span class="fu">reference_docx:</span><span class="at"> my_template.docx</span></code></pre></div>
-<p>Even then it likely won’t be a 100% match. Besides that, some of the other typical things will apply, such as syntax highlighting and figure sizes. However don’t be surprised that you lose a lot of functionality. MS Word is a wysiwyg<span class="marginnote">‘wysiwyg’ means what you see is what you get.</span> text editor, and what you’re doing is definitely not merely text editing. While R Markdown can at least introduce some reproducibility to your word document, just know that it won’t even be the second best option you could have chosen for scholarly or professional publication.</p>
+<p>Even then it likely won’t be a 100% match. Besides that, some of the other typical things will apply, such as syntax highlighting and figure sizes. However, don’t be surprised that you lose a lot of functionality. MS Word is a <span class="emph hoverfoot" title="what you see is what you get">wysiwyg</span> text editor, and what you’re doing is definitely not merely text editing. While R Markdown can at least introduce some reproducibility to your word document, just know that it won’t even be the second best option you could have chosen for scholarly or professional publication.</p>
 <div id="word-like-alternatives" class="section level3">
 <h3>Word-like Alternatives</h3>
 <p>There are a couple more alternatives in the MS Word area. You can also output Rich Text Format or OpenDocument Text (ODT) format. In your YAML specify the following.</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">output:</span><span class="at"> rtf_document</span></code></pre></div>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">output:</span><span class="at"> odt_document</span></code></pre></div>
-<p>Don’t expect too much here. They are relatively little used and probably don’t have near the functionality. Again the basic stuff should still work.</p>
+<p>Don’t expect too much here. They are relatively little used and probably don’t have near the functionality. Again, the basic stuff should still work.</p>
 
 </div>
 </div>
@@ -298,8 +313,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <hr />
 <ol start="11">
 <li id="fn11"><p>You can pronounce it lah-tek or lay-tek, just don’t pronounce it -teks or people who know better will look at you funny. The ‘tex’ is based on the Greek. Also, the stress is on the first syllable.<a href="comparison-to-alternatives.html#fnref11">↩</a></p></li>
-<li id="fn12"><p>You shouldn’t be using MS Excel for statistical analysis, so why would you use MS Word to report it? While I’m thinking about it, let’s never forget the economists who brought failed austerity measures to many countries because people followed their advice based on their borked analysis in Excel in which they had ‘accidentally’ hidden some of the data. Regardless of the fact they made a mistake, or used problematic analysis, the more damning issue was using Excel in the first place.<a href="comparison-to-alternatives.html#fnref12">↩</a></p></li>
-<li id="fn13"><p>People sometimes tell me they have to use it because of a collaborator. I would suggest that they explain that it isn’t in the best interest of the research or its products to do so. If the person insists, their role in the research, and certainly the document, should be diminished.<a href="comparison-to-alternatives.html#fnref13">↩</a></p></li>
+<li id="fn12"><p>They really are useless at the time of this document’s creation (2018-03-01), neither adhering to basic Tufte or web principles. Avoid it until updated.<a href="comparison-to-alternatives.html#fnref12">↩</a></p></li>
+<li id="fn13"><p>You shouldn’t be using MS Excel for statistical analysis, so why would you use MS Word to report it? While I’m thinking about it, let’s never forget the economists who brought failed austerity measures to many countries because people followed their advice based on their borked analysis in Excel in which they had ‘accidentally’ hidden some of the data. Regardless of the fact they made a mistake, or used problematic analysis, the more damning issue was using Excel for analysis in the first place.<a href="comparison-to-alternatives.html#fnref13">↩</a></p></li>
+<li id="fn14"><p>People sometimes tell me they have to use it because of a collaborator. I would suggest that they explain that it isn’t in the best interest of the research or its products to do so. If the person insists, their role in the research, and certainly the document, should be diminished.<a href="comparison-to-alternatives.html#fnref14">↩</a></p></li>
 </ol>
 </div>
             </section>
@@ -308,7 +324,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
         </div>
       </div>
 <a href="customization-configuration.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="exercise.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="summary.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

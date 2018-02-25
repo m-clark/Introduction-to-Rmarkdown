@@ -38,7 +38,7 @@ Consider the following example. This code, which is clearly delimited from the t
 * item 4
 ```
 
-So, we have a statement explaining the code, followed by the code itself. We actually don't need a code comment, because the text explains the code in everyday language.  This is a simple example but gets at the essence of the approach.  In the document you're reading right now, there is a delineation for the code itself, but this isn't visible. However it's clear what the code part is and what the text part is.  
+So, we have a statement explaining the code, followed by the code itself. We actually don't need a code comment, because the text explains the code in everyday language.  This is a simple example but gets at the essence of the approach.  In the document you're reading right now, there is a delineation for the code itself, but this isn't visible. However, it's clear what the code part is and what the text part is.  
 
 The following table shows the results of a regression analysis.
 
@@ -47,7 +47,7 @@ summary(lm(mpg ~ wt, mtcars)) %>%
   pander(round=3)
 ```
 
-So imagine a paper in which the previous text content explains the results while the analysis code resides right where the text is.  You didn't see the code, but you saw some nicely formatted results. I personally didn't format anything however, those are using default settings.  Here is the underlying code.
+So, imagine a paper in which the previous text content explains the results while the analysis code resides right where the text is.  You didn't see the code, but you saw some nicely formatted results. I personally didn't format anything however, those are using default settings.  Here is the underlying code.
 
 
 ```{r lm_demo2, eval=FALSE}
@@ -93,7 +93,7 @@ As an example, one could start their research as an RStudio project using Git fo
 
 Sometimes the goal is to create an expression of the analysis that is not only to be disseminated to a particular audience, but one which possibly will change over time, as the data itself evolves temporally.  In this dynamic setting, the document must be able to handle changes with minimal effort.  
 
-I can tell you from first hand experience that R Markdown can allow one to automatically create custom reports for different audiences on a regular basis without even touching the data for explicit processing, nor the reports after the templates are created, even as the data continues to come in over time.  Furthermore, any academic effort that would fall under the heading of science is applicable here.
+I can tell you from firsthand experience that R Markdown can allow one to automatically create custom reports for different audiences on a regular basis without even touching the data for explicit processing, nor the reports after the templates are created, even as the data continues to come in over time.  Furthermore, any academic effort that would fall under the heading of science is applicable here.
 
 The notion of <span class="emph">science as software development</span> is something you should get used to. Print has had its day, but is not really viable for scientific advancement as it should take place.  Waiting months for feedback or a year to get a paper published after it's first sent for review is unacceptable.  Furthermore, what if more data comes in? A data or modeling bug is found? Other studies shed additional light on the conclusions?  In this day and age, are we supposed to just continue to cite a work that may no longer be applicable while waiting another year or so for updates?
 
@@ -135,7 +135,7 @@ Let's recap the issues with traditional approaches:
 <span class="marginnote">Some journals still charge extra for color plots. First, there obviously is no cost for color for electronic documents, which is how the vast majority of research articles are accessed. They often don't ask whether you actually want it printed in color (they'll simply want to charge you for any color plots you have), nor do they seem to care that you can use color schemes that would look fine in black and white.  This situation is ridiculous.</span>
 The case for using a markdown approach is now years old and well established. Unfortunately many, but not all, journals are still print-oriented, because their income depends on the assumption of print, not to mention a closed-source, broken, and un-scientific system of review and publication that dates [back to the 17th century](https://www.npr.org/sections/health-shots/2018/02/24/586184355/scientists-aim-to-pull-peer-review-out-of-the-17th-century).  Consider the fact that you could blog about your research while conducting it, present preliminary results via R Markdown (because your blog itself is done via R Markdown), get regular feedback from peers along the way via your site's comment system, and all this before you'd ever send it off to a journal.  Now ask yourself what a print-oriented journal actually offers you? When was the last time you actually opened a print version of a journal? How often do you go to a journal site to look for something as opposed to a simple web search or using Google Scholar?  How many journals do adequate retractions when problems are found[^retract]? Is it possible you may actually get more eyeballs and clicks on your work just having it on your own website[^noaccess]?
 
-The current paradigm is going to change because it has to, and there is practically no justification for the traditional approach to academic publication. Indeed the change is underway, with some outlets requiring pre-registration, code, and other changes to the usual send-a-pdf-and-we'll-get-back-to-you approach.  You might as well be using tools and an approach that will already accommodate such change.
+The current paradigm is going to change because it has to, and there is practically no justification for the traditional approach to academic publication. Indeed, the change is underway, with some outlets requiring pre-registration, code, and other changes to the usual send-a-pdf-and-we'll-get-back-to-you approach.  You might as well be using tools and an approach that will already accommodate such change.
 
 For more on tools for reproducible research in R, see the [task view](https://cran.r-project.org/web/views/ReproducibleResearch.html).
 

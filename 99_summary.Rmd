@@ -1,0 +1,11 @@
+# Summary
+
+
+At this point you should be ready to dive in with your own documents.  Using the tools described will take some time to get used to, but the time you'll gain in efficiency cannot be understated.  What's more, your work will be far more reproducible, a key goal for any quantitative endeavor.  Best of Luck!
+
+<br>
+<br>
+
+```{r rimg_end, fig.align='center',  out.width=250, echo=FALSE, include=identical(knitr:::pandoc_to(), 'html')}
+knitr::include_graphics('img/198R.png', dpi = NA)
+```

@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2018-02-24">
+<meta name="date" content="2018-02-25">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -116,10 +116,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="divider"></li>
 <li><a href="index.html#section"></a></li>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a><ul>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#overview"><i class="fa fa-check"></i>Overview</a><ul>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#goals"><i class="fa fa-check"></i>Goals</a></li>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#prerequisites"><i class="fa fa-check"></i>Prerequisites</a></li>
-</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="concepts.html"><a href="concepts.html"><i class="fa fa-check"></i>Concepts</a><ul>
 <li class="chapter" data-level="" data-path="concepts.html"><a href="concepts.html#how-to-read-this-chapter"><i class="fa fa-check"></i>How to read this chapter</a></li>
@@ -178,13 +176,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#the-rabbit-hole-goes-deep"><i class="fa fa-check"></i>The Rabbit Hole Goes Deep</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html"><i class="fa fa-check"></i>Comparison to Alternatives</a><ul>
-<li><a href="comparison-to-alternatives.html#pdf-latex">PDF &amp; <span class="math inline">\(\LaTeX\)</span></a><ul>
+<li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html#pdf-latex"><i class="fa fa-check"></i>PDF &amp; LaTeX</a><ul>
+<li><a href="comparison-to-alternatives.html#latex"><span class="math inline">\(\LaTeX\)</span></a></li>
+<li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html#pdf-via-r-markdown"><i class="fa fa-check"></i>PDF via R Markdown</a></li>
 <li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html#tufte"><i class="fa fa-check"></i>Tufte</a></li>
+<li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html#a-final-word"><i class="fa fa-check"></i>A final word</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html#ms-word"><i class="fa fa-check"></i>MS Word</a><ul>
 <li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html#word-like-alternatives"><i class="fa fa-check"></i>Word-like Alternatives</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i>Summary</a></li>
 <li class="chapter" data-level="" data-path="exercise.html"><a href="exercise.html"><i class="fa fa-check"></i>Exercise</a></li>
 <li class="divider"></li>
 <li><a href="https://m-clark.github.io/"><img src="img/mc.png" style="width:50%; padding:0px 0; display:block; margin: 0 auto;" alt="MC logo"></a></li>
@@ -238,7 +240,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 * item 3
 * item 4</code></pre>
-<p>So, we have a statement explaining the code, followed by the code itself. We actually don’t need a code comment, because the text explains the code in everyday language. This is a simple example but gets at the essence of the approach. In the document you’re reading right now, there is a delineation for the code itself, but this isn’t visible. However it’s clear what the code part is and what the text part is.</p>
+<p>So, we have a statement explaining the code, followed by the code itself. We actually don’t need a code comment, because the text explains the code in everyday language. This is a simple example but gets at the essence of the approach. In the document you’re reading right now, there is a delineation for the code itself, but this isn’t visible. However, it’s clear what the code part is and what the text part is.</p>
 <p>The following table shows the results of a regression analysis.</p>
 <table style="width:86%;">
 <colgroup>
@@ -299,7 +301,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<p>So imagine a paper in which the previous text content explains the results while the analysis code resides right where the text is. You didn’t see the code, but you saw some nicely formatted results. I personally didn’t format anything however, those are using default settings. Here is the underlying code.</p>
+<p>So, imagine a paper in which the previous text content explains the results while the analysis code resides right where the text is. You didn’t see the code, but you saw some nicely formatted results. I personally didn’t format anything however, those are using default settings. Here is the underlying code.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>wt, mtcars) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">summary</span>() <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">pander</span>()</code></pre></div>
@@ -329,7 +331,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="dynamic-data-analysis-report-generation" class="section level2">
 <h2>Dynamic data analysis &amp; report generation</h2>
 <p>Sometimes the goal is to create an expression of the analysis that is not only to be disseminated to a particular audience, but one which possibly will change over time, as the data itself evolves temporally. In this dynamic setting, the document must be able to handle changes with minimal effort.</p>
-<p>I can tell you from first hand experience that R Markdown can allow one to automatically create custom reports for different audiences on a regular basis without even touching the data for explicit processing, nor the reports after the templates are created, even as the data continues to come in over time. Furthermore, any academic effort that would fall under the heading of science is applicable here.</p>
+<p>I can tell you from firsthand experience that R Markdown can allow one to automatically create custom reports for different audiences on a regular basis without even touching the data for explicit processing, nor the reports after the templates are created, even as the data continues to come in over time. Furthermore, any academic effort that would fall under the heading of science is applicable here.</p>
 <p>The notion of <span class="emph">science as software development</span> is something you should get used to. Print has had its day, but is not really viable for scientific advancement as it should take place. Waiting months for feedback or a year to get a paper published after it’s first sent for review is unacceptable. Furthermore, what if more data comes in? A data or modeling bug is found? Other studies shed additional light on the conclusions? In this day and age, are we supposed to just continue to cite a work that may no longer be applicable while waiting another year or so for updates?</p>
 <p>Consider <a href="https://arxiv.org/">arxiv.org</a>. Researchers will put papers there before they are published in journals, ostensibly to provide an openly available, if not <em>necessarily</em> 100% complete, work. Others put working drafts or just use it as a place to float some ideas out there. It is a serious outlet however, and a good chunk of the articles I read in the stats world can be found there.</p>
 <p>Look closely at <a href="https://arxiv.org/abs/1507.02646">this particular entry</a>. As I write this there have been 5 versions of it, and one has access to any of them. <span class="marginnote">The number of versions in that sentence, 5, is not typed. It is based on R code that scraped the arXiv website and processed the submission history.</span> If something changes, there is no reason not to have a version 6 or however many one wants. In a similar vein, many of my own documents on machine learning, Bayesian analysis, generalized additive models, etc. have been regularly updated for several years now.</p>
@@ -347,7 +349,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Often very difficult to get figures/tables to look as desired</li>
 </ul>
 <p><span class="marginnote">Some journals still charge extra for color plots. First, there obviously is no cost for color for electronic documents, which is how the vast majority of research articles are accessed. They often don’t ask whether you actually want it printed in color (they’ll simply want to charge you for any color plots you have), nor do they seem to care that you can use color schemes that would look fine in black and white. This situation is ridiculous.</span> The case for using a markdown approach is now years old and well established. Unfortunately many, but not all, journals are still print-oriented, because their income depends on the assumption of print, not to mention a closed-source, broken, and un-scientific system of review and publication that dates <a href="https://www.npr.org/sections/health-shots/2018/02/24/586184355/scientists-aim-to-pull-peer-review-out-of-the-17th-century">back to the 17th century</a>. Consider the fact that you could blog about your research while conducting it, present preliminary results via R Markdown (because your blog itself is done via R Markdown), get regular feedback from peers along the way via your site’s comment system, and all this before you’d ever send it off to a journal. Now ask yourself what a print-oriented journal actually offers you? When was the last time you actually opened a print version of a journal? How often do you go to a journal site to look for something as opposed to a simple web search or using Google Scholar? How many journals do adequate retractions when problems are found<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>? Is it possible you may actually get more eyeballs and clicks on your work just having it on your own website<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>?</p>
-<p>The current paradigm is going to change because it has to, and there is practically no justification for the traditional approach to academic publication. Indeed the change is underway, with some outlets requiring pre-registration, code, and other changes to the usual send-a-pdf-and-we’ll-get-back-to-you approach. You might as well be using tools and an approach that will already accommodate such change.</p>
+<p>The current paradigm is going to change because it has to, and there is practically no justification for the traditional approach to academic publication. Indeed, the change is underway, with some outlets requiring pre-registration, code, and other changes to the usual send-a-pdf-and-we’ll-get-back-to-you approach. You might as well be using tools and an approach that will already accommodate such change.</p>
 <p>For more on tools for reproducible research in R, see the <a href="https://cran.r-project.org/web/views/ReproducibleResearch.html">task view</a>.</p>
 
 </div>
