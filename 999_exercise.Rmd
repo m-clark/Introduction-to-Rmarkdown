@@ -1,0 +1,20 @@
+# Exercise
+
+- Create an Rmd for HTML.
+- Change some options. For example choose a theme or add a table of contents.
+- Add a chunk that does some statistical calculation
+- Add a chunk that produces a visualization.  Align it with the `fig.align` chunk option.
+- Add a chunk like #2 but have the document not show the code, just the output.
+- Add a chunk that *only* shows the code, but doesn't actually run.
+- Add a chunk that creates an R object. Then use that object in the text via inline R code.
+- Italicize or bold some words.
+- Add a line break via HTML. Bonus: use <span class="pack">htmltools</span> and the `br()` function to add a line break from an R chunk.
+- Set an option that will be applied to the whole document.
+
+
+
+For these, you'll have to look it up, as I haven't explicitly discussed it.
+
+- Create a quoted block.
+- Add a subtitle to your document
+- Remove the # from the output

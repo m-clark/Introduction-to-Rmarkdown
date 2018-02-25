@@ -9,7 +9,7 @@ The basic document comes with several options to apply to your output.  You'll f
 
 <img src="img/knitr_output_opts.png" style="display:block; margin: 0 auto;" width='50%'>
 
-Note the inline vs. console stuff mostly just has to do with the actual .Rmd file, not the output, so we're going to ignore it. Within the options you can apply some default settings to images, code, and more. 
+Note the inline vs. console stuff mostly just has to do with the actual .Rmd file, not the output, so we're going to ignore it[^inline]. Within the options you can apply some default settings to images, code, and more. 
 
 ### Themes etc.
 
@@ -189,3 +189,5 @@ All browsers have this, making it easy to see exactly what's going on with any w
 
 
 For some of you, if you aren't careful, you'll spend an afternoon on an already finished document trying to make it look perfect.  It takes very little effort to make a great looking document with R Markdown.  Making it *perfect* is impossible.  You have been warned.
+
+[^inline]: I haven't yet figured out the utility in having figures and output breaking up the flow of code and text along with everything else going on. Just my opinion though.

@@ -29,7 +29,7 @@ That will pretty much cover most of your text needs.  For those that know HTML &
 ## Code
 ### Chunks
 
-After text, the most common thing you'll have is code.  The code resides in a <span class="emph">chunk</span>, and looks like this.
+Along with text, the most common thing you'll have is code.  The code resides in a <span class="emph">chunk</span>, and looks like this.
 
 ```{r rchunk, echo=FALSE, results='markup'}
 cat("```{r}
@@ -55,11 +55,13 @@ Here is a sentence whose sum is `r 2 + 2`.
 
 This sentence has a value of `r x[1]`.
 
-This effect of this in scientific reporting cannot be understated.  ***Your goal in writing a document should be to not explicitly write a single number!***
+This effect of this in scientific reporting cannot be understated.  
+
+>**Your goal in writing a document should be to not explicitly write a single number that's based on data.**
 
 ### Labels
 
-All chunks should be given a label. This makes it easy to fine within your document because there are two outlines available to you. One that shows your text headers (to the right), and one that you can click to reveal that will also show your chunks (bottom left).  If they just say Chunk 1, Chunk 2 etc., it doesn't help you any.  There is also some potential benefit in terms of caching, which we'll discuss later.
+All chunks should be given a label. This makes it easy to find it within your document because there are two outlines available to you. One that shows your text headers (to the right), and one that you can click to reveal that will also show your chunks (bottom left).  If they just say Chunk 1, Chunk 2 etc., it doesn't help you any.  There is also some potential benefit in terms of caching, which we'll discuss later.
 
 <img src="img/chunk_outline.png" style="display:block; margin: 0 auto;">
 
@@ -74,7 +76,7 @@ By default, when you knit the document all code will be run.  Depending on a var
 
 ## Multiple documents
 
-A single `.Rmd` file can call others, referred to as <span class="emph">child documents</span>, and when you knit that document you'll have one single document with the content from all of them.  You may want to consider other formats, such as <span class="emph">bookdown</span>, rather than doing this.  Unnecessary scrolling is what bad web-designers make you do, and not actually required for the presentation of material.  It also makes the content take longer to load, because everything has to load[^preload].
+A single `.Rmd` file can call others, referred to as <span class="emph">child documents</span>, and when you knit that document you'll have one single document with the content from all of them.  You may want to consider other formats, such as <span class="emph">bookdown</span>, rather than doing this.  Scrolling a lot is sometimes problematic, and not actually required for the presentation of material.  It also makes the content take longer to load, because everything has to load[^preload].
 
 
 ## Collaboration

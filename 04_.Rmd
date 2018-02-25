@@ -4,7 +4,7 @@ In creating a document there several things that consistently come up that you'l
 
 ## Using HTML
 
-The first thing to do is simply get used to HTML as your primary output.  Unless you know something is to be printed you won't gain anything but an uglier document without having to put notably more effort into development.  
+The first thing to do is simply get used to HTML as your primary output.  Unless you know something is to be printed you won't gain anything but an uglier and/or less flexible document without having to put notably more effort into development.  
 
 ## Chunk options
 
@@ -24,12 +24,9 @@ knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F,
                       fig.align='center', out.width='75%', fig.asp=.75)
 ```
 
-These options do things like make sure messages, warnings, and errors don't show up in the document.<span class="marginnote">You can still get errors, and they will keep your document from compiling.</span>
+These options do things like make sure messages, warnings, and errors don't show up in the document.<span class="marginnote">You can still get errors, and they will keep your document from compiling.</span> Note that any specific chunk options will override these.  So you'll always have fine control over how things work.
 
-
-Note that any specific chunk options will override these.  So you'll always have fine control over how things work.
-
-You can also specify options for the way <span class="pack">knitr</span> itself works.  For example, Rmd documents by default ignore the fact that you are using an RStudio project, and instead work from wherever the Rmd file is. Using `root.dir` can correct this[^rmdrstudio].
+You can also specify options for the way <span class="pack">knitr</span> itself works.  For example, Rmd documents by default ignore the fact that you are using an RStudio project, and instead work from wherever the Rmd file is. Using `root.dir` can correct this.  There is also a global option you can set via the tools menu[^rmdrstudio].
 
 ```{r knit_opts2, eval=FALSE}
 knitr::opts_knit$set(root.dir = '../', child = 'someotherdoc.Rmd')
@@ -38,7 +35,7 @@ knitr::opts_knit$set(root.dir = '../', child = 'someotherdoc.Rmd')
 
 ## Image options
 
-There are primarily three ways you'll display images. Some will be the result of R code, possibly even interactive. In other instances, you'll already have access to an image file and want to display it. Technically you could do this with R code as well, but it'd be more trouble than necessary, as markdown and HTML already provide the means.
+There are primarily three ways you'll display images. Some will be the result of R code, possibly even interactive. In other instances, you'll already have access to an image file and want to display it via markdown or HTML. Technically you could do this with R code as well, but it'd be more trouble than necessary, as markdown and HTML already provide the means.
 
 ### R graphics
 
@@ -46,7 +43,7 @@ Where to begin?  There are many, many ways to manipulate an image that is produc
 
 #### HTML vs. Others
 
-To begin, there are different systems for PDF or MS Word vs. HTML-based documents. The former are what the chunk options of `fig.width` and `fig.height` generally apply to. Oddly, these are expressed in inches, but at least it is easy enough to manipulate to your liking.  These will not affect interactive and possibly other images in HTML documents except in unexpected ways[^widthplotly].  You can also supply `fig.width` plus `fig.asp` which will produce a height that is `fig.width*fig.asp`.  There is also `fig.dim`, which will take the two values you would have specified for `fig.width` and `fig.height`.  If you supply `fig.dim` with `fig.asp`, the latter will be ignored.  If inches doesn't make sense to you, you can use `dpi`, and which will allow you to know think of `dpi*out.width` as what to expect in terms of pixels.  You also have `fig.align` with options like 'left' and 'center', but it apparently has no effect on <span class="pack">htmlwidgets</span> and similar packages that rely on other languages like JavaScript.
+To begin, there are different systems for PDF or MS Word vs. HTML-based documents. The former are what the chunk options of `fig.width` and `fig.height` generally apply to. Oddly, these are expressed in inches, but at least it is easy enough to manipulate to your liking.  These will not affect interactive and possibly other images in HTML documents except in unexpected ways[^widthplotly].  You can also supply `fig.width` plus `fig.asp` which will produce a height that is `fig.width*fig.asp`.  There is also `fig.dim`, which will take the two values you would have specified for `fig.width` and `fig.height`.  If you supply `fig.dim` with `fig.asp`, the latter will be ignored.  If inches doesn't make sense to you, you can use `dpi`, which will allow you to know think of `dpi*out.width` as what to expect in terms of pixels.  You also have `fig.align` with options like 'left' and 'center', but it apparently has no effect on <span class="pack">htmlwidgets</span> and similar packages that rely on other languages like JavaScript.
 
 Isn't this fun?  Here is some more.
 
@@ -94,7 +91,7 @@ In short, for my typical usage, having all these options is nice, but mostly jus
 
 #### Package options
 
-As depicted in the above example, you often can modify the display settings of the plot with options of the visualization package you're using.  This will possibly override the chunk options, so use with caution.
+As depicted in the above example, you often can modify the display settings of the plot with options of the visualization package you're using.  This will possibly override, or merely interact with, the chunk options, so use with caution.
 
 
 ### Markdown
@@ -105,7 +102,7 @@ Markdown provides a basic way to insert images into the document as follows.
 ![alt-text](img/myimage.png)
 ```
 
-It's identical to a link just with an exclamation point. Unfortunately that's it. You can't specify anything about the image, so it's rarely going to be useful.
+It's identical to a link, just with an exclamation point. Unfortunately that's it. You can't specify anything about the image, so it's rarely going to be useful.
 
 ### img
 
@@ -115,7 +112,7 @@ The typical way to insert an image is with HTML.  This allows you to specify all
 <img src="img/myimage.png" style="display:block; margin: 0 auto;">
 ```
 
-This should probably be your default approach to inserting images in your document. 
+This should probably be your default approach to inserting images in your document that aren't produced by R code. 
 
 ### Image summary
 
@@ -125,7 +122,7 @@ If you are going to do PDF or MS Word, or doing static plots in HTML, `fig.width
 ## Caching
 
 
-<span class="emph">Caching</span> is both a great thing and continuous source of frustration.  First, what is it?  Caching saves the output of your R chunks into compressed files (*RData) into a folder in the directory of your current project (or some sub-directory of your choosing).  The next time you compile the document, you don't actually have to run any code, it will just call the cached object.  When your document has a lot of computations, or in the spirit of Reproducibility, actually runs your models, this will save a lot of time.
+<span class="emph">Caching</span> is both a great thing and continuous source of frustration.  First, what is it?  Caching saves the output of your R chunks into compressed files (*.RData) into a folder in the directory of your current project (or some sub-directory of your choosing).  The next time you compile the document, you don't actually have to run any code, if the code hasn't changed; it will just call the cached object.  When your document has a lot of computations, or in the spirit of reproducibility, actually runs your models, this will save a lot of time.
 
 <img src="img/cache.png" style="display:block; margin: 0 auto;" width=50%>
 
@@ -133,20 +130,20 @@ However, this is not a straightforward process.  When things change, the cache f
 
 >Let me repeat the three factors that can affect cache (any change on them will invalidate old cache):
 
->- all chunk options except include; e.g. change tidy=TRUE to FALSE will break the old cache, but changing include will not R code in a chunk; 
+>- all chunk options except include; e.g. change tidy=TRUE to FALSE will break the old cache, but changing include will not affect R code in a chunk; 
 - a tiny change in the R code will lead to removal of old cache, even if it is a change of a space or a blank line
 - the R option width (getOption('width'))
 
-I'll add you also don't typically cache an interactive visualization.  You'll get a message to that effect if you try.
+I'll add you also don't typically cache an interactive visualization.  You'll often get a message to that effect if you try.
 
-However, things often don't work the way you expect with caching.  If something unexpected happens, and if you're naming the chunks, you can easily find and delete the offending files.  You can also rebuild the cache as needed by setting `cache-rebuild` to true. However, if you delete or change the name of the chunk those files will have to be explicitly removed, because they'll never be called again.  There is a `depends-on` chunk option that will allow you to update a cache if whatever previous chunk a chunk depends on has changed. In theory. In practice you should probably just put `auto.dep` to true and let knitr sort out such dependencies, and even then issues may arise. Finally, some packages simply don't work well with caching. <span class="marginnote">If you ever use <span class="pack">DiagrammeR</span> for visualization, let me save you a lot of headache and tell you to never cache the chunks where you use it. The results are mind-boggling if you do.</span> Just know that as great a feature this is, odd things will happen at some point.  When something about your document starts breaking or doing unexpected things, if you can't see a code problem, assume it's a cache problem, and rebuild.
+However, things often don't work the way you expect with caching.  If something unexpected happens, and if you're naming the chunks, you can easily find and delete the offending files.  You can also rebuild the cache as needed by setting `cache-rebuild` to true. However, if you delete or change the name of the chunk, those files will have to be explicitly removed, because they'll never be called again.  There is a `depends-on` chunk option that will allow you to update a cache if whatever previous chunk a chunk depends on has changed. In theory. In practice you should probably just put `auto.dep` to true and let <span class="pack">knitr</span> sort out such dependencies, and even then issues may arise. Finally, some packages simply don't work well with caching, or the process of generating a document in general.<span class="marginnote">If you ever use <span class="pack">DiagrammeR</span> for visualization, let me save you a lot of headache and tell you to never cache the chunks where you use it. The results are mind-boggling if you do, but will sometimes miraculously fail even when you don't.</span> Just know that as great a feature this is, odd things will happen at some point.  When something about your document starts breaking or doing unexpected things, if you can't see a code problem, assume it's a cache problem, and delete and/or rebuild.
 
-I usually set cache to true, otherwise I'd be waiting minutes for some documents to compile.  I set that as an option at the beginning, but at various points in development I'll set `cache-rebuild=TRUE` to refresh everything[^cleandoc], and at times I'll  set it to rebuild specific chunks (e.g. the code might change, but underlying object has)[^checksum].  I've gotten to where I will set cache to false as an option for the (entire) current page I'm working on, so that I don't have to rebuild everything, but for something in a more fluid stage, I probably don't want to cache at all.
+I usually set cache to true, otherwise I'd be waiting minutes for some documents to compile every time.  I set that as an option at the beginning, but at various points in development I'll set `cache-rebuild=TRUE` to refresh everything[^cleandoc], and at times I'll  set it to rebuild specific chunks (e.g. the code might change, but underlying object has)[^checksum].  I've gotten to where I will set cache to false as an option for the (entire) current page I'm working on, so that I don't have to rebuild everything, but for something in a more fluid stage, I probably don't want to cache at all.
 
 
 ## Cleaning up output
 
-Several packages are available to make your R results look better.  Here's a default data.frame, ugly. 
+Several packages are available to make your R results look better.  Here's a default <span class="objclass">data.frame</span>, ugly. 
 
 ```{r dataframe}
 head(mtcars)
@@ -159,17 +156,20 @@ knitr::kable(head(mtcars))
 ```
 <br>
 
-For interactivity, consider the <span class="pack">DT</span> package.
+That was easy! For interactivity and a lot more options to play with, consider the <span class="pack">DT</span> package.
 
 ```{r dt}
-DT::datatable(mtcars)
+DT::datatable(mtcars, 
+              class = 'nowrap',
+              options = list(autoWidth = TRUE,
+                             columnDefs=list(list(width='150px', targets=0))))
 ```
 
 <br>
 
 
 <span class="marginnote">Often after displaying tables and figures you'll want to put an extra line with \<br\> to give some more space before your next bit of text.</span>
-Even model objects can go straight to publication ready tables with no effort on your part. The <span class="pack">broom</span> package works with many common model objects to convert their output to a <span class="objclass">data.frame</span> via <span class="func">tidy</span>. Then you can use <span class="pack">kable</span> or another package to pretty it up.
+Even model objects can go straight to publication-ready tables with no effort on your part. The <span class="pack">broom</span> package works with many common model objects to convert their output to a <span class="objclass">data.frame</span> via <span class="func">tidy</span>. Then you can use <span class="pack">kable</span> or another package to pretty it up.
 
 ```{r broom_kable, out.width='50%'}
 broom::tidy(lm(mpg ~ wt, mtcars)) %>% 
@@ -181,6 +181,7 @@ The <span class="pack">pander</span> package provides more control over tables, 
 
 ```{r broom_pander, out.width='50%'}
 lm(mpg ~ wt, mtcars) %>% 
+  summary() %>% 
   pander::pander(round=2, justify='lrrrr', caption='Regression results')
 ```
 
@@ -198,4 +199,4 @@ In summary, you can get to publication ready results with figures, tables and te
 
 [^checksum]: A better way to probably do this is with `cache.extra = tools::md5sum('myfile.csv')`. That will, for example, rebuild the cache if that csv file has changed.
 
-[^rmdrstudio]: There is a global option in RStudio to change this default behavior, though this doesn't seem to work at times.
+[^rmdrstudio]: This global option in RStudio may not work at times.

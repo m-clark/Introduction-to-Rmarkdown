@@ -1,6 +1,6 @@
 # Introduction
 
-<span class="emph">R Markdown</span> is a a flavor of Markdown, a markup language.  Markdown can be converted to other formats like html, but is as easy to use as normal text editing. R Markdown allows one to combine normal R code with text to produce a wide variety of document formats.  This allows for a continuous transition from initial data import and processing to a finished product, whether journal article, slide presentation, or even a website.
+<span class="emph">R Markdown</span> is a a flavor of Markdown, a markup language.  Markdown can be converted to other formats like HTML, but is as easy to use as normal text editing. R Markdown allows one to combine normal R code with text to produce a wide variety of document formats.  This allows for a continuous transition from initial data import and processing to a finished product, whether journal article, slide presentation, or even a website.
 
 ## Overview
 
@@ -39,7 +39,7 @@ The goal is for you to be able to get started with your own document, and unders
 
 ### Prerequisites
 
-The only prerquisite is a basic understanding of R.  The code in the document won't be dwealt upon or really explained, as what the code is doesn't matter in this context.
+The only prerequisite is a basic understanding of R.  The code in the document won't be dwealt upon or really explained, as what the code is doesn't matter in this context.
 
 Note the following color coding used in this document:
 

@@ -125,9 +125,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="concepts.html"><a href="concepts.html#how-to-read-this-chapter"><i class="fa fa-check"></i>How to read this chapter</a></li>
 <li class="chapter" data-level="" data-path="concepts.html"><a href="concepts.html#literate-programming"><i class="fa fa-check"></i>Literate Programming</a></li>
 <li class="chapter" data-level="" data-path="concepts.html"><a href="concepts.html#replicability-reproducible-research"><i class="fa fa-check"></i>Replicability &amp; reproducible research</a></li>
-<li class="chapter" data-level="" data-path="concepts.html"><a href="concepts.html#dynamic-data-analysis-report-generation"><i class="fa fa-check"></i>Dynamic data analysis &amp; report generation</a><ul>
+<li class="chapter" data-level="" data-path="concepts.html"><a href="concepts.html#dynamic-data-analysis-report-generation"><i class="fa fa-check"></i>Dynamic data analysis &amp; report generation</a></li>
 <li class="chapter" data-level="" data-path="concepts.html"><a href="concepts.html#why-you-should-switch-from-your-current-approach"><i class="fa fa-check"></i>Why you should switch from your current approach</a></li>
-</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i>Getting Started</a><ul>
 <li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#what-is-markdown"><i class="fa fa-check"></i>What is Markdown?</a></li>
@@ -186,6 +185,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html#word-like-alternatives"><i class="fa fa-check"></i>Word-like Alternatives</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="exercise.html"><a href="exercise.html"><i class="fa fa-check"></i>Exercise</a></li>
 <li class="divider"></li>
 <li><a href="https://m-clark.github.io/"><img src="img/mc.png" style="width:50%; padding:0px 0; display:block; margin: 0 auto;" alt="MC logo"></a></li>
 <li><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="width:50%; border-width:0; display:block; margin: 0 auto;" src="img/ccbysa.png" /></a></li>
@@ -235,7 +235,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2>Code</h2>
 <div id="chunks" class="section level3">
 <h3>Chunks</h3>
-<p>After text, the most common thing you’ll have is code. The code resides in a <span class="emph">chunk</span>, and looks like this.</p>
+<p>Along with text, the most common thing you’ll have is code. The code resides in a <span class="emph">chunk</span>, and looks like this.</p>
 <pre><code>```{r}
 x = rnorm(10)
 ```</code></pre>
@@ -249,11 +249,14 @@ x = rnorm(10)
 <p>When you knit the document it will look like ordinary text because you aren’t using an R chunk:</p>
 <p>Here is a sentence whose sum is 4.</p>
 <p>This sentence has a value of -0.3941222.</p>
-<p>This effect of this in scientific reporting cannot be understated. <strong><em>Your goal in writing a document should be to not explicitly write a single number!</em></strong></p>
+<p>This effect of this in scientific reporting cannot be understated.</p>
+<blockquote>
+<p><strong>Your goal in writing a document should be to not explicitly write a single number that’s based on data.</strong></p>
+</blockquote>
 </div>
 <div id="labels" class="section level3">
 <h3>Labels</h3>
-<p>All chunks should be given a label. This makes it easy to fine within your document because there are two outlines available to you. One that shows your text headers (to the right), and one that you can click to reveal that will also show your chunks (bottom left). If they just say Chunk 1, Chunk 2 etc., it doesn’t help you any. There is also some potential benefit in terms of caching, which we’ll discuss later.</p>
+<p>All chunks should be given a label. This makes it easy to find it within your document because there are two outlines available to you. One that shows your text headers (to the right), and one that you can click to reveal that will also show your chunks (bottom left). If they just say Chunk 1, Chunk 2 etc., it doesn’t help you any. There is also some potential benefit in terms of caching, which we’ll discuss later.</p>
 <p><img src="img/chunk_outline.png" style="display:block; margin: 0 auto;"></p>
 </div>
 <div id="running-code" class="section level3">
@@ -265,7 +268,7 @@ x = rnorm(10)
 </div>
 <div id="multiple-documents" class="section level2">
 <h2>Multiple documents</h2>
-<p>A single <code>.Rmd</code> file can call others, referred to as <span class="emph">child documents</span>, and when you knit that document you’ll have one single document with the content from all of them. You may want to consider other formats, such as <span class="emph">bookdown</span>, rather than doing this. Unnecessary scrolling is what bad web-designers make you do, and not actually required for the presentation of material. It also makes the content take longer to load, because everything has to load<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>.</p>
+<p>A single <code>.Rmd</code> file can call others, referred to as <span class="emph">child documents</span>, and when you knit that document you’ll have one single document with the content from all of them. You may want to consider other formats, such as <span class="emph">bookdown</span>, rather than doing this. Scrolling a lot is sometimes problematic, and not actually required for the presentation of material. It also makes the content take longer to load, because everything has to load<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>.</p>
 </div>
 <div id="collaboration" class="section level2">
 <h2>Collaboration</h2>

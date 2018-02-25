@@ -78,12 +78,13 @@ element .style {
 
 .book.with-summary .book-header.fixed {
   background-color: #fffff8;
-  font-family: Stalemate Roboto Sans;
+  /*font-family: Stalemate Roboto Sans; ignored as all it is doing is taking from index title*/ 
   border-bottom: 0px solid rgba(0,0,0,.07);
     border-bottom-width: 0px;
     border-bottom-style: solid;
     border-bottom-color: rgba(0, 0, 0, 0.07);  
 }
+
 
 i {
   background-color: #fffff8;

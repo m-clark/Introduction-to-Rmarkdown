@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   <link rel="shortcut icon" href="img/R.ico" type="image/x-icon">
-<link rel="prev" href="concepts.html">
-<link rel="next" href="standard-documents.html">
+<link rel="prev" href="comparison-to-alternatives.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -207,83 +207,53 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="getting-started" class="section level1">
-<h1>Getting Started</h1>
-<p><br> <img src="img/RMarkdownOutputFormats.png" style="display:block; margin: 0 auto;" width=50%> <br></p>
-<div id="what-is-markdown" class="section level2">
-<h2>What is Markdown?</h2>
-<p><br> <img src="img/Markdown-mark.svg" style="display:block; margin: 0 auto;" width=25%> <br></p>
-<p><span class="emph">Markdown</span> is basically a syntax that allows you to use plain text for a document, but which will ultimately be converted to any number of other languages, especially HMTL. The basic markdown syntax hasn’t even really been developed for many years, but there are now dozens of <em>flavors</em>, of which R Markdown is one.</p>
-<p>Most Markdown syntax is preserved and works identically no matter what flavor you use. However the different flavors will have different options or slightly different implementations of certain things. The main point is knowing one flavor means you know some Markdown, and thus would easily work with others.</p>
-</div>
-<div id="documents" class="section level2">
-<h2>Documents</h2>
-<p>To start using R markdown, simply go to <code>File/New File/R Markdown...</code></p>
-<p><br> <img src="img/new_markdown.png" style="display:block; margin: 0 auto;" width=50%> <br></p>
-<p>As you can see right away, you have your choice of several types of formats, some of which will be of interest to you as you get more used to using R Markdown.</p>
-<p>Documents are what you’ll probably use primarily, especially since they can be used in place of normal R scripts. You have the choice of HTML, PDF and MS Word. The main thing you’ll want to do is make your choice early, because it is not really possible to have the document look like you’d want in all formats simultaneously. As these are the focus of this document, more detail is forthcoming.</p>
-</div>
-<div id="presentations" class="section level2">
-<h2>Presentations</h2>
-<p><br> <img src="img/presentation_opts.png" style="display:block; margin: 0 auto;" width=50%> <br></p>
-<p>You can do slide-style presentations with R Markdown, with three options shown, though two are bizarrely absent. Two shown are HTML based, and you should not even consider Beamer/pdf. Slides are not for printing, and in fact, really don’t work for text in general. They should be very visual if they are to be effective. The two notable formats not shown are <a href="http://rmarkdown.rstudio.com/revealjs_presentation_format.html">revealjs</a><a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a> and the kind you can create by going to <code>File/New File/R Presentation</code>, which is also revealjs but a different format. I do not recommend the latter.</p>
-<p>Creating a presentation is easy enough, and the following shows an example.</p>
-<pre><code>---
-title: &quot;Habits&quot;
-output: ioslides_presentation
----
-
-# In the morning
-
-## Getting up
-
-- Turn off alarm
-- Get out of bed
-
-## Breakfast
-
-- Eat eggs
-- Drink coffee
-
-# In the evening
-
-## Dinner
-
-- Eat spaghetti
-- Drink wine</code></pre>
-<p>You should really question whether you need slides. They are a highly restrictive format, do not work well with text, and often don’t work well with interactive images. Furthermore, their development doesn’t appear to be as much of a priority for the RStudio crowd relative to other formats (rightly so in my opinion). Furthermore, there is nothing substantive they offer that can’t be done with standard HTML.</p>
-</div>
-<div id="shiny-apps" class="section level2">
-<h2>Shiny Apps</h2>
-<p><br> <img src="img/shiny_opts.png" style="display:block; margin: 0 auto;" width=50%> <br></p>
-<p><span class="emph">Shiny</span> is an inherently interactive format geared toward the creation of websites and applications. While there are far more apt programming languages than R for creating a website/app, at least Shiny allows you to stay completely within the R environment, and that means you don’t have to be expert in those other languages.</p>
-<p>You can run shiny apps on your machine well enough, though usually the point is to make something other people can interact with. This means you’ll need some place to house your work, and <a href="https://www.shinyapps.io">shinyapps.io</a> allows for some free hosting and other options. As long as you have a web server people will be able to acces your work. Other formats in this area to be aware of are <code>websites</code> and <code>flexdashboard</code>.</p>
-</div>
-<div id="templates" class="section level2">
-<h2>Templates</h2>
-<p><br> <img src="img/template_opts.png" style="display:block; margin: 0 auto;" width=50%> <br></p>
-<p>Templates are available for any number of things, and one can find plenty among specific packages. Once a package with a particular template is installed, you’ll then have it as an option here. All these typically do is provide a R Markdown file similar to when you open a document, with a couple specific options, and demonstration of them if applicable. It’s not much, but at least you won’t have to mess with some of it.</p>
-</div>
-<div id="how-to-start" class="section level2">
-<h2>How to start</h2>
-<p>The best way to get started with R Markdown is to see a document you like, copy the relevant parts for your own document, and get to it! It really is the best way in my opinion. Many people host their files on <a href="https://github.com">GitHub</a>, so you can just download it directly from there. The author of <span class="pack">bookdown</span>, a particular format for R Markdown, actually suggests people simply clone his repository for his book that teaches bookdown, and go from there. That’s how I started using <span class="pack">bookdown</span>, which became my favored format for longer documents, and even presentations.</p>
-<p>Again though, just see what others are doing, and then tailor it to your own needs.</p>
+<div id="exercise" class="section level1">
+<h1>Exercise</h1>
+<ul>
+<li>Create an Rmd for HTML.</li>
+<li>Change some options. For example choose a theme or add a table of contents.</li>
+<li>Add a chunk that does some statistical calculation</li>
+<li>Add a chunk that produces a visualization. Align it with the <code>fig.align</code> chunk option.</li>
+<li>Add a chunk like #2 but have the document not show the code, just the output.</li>
+<li>Add a chunk that <em>only</em> shows the code, but doesn’t actually run.</li>
+<li>Add a chunk that creates an R object. Then use that object in the text via inline R code.</li>
+<li>Italicize or bold some words.</li>
+<li>Add a line break via HTML. Bonus: use <span class="pack">htmltools</span> and the <code>br()</code> function to add a line break from an R chunk.</li>
+<li>Set an option that will be applied to the whole document.</li>
+</ul>
+<p>For these, you’ll have to look it up, as I haven’t explicitly discussed it.</p>
+<ul>
+<li>Create a quoted block.</li>
+<li>Add a subtitle to your document</li>
+<li>Remove the # from the output</li>
+</ul>
 
 </div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="4">
-<li id="fn4"><p>When I did slides more often I found revealjs the most viable format. The fact that it’s listed second among the slide formats on the R Markdown website yet not a default when choosing, while the base R Presentation isn’t even mentioned on the website, kind of speaks to how much the RStudio folks are interested in these formats.<a href="getting-started.html#fnref4">↩</a></p></li>
-</ol>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="concepts.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="standard-documents.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="comparison-to-alternatives.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
