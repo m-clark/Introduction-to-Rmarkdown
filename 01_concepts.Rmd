@@ -4,12 +4,12 @@ To use R Markdown effectively, it helps to know why you'd even want to. Let's ta
 
 Some terminology you might have come across:
 
-- Reproducible research
-- Replicable science
-- Reproducible data analysis
-- Dynamic data analysis
-- Dynamic report generation
-- Literate programming
+- <span class="emph">Reproducible research</span>
+- <span class="emph">Replicable science</span>
+- <span class="emph">Reproducible data analysis</span>
+- <span class="emph">Dynamic data analysis</span>
+- <span class="emph">Dynamic report generation</span>
+- <span class="emph">Literate programming</span>
 
 Each of these may mean slightly different things depending on the context and background of the person using them, so one should take care to note precisely what is meant.  We'll examine a couple of these concepts, or at least my particular version of them.
 
@@ -56,14 +56,14 @@ lm(mpg ~ wt, mtcars) %>%
   pander()
 ```
 
-Here we see the code, but it isn't evaluated, because the goal of the text here is not the result but to understand the code.  Nothing is copied and pasted, and the code and text both reside in the same document.
+Here we see the code, but it isn't evaluated, because the goal of the text here is not the result, but to understand the code.  Nothing is copied and pasted, and the code and text both reside in the same document.
 
 The idea of literate programming, i.e. creating human-understandable programs, can extend beyond reports or slides that you might put together for an analysis, and in fact be used for any setting in which you have to write code at all.
 
 
 ## Replicability & reproducible research
 
-The ideas of <span class="emph">replicability</span> and <span class="emph">reproducible research</span> are hot topics in various disciplines of late.  To begin, neither is precisely defined, and depending on the definition one selects, possibly unlikely or even impossible.  They are more ideals to strive for, or goals for certain aspects of the research process.  For example, nothing is exactly replicable, if only because time will have passed, and with it some things will have changed about the process, the people involved, the data collection approach, the analytical tools, etc., since the initial research was conducted.  However, we can replicate some things, possibly even exactly, and thus make the results reproducible.
+The ideas of <span class="emph">replicability</span> and <span class="emph">reproducible research</span> are hot topics in various disciplines of late.  To begin, neither is precisely defined, and depending on the definition one selects, possibly unlikely or even impossible.  They are more ideals to strive for, or goals for certain aspects of the research process.  For example, nothing is exactly replicable, if only because time will have passed, and with it some things will have changed about the process since the initial research was conducted- the people involved, the data collection approach, the analytical tools, etc.  However, we can replicate some things, possibly even exactly, and thus make the results reproducible.
 
 Our focus will be on the data analysis side.  Let's start with the following scenario. Various versions of a data set are used leading up to analysis, and after several iterations, `finaldata7` is now spread across the computers of the faculty advisor, two graduate students and one undergrad. Two of those finaldata7 data sets, specifically named `finaldata7a` and `finaldata7b`, are slightly different from the other two and each other.  The undergraduate, who helped with the processing of finaldata2 through finaldata6, has graduated and no longer resides in the same state, nor likely cares any more about the project.  Some of the data processing was done with menus in a software package that shall not be named.
 
@@ -75,7 +75,7 @@ And now, several months later, after the final draft of the document was written
 
 Sadly, up until a couple years ago this was not uncommon, and even certain issues just described are still very common.  Such an approach is essentially the antithesis of replicability and reproducible research.  Anything that was only done with menus cannot be replicated, and without sufficient documentation it's not clear what was done even when there is potentially reproducible code.  The naming of files, variables and other objects was done poorly, so it will take unnecessary effort to figure out what was done, to what, and when.  And even after most things get squared away, there is still a chance the numbers won't match what was in the paper anyway.
 
-While certain tools like Box, Dropbox, Google drive etc. have perhaps helped somewhat, people generally don't use them for <span class="emph">version control</span>, and they are not geared toward academic research specifically.  However, using proper naming procedures, the approach of literate programming, and utilizing proper documentation could go a long way even with those tools.
+While certain tools like Box, Dropbox, Google drive etc. have perhaps helped somewhat, people generally don't use them for <span class="emph">version control</span>, and they are not geared toward academic research specifically.  However, using proper naming procedures, the approach of literate programming, and utilizing proper documentation, all could go a long way even with those tools.
 
 In summary, truly reproducible data analysis requires:
 
@@ -95,7 +95,7 @@ Sometimes the goal is to create an expression of the analysis that is not only t
 
 I can tell you from firsthand experience that R Markdown can allow one to automatically create custom reports for different audiences on a regular basis without even touching the data for explicit processing, nor the reports after the templates are created, even as the data continues to come in over time.  Furthermore, any academic effort that would fall under the heading of science is applicable here.
 
-The notion of <span class="emph">science as software development</span> is something you should get used to. Print has had its day, but is not really viable for scientific advancement as it should take place.  Waiting months for feedback or a year to get a paper published after it's first sent for review is unacceptable.  Furthermore, what if more data comes in? A data or modeling bug is found? Other studies shed additional light on the conclusions?  In this day and age, are we supposed to just continue to cite a work that may no longer be applicable while waiting another year or so for updates?
+The notion of <span class="emph">science as software development</span> is something you should get used to. Print has had its day, but is not the best choice for scientific advancement as it should take place.  Waiting months for feedback, or a year to get a paper published after it's first sent for review, is simply unacceptable.  Furthermore, what if more data comes in? A data or modeling bug is found? Other studies shed additional light on the conclusions?  In this day and age, are we supposed to just continue to cite a work that may no longer be applicable while waiting another year or so for updates?
 
 ```{r arxiv, echo=FALSE}
 library(rvest)
@@ -133,14 +133,14 @@ Let's recap the issues with traditional approaches:
 - Often very difficult to get figures/tables to look as desired
 
 <span class="marginnote">Some journals still charge extra for color plots. First, there obviously is no cost for color for electronic documents, which is how the vast majority of research articles are accessed. They often don't ask whether you actually want it printed in color (they'll simply want to charge you for any color plots you have), nor do they seem to care that you can use color schemes that would look fine in black and white.  This situation is ridiculous.</span>
-The case for using a markdown approach is now years old and well established. Unfortunately many, but not all, journals are still print-oriented, because their income depends on the assumption of print, not to mention a closed-source, broken, and un-scientific system of review and publication that dates [back to the 17th century](https://www.npr.org/sections/health-shots/2018/02/24/586184355/scientists-aim-to-pull-peer-review-out-of-the-17th-century).  Consider the fact that you could blog about your research while conducting it, present preliminary results via R Markdown (because your blog itself is done via R Markdown), get regular feedback from peers along the way via your site's comment system, and all this before you'd ever send it off to a journal.  Now ask yourself what a print-oriented journal actually offers you? When was the last time you actually opened a print version of a journal? How often do you go to a journal site to look for something as opposed to a simple web search or using Google Scholar?  How many journals do adequate retractions when problems are found[^retract]? Is it possible you may actually get more eyeballs and clicks on your work just having it on your own website[^noaccess]?
+The case for using a markdown approach is now years old and well established. Unfortunately many, but not all, journals are still print-oriented, because their income depends on the assumption of print, not to mention a closed-source, broken, and un-scientific system of review and publication that dates [back to the 17th century](https://www.npr.org/sections/health-shots/2018/02/24/586184355/scientists-aim-to-pull-peer-review-out-of-the-17th-century).  Consider the fact that you could blog about your research while conducting it, present preliminary results in your blog via R Markdown (because your blog itself is done via R Markdown), get regular feedback from peers along the way via your site's comment system, and all this before you'd ever send it off to a journal.  Now ask yourself what a print-oriented journal actually offers you? When was the last time you actually opened a print version of a journal? How often do you go to a journal site to look for something as opposed to a simple web search or using Google Scholar?  How many journals do adequate retractions when problems are found[^retract]? Is it possible you may actually get more eyeballs and clicks on your work just having it on your own website[^noaccess] or [tweeting about it](https://www.altmetric.com/about-altmetrics/what-are-altmetrics/)?
 
 The current paradigm is going to change because it has to, and there is practically no justification for the traditional approach to academic publication. Indeed, the change is underway, with some outlets requiring pre-registration, code, and other changes to the usual send-a-pdf-and-we'll-get-back-to-you approach.  You might as well be using tools and an approach that will already accommodate such change.
 
 For more on tools for reproducible research in R, see the [task view](https://cran.r-project.org/web/views/ReproducibleResearch.html).
 
 
-[^intheback]: And since this journal still thinks it's 1990, all the tables had to be at the end of the document, so they aren't even near the text which refers to them.
+[^intheback]: And since the journal they are submitting to still thinks it's 1990, all the tables had to be at the end of the document, so they aren't even near the text which refers to them.
 
 
 

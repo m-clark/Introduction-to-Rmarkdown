@@ -4,7 +4,7 @@
 
 ### $\LaTeX$
 
-If you're reading a printed or pdf document and it appears to be massaging your eyeballs in both its look and feel, it likely was constructed with $\LaTeX$[^layteks]. $\LaTeX$, along with its derivatives, is a type-setting system specifically designed for scientific or other technical documents by Donald Knuth *back in the 1970s*.  If you aren't familiar with it, you should know that whole disciplines have essentially required it for communication in their field for many years.  What's more, R has been $\LaTeX$-able since the beginning via S expressions and code chunks, allowing one to weave the code and results together in one document.  The following shows an example of $\LaTeX$ syntax.
+If you're reading a printed or pdf document and it appears to be massaging your eyeballs in both its look and feel, it likely was constructed with $\LaTeX$[^layteks]. $\LaTeX$, along with its derivatives, is a type-setting system specifically designed for scientific or other technical documents by Donald Knuth *back in the 1970s*.  If you aren't familiar with it, you should know that whole disciplines have essentially required it for communication in their field for many years.  What's more, R has been $\LaTeX$-able since the beginning via S expressions and code chunks (Sweave)<span class="marginnote">S -> R, Sweave -> knitr.  Now you know.</span>, allowing one to weave the code and results together in one document.  The following shows an example of $\LaTeX$ syntax.
 
 ```
 \documentclass{article}
@@ -25,14 +25,14 @@ If you're reading a printed or pdf document and it appears to be massaging your 
 \end{document}
 ```
 
-$\LaTeX$ requires a Tex installation. But once you have that you can write a document using the syntax (`File/New File/R Sweave...`), with the end result typically being a PDF document (or e.g. Beamer slides). When the document is complete, it will look utterly beautiful, precisely because you had fine control over the look and feel of everything.  Just like you can tell a PDF created originally in MS Word by its looks in a bad way, you can often tell if someone used $\LaTeX$ because of how nice the document looks.  As for some examples, every R vignette that is PDF was created using $\LaTeX$ or, more recently R Markdown.  Here is one [example](https://cran.r-project.org/web/packages/brms/vignettes/brms_overview.pdf).  In addition, practically the vast majority of scientific texts are written with it.
+$\LaTeX$ requires a $\TeX$ installation. But once you have that you can write a document using the syntax (`File/New File/R Sweave...`), with the end result typically being a PDF document (or e.g. Beamer slides). When the document is complete, it will look utterly beautiful, precisely because you had fine control over the look and feel of everything.  Just like you can tell a PDF created originally in MS Word by its looks in a bad way, you can often tell if someone used $\LaTeX$ because of how nice the document looks.  As for some examples, every R vignette that is PDF was created using $\LaTeX$ or, more recently R Markdown.  Here is one [example](https://cran.r-project.org/web/packages/brms/vignettes/brms_overview.pdf).  In addition, practically the vast majority of scientific texts are written with it.
 
 Unfortunately, $\LaTeX$ is also a complete pain in the ass.  Your writing is constantly interrupted by the syntax even for the most minor things, you will pull your hair out trying to get images and tables the way you want, and so forth.  Your document will look fantastic, but you will not feel better about yourself afterward.
 
 
 ### PDF via R Markdown
 
-The great thing about R Markdown is that you can use $\LaTeX$ syntax as much or little as you like, still get the same results, and, using the same Tex installation, produce a nice pretty pdf document.  The following shows how to do the formula above in R Markdown, and what it produces.
+The great thing about R Markdown is that you can use $\LaTeX$ syntax as much or little as you like, still get the same results, and, using the same $\TeX$ installation, produce a nice pretty pdf document.  The following shows how to do the formula above in R Markdown, and what it produces.
 
 ```
 $$ E = mc^2 $$
@@ -43,16 +43,16 @@ $$ E = mc^2 $$
 It's exactly the same. Thus, for those who use $\LaTeX$, their life just got extremely easier, because they can essentially create a $\LaTeX$ document without any explicit $\LaTeX$.  But if they do want to use it for some things, they can do so just as they did before.  
 
 
-Once you've installed $\TeX$, you'll not need to use it directly, but will now be to knit documents to PDF<span class="marginnote">I suggest [tinytex](https://yihui.name/tinytex/) for your TeX installation.</span>. With the $\TeX$ installation, you'll also be able to intermingle standard text, $\LaTeX$, and R code seamlessly in your R Markdown document.
+Once you've installed $\TeX$, you'll not need to use it directly, but will now be able to knit documents to PDF<span class="marginnote">I suggest [tinytex](https://yihui.name/tinytex/) for your TeX installation.</span>. With the $\TeX$ installation, you'll also be able to intermingle standard text, $\LaTeX$, and R code seamlessly in your R Markdown document.
 
-```latex
+```
 Here is some text!
 
 \medskip
 
- ```{r}
+``{r}
 x = rnorm(10)
- ```
+``
 
 $$\mathrm{SomeFormula} = Q_{123}^2$$
 
@@ -129,11 +129,11 @@ output:
 
 
 
-Even then it likely won't be a 100% match. Besides that, some of the other typical things will apply, such as syntax highlighting and figure sizes.  However, don't be surprised that you lose a lot of functionality.  MS Word is a <span class="emph hoverfoot" title='what you see is what you get'>wysiwyg</span> text editor, and what you're doing is definitely not merely text editing. While R Markdown can at least introduce some reproducibility to your word document, just know that it won't even be the second best option you could have chosen for scholarly or professional publication.
+Even then it likely won't be a 100% match. Besides that, some of the other typical things will apply, such as syntax highlighting and figure sizes.  However, don't be surprised that you lose a lot of functionality.  MS Word is a <span class="emph hoverfoot" title='what you see is what you get'>wysiwyg</span> text editor, and what you're doing is definitely not merely text editing. While R Markdown can at least introduce some reproducibility to your word document, just know that it won't even be the second-best option you could have chosen for scholarly or professional publication.
 
 ### Word-like Alternatives
 
-There are a couple more alternatives in the MS Word area.  You can also output Rich Text Format or OpenDocument Text (ODT) format.  In your YAML specify the following.
+There are a couple more alternatives in the MS Word area.  You can also output Rich Text Format or OpenDocument Text (ODT) format.  Specify the following in your YAML.
 
 ```yaml
 output: rtf_document
@@ -143,7 +143,7 @@ output: rtf_document
 output: odt_document
 ```
 
-Don't expect too much here. They are relatively little used and probably don't have near the functionality.  Again, the basic stuff should still work.
+Don't expect too much here. They are relatively little used, and probably don't have near the functionality.  Again though, the basic stuff should still work.
 
 
 [^msword]: People sometimes tell me they have to use it because of a collaborator.  I would suggest that they explain that it isn't in the best interest of the research or its products to do so.  If the person insists, their role in the research, and certainly the document, should be diminished.

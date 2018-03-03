@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Introduction to R Markdown</title>
+  <meta name="description" content="An Introduction to RMarkdown">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Introduction to R Markdown" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://m-clark.github.io/" />
+  <meta property="og:image" content="https://m-clark.github.io/img/nineteeneightyR.png" />
+  <meta property="og:description" content="An Introduction to RMarkdown" />
+  <meta name="github-repo" content="m-clark/" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Introduction to R Markdown" />
+  
+  <meta name="twitter:description" content="An Introduction to RMarkdown" />
+  <meta name="twitter:image" content="https://m-clark.github.io/img/nineteeneightyR.png" />
+
+
+
+<meta name="date" content="2018-03-03">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  <link rel="shortcut icon" href="img/R.ico" type="image/x-icon">
+
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.0/htmlwidgets.js"></script>
+<script src="libs/datatables-binding-0.2/datatables.js"></script>
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="libs/plotly-binding-4.7.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/plotlyjs-1.29.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotlyjs-1.29.2/plotly-latest.min.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css/standard_html.css" />
+<link rel="stylesheet" href="css/book.css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://m-clark.github.io/Introduction-to-Rmarkdown/"><span style="font-size:125%; font-variant:small-caps; font-style:italic; color:#990024; font-family:Roboto">Introduction to R Markdown</span></a></li>
+
+<li class="divider"></li>
+<li><a href="#section"></a></li>
+<li class="chapter" data-level="" data-path=""><a href="#introduction"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path=""><a href="#goals"><i class="fa fa-check"></i>Goals</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#prerequisites"><i class="fa fa-check"></i>Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path=""><a href="#concepts"><i class="fa fa-check"></i>Concepts</a><ul>
+<li class="chapter" data-level="" data-path=""><a href="#how-to-read-this-chapter"><i class="fa fa-check"></i>How to read this chapter</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#literate-programming"><i class="fa fa-check"></i>Literate Programming</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#replicability-reproducible-research"><i class="fa fa-check"></i>Replicability &amp; reproducible research</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#dynamic-data-analysis-report-generation"><i class="fa fa-check"></i>Dynamic data analysis &amp; report generation</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#why-you-should-switch-from-your-current-approach"><i class="fa fa-check"></i>Why you should switch from your current approach</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path=""><a href="#getting-started"><i class="fa fa-check"></i>Getting Started</a><ul>
+<li class="chapter" data-level="" data-path=""><a href="#what-is-markdown"><i class="fa fa-check"></i>What is Markdown?</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#documents"><i class="fa fa-check"></i>Documents</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#presentations"><i class="fa fa-check"></i>Presentations</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#shiny-apps"><i class="fa fa-check"></i>Shiny Apps</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#templates"><i class="fa fa-check"></i>Templates</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#how-to-start"><i class="fa fa-check"></i>How to start</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path=""><a href="#standard-documents"><i class="fa fa-check"></i>Standard Documents</a><ul>
+<li class="chapter" data-level="" data-path=""><a href="#r-markdown-files"><i class="fa fa-check"></i>R Markdown files</a><ul>
+<li class="chapter" data-level="" data-path=""><a href="#html"><i class="fa fa-check"></i>HTML</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path=""><a href="#text"><i class="fa fa-check"></i>Text</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#code"><i class="fa fa-check"></i>Code</a><ul>
+<li class="chapter" data-level="" data-path=""><a href="#chunks"><i class="fa fa-check"></i>Chunks</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#in-line"><i class="fa fa-check"></i>In-line</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#labels"><i class="fa fa-check"></i>Labels</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#running-code"><i class="fa fa-check"></i>Running code</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path=""><a href="#multiple-documents"><i class="fa fa-check"></i>Multiple documents</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#collaboration"><i class="fa fa-check"></i>Collaboration</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path=""><a href="#common-considerations"><i class="fa fa-check"></i>Common Considerations</a><ul>
+<li class="chapter" data-level="" data-path=""><a href="#using-html"><i class="fa fa-check"></i>Using HTML</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#chunk-options"><i class="fa fa-check"></i>Chunk options</a><ul>
+<li class="chapter" data-level="" data-path=""><a href="#setup-to-apply-to-all"><i class="fa fa-check"></i>Setup to apply to all</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path=""><a href="#image-options"><i class="fa fa-check"></i>Image options</a><ul>
+<li class="chapter" data-level="" data-path=""><a href="#r-graphics"><i class="fa fa-check"></i>R graphics</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#markdown"><i class="fa fa-check"></i>Markdown</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#img"><i class="fa fa-check"></i>img</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#image-summary"><i class="fa fa-check"></i>Image summary</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path=""><a href="#caching"><i class="fa fa-check"></i>Caching</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#cleaning-up-output"><i class="fa fa-check"></i>Cleaning up output</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path=""><a href="#customization-configuration"><i class="fa fa-check"></i>Customization &amp; Configuration</a><ul>
+<li class="chapter" data-level="" data-path=""><a href="#output-options"><i class="fa fa-check"></i>Output options</a><ul>
+<li class="chapter" data-level="" data-path=""><a href="#themes-etc."><i class="fa fa-check"></i>Themes etc.</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path=""><a href="#yaml"><i class="fa fa-check"></i>YAML</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#html-css"><i class="fa fa-check"></i>HTML &amp; CSS</a><ul>
+<li class="chapter" data-level="" data-path=""><a href="#html-1"><i class="fa fa-check"></i>HTML</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#css"><i class="fa fa-check"></i>CSS</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#custom-classes"><i class="fa fa-check"></i>Custom classes</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path=""><a href="#personal-templates"><i class="fa fa-check"></i>Personal Templates</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#the-rabbit-hole-goes-deep"><i class="fa fa-check"></i>The Rabbit Hole Goes Deep</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path=""><a href="#comparison-to-alternatives"><i class="fa fa-check"></i>Comparison to Alternatives</a><ul>
+<li class="chapter" data-level="" data-path=""><a href="#pdf-latex"><i class="fa fa-check"></i>PDF &amp; LaTeX</a><ul>
+<li><a href="#latex"><span class="math inline">\(\LaTeX\)</span></a></li>
+<li class="chapter" data-level="" data-path=""><a href="#pdf-via-r-markdown"><i class="fa fa-check"></i>PDF via R Markdown</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#tufte"><i class="fa fa-check"></i>Tufte</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#a-final-word"><i class="fa fa-check"></i>A final word</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path=""><a href="#ms-word"><i class="fa fa-check"></i>MS Word</a><ul>
+<li class="chapter" data-level="" data-path=""><a href="#word-like-alternatives"><i class="fa fa-check"></i>Word-like Alternatives</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path=""><a href="#summary"><i class="fa fa-check"></i>Summary</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#exercise"><i class="fa fa-check"></i>Exercise</a></li>
+<li class="divider"></li>
+<li><a href="https://m-clark.github.io/"><img src="img/mc.png" style="width:50%; padding:0px 0; display:block; margin: 0 auto;" alt="MC logo"></a></li>
+<li><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="width:50%; border-width:0; display:block; margin: 0 auto;" src="img/ccbysa.png" /></a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><span style="font-size:125%; font-family:Roboto; font-style:normal">Introduction to R Markdown</span></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title"><span style="font-size:125%; font-family:Roboto; font-style:normal">Introduction to R Markdown</span></h1>
+<h3 class="subtitle"><em><span style="font-size:125%; font-style:normal; font-variant:small-caps; font-family:&#39;Open Sans&#39;"></span></em></h3>
+<h4 class="author"><em><span style="font-size:125%; font-style:normal; font-variant:small-caps; font-family:&#39;Open Sans&#39;">Michael Clark</span> <br> <span style="font-size:75%"><a href="https://m-clark.github.io" class="uri">https://m-clark.github.io</a></span><br><br> <img src="img/CSCAR_logos/signature-acronym.png" style="width:30%; padding:10px 0;" alt="University of Michigan: CSCAR"> <br> <img src="img/ARC_logos/ARC-acronym-signature.png" style="width:21%; padding:10px 0;" alt="University of Michigan: Advanced Research Computing"></em></h4>
+<h4 class="date"><em><span style="font-style:normal;font-family:&#39;Open Sans&#39;">2018-03-03</span></em></h4>
+</div>
+<section id="section" class="level1">
+<h1></h1>
+<p><img src="img/198R.png" width="300" style="display: block; margin: auto;" /></p>
+<p><img src="img/ccbysa.png" width="0" style="display: block; margin: auto;" /><img src="img/mc.png" width="0" style="display: block; margin: auto;" /></p>
+
+</section>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p><span class="emph">R Markdown</span> is a flavor of Markdown, a markup language. Markdown can be converted to other formats like HTML, but is as easy to use as normal text editing. R Markdown allows one to combine normal R code with text to produce a wide variety of document formats. This allows for a continuous transition from initial data import and processing to a finished product, whether journal article, slide presentation, or even a website.</p>
+<section id="goals" class="level3">
+<h3>Goals</h3>
+<p>The goal is for you to be able to get started with your own document, and understand the possibilities available to you. You will get a feel for the basic mechanics at play, as well as have ideas on how to customize the result to your own tastes. You should also understand it well enough to use it for your next paper/project/whatever.</p>
+</section>
+<section id="prerequisites" class="level3">
+<h3>Prerequisites</h3>
+<p>The only prerequisite is a basic understanding of R. The code in the document won’t be dwelt upon or really explained, as what the code is doesn’t matter in this context.</p>
+<p>Note the following color coding used in this document:</p>
+<ul>
+<li><span class="emph">emphasis</span></li>
+<li><span class="pack">package</span></li>
+<li><span class="func">function</span></li>
+<li><span class="objclass">object/class</span></li>
+<li><a href="">link</a></li>
+</ul>
+
+</section>
+</section>
+<section id="concepts" class="level1">
+<h1>Concepts</h1>
+<p>To use R Markdown effectively, it helps to know why you’d even want to. Let’s talk about some ideas, all of which are related, and which will give you some sense of the goals of effective document generation, and why this approach is superior to others you might try.</p>
+<p>Some terminology you might have come across:</p>
+<ul>
+<li><span class="emph">Reproducible research</span></li>
+<li><span class="emph">Replicable science</span></li>
+<li><span class="emph">Reproducible data analysis</span></li>
+<li><span class="emph">Dynamic data analysis</span></li>
+<li><span class="emph">Dynamic report generation</span></li>
+<li><span class="emph">Literate programming</span></li>
+</ul>
+<p>Each of these may mean slightly different things depending on the context and background of the person using them, so one should take care to note precisely what is meant. We’ll examine a couple of these concepts, or at least my particular version of them.</p>
+<section id="how-to-read-this-chapter" class="level2">
+<h2>How to read this chapter</h2>
+<p>While you are looking at this section, collapse the menu (the button next to the magnifying glass), and snap the document to one side of your screen. Now open <a href="https://raw.githubusercontent.com/m-clark/Introduction-to-Rmarkdown/master/01_concepts.Rmd">this version of it</a>, or save it to your computer and open it in RStudio so you can get the syntax highlighting. Then snap it to the other side of the screen. See the R Markdown used to create this section will get you well on your way to understanding how to use R Markdown.</p>
+</section>
+<section id="literate-programming" class="level2">
+<h2>Literate Programming</h2>
+<p><span class="emph">Literate programming</span>, or in the context of research, literate statistical programming, is actually an <a href="http://www.literateprogramming.com/knuthweb.pdf">old idea</a> at this point.</p>
+<blockquote>
+<p>I believe that the time is ripe for significantly better documentation of programs, and that we can best achieve this by considering programs to be works of literature. <br> ~ Donald Knuth (1984)</p>
+</blockquote>
+<p><span class="marginnote">You might wonder why, given that such an idea was around even before MS Word, how the latter took over in most, but certainly not all, disciplines in academia, especially given that MS Word was only very recently remotely viable as a means for scientific communication, and many would say still isn’t.</span> The interweaving of code and text is something you already do in normal scripting. Comments in code are not only useful, they are practically required. But in a program script, almost all the emphasis is on the code. With literate programming, we focus on the text, and the code exists to help facilitate our ability to tell a (data-driven) story.</p>
+<p>In the early days, the idea was largely to communicate the idea of the computer program itself. Now, at least in the context we’ll be discussing, our usage of literate programming is to generate results that tell the story in a completely human-oriented fashion, possibly without any reference to the code at all. However, the document, in whatever format, does not exist independently of the code, and cannot be generated without it.</p>
+<p>Consider the following example. This code, which is clearly delimited from the text via background and font style, shows how to do an unordered list in markdown using two different methods. Either a <code>-</code> or a <code>*</code> will denote a list item.</p>
+<pre><code>- item 1
+- item 2
+
+* item 3
+* item 4</code></pre>
+<p>So, we have a statement explaining the code, followed by the code itself. We actually don’t need a code comment, because the text explains the code in everyday language. This is a simple example but gets at the essence of the approach. In the document you’re reading right now, there is a delineation for the code itself, but this isn’t visible. However, it’s clear what the code part is and what the text part is.</p>
+<p>The following table shows the results of a regression analysis.</p>
+<table style="width:86%;">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 15%" />
+<col style="width: 18%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"> </th>
+<th style="text-align: center;">Estimate</th>
+<th style="text-align: center;">Std. Error</th>
+<th style="text-align: center;">t value</th>
+<th style="text-align: center;">Pr(&gt;|t|)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>(Intercept)</strong></td>
+<td style="text-align: center;">37.28</td>
+<td style="text-align: center;">1.878</td>
+<td style="text-align: center;">19.86</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>wt</strong></td>
+<td style="text-align: center;">-5.344</td>
+<td style="text-align: center;">0.559</td>
+<td style="text-align: center;">-9.559</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<table style="width:86%;">
+<caption>Fitting linear model: mpg ~ wt</caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 30%" />
+<col style="width: 12%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Observations</th>
+<th style="text-align: center;">Residual Std. Error</th>
+<th style="text-align: center;"><span class="math inline">\(R^2\)</span></th>
+<th style="text-align: center;">Adjusted <span class="math inline">\(R^2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">3.046</td>
+<td style="text-align: center;">0.7528</td>
+<td style="text-align: center;">0.7446</td>
+</tr>
+</tbody>
+</table>
+<p>So, imagine a paper in which the previous text content explains the results while the analysis code resides right where the text is. You didn’t see the code, but you saw some nicely formatted results. I personally didn’t format anything however, those are using default settings. Here is the underlying code.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>wt, mtcars) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="st">  </span><span class="kw">summary</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="st">  </span><span class="kw">pander</span>()</a></code></pre></div>
+<p>Here we see the code, but it isn’t evaluated, because the goal of the text here is not the result but to understand the code. Nothing is copied and pasted, and the code and text both reside in the same document.</p>
+<p>The idea of literate programming, i.e. creating human-understandable programs, can extend beyond reports or slides that you might put together for an analysis, and in fact be used for any setting in which you have to write code at all.</p>
+</section>
+<section id="replicability-reproducible-research" class="level2">
+<h2>Replicability &amp; reproducible research</h2>
+<p>The ideas of <span class="emph">replicability</span> and <span class="emph">reproducible research</span> are hot topics in various disciplines of late. To begin, neither is precisely defined, and depending on the definition one selects, possibly unlikely or even impossible. They are more ideals to strive for, or goals for certain aspects of the research process. For example, nothing is exactly replicable, if only because time will have passed, and with it some things will have changed about the process, the people involved, the data collection approach, the analytical tools, etc., since the initial research was conducted. However, we can replicate some things, possibly even exactly, and thus make the results reproducible.</p>
+<p>Our focus will be on the data analysis side. Let’s start with the following scenario. Various versions of a data set are used leading up to analysis, and after several iterations, <code>finaldata7</code> is now spread across the computers of the faculty advisor, two graduate students and one undergrad. Two of those finaldata7 data sets, specifically named <code>finaldata7a</code> and <code>finaldata7b</code>, are slightly different from the other two and each other. The undergraduate, who helped with the processing of finaldata2 through finaldata6, has graduated and no longer resides in the same state, nor likely cares any more about the project. Some of the data processing was done with menus in a software package that shall not be named.</p>
+<p>The script that did the final analysis, called <code>model.Results.C</code>, calls the data using a directory location which no longer exists (and refers only to <code>finaldata7</code>). It does several more data processing steps, but has no comments that would indicate why any of them are being done. Some of the variables are named things like PDQ and V3, but there is no document that would say what those mean.</p>
+<p>When writing their research document in Microsoft Word, all the values from the analyses were copied and pasted into the tables and text<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. The variable names in the document have no exact match to any of the names in any of the data objects. Furthermore, no reference was provided in the text regarding what software or specific packages were used for the analysis.</p>
+<p>And now, several months later, after the final draft of the document was written, sent to the journal, and the reviewers have made their comments on the paper, it’s time to dive back into the analysis. Now, what do you think the odds are that this research group could even reproduce the values reported in the main analysis of the paper?</p>
+<p>Sadly, up until a couple years ago this was not uncommon, and even certain issues just described are still very common. Such an approach is essentially the antithesis of replicability and reproducible research. Anything that was only done with menus cannot be replicated, and without sufficient documentation it’s not clear what was done even when there is potentially reproducible code. The naming of files, variables and other objects was done poorly, so it will take unnecessary effort to figure out what was done, to what, and when. And even after most things get squared away, there is still a chance the numbers won’t match what was in the paper anyway.</p>
+<p>While certain tools like Box, Dropbox, Google drive etc. have perhaps helped somewhat, people generally don’t use them for <span class="emph">version control</span>, and they are not geared toward academic research specifically. However, using proper naming procedures, the approach of literate programming, and utilizing proper documentation could go a long way even with those tools.</p>
+<p>In summary, truly reproducible data analysis requires:</p>
+<ul>
+<li>Data</li>
+<li>Code</li>
+<li>Clear documentation (of data and code)</li>
+<li>Version control</li>
+<li>Standard means of distribution</li>
+<li>Literate programming practices</li>
+</ul>
+<p>As an example, one could start their research as an RStudio project using Git for version control, write their research products using R Markdown, set seeds for random variables, and use <span class="pack">packrat</span> to keep the packages used in analysis specific to the project. Doing so would make it essentially <em>impossible</em> not to reproduce the previous results at any stage.</p>
+</section>
+<section id="dynamic-data-analysis-report-generation" class="level2">
+<h2>Dynamic data analysis &amp; report generation</h2>
+<p>Sometimes the goal is to create an expression of the analysis that is not only to be disseminated to a particular audience, but one which possibly will change over time, as the data itself evolves temporally. In this dynamic setting, the document must be able to handle changes with minimal effort.</p>
+<p>I can tell you from firsthand experience that R Markdown can allow one to automatically create custom reports for different audiences on a regular basis without even touching the data for explicit processing, nor the reports after the templates are created, even as the data continues to come in over time. Furthermore, any academic effort that would fall under the heading of science is applicable here.</p>
+<p>The notion of <span class="emph">science as software development</span> is something you should get used to. Print has had its day, but is not really viable for scientific advancement as it should take place. Waiting months for feedback or a year to get a paper published after it’s first sent for review is unacceptable. Furthermore, what if more data comes in? A data or modeling bug is found? Other studies shed additional light on the conclusions? In this day and age, are we supposed to just continue to cite a work that may no longer be applicable while waiting another year or so for updates?</p>
+<p>Consider <a href="https://arxiv.org/">arxiv.org</a>. Researchers will put papers there before they are published in journals, ostensibly to provide an openly available, if not <em>necessarily</em> 100% complete, work. Others put working drafts or just use it as a place to float some ideas out there. It is a serious outlet however, and a good chunk of the articles I read in the stats world can be found there.</p>
+<p>Look closely at <a href="https://arxiv.org/abs/1507.02646">this particular entry</a>. As I write this there have been 5 versions of it, and one has access to any of them. <span class="marginnote">The number of versions in that sentence, 5, is not typed. It is based on R code that scraped the arXiv website and processed the submission history.</span> If something changes, there is no reason not to have a version 6 or however many one wants. In a similar vein, many of my own documents on machine learning, Bayesian analysis, generalized additive models, etc. have been regularly updated for several years now.</p>
+<p>Research is never complete. Data can be augmented, analyses tweaked, visualizations improved. Will the products of your own efforts adapt?</p>
+</section>
+<section id="why-you-should-switch-from-your-current-approach" class="level2">
+<h2>Why you should switch from your current approach</h2>
+<p>The main problem for other avenues you might use, like MS Word and <span class="math inline">\(\LaTeX\)</span>, is that they were created for printed documents. In modern times, not only is printing unnecessary (and environmentally problematic), contorting a document to the confines of print potentially distorts or hinders the meaning an author wishes to convey, as well as restricting the means with which they can convey it. In addition, we don’t primarily read print documents anymore. Even avid print readers must admit they see much more text on a screen than they do on a page on a typical day.</p>
+<p>Let’s recap the issues with traditional approaches:</p>
+<ul>
+<li>Possibly not usable for reproducible scholarly research</li>
+<li>Syntax gets in the way of fluid text</li>
+<li>Designed for print</li>
+<li>Wasteful if printed</li>
+<li>Often very difficult to get figures/tables to look as desired</li>
+</ul>
+<p><span class="marginnote">Some journals still charge extra for color plots. First, there obviously is no cost for color for electronic documents, which is how the vast majority of research articles are accessed. They often don’t ask whether you actually want it printed in color (they’ll simply want to charge you for any color plots you have), nor do they seem to care that you can use color schemes that would look fine in black and white. This situation is ridiculous.</span> The case for using a markdown approach is now years old and well established. Unfortunately many, but not all, journals are still print-oriented, because their income depends on the assumption of print, not to mention a closed-source, broken, and un-scientific system of review and publication that dates <a href="https://www.npr.org/sections/health-shots/2018/02/24/586184355/scientists-aim-to-pull-peer-review-out-of-the-17th-century">back to the 17th century</a>. Consider the fact that you could blog about your research while conducting it, present preliminary results via R Markdown (because your blog itself is done via R Markdown), get regular feedback from peers along the way via your site’s comment system, and all this before you’d ever send it off to a journal. Now ask yourself what a print-oriented journal actually offers you? When was the last time you actually opened a print version of a journal? How often do you go to a journal site to look for something as opposed to a simple web search or using Google Scholar? How many journals do adequate retractions when problems are found<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>? Is it possible you may actually get more eyeballs and clicks on your work just having it on your own website<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>?</p>
+<p>The current paradigm is going to change because it has to, and there is practically no justification for the traditional approach to academic publication. Indeed, the change is underway, with some outlets requiring pre-registration, code, and other changes to the usual send-a-pdf-and-we’ll-get-back-to-you approach. You might as well be using tools and an approach that will already accommodate such change.</p>
+<p>For more on tools for reproducible research in R, see the <a href="https://cran.r-project.org/web/views/ReproducibleResearch.html">task view</a>.</p>
+
+</section>
+</section>
+<section id="getting-started" class="level1">
+<h1>Getting Started</h1>
+<p><br> <img src="img/RMarkdownOutputFormats.png" style="display:block; margin: 0 auto;" width=50%> <br></p>
+<section id="what-is-markdown" class="level2">
+<h2>What is Markdown?</h2>
+<p><br> <img src="img/Markdown-mark.svg" style="display:block; margin: 0 auto;" width=25%> <br></p>
+<p><span class="emph">Markdown</span> is basically a syntax that allows you to use plain text for a document, but which will ultimately be converted to any number of other languages, especially HMTL. The basic markdown syntax hasn’t even really been developed for many years, but there are now dozens of <em>flavors</em>, of which R Markdown is one.</p>
+<p>Most Markdown syntax is preserved and works identically no matter what flavor you use. However, the different flavors will have different options or slightly different implementations of certain things. The main point is knowing one flavor means you know some Markdown, and thus would easily work with others.</p>
+</section>
+<section id="documents" class="level2">
+<h2>Documents</h2>
+<p>To start using R markdown, simply go to <code>File/New File/R Markdown...</code></p>
+<p><br> <img src="img/new_markdown.png" style="display:block; margin: 0 auto;" width=50%> <br></p>
+<p>As you can see right away, you have your choice of several types of formats, some of which will be of interest to you as you get more used to using R Markdown.</p>
+<p>Documents are what you’ll probably use primarily, especially since they can be used in place of normal R scripts. You have the choice of HTML, PDF and MS Word. The main thing you’ll want to do is make your choice early, because it is not really possible to have the document look like you’d want in all formats simultaneously. As these are the focus of this document, more detail is forthcoming.</p>
+</section>
+<section id="presentations" class="level2">
+<h2>Presentations</h2>
+<p><br> <img src="img/presentation_opts.png" style="display:block; margin: 0 auto;" width=50%> <br></p>
+<p>You can do slide-style presentations with R Markdown, with three options shown, though two are bizarrely absent. Two shown are HTML based, and you should not even consider Beamer/pdf. Slides are not for printing, and in fact, really don’t work for text in general. They should be very visual if they are to be effective. The two notable formats not shown are <a href="http://rmarkdown.rstudio.com/revealjs_presentation_format.html">revealjs</a><a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> and the kind you can create by going to <code>File/New File/R Presentation</code>, which is also revealjs but a different format. I do not recommend the latter.</p>
+<p>Creating a presentation is easy enough, and the following shows an example.</p>
+<pre><code>---
+title: &quot;Habits&quot;
+output: ioslides_presentation
+---
+
+# In the morning
+
+## Getting up
+
+- Turn off alarm
+- Get out of bed
+
+## Breakfast
+
+- Eat eggs
+- Drink coffee
+
+# In the evening
+
+## Dinner
+
+- Eat spaghetti
+- Drink wine</code></pre>
+<p>You should really question whether you need slides. They are a highly restrictive format, do not work well with text, and often don’t work well with interactive images. Furthermore, their development doesn’t appear to be as much of a priority for the RStudio crowd relative to other formats (rightly so in my opinion). Furthermore, there is nothing substantive they offer that can’t be done with standard HTML.</p>
+</section>
+<section id="shiny-apps" class="level2">
+<h2>Shiny Apps</h2>
+<p><br> <img src="img/shiny_opts.png" style="display:block; margin: 0 auto;" width=50%> <br></p>
+<p><span class="emph">Shiny</span> is an inherently interactive format geared toward the creation of websites and applications. While there are far more apt programming languages than R for creating a website/app, at least Shiny allows you to stay completely within the R environment, and that means you don’t have to be expert in those other languages.</p>
+<p>You can run shiny apps on your machine well enough, though usually the point is to make something other people can interact with. This means you’ll need some place to house your work, and <a href="https://www.shinyapps.io">shinyapps.io</a> allows for some free hosting and other options. As long as you have a web server people will be able to access your work. Other formats in this area to be aware of are <code>websites</code> and <code>flexdashboard</code>.</p>
+</section>
+<section id="templates" class="level2">
+<h2>Templates</h2>
+<p><br> <img src="img/template_opts.png" style="display:block; margin: 0 auto;" width=50%> <br></p>
+<p>Templates are available for any number of things, and one can find plenty among specific packages. Once a package with a particular template is installed, you’ll then have it as an option here. All these typically do is provide a R Markdown file similar to when you open a document, with a couple specific options, and demonstration of them if applicable. It’s not much, but at least you won’t have to mess with some of it.</p>
+</section>
+<section id="how-to-start" class="level2">
+<h2>How to start</h2>
+<p>The best way to get started with R Markdown is to see a document you like, copy the relevant parts for your own document, and get to it! It really is the best way in my opinion. Many people host their files on <a href="https://github.com">GitHub</a>, so you can just download it directly from there. The author of <span class="pack">bookdown</span>, a particular format for R Markdown, actually suggests people simply clone his repository for his book that teaches bookdown, and go from there. That’s how I started using <span class="pack">bookdown</span>, which became my favored format for longer documents, and even presentations.</p>
+<p>Again though, just see what others are doing, and then tailor it to your own needs.</p>
+
+</section>
+</section>
+<section id="standard-documents" class="level1">
+<h1>Standard Documents</h1>
+<section id="r-markdown-files" class="level2">
+<h2>R Markdown files</h2>
+<p>R Markdown files, with extension <code>*.Rmd</code>, are a combination of text, <span class="emph">chunks</span> of R code, and possibly other code, all within a single file. Various packages, e.g. <span class="pack">rmarkdown</span>, <span class="pack">knitr</span>, <span class="pack">pandoc</span>, etc., work behind the scenes to knit all those pieces into one coherent whole, in whatever format is desired.<span class="marginnote">Pandoc is the universal translator that takes various formats, particularly markup languages, and converts them into others.</span> The <span class="pack">knitr</span> package is the driving force behind most of what is done to create the final product.</p>
+<section id="html" class="level3">
+<h3>HTML</h3>
+<p>I personally do everything in HTML because it’s the most flexible and easiest to get things looking the way you want. Presumably at some point these will simply be the default that people both use and expect in the academic realm, as there is little additional value that one can get with PDF or MS Word, and often notably less. Furthermore, academia is an anachronism. How much do you use PDF and Word for <em>anything</em> else relative to HTML?</p>
+</section>
+</section>
+<section id="text" class="level2">
+<h2>Text</h2>
+<p>Writing text in a R Markdown document is the same as anywhere else. There are a couple things you’ll use frequently though.</p>
+<ul>
+<li>Headers: Specified #, ##, ### etc. corresponding to H1 H2 H3 etc.</li>
+<li>Italics &amp; bold: *word* for italics **word** for bold. You can also use underscores (some flavors may require it).</li>
+<li>Lists: Start with a - or 1. and make sure the first element is separated from preceding text by a full blank line. Then separate each element by a line.</li>
+</ul>
+<pre><code>Some *text*.
+
+- List item 1
+- List item 2</code></pre>
+<p>That will pretty much cover most of your text needs. For those that know HTML &amp; CSS, you can use those throughout the text as you desire as well. For example, sometimes I need some extra space after a plot and will put in a <code>&lt;br&gt;</code>.</p>
+</section>
+<section id="code" class="level2">
+<h2>Code</h2>
+<section id="chunks" class="level3">
+<h3>Chunks</h3>
+<p>Along with text, the most common thing you’ll have is code. The code resides in a <span class="emph">chunk</span>, and looks like this.</p>
+<pre><code>```{r}
+x = rnorm(10)
+```</code></pre>
+<p>There is no limit to what you put in an R chunk. I don’t recommend it, but it could be hundreds of lines of code. You can put these anywhere within the document.</p>
+</section>
+<section id="in-line" class="level3">
+<h3>In-line</h3>
+<p>R code doesn’t have to be in a chunk. You can put it right in the middle of a sentence.</p>
+<pre><code>Here is a sentence whose sum is `r 2 + 2`.</code></pre>
+<pre><code>This sentence has a value of `r x[1]`.</code></pre>
+<p>When you knit the document, it will look like ordinary text because you aren’t using an R chunk:</p>
+<p>Here is a sentence whose sum is 4.</p>
+<p>This sentence has a value of -0.3941222.</p>
+<p>This effect of this in scientific reporting cannot be understated.</p>
+<blockquote>
+<p><strong>Your goal in writing a document should be to not explicitly write a single number that’s based on data.</strong></p>
+</blockquote>
+</section>
+<section id="labels" class="level3">
+<h3>Labels</h3>
+<p>All chunks should be given a label. This makes it easy to find it within your document because there are two outlines available to you. One that shows your text headers (to the right), and one that you can click to reveal that will also show your chunks (bottom left). If they just say Chunk 1, Chunk 2 etc., it doesn’t help you any. There is also some potential benefit in terms of caching, which we’ll discuss later.</p>
+<p><img src="img/chunk_outline.png" style="display:block; margin: 0 auto;"></p>
+</section>
+<section id="running-code" class="level3">
+<h3>Running code</h3>
+<p>You don’t have to knit the document to run the code, and often you’ll be using the results as you write the document. You can run a single chunk or multiple chunks. Use the shortcuts instead of the menu.</p>
+<p><img src="img/run_chunk.png" style="display:block; margin: 0 auto;" width=75%></p>
+<p>By default, when you knit the document all code will be run. Depending on a variety of factors, this may or may not be what you want to do, especially if it is time-consuming to do so. We’ll talk about how to deal with this issue in the next section.</p>
+</section>
+</section>
+<section id="multiple-documents" class="level2">
+<h2>Multiple documents</h2>
+<p>A single <code>.Rmd</code> file can call others, referred to as <span class="emph">child documents</span>, and when you knit that document you’ll have one single document with the content from all of them. You may want to consider other formats, such as <span class="emph">bookdown</span>, rather than doing this. Scrolling a lot is sometimes problematic, and not actually required for the presentation of material. It also makes the content take longer to load, because everything has to load<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>.</p>
+</section>
+<section id="collaboration" class="level2">
+<h2>Collaboration</h2>
+<p><span class="emph">R Notebooks</span> are a format one can use that might be more suitable for collaboration. They are identical to the standard HTML document in most respects, but chunks will by default print output in the Rmd file itself. For example, a graduate student could write up a notebook, and their advisor could then look at the document, change the code as needed etc. Of course, you could just do this with a standard R script as well.</p>
+<p>For more involved collaborations, I would suggest partitioning the sections into their own document, then use version control to merge respective contributions. Such a process was designed for code, but there’s no reason it wouldn’t work for a document in general, and in my experience, it has quite well.</p>
+
+</section>
+</section>
+<section id="common-considerations" class="level1">
+<h1>Common Considerations</h1>
+<p>In creating a document there several things that consistently come up that you’ll want to be aware of, and we’ll visit some of those here.</p>
+<section id="using-html" class="level2">
+<h2>Using HTML</h2>
+<p>The first thing to do is simply get used to HTML as your primary output. Unless you know something is to be printed you won’t gain anything but an uglier and/or less flexible document without having to put notably more effort into development.</p>
+</section>
+<section id="chunk-options" class="level2">
+<h2>Chunk options</h2>
+<p>A ridiculous number of <a href="https://yihui.name/knitr/options/">options</a> are available to you for each, or all chunks. Spend a little time to see what all is available. The options I commonly use are:</p>
+<ul>
+<li><code>echo</code>: controls whether and how you want to <em>show</em> your code</li>
+<li><code>eval</code>: controls whether and how you want to <em>run</em> your code</li>
+<li>figure controls: <code>fig.*</code> <code>out.*</code>etc.</li>
+</ul>
+<section id="setup-to-apply-to-all" class="level3">
+<h3>Setup to apply to all</h3>
+<p>Then there are other options that I set at the beginning of a document. The reason for doing so is because I will rarely, if ever, want these options changed. As such, I specify them at the beginning and only change as need be.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">echo =</span> T, <span class="dt">message=</span>F, <span class="dt">warning=</span>F, <span class="dt">error=</span>F, </a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">                      <span class="dt">comment=</span><span class="ot">NA</span>, <span class="dt">cache=</span>T, <span class="dt">R.options=</span><span class="kw">list</span>(<span class="dt">width=</span><span class="dv">220</span>), </a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">                      <span class="dt">fig.align=</span><span class="st">&#39;center&#39;</span>, <span class="dt">out.width=</span><span class="st">&#39;75%&#39;</span>, <span class="dt">fig.asp=</span>.<span class="dv">75</span>)</a></code></pre></div>
+<p>These options do things like make sure messages, warnings, and errors don’t show up in the document.<span class="marginnote">You can still get errors, and they will keep your document from compiling.</span> Note that any specific chunk options will override these. So, you’ll always have fine control over how things work.</p>
+<p>You can also specify options for the way <span class="pack">knitr</span> itself works. For example, Rmd documents by default ignore the fact that you are using an RStudio project, and instead work from wherever the Rmd file is. Using <code>root.dir</code> can correct this. There is also a global option you can set via the tools menu<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">knitr<span class="op">::</span>opts_knit<span class="op">$</span><span class="kw">set</span>(<span class="dt">root.dir =</span> <span class="st">&#39;../&#39;</span>, <span class="dt">child =</span> <span class="st">&#39;someotherdoc.Rmd&#39;</span>)</a></code></pre></div>
+</section>
+</section>
+<section id="image-options" class="level2">
+<h2>Image options</h2>
+<p>There are primarily three ways you’ll display images. Some will be the result of R code, possibly even interactive. In other instances, you’ll already have access to an image file and want to display it via markdown or HTML. Technically you could do this with R code as well, but it’d be more trouble than necessary, as markdown and HTML already provide the means.</p>
+<section id="r-graphics" class="level3">
+<h3>R graphics</h3>
+<p>Where to begin? There are many, many ways to manipulate an image that is produced by your R code, and this is not necessarily a good thing. Thankfully, the default settings may be enough, but in my experience it rarely is.</p>
+<section id="html-vs.others" class="level4">
+<h4>HTML vs. Others</h4>
+<p>To begin, there are different systems for PDF or MS Word vs. HTML-based documents. For non-HTML, the chunk options of <code>fig.width</code> and <code>fig.height</code> generally used for figure dimensions. Oddly, these are expressed in inches, but at least it is easy enough to manipulate to your liking. These will not affect interactive and possibly other images in HTML documents except in unexpected ways<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>. You can also supply <code>fig.width</code> plus <code>fig.asp</code> which will produce a height that is <code>fig.width*fig.asp</code>. There is also <code>fig.dim</code>, which will take the two values you would have specified for <code>fig.width</code> and <code>fig.height</code>. If you supply <code>fig.dim</code> with <code>fig.asp</code>, the latter will be ignored. If expressing size in inches doesn’t make sense to you, you can use <code>dpi</code>, which will allow you to know think of <code>dpi*out.width</code> as what to expect in terms of pixels. You also have <code>fig.align</code> with options like ‘left’ and ‘center’, but it apparently has no effect on <span class="pack">htmlwidgets</span> and similar packages that rely on other languages like JavaScript.</p>
+<p>Isn’t this fun? Here is some more.</p>
+<p>The <code>out.width</code> and <code>out.height</code> options are geared toward HTML-based visualization, and are expressed in pixels, or perhaps most usefully, percentages, but they will also affect other documents via <span class="math inline">\(\LaTeX\)</span>. There is also <code>out.extra</code> that will apply additional arguments (e.g. css/img styling). These <code>out.*</code> can also apply to Latex figures but I can’t figure out why. I also find that <code>out.height</code> actually does nothing in many cases. What’s more, you can use them alongside <code>fig.width</code> and <code>fig.height</code> to ensure you’ll have utterly no idea what will be produced in the finished product. The option <code>fig.retina</code> will only work for HTML documents, and will scale your image such that it will “change the chunk option dpi to dpi * fig.retina, and out.width to fig.width * dpi / fig.retina internally; for example, the physical size of an image is doubled and its display size is halved when fig.retina = 2”. Or it might not have any discernible effect that you can actually see in the document depending on your default settings.</p>
+<p>In the following, all of these arguments might have an effect on the resulting image.</p>
+<pre><code>``{r, fig.width=3, fig.height=4, out.width=&#39;30%&#39;, fig.retina=2}
+library(plotly)
+data %&gt;% 
+  plot_ly(width=500) %&gt;% # in pixels!
+  add_markers(~x, ~y)
+``</code></pre>
+<p>In short, for my typical usage, having all these options is nice, but mostly just confusing. See the summary for a simplified approach. In addition, there are many options, e.g. image file type, captions etc. that may come in handy.</p>
+<!-- ```{r} -->
+<!-- # fig.width default -->
+<!-- library(plotly) -->
+<!-- mtcars %>%  -->
+<!--   plot_ly(x=~wt, y=~mpg) -->
+<!-- ``` -->
+<!-- ```{r fig.width=2} -->
+<!-- # fig.width = 2 -->
+<!-- mtcars %>%  -->
+<!--   plot_ly(x=~wt, y=~mpg) -->
+<!-- ``` -->
+<!-- ```{r fig.height=2} -->
+<!-- # fig.height = 2; same as default -->
+<!-- mtcars %>%  -->
+<!--   plot_ly(x=~wt, y=~mpg) -->
+<!-- ``` -->
+<!-- ```{r fig.width=10} -->
+<!-- # fig.width = 10 -->
+<!-- mtcars %>%  -->
+<!--   plot_ly(x=~wt, y=~mpg) -->
+<!-- ``` -->
+</section>
+<section id="package-options" class="level4">
+<h4>Package options</h4>
+<p>As depicted in the above example, you often can modify the display settings of the plot with options of the visualization package you’re using. This will possibly override, or merely interact with, the chunk options, so use with caution.</p>
+</section>
+</section>
+<section id="markdown" class="level3">
+<h3>Markdown</h3>
+<p>Markdown provides a basic way to insert images into the document as follows.</p>
+<pre><code>![alt-text](img/myimage.png)</code></pre>
+<p>It’s identical to a link, just with an exclamation point. Unfortunately, that’s it. You can’t specify anything about the image, so it’s rarely going to be useful.</p>
+</section>
+<section id="img" class="level3">
+<h3>img</h3>
+<p>The typical way to insert an image is with HTML. This allows you to specify all the options you need to align and style it.</p>
+<pre><code>&lt;img src=&quot;img/myimage.png&quot; style=&quot;display:block; margin: 0 auto;&quot;&gt;</code></pre>
+<p>This should probably be your default approach to inserting images in your document that aren’t produced by R code.</p>
+</section>
+<section id="image-summary" class="level3">
+<h3>Image summary</h3>
+<p>If you are going to do PDF or MS Word, or doing static plots in HTML, <code>fig.width</code>, <code>fig.height</code>, and <code>fig.align</code> will likely take care of most of your needs. For HTML, I use <code>out.width</code> with a given percentage, plus <code>fig.asp</code>, and that has solved a lot of my remaining issues. For image files, I use <img> because the markdown approach is really too bare bones. I suggest you set your figure options at the beginning of the document so that your images will be consistent, and modify if necessary for a specific chunk. I don’t see much need for anything beyond svg and png, the latter if file size is a concern only. You’ll want scalable images, as provided by svg<span class="marginnote">The <span class="pack">svglite</span> package will create smaller svg files, and can be specified with <code>fig.dev</code> just like svg or png.</span>, because you don’t know what device people are using or if they want to zoom.</p>
+</section>
+</section>
+<section id="caching" class="level2">
+<h2>Caching</h2>
+<p><span class="emph">Caching</span> is both a great thing and continuous source of frustration. First, what is it? Caching saves the output of your R chunks into compressed files (*.RData) into a folder in the directory of your current project (or some sub-directory of your choosing). The next time you compile the document, you don’t actually have to run any code, if the code hasn’t changed; it will just call the cached object. When your document has a lot of computations, or in the spirit of reproducibility, actually runs your models, this will save a lot of time.</p>
+<p><img src="img/cache.png" style="display:block; margin: 0 auto;" width=50%></p>
+<p>However, this is not a straightforward process. When things change, the cache for the chunk must change. But what about subsequent chunks that depend on those results? The following is from the <span class="pack">knitr</span> package author Yihui Xie:</p>
+<blockquote>
+<p>Let me repeat the three factors that can affect cache (any change on them will invalidate old cache):</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>all chunk options except include; e.g. change tidy=TRUE to FALSE will break the old cache, but changing include will not affect R code in a chunk;</li>
+<li>a tiny change in the R code will lead to removal of old cache, even if it is a change of a space or a blank line</li>
+<li>the R option width (getOption(‘width’))</li>
+</ul>
+</blockquote>
+<p>I’ll add you also don’t typically cache an interactive visualization. You’ll often get a message to that effect if you try.</p>
+<p>However, things often don’t work the way you expect with caching. If something unexpected happens, and if you’re naming the chunks, you can easily find and delete the offending files. You can also rebuild the cache as needed by setting <code>cache-rebuild</code> to true. However, if you delete or change the name of the chunk, those files will have to be explicitly removed, because they’ll never be called again. There is a <code>depends-on</code> chunk option that will allow you to update a cache if whatever previous chunk a chunk depends on has changed. In theory. In practice, you should probably just put <code>auto.dep</code> to true and let <span class="pack">knitr</span> sort out such dependencies, and even then issues may arise. Finally, some packages simply don’t work well with caching, or the process of generating a document in general.<span class="marginnote">If you ever use <span class="pack">DiagrammeR</span> for visualization, let me save you a lot of headache and tell you to never cache the chunks where you use it. The results are mind-boggling if you do, but will sometimes miraculously fail even when you don’t.</span> Just know that as great a feature this is, odd things will happen at some point. When something about your document starts breaking or doing unexpected things, if you can’t see a code problem, assume it’s a cache problem, and delete and/or rebuild.</p>
+<p>I usually set cache to true, otherwise I’d be waiting minutes for some documents to compile every time. I set that as an option at the beginning, but at various points in development I’ll set <code>cache-rebuild=TRUE</code> to refresh everything<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>, and at times I’ll set it to rebuild specific chunks (e.g. the code might change, but underlying object has)<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>. I’ve gotten to where I will set cache to false as an option for the (entire) current page I’m working on, so that I don’t have to rebuild everything, but for something in a more fluid stage, I probably don’t want to cache at all.</p>
+</section>
+<section id="cleaning-up-output" class="level2">
+<h2>Cleaning up output</h2>
+<p>Several packages are available to make your R results look better. Here’s a default <span class="objclass">data.frame</span>, ugly.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">head</span>(mtcars)</a></code></pre></div>
+<pre><code>                   mpg cyl disp  hp drat    wt  qsec vs am gear carb
+Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+<p>One can start with <span class="pack">knitr’s</span> <span class="func">kable</span> to create simple tables that look much better.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">head</span>(mtcars))</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;">mpg</th>
+<th style="text-align: right;">cyl</th>
+<th style="text-align: right;">disp</th>
+<th style="text-align: right;">hp</th>
+<th style="text-align: right;">drat</th>
+<th style="text-align: right;">wt</th>
+<th style="text-align: right;">qsec</th>
+<th style="text-align: right;">vs</th>
+<th style="text-align: right;">am</th>
+<th style="text-align: right;">gear</th>
+<th style="text-align: right;">carb</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mazda RX4</td>
+<td style="text-align: right;">21.0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">160</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">3.90</td>
+<td style="text-align: right;">2.620</td>
+<td style="text-align: right;">16.46</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td>Mazda RX4 Wag</td>
+<td style="text-align: right;">21.0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">160</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">3.90</td>
+<td style="text-align: right;">2.875</td>
+<td style="text-align: right;">17.02</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td>Datsun 710</td>
+<td style="text-align: right;">22.8</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">108</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: right;">3.85</td>
+<td style="text-align: right;">2.320</td>
+<td style="text-align: right;">18.61</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td>Hornet 4 Drive</td>
+<td style="text-align: right;">21.4</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">258</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">3.08</td>
+<td style="text-align: right;">3.215</td>
+<td style="text-align: right;">19.44</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td>Hornet Sportabout</td>
+<td style="text-align: right;">18.7</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">360</td>
+<td style="text-align: right;">175</td>
+<td style="text-align: right;">3.15</td>
+<td style="text-align: right;">3.440</td>
+<td style="text-align: right;">17.02</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td>Valiant</td>
+<td style="text-align: right;">18.1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">225</td>
+<td style="text-align: right;">105</td>
+<td style="text-align: right;">2.76</td>
+<td style="text-align: right;">3.460</td>
+<td style="text-align: right;">20.22</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td><br></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
+<p>That was easy! For interactivity and a lot more options to play with, consider the <span class="pack">DT</span> package.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">DT<span class="op">::</span><span class="kw">datatable</span>(mtcars, </a>
+<a class="sourceLine" id="cb16-2" data-line-number="2">              <span class="dt">class =</span> <span class="st">&#39;nowrap&#39;</span>,</a>
+<a class="sourceLine" id="cb16-3" data-line-number="3">              <span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">autoWidth =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb16-4" data-line-number="4">                             <span class="dt">columnDefs=</span><span class="kw">list</span>(<span class="kw">list</span>(<span class="dt">width=</span><span class="st">&#39;150px&#39;</span>, <span class="dt">targets=</span><span class="dv">0</span>))))</a></code></pre></div>
+<div id="htmlwidget-67773780154bf90f6116" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-67773780154bf90f6116">{"x":{"filter":"none","data":[["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant","Duster 360","Merc 240D","Merc 230","Merc 280","Merc 280C","Merc 450SE","Merc 450SL","Merc 450SLC","Cadillac Fleetwood","Lincoln Continental","Chrysler Imperial","Fiat 128","Honda Civic","Toyota Corolla","Toyota Corona","Dodge Challenger","AMC Javelin","Camaro Z28","Pontiac Firebird","Fiat X1-9","Porsche 914-2","Lotus Europa","Ford Pantera L","Ferrari Dino","Maserati Bora","Volvo 142E"],[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2,17.8,16.4,17.3,15.2,10.4,10.4,14.7,32.4,30.4,33.9,21.5,15.5,15.2,13.3,19.2,27.3,26,30.4,15.8,19.7,15,21.4],[6,6,4,6,8,6,8,4,4,6,6,8,8,8,8,8,8,4,4,4,4,8,8,8,8,4,4,4,8,6,8,4],[160,160,108,258,360,225,360,146.7,140.8,167.6,167.6,275.8,275.8,275.8,472,460,440,78.7,75.7,71.1,120.1,318,304,350,400,79,120.3,95.1,351,145,301,121],[110,110,93,110,175,105,245,62,95,123,123,180,180,180,205,215,230,66,52,65,97,150,150,245,175,66,91,113,264,175,335,109],[3.9,3.9,3.85,3.08,3.15,2.76,3.21,3.69,3.92,3.92,3.92,3.07,3.07,3.07,2.93,3,3.23,4.08,4.93,4.22,3.7,2.76,3.15,3.73,3.08,4.08,4.43,3.77,4.22,3.62,3.54,4.11],[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44,3.44,4.07,3.73,3.78,5.25,5.424,5.345,2.2,1.615,1.835,2.465,3.52,3.435,3.84,3.845,1.935,2.14,1.513,3.17,2.77,3.57,2.78],[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3,18.9,17.4,17.6,18,17.98,17.82,17.42,19.47,18.52,19.9,20.01,16.87,17.3,15.41,17.05,18.9,16.7,16.9,14.5,15.5,14.6,18.6],[0,0,1,1,0,1,0,1,1,1,1,0,0,0,0,0,0,1,1,1,1,0,0,0,0,1,0,1,0,0,0,1],[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1],[4,4,4,3,3,3,3,4,4,4,4,3,3,3,3,3,3,4,4,4,3,3,3,3,3,4,5,5,5,5,5,4],[4,4,1,1,2,1,4,2,2,4,4,3,3,3,4,4,4,1,2,1,1,2,2,4,2,1,2,2,4,6,8,2]],"container":"<table class=\"nowrap\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>mpg<\/th>\n      <th>cyl<\/th>\n      <th>disp<\/th>\n      <th>hp<\/th>\n      <th>drat<\/th>\n      <th>wt<\/th>\n      <th>qsec<\/th>\n      <th>vs<\/th>\n      <th>am<\/th>\n      <th>gear<\/th>\n      <th>carb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":true,"columnDefs":[{"width":"150px","targets":0},{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p><br></p>
+<p><span class="marginnote">Often after displaying tables and figures you’ll want to put an extra line with &lt;br&gt; to give some more space before your next bit of text.</span> Even model objects can go straight to publication-ready tables with no effort on your part. The <span class="pack">broom</span> package works with many common model objects to convert their output to a <span class="objclass">data.frame</span> via <span class="func">tidy</span>. Then you can use <span class="pack">kable</span> or another package to pretty it up.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">broom<span class="op">::</span><span class="kw">tidy</span>(<span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>wt, mtcars)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb17-2" data-line-number="2"><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">37.29</td>
+<td style="text-align: right;">1.88</td>
+<td style="text-align: right;">19.86</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">wt</td>
+<td style="text-align: right;">-5.34</td>
+<td style="text-align: right;">0.56</td>
+<td style="text-align: right;">-9.56</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><br></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
+<p>The <span class="pack">pander</span> package provides more control over tables, but also can work with some model objects directly.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>wt, mtcars) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb18-2" data-line-number="2"><span class="st">  </span><span class="kw">summary</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb18-3" data-line-number="3"><span class="st">  </span>pander<span class="op">::</span><span class="kw">pander</span>(<span class="dt">round=</span><span class="dv">2</span>, <span class="dt">justify=</span><span class="st">&#39;lrrrr&#39;</span>, <span class="dt">caption=</span><span class="st">&#39;Regression results&#39;</span>)</a></code></pre></div>
+<table style="width:86%;">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 15%" />
+<col style="width: 18%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"> </th>
+<th style="text-align: right;">Estimate</th>
+<th style="text-align: right;">Std. Error</th>
+<th style="text-align: right;">t value</th>
+<th style="text-align: right;">Pr(&gt;|t|)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>(Intercept)</strong></td>
+<td style="text-align: right;">37.29</td>
+<td style="text-align: right;">1.88</td>
+<td style="text-align: right;">19.86</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>wt</strong></td>
+<td style="text-align: right;">-5.34</td>
+<td style="text-align: right;">0.56</td>
+<td style="text-align: right;">-9.56</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<table style="width:86%;">
+<caption>Regression results</caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 30%" />
+<col style="width: 12%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Observations</th>
+<th style="text-align: center;">Residual Std. Error</th>
+<th style="text-align: center;"><span class="math inline">\(R^2\)</span></th>
+<th style="text-align: center;">Adjusted <span class="math inline">\(R^2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">3.046</td>
+<td style="text-align: center;">0.7528</td>
+<td style="text-align: center;">0.7446</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>For converting such things to <span class="math inline">\(\LaTeX\)</span> syntax, you will want to look at <span class="pack">xtable</span>, <span class="pack">stargazer</span>, and <span class="pack">Hmisc</span>.<span class="marginnote">Even if you don’t need interactivity, I would add <span class="pack">DT</span> to your regular toolbox for tables, especially for HTML documents.</span></p>
+<p>In summary, you can get to publication ready results with figures, tables and text by just using the standard options or available packages, without having to go through the usual tedium.</p>
+
+</section>
+</section>
+<section id="customization-configuration" class="level1">
+<h1>Customization &amp; Configuration</h1>
+<p>Now that you have a document ready to go, you’ll want to customize it to make it look the way you want. There is basically nothing you can’t change by using R packages to enhance output, custom themes to control the overall look, and various other aspects which all can be fiddled with to your liking.</p>
+<section id="output-options" class="level2">
+<h2>Output options</h2>
+<p>The basic document comes with several options to apply to your output. You’ll find a cog wheel in the toolbar area underneath the tabs.</p>
+<p><img src="img/knitr_output_opts.png" style="display:block; margin: 0 auto;" width='50%'></p>
+<p>Note that the inline vs. console stuff mostly just has to do with the actual .Rmd file, not the output, so we’re going to ignore it<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a>. Within the options you can apply some default settings to images, code, and more.</p>
+<section id="themes-etc." class="level3">
+<h3>Themes etc.</h3>
+<p>As a first step, simply play around with the <span class="emph">themes</span> you already have available. For quick, one-off documents that you want to share without a lot of fuss, choosing one of these will make your document look good without breaking a sweat.</p>
+<p><img src="img/theme_dropdown.png" style="display:block; margin: 0 auto;" width='50%'></p>
+<p>As another example, choose a new code style with the syntax highlighting. If you have headings in your current document, go ahead and turn on table of contents.</p>
+<p>For many of the things you do, these changing the defaults this way may be enough. So be familiar with your options.</p>
+<p>After making your selections, now see what has changed at the top of your document. You might see something like the following.</p>
+<p><img src="img/selected_options.png" style="display:block; margin: 0 auto;" width='50%'></p>
+<p>I’m sure you’ve been wondering at this point, so what is that stuff anyway? That is <span class="emph">YAML</span>.<span class="marginnote"><a href="https://en.wikipedia.org/wiki/YAML">YAML</a> used to stand for Yet Another Markup Language, and now stands for YAML Aint Markup Language, presumably for reasons no one but the developers care about.</span> So let’s see what’s going on.</p>
+</section>
+</section>
+<section id="yaml" class="level2">
+<h2>YAML</h2>
+<p>For the purposes of starting out, all you really need to know is that YAML is like configuration code for your document. You can see that it specifies what the output is, and whatever options you selected previously. You can change the title, add a date etc. There is a lot of other stuff too. Here is the YAML for this document.</p>
+<p><img src="img/yaml.png" style="display:block; margin: 0 auto;" width='100%' height='150%'></p>
+<p>Clearly there is a lot to play with, but it will depend on the type of document you’re doing. For example, the <code>always_allow_html: yes</code> is pointless for an HTML document, but would allow certain things to be (very likely poorly) attempted in a PDF or Word document. Other options <em>only</em> make sense for bookdown documents.</p>
+<p>There a lot more available too, as YAML is a programming syntax all its own. So how deep you want to get into is up to you. The best way, just like learning R Markdown generally, is to simply see what others do and apply to your own. It may take a bit of trial and error, but you’ll eventually get the hang of it.</p>
+</section>
+<section id="html-css" class="level2">
+<h2>HTML &amp; CSS</h2>
+<section id="html-1" class="level3">
+<h3>HTML</h3>
+<p>Knowing some basic HTML can add little things to your document to make it look better. As a minimal example, here is a plot followed by text.</p>
+<div id="16f6042de42d2" style="width:50%;height:504px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="16f6042de42d2">{"x":{"visdat":{"16f6055975734":["function () ","plotlyVisDat"]},"cur_data":"16f6055975734","attrs":{"16f6055975734":{"x":{},"y":{},"alpha":1,"sizes":[10,100],"type":"scatter","mode":"lines","color":["#00aaff"],"showlegend":false,"opacity":0.5},"16f6055975734.1":{"x":{},"y":{},"alpha":1,"sizes":[10,100],"type":"scatter","mode":"lines","color":["#ff5500"],"showlegend":false}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"zeroline":false,"showgrid":false,"title":"x2"},"yaxis":{"domain":[0,1],"zeroline":false,"showgrid":false,"title":"y"},"plot_bgcolor":"transparent","paper_bgcolor":"transparent","hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":[{"name":"Collaborate","icon":{"width":1000,"ascent":500,"descent":-50,"path":"M487 375c7-10 9-23 5-36l-79-259c-3-12-11-23-22-31-11-8-22-12-35-12l-263 0c-15 0-29 5-43 15-13 10-23 23-28 37-5 13-5 25-1 37 0 0 0 3 1 7 1 5 1 8 1 11 0 2 0 4-1 6 0 3-1 5-1 6 1 2 2 4 3 6 1 2 2 4 4 6 2 3 4 5 5 7 5 7 9 16 13 26 4 10 7 19 9 26 0 2 0 5 0 9-1 4-1 6 0 8 0 2 2 5 4 8 3 3 5 5 5 7 4 6 8 15 12 26 4 11 7 19 7 26 1 1 0 4 0 9-1 4-1 7 0 8 1 2 3 5 6 8 4 4 6 6 6 7 4 5 8 13 13 24 4 11 7 20 7 28 1 1 0 4 0 7-1 3-1 6-1 7 0 2 1 4 3 6 1 1 3 4 5 6 2 3 3 5 5 6 1 2 3 5 4 9 2 3 3 7 5 10 1 3 2 6 4 10 2 4 4 7 6 9 2 3 4 5 7 7 3 2 7 3 11 3 3 0 8 0 13-1l0-1c7 2 12 2 14 2l218 0c14 0 25-5 32-16 8-10 10-23 6-37l-79-259c-7-22-13-37-20-43-7-7-19-10-37-10l-248 0c-5 0-9-2-11-5-2-3-2-7 0-12 4-13 18-20 41-20l264 0c5 0 10 2 16 5 5 3 8 6 10 11l85 282c2 5 2 10 2 17 7-3 13-7 17-13z m-304 0c-1-3-1-5 0-7 1-1 3-2 6-2l174 0c2 0 4 1 7 2 2 2 4 4 5 7l6 18c0 3 0 5-1 7-1 1-3 2-6 2l-173 0c-3 0-5-1-8-2-2-2-4-4-4-7z m-24-73c-1-3-1-5 0-7 2-2 3-2 6-2l174 0c2 0 5 0 7 2 3 2 4 4 5 7l6 18c1 2 0 5-1 6-1 2-3 3-5 3l-174 0c-3 0-5-1-7-3-3-1-4-4-5-6z"},"click":"function(gd) { \n        // is this being viewed in RStudio?\n        if (location.search == '?viewer_pane=1') {\n          alert('To learn about plotly for collaboration, visit:\\n https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html');\n        } else {\n          window.open('https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html', '_blank');\n        }\n      }"}],"cloud":false,"displayModeBar":false},"data":[{"x":[0.00243002804927528,0.0037566211540252,0.00469380174763501,0.00776011124253273,0.0109878208022565,0.011006185086444,0.01376544800587,0.0141931849066168,0.0187062439508736,0.0193553727585822,0.0199701862875372,0.0211194523144513,0.0230820942670107,0.0231436346657574,0.0248870409559458,0.0344958372879773,0.0412894098553807,0.0428420002572238,0.0436729846987873,0.0438281702809036,0.046319181798026,0.0464691559318453,0.046999721089378,0.0474494779482484,0.0482513415627182,0.0485738883726299,0.052931769285351,0.0564198372885585,0.0567030378151685,0.0585269595030695,0.0621340426150709,0.0638696989044547,0.0683919657021761,0.0767206428572536,0.0815563849173486,0.0827445380855352,0.0965279007796198,0.0971683680545539,0.0979130293708295,0.0986082116141915,0.105134858284146,0.107327086385339,0.111963601550087,0.113031634362414,0.121718037407845,0.13565122243017,0.140400072326884,0.142541556619108,0.144797068089247,0.144928679103032,0.145341960014775,0.147331925341859,0.152836847817525,0.156431584386155,0.160058798035607,0.161110735032707,0.168098299298435,0.168110256781802,0.169724103529006,0.172773763770238,0.175138169666752,0.175888973521069,0.176287680864334,0.176301236031577,0.178676563082263,0.181402300018817,0.186093627940863,0.186159081058577,0.188482278259471,0.192404872272164,0.202800581697375,0.203227800084278,0.204967832425609,0.205158811528236,0.205399121390656,0.206519584171474,0.209820742486045,0.212681511882693,0.213033156702295,0.217048150720075,0.217660818714648,0.218050710856915,0.218906185124069,0.224632849683985,0.227570560062304,0.228924217168242,0.230692692333832,0.233311112737283,0.234332886058837,0.235103332204744,0.236370272934437,0.239226705627516,0.242851386079565,0.242895174538717,0.246284225489944,0.250685954699293,0.253684028983116,0.254982303828001,0.256517794914544,0.258670860435814,0.259614586597309,0.262150968657807,0.263186529045925,0.263732135063037,0.263799354899675,0.265312931500375,0.26552978460677,0.268168490612879,0.27218667906709,0.27487709838897,0.27526017348282,0.276079938048497,0.277147132903337,0.277160983765498,0.280075839720666,0.284684867365286,0.284768722951412,0.284826694987714,0.287739361636341,0.288013589102775,0.289672575192526,0.290092785842717,0.290855037979782,0.294003825634718,0.298290451290086,0.299035706790164,0.303859838983044,0.309204444056377,0.310016080969945,0.312667175661772,0.313993177609518,0.314034767914563,0.315713984891772,0.319972579600289,0.32298534992151,0.323068338213488,0.32306878385134,0.323586645768955,0.330874118953943,0.331414634594694,0.332745271502063,0.333576652221382,0.334181379759684,0.334507134277374,0.335810946067795,0.336644879542291,0.336921643000096,0.337609175825492,0.337859115330502,0.337884951150045,0.339529491728172,0.346194451209158,0.347168949898332,0.34739876491949,0.353196596493945,0.353246222715825,0.355453401105478,0.35607932577841,0.360544128809124,0.360624951077625,0.363429744262248,0.365325442515314,0.369151413440704,0.369201769353822,0.370249493047595,0.371609839145094,0.373208568431437,0.37912855274044,0.380098995286971,0.380532593699172,0.383044358808547,0.387446801178157,0.390945157036185,0.391972851473838,0.393429458839819,0.394748654449359,0.398491561878473,0.398774396628141,0.401317838346586,0.402582078473642,0.40403478872031,0.405039719538763,0.407855554483831,0.410646160598844,0.418407559162006,0.418798605911434,0.419623592169955,0.419789949897677,0.421027575619519,0.425602514063939,0.426317948149517,0.430223166942596,0.431316935922951,0.435683599906042,0.457549655344337,0.458435480250046,0.466605798108503,0.466863912297413,0.467972817830741,0.468744570156559,0.473137043882161,0.473544228356332,0.481630887137726,0.483717560069636,0.484905889490619,0.489805563353002,0.492360285483301,0.497609188314527,0.499777539633214,0.500076224561781,0.501822618534788,0.502689588116482,0.504778246162459,0.506330961827189,0.50712964287959,0.507919769501314,0.508727037347853,0.511103099677712,0.513261591549963,0.517134191701189,0.517895301338285,0.518941999413073,0.519261147128418,0.523864764953032,0.527195037342608,0.531905068317428,0.541384112089872,0.545332059497014,0.551710724132136,0.555274635320529,0.555300362175331,0.557484762975946,0.562603363068774,0.572080560959876,0.583855088567361,0.5867339593824,0.587271712487563,0.587480396032333,0.590905985562131,0.594632152235135,0.596331147011369,0.603869210230187,0.60391555307433,0.605421715881675,0.609147437382489,0.610082012135535,0.610875395592302,0.611433695303276,0.612740831682459,0.61441266676411,0.617461443413049,0.618584014009684,0.626538938842714,0.628332863328978,0.633529810002074,0.634732432663441,0.637341546127573,0.646483430638909,0.649535954929888,0.656050642253831,0.658797375624999,0.66019898140803,0.660782594233751,0.66251013497822,0.666958418907598,0.670850177993998,0.672851465176791,0.673402813030407,0.676139579154551,0.67775652371347,0.678226803429425,0.681449494324625,0.682836069958284,0.684327265014872,0.692239667987451,0.69403143087402,0.69506670255214,0.695146242156625,0.695481585338712,0.697955038631335,0.699153031921014,0.706673902692273,0.706847889814526,0.706851720111445,0.707390532130376,0.707832018844783,0.715846703154966,0.717070970451459,0.718313785037026,0.721278487006202,0.72267406177707,0.722954398021102,0.727548986673355,0.730773119488731,0.731073430739343,0.732470459770411,0.733330514747649,0.738399479305372,0.738960025599226,0.740726875141263,0.743108244845644,0.745885163312778,0.749424168374389,0.751879109535366,0.752255497034639,0.752478929236531,0.756890079705045,0.760063332738355,0.760070241987705,0.761384061072022,0.761860239086673,0.762075169710442,0.765622479841113,0.766447488684207,0.767270976910368,0.776127114193514,0.777711265254766,0.778935784474015,0.783892067382112,0.784528114832938,0.786289136856794,0.787573565496132,0.791533776791766,0.792998879915103,0.793271696893498,0.793704258045182,0.796789653133601,0.797311280854046,0.798146769870073,0.800108853494748,0.80163831403479,0.806001955876127,0.811458472162485,0.814752796432003,0.818698663031682,0.819231344619766,0.820548748131841,0.821259105112404,0.826191496802494,0.827898241346702,0.831175230443478,0.833599195117131,0.839277900522575,0.845152436522767,0.850383852608502,0.850653604837134,0.854334061499685,0.857481377664953,0.857541089178994,0.869200773304328,0.870814049383625,0.872502921614796,0.875192830339074,0.875989815918729,0.878796432400122,0.87899026600644,0.883851090213284,0.888977529481053,0.89233251218684,0.893030403181911,0.893765700282529,0.895806203130633,0.89661921444349,0.901699571404606,0.90482268249616,0.906926607014611,0.912094128550962,0.913316145772114,0.914398554246873,0.915656133787706,0.916072278283536,0.921276411041617,0.921582425013185,0.924537121318281,0.925596832297742,0.926341099664569,0.928428723709658,0.930294792400673,0.933000861899927,0.933492040960118,0.934394479496405,0.934985900530592,0.942468715598807,0.94367106910795,0.943718875991181,0.946420106803998,0.946524565573782,0.948841030243784,0.952452348312363,0.962837579194456,0.966363643994555,0.969260162906721,0.976744434796274,0.9772497958038,0.98370937933214,0.98452406632714,0.988199292682111,0.991397577570751,0.995976965641603,0.998860933352262],"y":[4.98534007278232,1.2224021128849,-1.74283468773707,3.2843534130865,4.9842368634152,5.48689309807822,7.77094611526625,6.87625083756175,0.450660487136588,7.10644964572741,3.81756946811333,7.51348872414085,5.29070815447098,10.2419889458056,5.25574296442933,1.5964463429614,7.35112243306753,0.0369715108444399,10.5722058975205,7.87577835827766,11.3406218929502,5.5159364780329,3.86652379223644,4.53006149761879,4.260993489699,3.88299444837162,6.21921829740288,0.567640732927342,5.73787472963672,7.56948840374471,4.56004424820509,0.60719904234178,2.77622853569194,6.51307391840406,6.71653808317711,7.87420347537929,7.99023095437179,3.86617880146484,10.1785290764127,5.32712566539053,3.51567808364864,9.23679514394686,6.30998379655857,4.14327075817671,6.77296647514222,9.52673358781235,12.2670984234448,12.5940785827054,14.0951677423779,6.31679444698494,9.58972202036218,8.06129067205777,8.09934249643093,14.2829291353597,9.51344401625855,9.12262995477143,15.626230295732,11.3543534992848,9.81447648371976,14.8087918570218,9.26467557964139,17.6768621863495,15.5915293696001,12.4844226513916,13.9814474829113,10.4774914367966,12.5548539208691,12.2760147366112,13.0469552981348,9.52100649726716,11.9029518298978,18.2189547269534,11.7242560985281,11.4603394081801,10.3620257395447,11.7209259305451,11.8167905870237,17.7864662834768,13.0776450474139,9.41667570223703,12.2010038492936,15.1233572786359,15.8972913463456,10.7153311757027,15.655945301185,15.7195118066196,12.0277018632464,13.2467562657489,12.8587366941894,13.9391629175763,13.0746613496986,13.5618394549989,10.3935688740786,15.7746896911949,17.1741528872127,10.1267401228019,15.429371358241,14.6561288259176,13.2206999017956,15.3135705269608,12.9631712096377,17.9002810049025,11.8849261161312,15.3813742003712,10.7311345468584,10.7710768437018,15.7165189683023,14.3285758369909,11.9623987344862,10.0097438878834,15.7329177482214,11.9314546167194,13.389003580656,11.0813580454722,15.4501094880653,16.8179948582245,14.2504373682754,10.9699568044797,15.866572047419,10.9949105329544,11.367420043322,11.9146838996473,15.9926727086455,6.42789730755123,11.2100994264769,21.6838277412967,6.10946045268876,7.34799147450745,12.1401093672734,12.4241514514506,14.2458262004734,10.9201673740942,12.8077032507345,10.9759867423883,10.8312588673436,10.0855126474164,17.3409340749228,7.27502231371526,12.3957348444029,6.83899341835623,13.6370499804474,7.76190466338532,9.90471031404245,8.70610349002254,10.0659770799947,9.1359302431499,12.9650954958377,12.3525723115476,9.98846893664452,9.09588247432039,8.46318607092932,10.252617016887,6.64172178875549,7.78583434910385,9.14890297448961,9.01149123301414,9.6256784199926,10.4538329105635,12.9125977854562,9.94703943920524,10.3906008478493,8.78885214127255,7.79284262694566,11.045015206072,10.7411269893939,7.55311950592473,10.9616164765947,10.2019061439806,4.67712682643982,5.73002304779254,6.32184629349038,12.6044702392926,4.19894279240814,9.24215971652684,7.54768044433208,6.96601865635827,11.9146089747655,5.14409822005107,8.67360413786431,10.773058109156,8.94005102416081,5.49056216368895,4.67671706020829,6.95108653769715,7.29313913909152,12.6105419924141,7.94065000638466,7.10690155814209,7.67586326866716,4.12296922742393,5.18291974683495,5.66260973550509,12.4933122318913,5.01317371393685,6.23738112439416,6.3574037005939,4.09080892597524,6.80780623670306,5.69445359885832,9.22240921255069,3.98595060514637,5.81990793430472,4.86653867155234,9.97469959837267,8.1805309596409,9.9270333208175,9.16814023512463,4.183736297527,7.25951303078455,10.0762490292855,4.98904130328496,9.1088667459336,7.03583154420569,8.2444368001472,4.70783965282058,7.92207466861023,6.63672746558738,4.894296595988,6.13823163377903,10.6918937497146,8.41609229058517,5.05294283062598,11.2173897311781,6.29539330376951,5.11008168310764,12.1603249772007,11.2618858871065,5.89228910935668,5.59751209338219,3.82562092170093,5.73148818272672,3.10736196264869,6.81497410513487,10.8215127338994,4.68666530271218,3.39214622733913,5.25200940024388,3.41336623078854,10.8464598148188,9.26884316934466,5.00333185225512,13.1709315909273,3.10727399754325,6.87500779200813,7.41683516936757,2.94899472894109,7.79822193054502,3.46011420114573,11.2644971953533,2.0186903092511,6.16136759606467,3.72890693166804,8.7228607131497,6.59844874751916,6.54816308033034,6.39464157919283,2.86164876337983,8.41147230080671,6.33065236671152,9.91052030478243,3.51136079159036,7.22885761035111,3.7445550492721,2.27700117075528,9.51159265333769,7.13161906842927,5.06149817950589,6.00680662655666,6.47479758658682,10.4890034825089,8.1919771999183,8.74240462033311,8.48390454202361,6.06650419958242,8.77186828702892,8.67016634285918,6.50327750300553,8.03307270230091,9.1438964390073,13.7422881031895,8.36296402926892,4.42833552149998,7.19844435315412,6.96271852087033,11.2809840169761,10.910160775901,4.53926593448634,1.2667913151206,1.66612090428695,7.71697031966891,11.6956635873169,9.86822669928133,6.4133860998248,4.01960995146897,7.98128065748673,9.63556959154027,9.26973138498542,5.89557223118396,4.64157069859931,7.28234709082702,4.26882442843399,1.84793239804903,5.98176206231554,8.6610791946403,8.85010969296315,7.33027749264748,5.61808895131635,8.60687265607223,3.52947529787386,3.50320829088431,3.80553735477489,3.702391280861,12.9609828396109,8.06925958496527,1.78271679799656,8.3528520586878,5.11928493485385,6.65518646864813,8.34014766518608,3.41035593369605,10.5951706331538,6.48966991148019,7.63792854117641,0.292727587988346,9.81085862871759,5.3550243867623,4.240116749434,3.96051940609249,6.03032278588614,2.01743185223259,7.31028402142905,5.17572691020249,6.47866561374117,6.26809019486106,0.792140412568414,9.43578566459639,-0.766290554518026,10.19304514101,4.66465258203766,5.3073904744084,10.1025215283467,6.64202261930921,9.87826113311985,4.28169041876004,9.51830713098534,2.81583521509483,4.8917650816335,6.76359933466572,11.9108725006156,-1.20652388811777,3.69014287139972,-0.223583795530756,3.68822436873733,-0.0438641698768485,6.51732645992955,5.3744243142176,2.50522101501773,3.60750816085338,1.58450505867424,7.08793708457513,-0.247294906402566,4.3615368997678,2.46928501616418,0.751816290699349,6.90413993670073,8.80305645777656,9.3971480211793,4.9205757796539,6.17437887420446,5.41030958343853,1.20479111188314,8.33796013861672,5.4491154854237,9.87798362959815,6.32305285502792,-1.40637795703796,2.5560945288659,4.91720607155191,6.02083400174986,3.15597804503269,3.67429787604787,5.04522398627488,10.1804778664656,3.45948898471183,7.36894180362849,9.56972146730443,7.36453984711449,10.2716655764861,2.41729912019609,6.01956783044462,6.12406889518378,3.7276610100458,2.04886982476815,-2.11519862382136,4.22986969053979,1.42727098236905,0.693739577765315,4.02989173219588,3.21871293148534,1.11692276778342],"type":"scatter","mode":"lines","showlegend":false,"opacity":0.5,"line":{"fillcolor":"rgba(0,170,255,1)","color":"rgba(0,170,255,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[0.00243002804927528,0.0037566211540252,0.00469380174763501,0.00776011124253273,0.0109878208022565,0.011006185086444,0.01376544800587,0.0141931849066168,0.0187062439508736,0.0193553727585822,0.0199701862875372,0.0211194523144513,0.0230820942670107,0.0231436346657574,0.0248870409559458,0.0344958372879773,0.0412894098553807,0.0428420002572238,0.0436729846987873,0.0438281702809036,0.046319181798026,0.0464691559318453,0.046999721089378,0.0474494779482484,0.0482513415627182,0.0485738883726299,0.052931769285351,0.0564198372885585,0.0567030378151685,0.0585269595030695,0.0621340426150709,0.0638696989044547,0.0683919657021761,0.0767206428572536,0.0815563849173486,0.0827445380855352,0.0965279007796198,0.0971683680545539,0.0979130293708295,0.0986082116141915,0.105134858284146,0.107327086385339,0.111963601550087,0.113031634362414,0.121718037407845,0.13565122243017,0.140400072326884,0.142541556619108,0.144797068089247,0.144928679103032,0.145341960014775,0.147331925341859,0.152836847817525,0.156431584386155,0.160058798035607,0.161110735032707,0.168098299298435,0.168110256781802,0.169724103529006,0.172773763770238,0.175138169666752,0.175888973521069,0.176287680864334,0.176301236031577,0.178676563082263,0.181402300018817,0.186093627940863,0.186159081058577,0.188482278259471,0.192404872272164,0.202800581697375,0.203227800084278,0.204967832425609,0.205158811528236,0.205399121390656,0.206519584171474,0.209820742486045,0.212681511882693,0.213033156702295,0.217048150720075,0.217660818714648,0.218050710856915,0.218906185124069,0.224632849683985,0.227570560062304,0.228924217168242,0.230692692333832,0.233311112737283,0.234332886058837,0.235103332204744,0.236370272934437,0.239226705627516,0.242851386079565,0.242895174538717,0.246284225489944,0.250685954699293,0.253684028983116,0.254982303828001,0.256517794914544,0.258670860435814,0.259614586597309,0.262150968657807,0.263186529045925,0.263732135063037,0.263799354899675,0.265312931500375,0.26552978460677,0.268168490612879,0.27218667906709,0.27487709838897,0.27526017348282,0.276079938048497,0.277147132903337,0.277160983765498,0.280075839720666,0.284684867365286,0.284768722951412,0.284826694987714,0.287739361636341,0.288013589102775,0.289672575192526,0.290092785842717,0.290855037979782,0.294003825634718,0.298290451290086,0.299035706790164,0.303859838983044,0.309204444056377,0.310016080969945,0.312667175661772,0.313993177609518,0.314034767914563,0.315713984891772,0.319972579600289,0.32298534992151,0.323068338213488,0.32306878385134,0.323586645768955,0.330874118953943,0.331414634594694,0.332745271502063,0.333576652221382,0.334181379759684,0.334507134277374,0.335810946067795,0.336644879542291,0.336921643000096,0.337609175825492,0.337859115330502,0.337884951150045,0.339529491728172,0.346194451209158,0.347168949898332,0.34739876491949,0.353196596493945,0.353246222715825,0.355453401105478,0.35607932577841,0.360544128809124,0.360624951077625,0.363429744262248,0.365325442515314,0.369151413440704,0.369201769353822,0.370249493047595,0.371609839145094,0.373208568431437,0.37912855274044,0.380098995286971,0.380532593699172,0.383044358808547,0.387446801178157,0.390945157036185,0.391972851473838,0.393429458839819,0.394748654449359,0.398491561878473,0.398774396628141,0.401317838346586,0.402582078473642,0.40403478872031,0.405039719538763,0.407855554483831,0.410646160598844,0.418407559162006,0.418798605911434,0.419623592169955,0.419789949897677,0.421027575619519,0.425602514063939,0.426317948149517,0.430223166942596,0.431316935922951,0.435683599906042,0.457549655344337,0.458435480250046,0.466605798108503,0.466863912297413,0.467972817830741,0.468744570156559,0.473137043882161,0.473544228356332,0.481630887137726,0.483717560069636,0.484905889490619,0.489805563353002,0.492360285483301,0.497609188314527,0.499777539633214,0.500076224561781,0.501822618534788,0.502689588116482,0.504778246162459,0.506330961827189,0.50712964287959,0.507919769501314,0.508727037347853,0.511103099677712,0.513261591549963,0.517134191701189,0.517895301338285,0.518941999413073,0.519261147128418,0.523864764953032,0.527195037342608,0.531905068317428,0.541384112089872,0.545332059497014,0.551710724132136,0.555274635320529,0.555300362175331,0.557484762975946,0.562603363068774,0.572080560959876,0.583855088567361,0.5867339593824,0.587271712487563,0.587480396032333,0.590905985562131,0.594632152235135,0.596331147011369,0.603869210230187,0.60391555307433,0.605421715881675,0.609147437382489,0.610082012135535,0.610875395592302,0.611433695303276,0.612740831682459,0.61441266676411,0.617461443413049,0.618584014009684,0.626538938842714,0.628332863328978,0.633529810002074,0.634732432663441,0.637341546127573,0.646483430638909,0.649535954929888,0.656050642253831,0.658797375624999,0.66019898140803,0.660782594233751,0.66251013497822,0.666958418907598,0.670850177993998,0.672851465176791,0.673402813030407,0.676139579154551,0.67775652371347,0.678226803429425,0.681449494324625,0.682836069958284,0.684327265014872,0.692239667987451,0.69403143087402,0.69506670255214,0.695146242156625,0.695481585338712,0.697955038631335,0.699153031921014,0.706673902692273,0.706847889814526,0.706851720111445,0.707390532130376,0.707832018844783,0.715846703154966,0.717070970451459,0.718313785037026,0.721278487006202,0.72267406177707,0.722954398021102,0.727548986673355,0.730773119488731,0.731073430739343,0.732470459770411,0.733330514747649,0.738399479305372,0.738960025599226,0.740726875141263,0.743108244845644,0.745885163312778,0.749424168374389,0.751879109535366,0.752255497034639,0.752478929236531,0.756890079705045,0.760063332738355,0.760070241987705,0.761384061072022,0.761860239086673,0.762075169710442,0.765622479841113,0.766447488684207,0.767270976910368,0.776127114193514,0.777711265254766,0.778935784474015,0.783892067382112,0.784528114832938,0.786289136856794,0.787573565496132,0.791533776791766,0.792998879915103,0.793271696893498,0.793704258045182,0.796789653133601,0.797311280854046,0.798146769870073,0.800108853494748,0.80163831403479,0.806001955876127,0.811458472162485,0.814752796432003,0.818698663031682,0.819231344619766,0.820548748131841,0.821259105112404,0.826191496802494,0.827898241346702,0.831175230443478,0.833599195117131,0.839277900522575,0.845152436522767,0.850383852608502,0.850653604837134,0.854334061499685,0.857481377664953,0.857541089178994,0.869200773304328,0.870814049383625,0.872502921614796,0.875192830339074,0.875989815918729,0.878796432400122,0.87899026600644,0.883851090213284,0.888977529481053,0.89233251218684,0.893030403181911,0.893765700282529,0.895806203130633,0.89661921444349,0.901699571404606,0.90482268249616,0.906926607014611,0.912094128550962,0.913316145772114,0.914398554246873,0.915656133787706,0.916072278283536,0.921276411041617,0.921582425013185,0.924537121318281,0.925596832297742,0.926341099664569,0.928428723709658,0.930294792400673,0.933000861899927,0.933492040960118,0.934394479496405,0.934985900530592,0.942468715598807,0.94367106910795,0.943718875991181,0.946420106803998,0.946524565573782,0.948841030243784,0.952452348312363,0.962837579194456,0.966363643994555,0.969260162906721,0.976744434796274,0.9772497958038,0.98370937933214,0.98452406632714,0.988199292682111,0.991397577570751,0.995976965641603,0.998860933352262],"y":[4.2439667814661,4.2688541702006,4.28643783342642,4.34401041264768,4.4047777333339,4.4051242376894,4.45732819385577,4.46545066903179,4.55185540403283,4.56441454007959,4.57634643487792,4.59875395769681,4.63736902001843,4.63858762041825,4.6733277806793,4.87470102191264,5.03103665113432,5.06883066229944,5.08940877704057,5.09327945762594,5.1566448238872,5.16053580828564,5.17437216219062,5.18618882665834,5.20745870481105,5.2160882789692,5.33697300311327,5.43975512158779,5.44834516850363,5.50457219471245,5.62046773732387,5.67850732806003,5.83682941753305,6.15587629071992,6.35777205315448,6.4092677228694,7.0604058077712,7.09302765868634,7.13121576720491,7.16711655052947,7.51555706376848,7.63701477138549,7.90068348503647,7.96265571333556,8.48176289449406,9.35620699566978,9.66112630752114,9.79913132216118,9.94461981061191,9.9531101467713,9.97977042287867,10.1080918930779,10.4617793330185,10.6907279870553,10.9192138950564,10.9848876713836,11.4125269521642,11.4132439971196,11.5094928587895,11.6883236115635,11.8239699718705,11.8664543576643,11.8888952644447,11.8896567240018,12.0215430596682,12.1689027215433,12.4116587235093,12.4149423157174,12.529548349337,12.7141050426416,13.1430394207335,13.1586407384853,13.2204247389582,13.2270320896101,13.2352968461005,13.2731024887556,13.3773943273664,13.4590100128951,13.4684698905959,13.5674379891109,13.5810614921899,13.5895252649289,13.6075327277599,13.7079883174638,13.7458180293622,13.7600940394334,13.7757352204572,13.7926248890404,13.7971856806641,13.7998716470439,13.8028832908015,13.8032895525899,13.7911840666787,13.7909522539661,13.7668837735058,13.7178422380024,13.6732055195911,13.6511109921984,13.6228564451696,13.579422537273,13.5590021558192,13.5000291635282,13.4742675183521,13.4603083531425,13.4585702497926,13.4183814220288,13.4124599340065,13.3371977932987,13.2116401531808,13.1205963532163,13.1071988969393,13.0781750635455,13.0396804295486,13.0391756104852,12.9300648809388,12.7466016288467,12.7431481666544,12.7407583750472,12.6183429163368,12.6065888916413,12.5346879359041,12.5162659993943,12.4826401994316,12.3410430490198,12.1421014773374,12.1068803881758,11.8751466352936,11.6126166710205,11.5723794329967,11.4405102150876,11.3743730881318,11.3722973982844,11.288450133472,11.0758595593273,10.9260285858391,10.9219130434254,10.9218909454054,10.8962262248314,10.5392159458825,10.5131268754222,10.4491830363268,10.4094450000243,10.380648856317,10.3651758564285,10.3035276856229,10.2643408807389,10.2513790568413,10.2192749368119,10.2076382828968,10.2064364717102,10.1303485216165,9.83083288770985,9.78831085634066,9.77833266564861,9.53310457381123,9.53106112860091,9.44116413223906,9.41602567436572,9.2413568783519,9.23827110501653,9.13288781724949,9.06355030229061,8.92829613348704,8.92655794962097,8.89064082348321,8.844713138871,8.79175600355703,8.60517350108989,8.57600451039563,8.5630995780144,8.48988700280209,8.36781927022279,8.27636203503815,8.25040673514855,8.21431616775586,8.18232741304412,8.09509293216164,8.0887087785933,8.03257653205984,8.00551699305953,7.97509769349838,7.95446945123837,7.89842955248816,7.84536764680922,7.70984143278541,7.7034532468008,7.69010718133186,7.68743730971769,7.66779652453454,7.59846366015362,7.58806747295014,7.53332041071652,7.51857015165377,7.46206754134774,7.22616357548901,7.21790458163059,7.14507644400741,7.14286307204343,7.13340725037386,7.12687601456506,7.09042769474845,7.08710773149625,7.02300703126036,7.00698281830092,6.99794291870937,6.96129831627841,6.94257949754227,6.90493332846443,6.8897005690517,6.88761701554039,6.87550690566476,6.86954157857671,6.85530085258172,6.84483799432363,6.83949874374942,6.83424596571541,6.82891003647712,6.81339319697145,6.79955592211033,6.77540602470325,6.77076915547808,6.76445455599576,6.76254379912221,6.73578809576345,6.71744838453569,6.69313071412203,6.6507409721037,6.63598449454267,6.61614742377884,6.60735521247463,6.60729795223088,6.6027666083992,6.59474674569549,6.58976202653334,6.60185870368479,6.6079339761775,6.60920472670899,6.60970935966165,6.61890308542483,6.63081177455001,6.63688256603744,6.66838119046486,6.66859675935975,6.67574102351697,6.69451803772939,6.69946205120326,6.70372900606797,6.70676912836509,6.71400407200323,6.72348539639178,6.74137385399041,6.74813542232113,6.7980775902858,6.8096816344644,6.8435714645296,6.8514196509389,6.86837898938367,6.92588520176947,6.943950944666,6.97961349040732,6.99320588458878,6.99976056879545,7.00240948496297,7.00996210042059,7.02728924728544,7.03971085609444,7.04501973133665,7.04634758346063,7.0520486758259,7.05470127648727,7.05537041826255,7.05868520180795,7.05941491804453,7.05972146719699,7.05279963076078,7.04917647560043,7.04672830903746,7.04652941399968,7.04567387702525,7.03851421055549,7.03450806973663,7.00135066660052,7.00042077778274,7.00040022390749,6.99747349630248,6.99502312510499,6.94252744491629,6.93320437652325,6.92339674333374,6.89863117073707,6.88631976007336,6.8837972349735,6.84016981860011,6.80709713216102,6.80391825654231,6.78891703562976,6.77951039357805,6.72156588810143,6.71490948436193,6.69362587589932,6.66424744927442,6.62906045534922,6.58291743515166,6.55015419330286,6.54508166596907,6.54206461848134,6.48168465891307,6.43743877253798,6.43734182691662,6.41886545153509,6.41214956262508,6.40911509626691,6.35879314558217,6.34703717963729,6.33528837110378,6.20865578663219,6.18608055944351,6.16867389363506,6.0987587583356,6.08986399065732,6.06534765216755,6.04757658914812,5.99344283734434,5.97369325570571,5.97003347231116,5.96424247586752,5.92336671715434,5.9165331627023,5.90563580334338,5.88028012456743,5.86074904898177,5.80617971680965,5.74040628153729,5.70204551715344,5.65744347456334,5.65153437923052,5.63703409411511,5.62928226007304,5.57671634290239,5.55902384078632,5.52573394581659,5.50165784351256,5.44691926440507,5.39242947996948,5.34538274117802,5.34298818460412,5.31057112097432,5.28316064138311,5.28264280603317,5.18218221917018,5.16825490779222,5.15362997077639,5.13020971578189,5.1232342818752,5.0985100541902,5.09679237662652,5.05320892355916,5.00597399117512,4.97420669032681,4.9675038196574,4.96040455864409,4.94049774949294,4.93247929028396,4.88118759639736,4.84858278301253,4.82613033499043,4.76923938918904,4.75541143128684,4.74304061881555,4.72852185797976,4.72368274533982,4.66169909303905,4.65796935885372,4.62147047597355,4.60816552197714,4.59875356997979,4.57205830506231,4.54783111499674,4.51209624337867,4.50553473559689,4.49341988583103,4.48543888065638,4.38175083449873,4.36464417680237,4.36396156938973,4.32509839844706,4.32358416305725,4.28979545171681,4.23636012451059,4.07827534931401,4.0233804599594,3.97792072016648,3.85924849714207,3.85118508361149,3.74772803583451,3.7346396049427,3.67552115827591,3.62400459393374,3.5501826635507,3.50367793631157],"type":"scatter","mode":"lines","showlegend":false,"line":{"fillcolor":"rgba(255,85,0,1)","color":"rgba(255,85,0,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1}},"base_url":"https://plot.ly"},"evals":["config.modeBarButtonsToAdd.0.click"],"jsHooks":{"render":[{"code":"function(el, x) { var ctConfig = crosstalk.var('plotlyCrosstalkOpts').set({\"on\":\"plotly_click\",\"persistent\":false,\"dynamic\":false,\"selectize\":false,\"opacityDim\":0.2,\"selected\":{\"opacity\":1}}); }","data":null}]}}</script>
+<p>Even with a return line between it and the plot, this text is smack against is. I do not prefer this.</p>
+<p>This fix is easy, just add <code>&lt;br&gt;</code> after the R chunk that creates the plot to add a line break.</p>
+<div id="16f601a1b3b64" style="width:50%;height:504px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="16f601a1b3b64">{"x":{"visdat":{"16f60c741917":["function () ","plotlyVisDat"]},"cur_data":"16f60c741917","attrs":{"16f60c741917":{"x":{},"y":{},"alpha":1,"sizes":[10,100],"type":"scatter","mode":"lines","color":["#00aaff"],"showlegend":false,"opacity":0.5},"16f60c741917.1":{"x":{},"y":{},"alpha":1,"sizes":[10,100],"type":"scatter","mode":"lines","color":["#ff5500"],"showlegend":false}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"zeroline":false,"showgrid":false,"title":"x2"},"yaxis":{"domain":[0,1],"zeroline":false,"showgrid":false,"title":"y"},"plot_bgcolor":"transparent","paper_bgcolor":"transparent","hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":[{"name":"Collaborate","icon":{"width":1000,"ascent":500,"descent":-50,"path":"M487 375c7-10 9-23 5-36l-79-259c-3-12-11-23-22-31-11-8-22-12-35-12l-263 0c-15 0-29 5-43 15-13 10-23 23-28 37-5 13-5 25-1 37 0 0 0 3 1 7 1 5 1 8 1 11 0 2 0 4-1 6 0 3-1 5-1 6 1 2 2 4 3 6 1 2 2 4 4 6 2 3 4 5 5 7 5 7 9 16 13 26 4 10 7 19 9 26 0 2 0 5 0 9-1 4-1 6 0 8 0 2 2 5 4 8 3 3 5 5 5 7 4 6 8 15 12 26 4 11 7 19 7 26 1 1 0 4 0 9-1 4-1 7 0 8 1 2 3 5 6 8 4 4 6 6 6 7 4 5 8 13 13 24 4 11 7 20 7 28 1 1 0 4 0 7-1 3-1 6-1 7 0 2 1 4 3 6 1 1 3 4 5 6 2 3 3 5 5 6 1 2 3 5 4 9 2 3 3 7 5 10 1 3 2 6 4 10 2 4 4 7 6 9 2 3 4 5 7 7 3 2 7 3 11 3 3 0 8 0 13-1l0-1c7 2 12 2 14 2l218 0c14 0 25-5 32-16 8-10 10-23 6-37l-79-259c-7-22-13-37-20-43-7-7-19-10-37-10l-248 0c-5 0-9-2-11-5-2-3-2-7 0-12 4-13 18-20 41-20l264 0c5 0 10 2 16 5 5 3 8 6 10 11l85 282c2 5 2 10 2 17 7-3 13-7 17-13z m-304 0c-1-3-1-5 0-7 1-1 3-2 6-2l174 0c2 0 4 1 7 2 2 2 4 4 5 7l6 18c0 3 0 5-1 7-1 1-3 2-6 2l-173 0c-3 0-5-1-8-2-2-2-4-4-4-7z m-24-73c-1-3-1-5 0-7 2-2 3-2 6-2l174 0c2 0 5 0 7 2 3 2 4 4 5 7l6 18c1 2 0 5-1 6-1 2-3 3-5 3l-174 0c-3 0-5-1-7-3-3-1-4-4-5-6z"},"click":"function(gd) { \n        // is this being viewed in RStudio?\n        if (location.search == '?viewer_pane=1') {\n          alert('To learn about plotly for collaboration, visit:\\n https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html');\n        } else {\n          window.open('https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html', '_blank');\n        }\n      }"}],"cloud":false,"displayModeBar":false},"data":[{"x":[0.00195197109133005,0.0029472925234586,0.0102323072496802,0.0137764289975166,0.0146850193850696,0.0166409623343498,0.0234930054284632,0.0292636952362955,0.0298754526302218,0.0334566687233746,0.0356474865693599,0.0366320153698325,0.0367238535545766,0.0401646418031305,0.0433571864850819,0.0444365504663438,0.0510614644736052,0.0524822266306728,0.0531144544947892,0.0551182180643082,0.0570326531305909,0.0582619677297771,0.0599493123590946,0.0606392158661038,0.0631569684483111,0.0645328860264271,0.0665171956643462,0.0669038600753993,0.0689921507146209,0.0753207614179701,0.0754364258609712,0.0793836305383593,0.0820138358976692,0.0849624359980226,0.0876510275993496,0.0890918897930533,0.0910412920638919,0.0930904564447701,0.0949147110804915,0.095843557966873,0.0996097449678928,0.106346620479599,0.106620581122115,0.109140314394608,0.110706462990493,0.111935246735811,0.11264410847798,0.114600990433246,0.117340478347614,0.119743302464485,0.122080242494121,0.125556535786018,0.128688145428896,0.12965379212983,0.134837405523285,0.135091472417116,0.13695207843557,0.138746984070167,0.14404235756956,0.15038686315529,0.150520507246256,0.15064680762589,0.152436750009656,0.153626303654164,0.154231269843876,0.15566004998982,0.158462343504652,0.159408655948937,0.160065790871158,0.160616562934592,0.1694233098533,0.17685383441858,0.177468659821898,0.179020829033107,0.185059535549954,0.191638615448028,0.19625504151918,0.196422052569687,0.202301308047026,0.203619353706017,0.206022149184719,0.206303286598995,0.209136786637828,0.215352529194206,0.218106342479587,0.218551568686962,0.218627223512158,0.219386343145743,0.222714461386204,0.228614527499303,0.23466126434505,0.235892857657745,0.23957542469725,0.239674447569996,0.243048878619447,0.243157397489995,0.243191820336506,0.247589594684541,0.253066502977163,0.254428384127095,0.254428459098563,0.255553544731811,0.258510704850778,0.271020676475018,0.272021384444088,0.272061272524297,0.272902334341779,0.275526359211653,0.275752850808203,0.289154878584668,0.289201081497595,0.29125054855831,0.294111584313214,0.294537706533447,0.295990510843694,0.297199009452015,0.303302878979594,0.310419059591368,0.311254683881998,0.311944337794557,0.312049394007772,0.316000887425616,0.318221413297579,0.319020192604512,0.320032431045547,0.325019153999165,0.325558608630672,0.329737033462152,0.330603821901605,0.334980802377686,0.336348019773141,0.348010922316462,0.350296064047143,0.356056866934523,0.357636594213545,0.360950364265591,0.362777811242267,0.362860223511234,0.363674983615056,0.365028145024553,0.370463278377429,0.371631142217666,0.374418389517814,0.375089721055701,0.377542420523241,0.378297302639112,0.37864988995716,0.383574082516134,0.386549693532288,0.387335173785686,0.38912566867657,0.389833065681159,0.391480646794662,0.393762711901218,0.394402449019253,0.39454396860674,0.396952953888103,0.398263223003596,0.400472516892478,0.401112700812519,0.402109073475003,0.40516070346348,0.406000656541437,0.408681884873658,0.411046059569344,0.412807386135682,0.416540747508407,0.416726057650521,0.419024053262547,0.423905704170465,0.426477152854204,0.429480891209096,0.431206898996606,0.436523519689217,0.437347636325285,0.445089225890115,0.447303493972868,0.448302576784045,0.448309981497005,0.44970112061128,0.452839304925874,0.458160439971834,0.461031382670626,0.462377999676391,0.462911624927074,0.464775434695184,0.466673640534282,0.46851559355855,0.468726656399667,0.46877400111407,0.468941750237718,0.469674590276554,0.471519471844658,0.472462223609909,0.472498613642529,0.47295620944351,0.477643499383703,0.499585506739095,0.500468532787636,0.50471864733845,0.509230513125658,0.509505941765383,0.509513366036117,0.511491435114294,0.514428732218221,0.518005525460467,0.520096416585147,0.520440945168957,0.521375762298703,0.521567696239799,0.524900784250349,0.525352155789733,0.528681091964245,0.530468656215817,0.530528692295775,0.534574210643768,0.534849881893024,0.534976984374225,0.540198896080256,0.540463803568855,0.544536876957864,0.547210995806381,0.550466745626181,0.551303221611306,0.552827714243904,0.553384127095342,0.554983187234029,0.555725255981088,0.559055172838271,0.563625086797401,0.563919292995706,0.566481854766607,0.569672519341111,0.57001033728011,0.575234885327518,0.576494605978951,0.579849978908896,0.584603968309239,0.58838393422775,0.590199023252353,0.590890472289175,0.592664749594405,0.594894891604781,0.600009315414354,0.602064470760524,0.60214892658405,0.607120071770623,0.616221068194136,0.621623519109562,0.625046920729801,0.625293602468446,0.626847351668403,0.629886273294687,0.632926158839837,0.633440865669399,0.633661437546834,0.644142164383084,0.646353496937081,0.646751091582701,0.653087526326999,0.655443262308836,0.66381565714255,0.66945340577513,0.670753395417705,0.671251538442448,0.671306499745697,0.677715533878654,0.680387146770954,0.685849109198898,0.687666709534824,0.688160304911435,0.691322585800663,0.693998457631096,0.695634996518493,0.695813123369589,0.696184313623235,0.700925690354779,0.701786381425336,0.704105804208666,0.71240343246609,0.713805420789868,0.714663280639797,0.718098325887695,0.719684846466407,0.725846386514604,0.726313813589513,0.728798544034362,0.731586239533499,0.732643124647439,0.734422862762585,0.73884474625811,0.743567431345582,0.750002732267603,0.750415106536821,0.752039490966126,0.753482494270429,0.755135212792084,0.76172106154263,0.762495934497565,0.763169716112316,0.766954321414232,0.767269637435675,0.77027699444443,0.770961243892089,0.776633094297722,0.783293229294941,0.784533289028332,0.793036462971941,0.794094240991399,0.798059141030535,0.798628910444677,0.800443227868527,0.801708221901208,0.804211721988395,0.805719203781337,0.806383522460237,0.806752340402454,0.812319977208972,0.814066077116877,0.814555058954284,0.823539327830076,0.824526566779241,0.829042622819543,0.829254160868004,0.83118468686007,0.83212159271352,0.840856075519696,0.842594071058556,0.846177157945931,0.846855176612735,0.84702931670472,0.849359660409391,0.850217283703387,0.852351328590885,0.852797026513144,0.852973825996742,0.853300120681524,0.853805004386231,0.853862481191754,0.854212942766026,0.856902024010196,0.860296346480027,0.860715691465884,0.861638761125505,0.862978967139497,0.863317533861846,0.868519412120804,0.876105885254219,0.880160490749404,0.884634546237066,0.886485030641779,0.887987921945751,0.890319315250963,0.894822586327791,0.901188420131803,0.90374632854946,0.908152194926515,0.908911378122866,0.909049924928695,0.910568126477301,0.911184610100463,0.91162340156734,0.911694048671052,0.912512060953304,0.918198239756748,0.919506691396236,0.920400507049635,0.923631477635354,0.928159249247983,0.929869878105819,0.932076781289652,0.93263798695989,0.93345142249018,0.933547419030219,0.93414517166093,0.938084461726248,0.938823780277744,0.940948981093243,0.9421726022847,0.943654858740047,0.945697775809094,0.94995620008558,0.952449935721233,0.956419301684946,0.956624330487102,0.9636010825634,0.965106462361291,0.969530781265348,0.97211442491971,0.973156164865941,0.973837709520012,0.976919599808753,0.97813257179223,0.981047890847549,0.984538105549291,0.987604876048863,0.991120976861566,0.992360389325768,0.993823783006519,0.994057309348136],"y":[3.66170280573449,9.93137858153424,5.34692057066218,4.46245710490432,8.99734442024068,4.08921420453754,2.26043626522215,4.93529452658245,7.19998354871342,1.27544662574596,11.3860659797098,3.73711217296361,9.17748289537447,5.73999707340696,7.76366858500755,2.45409404125488,1.651746749951,2.45575913781169,4.93971660456717,10.2054531939208,2.2361540788088,2.16932061990965,8.39477757409487,4.37590265841955,10.1274515476231,7.71767580482912,8.58037250153685,5.24750483638516,8.86223518711961,2.25777318598499,8.47358813779686,7.02712974153512,6.97203104624111,10.1726109281653,5.53771617000847,1.86522387958193,7.8739374333624,4.37884795979123,8.98395460586727,6.54244553132321,3.69241156514738,7.55504866594384,9.87800452211597,11.0113863313112,8.71375855845315,8.32924062983181,7.3337937562968,3.50297858192712,12.5789270966905,8.49534598373528,6.8125363234648,13.9526040469854,13.4567871611339,5.29874205085046,9.4613094425217,15.781454223411,8.70295599852933,11.6307998056835,8.46323051355969,15.8488714515133,9.64775255712153,12.7054074170993,13.768720035159,10.0116759454887,13.4230078344416,13.5573361347136,11.9758004562088,9.21044714099613,12.9593642700611,9.61427177392474,12.9189753196992,13.4765144002838,11.0858321370247,12.2944675461801,13.7409808466787,11.070584719444,15.7581525370973,12.5282793729064,9.63174953007595,17.9784698646869,13.8029319213656,16.013238901022,15.2086179226501,12.066332274431,14.7053968467092,13.8467033064627,11.0664528165371,14.7879978776112,11.0186646252094,8.38263833103182,7.5664262835499,13.1599126739931,22.256724046351,12.1463953314894,17.0437344412502,8.84938429007797,13.8308333517636,13.9504895674275,9.62721074497227,16.2075454723899,16.2289877482506,14.6457373244825,10.964934106345,16.395983107433,12.1255735453489,10.9735411365683,11.6094752229716,10.8199723754632,11.7343224202559,11.7075341097303,12.5754700616246,9.89151823126786,8.39254244856424,8.80887591328734,14.6938979745791,11.5654936325615,14.8591315993241,11.4260298671518,11.3834620152293,6.7250913497688,15.9033965739323,7.43220490662041,12.1939703220557,10.8784966959533,12.9825286010085,13.3865096059333,8.82476006390794,7.51554565457927,15.0757529588329,16.2103809954991,9.67147196822216,8.45871207538713,7.41261227327205,10.1684565725806,8.46212616918978,12.0103075911204,13.6405562823835,14.9965956347484,13.9979872855146,9.8707246056006,8.15046450881273,7.83239319001174,7.78686224798705,7.51990871848569,10.5798546985654,13.2914871927321,14.315943964384,14.8075046575582,7.52019045077172,7.43801624960969,8.71319303368291,10.8239368859368,7.57734766731599,14.4368975196749,5.6247120729546,5.12344483702225,10.2845575525783,10.4902072997591,13.0667409622312,8.86784905821095,9.31245419404739,6.74363478158881,8.43629664035998,11.3348382289668,4.93600150085786,8.28340095909476,12.8206420913933,4.86443572521983,7.98685353868507,11.1412286630265,4.63341297693502,3.87833707664283,9.07297401638987,4.04854940377594,8.97114796081507,10.5187690350383,10.1347530013526,7.90796434694872,0.796759917800078,5.55354920663797,8.3591381480848,12.0497110228385,7.76711217918595,6.91128887744201,9.76674421162789,10.256404207316,12.2353216684254,11.3335650647498,5.96676690843565,4.24643225999525,12.6924539136343,6.340063777082,7.41481961724571,9.87524260819791,7.25777820099303,5.4222578782491,6.1546546321524,3.47549733039062,7.4842145367408,9.03509802191887,6.54336165639944,7.91014014685665,4.31588606282222,8.37916689155752,11.5579932648814,7.78473192548002,6.97507873864172,7.78395582864972,15.0829620325344,7.64783565396869,7.12614201024488,6.93020642443321,8.11143362956753,5.86890562407632,11.1138677444751,7.62171970531509,7.50981551316526,10.8532081308046,5.31345842193972,9.69486143068075,4.4187766855193,3.36227422382312,6.65696715917079,9.3865309375668,6.61430907359479,8.24098449781884,4.25500776101977,11.2497356049371,3.61225400975043,3.11865445993318,10.0316237814505,12.3630052544291,6.64456239517302,8.53623441691344,3.16885953727387,7.46830611995899,10.4120338938103,11.0892789330781,6.32584297050428,11.9598290764293,14.8907061549986,3.17103365016325,11.2131250484745,6.71586538467926,8.48512640504486,6.11945028580334,14.5232590643262,9.30482588012033,12.001243428814,3.46931288557622,7.9509593958713,8.22165658898663,5.85078991006246,5.74784606036792,8.42697323139796,10.4521966805822,9.13490470950941,10.3128677692657,14.1691544049123,6.48879047756524,9.14579208349984,7.51330220166136,5.04124155226411,9.70939281366688,5.25387327590404,5.83595904916596,4.30440103815789,9.49971452523498,5.0958040310656,9.0106782815542,5.61984188569749,7.13442363652556,6.12991708570239,6.7512388606248,8.53354533409338,6.0002786822292,7.46369276569741,6.60457429798449,9.36813877268161,6.79179570193357,10.7979990203489,9.43875113249737,4.23738635219872,6.13610116680975,5.65004103969322,5.79914374959538,9.32237604549582,5.03879704629098,8.05139905062874,6.14928621456902,3.4672838646464,11.0172891201634,3.85234089046456,5.00765073695418,7.36271688422524,2.86125743824372,6.29649754839123,5.88078346119205,8.36672448824757,7.38619501912407,7.86566483093624,1.63057268485466,8.59814370543649,1.1579578008318,4.33609686857917,12.8063645859757,0.418826823606033,9.42059685088297,8.298972223795,5.52294535659144,6.64295342864963,4.90036020912735,12.8633951669543,2.47442934945401,1.83911721993145,5.68613684557844,5.88401180116357,2.01786138463869,9.53689586137645,-2.61881437736579,4.18590735381271,8.99121300022693,5.153050948031,3.60614707192211,2.48756185175824,4.16651733371457,7.69878023286336,7.3029441763865,5.563754681099,7.66328779210637,3.37529096417885,8.70530423784492,6.1090823457316,10.0614532705915,2.81182932638866,2.64746199956774,2.63025790145365,6.36964780802852,3.13782713137322,1.91793585450107,5.41278393165023,5.62292492139611,1.33227238407671,-0.0498893823800595,3.12366889718404,5.30751929870404,5.16984488156491,4.43766102397037,1.54433258423991,-0.650263157046243,0.00393607492637615,2.54806578115531,5.93749020936318,1.19761904389228,-0.407030847483269,6.80491344214941,6.19792540294301,4.431083346732,4.00273924294755,2.90283736558522,7.28947952392553,2.06624455234116,2.945882654547,0.208768662100048,7.11522459161784,2.24999962309826,3.28261143259127,5.1420233776167,6.46821882704071,2.82478671717207,2.28420356093518,5.0408159295162,3.19679103542136,4.36531076915599,3.73595618628087,1.74747915264868,4.77325937227674,5.12798391680555,3.16082855210047,3.68399312267293,0.845561830265134,-0.738567314815129,3.37451181798943,0.987107989358238,0.936077920684162,4.85277494196345,6.6187396647136,5.59247161757495,3.91463376910374,10.2246328987527,5.90364927409038,0.369221480323842,4.59044675225315,4.0165172995789,5.43774116413269,4.66121940726657,4.86454316247083,3.90535309976968,2.80544266931084,7.25325535306395],"type":"scatter","mode":"lines","showlegend":false,"opacity":0.5,"line":{"fillcolor":"rgba(0,170,255,1)","color":"rgba(0,170,255,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[0.00195197109133005,0.0029472925234586,0.0102323072496802,0.0137764289975166,0.0146850193850696,0.0166409623343498,0.0234930054284632,0.0292636952362955,0.0298754526302218,0.0334566687233746,0.0356474865693599,0.0366320153698325,0.0367238535545766,0.0401646418031305,0.0433571864850819,0.0444365504663438,0.0510614644736052,0.0524822266306728,0.0531144544947892,0.0551182180643082,0.0570326531305909,0.0582619677297771,0.0599493123590946,0.0606392158661038,0.0631569684483111,0.0645328860264271,0.0665171956643462,0.0669038600753993,0.0689921507146209,0.0753207614179701,0.0754364258609712,0.0793836305383593,0.0820138358976692,0.0849624359980226,0.0876510275993496,0.0890918897930533,0.0910412920638919,0.0930904564447701,0.0949147110804915,0.095843557966873,0.0996097449678928,0.106346620479599,0.106620581122115,0.109140314394608,0.110706462990493,0.111935246735811,0.11264410847798,0.114600990433246,0.117340478347614,0.119743302464485,0.122080242494121,0.125556535786018,0.128688145428896,0.12965379212983,0.134837405523285,0.135091472417116,0.13695207843557,0.138746984070167,0.14404235756956,0.15038686315529,0.150520507246256,0.15064680762589,0.152436750009656,0.153626303654164,0.154231269843876,0.15566004998982,0.158462343504652,0.159408655948937,0.160065790871158,0.160616562934592,0.1694233098533,0.17685383441858,0.177468659821898,0.179020829033107,0.185059535549954,0.191638615448028,0.19625504151918,0.196422052569687,0.202301308047026,0.203619353706017,0.206022149184719,0.206303286598995,0.209136786637828,0.215352529194206,0.218106342479587,0.218551568686962,0.218627223512158,0.219386343145743,0.222714461386204,0.228614527499303,0.23466126434505,0.235892857657745,0.23957542469725,0.239674447569996,0.243048878619447,0.243157397489995,0.243191820336506,0.247589594684541,0.253066502977163,0.254428384127095,0.254428459098563,0.255553544731811,0.258510704850778,0.271020676475018,0.272021384444088,0.272061272524297,0.272902334341779,0.275526359211653,0.275752850808203,0.289154878584668,0.289201081497595,0.29125054855831,0.294111584313214,0.294537706533447,0.295990510843694,0.297199009452015,0.303302878979594,0.310419059591368,0.311254683881998,0.311944337794557,0.312049394007772,0.316000887425616,0.318221413297579,0.319020192604512,0.320032431045547,0.325019153999165,0.325558608630672,0.329737033462152,0.330603821901605,0.334980802377686,0.336348019773141,0.348010922316462,0.350296064047143,0.356056866934523,0.357636594213545,0.360950364265591,0.362777811242267,0.362860223511234,0.363674983615056,0.365028145024553,0.370463278377429,0.371631142217666,0.374418389517814,0.375089721055701,0.377542420523241,0.378297302639112,0.37864988995716,0.383574082516134,0.386549693532288,0.387335173785686,0.38912566867657,0.389833065681159,0.391480646794662,0.393762711901218,0.394402449019253,0.39454396860674,0.396952953888103,0.398263223003596,0.400472516892478,0.401112700812519,0.402109073475003,0.40516070346348,0.406000656541437,0.408681884873658,0.411046059569344,0.412807386135682,0.416540747508407,0.416726057650521,0.419024053262547,0.423905704170465,0.426477152854204,0.429480891209096,0.431206898996606,0.436523519689217,0.437347636325285,0.445089225890115,0.447303493972868,0.448302576784045,0.448309981497005,0.44970112061128,0.452839304925874,0.458160439971834,0.461031382670626,0.462377999676391,0.462911624927074,0.464775434695184,0.466673640534282,0.46851559355855,0.468726656399667,0.46877400111407,0.468941750237718,0.469674590276554,0.471519471844658,0.472462223609909,0.472498613642529,0.47295620944351,0.477643499383703,0.499585506739095,0.500468532787636,0.50471864733845,0.509230513125658,0.509505941765383,0.509513366036117,0.511491435114294,0.514428732218221,0.518005525460467,0.520096416585147,0.520440945168957,0.521375762298703,0.521567696239799,0.524900784250349,0.525352155789733,0.528681091964245,0.530468656215817,0.530528692295775,0.534574210643768,0.534849881893024,0.534976984374225,0.540198896080256,0.540463803568855,0.544536876957864,0.547210995806381,0.550466745626181,0.551303221611306,0.552827714243904,0.553384127095342,0.554983187234029,0.555725255981088,0.559055172838271,0.563625086797401,0.563919292995706,0.566481854766607,0.569672519341111,0.57001033728011,0.575234885327518,0.576494605978951,0.579849978908896,0.584603968309239,0.58838393422775,0.590199023252353,0.590890472289175,0.592664749594405,0.594894891604781,0.600009315414354,0.602064470760524,0.60214892658405,0.607120071770623,0.616221068194136,0.621623519109562,0.625046920729801,0.625293602468446,0.626847351668403,0.629886273294687,0.632926158839837,0.633440865669399,0.633661437546834,0.644142164383084,0.646353496937081,0.646751091582701,0.653087526326999,0.655443262308836,0.66381565714255,0.66945340577513,0.670753395417705,0.671251538442448,0.671306499745697,0.677715533878654,0.680387146770954,0.685849109198898,0.687666709534824,0.688160304911435,0.691322585800663,0.693998457631096,0.695634996518493,0.695813123369589,0.696184313623235,0.700925690354779,0.701786381425336,0.704105804208666,0.71240343246609,0.713805420789868,0.714663280639797,0.718098325887695,0.719684846466407,0.725846386514604,0.726313813589513,0.728798544034362,0.731586239533499,0.732643124647439,0.734422862762585,0.73884474625811,0.743567431345582,0.750002732267603,0.750415106536821,0.752039490966126,0.753482494270429,0.755135212792084,0.76172106154263,0.762495934497565,0.763169716112316,0.766954321414232,0.767269637435675,0.77027699444443,0.770961243892089,0.776633094297722,0.783293229294941,0.784533289028332,0.793036462971941,0.794094240991399,0.798059141030535,0.798628910444677,0.800443227868527,0.801708221901208,0.804211721988395,0.805719203781337,0.806383522460237,0.806752340402454,0.812319977208972,0.814066077116877,0.814555058954284,0.823539327830076,0.824526566779241,0.829042622819543,0.829254160868004,0.83118468686007,0.83212159271352,0.840856075519696,0.842594071058556,0.846177157945931,0.846855176612735,0.84702931670472,0.849359660409391,0.850217283703387,0.852351328590885,0.852797026513144,0.852973825996742,0.853300120681524,0.853805004386231,0.853862481191754,0.854212942766026,0.856902024010196,0.860296346480027,0.860715691465884,0.861638761125505,0.862978967139497,0.863317533861846,0.868519412120804,0.876105885254219,0.880160490749404,0.884634546237066,0.886485030641779,0.887987921945751,0.890319315250963,0.894822586327791,0.901188420131803,0.90374632854946,0.908152194926515,0.908911378122866,0.909049924928695,0.910568126477301,0.911184610100463,0.91162340156734,0.911694048671052,0.912512060953304,0.918198239756748,0.919506691396236,0.920400507049635,0.923631477635354,0.928159249247983,0.929869878105819,0.932076781289652,0.93263798695989,0.93345142249018,0.933547419030219,0.93414517166093,0.938084461726248,0.938823780277744,0.940948981093243,0.9421726022847,0.943654858740047,0.945697775809094,0.94995620008558,0.952449935721233,0.956419301684946,0.956624330487102,0.9636010825634,0.965106462361291,0.969530781265348,0.97211442491971,0.973156164865941,0.973837709520012,0.976919599808753,0.97813257179223,0.981047890847549,0.984538105549291,0.987604876048863,0.991120976861566,0.992360389325768,0.993823783006519,0.994057309348136],"y":[4.00579268153178,4.04934519575519,4.36816481365615,4.52334601288623,4.56314305566185,4.64884016463537,4.94944973065647,5.203340806013,5.23030719180672,5.38840206920386,5.485335383006,5.52895569004482,5.53302662100144,5.68580387722054,5.82804336845203,5.87624774448144,6.17352404129987,6.23761742510225,6.26617973140936,6.35687643188999,6.44378054764283,6.49971665558664,6.57666596585139,6.60818618561908,6.72350591371512,6.78671976766697,6.87812688095282,6.89597184225505,6.99253565764269,7.28706753464174,7.29247646415686,7.47760206235715,7.6015215668552,7.74094549304568,7.86850928918953,7.9370320545995,8.02990363662522,8.12771573186598,8.21493799305988,8.25939600940748,8.43993195618918,8.76353425033139,8.77670047786873,8.8977818871197,8.9730100656104,9.03200502207755,9.06602343497598,9.15986393522813,9.29100531158647,9.4057406321452,9.51700130482517,9.68176244704421,9.8292600243278,9.87453696733903,10.1156555972999,10.1273815100873,10.2129633310317,10.2950129775307,10.5338146515618,10.8124834089797,10.8182555579232,10.8237065909491,10.9005404608005,10.9511582046849,10.97676050286,11.0368418569601,11.1530500818363,11.1917857529278,11.2185290511646,11.2408441370566,11.5844891653527,11.8531181425429,11.874388590583,11.9274051388827,12.1240241292152,12.3197228245603,12.4447396143241,12.4490646386619,12.5922236064975,12.6218398133715,12.6734346448489,12.6792673654884,12.7356385407526,12.843643383366,12.8844823769212,12.8906749161317,12.8917157810123,12.9019762777336,12.9430095682074,12.9998585668591,13.0369172673515,13.0418268803036,13.0511803202481,13.0513217415129,13.0527063570317,13.0526403964255,13.0526180384557,13.0441110655346,13.0180526362465,13.0089551638512,13.0089546346588,13.0006630445022,12.9755628107731,12.8186306381423,12.8026921142016,12.8020468258613,12.7882635365161,12.74311688507,12.7390699736549,12.4600427885406,12.4589546964709,12.4098836444958,12.3388200085622,12.3279885112146,12.2905923190325,12.2589449123154,12.092064357602,11.8842765881931,11.8590533333341,11.8381166491305,11.8349180032729,11.7129095453572,11.6430011312074,11.6176369420399,11.5853392182876,11.423939038123,11.4062749045756,11.2683374290686,11.2395048166245,11.0930234612407,11.0470260133373,10.653058358937,10.5760983600792,10.3834607880523,10.3311039482785,10.2221178906181,10.1625693180513,10.1598939877403,10.1334936421226,10.089850634962,9.91735876985495,9.88093568685447,9.79501279156693,9.77453805279481,9.70049704740153,9.67795715552481,9.66747034273531,9.52384464088775,9.43973837950498,9.41788970230426,9.36865170356888,9.34941837004108,9.30511311935029,9.2448983918046,9.2282620645612,9.22459641397228,9.16301410038347,9.13017139073579,9.07584782675243,9.06035560917118,9.03646771071859,8.96501083480896,8.94579598173782,8.88577604758548,8.83452068023122,8.79735263128932,8.72144264948787,8.71777634778249,8.67310780013797,8.58308481674207,8.53830434079302,8.48827855802771,8.46063583188847,8.38047453471027,8.36871450590803,8.26674824709077,8.24035122851419,8.22883478155697,8.22875033522099,8.21312085316169,8.17956434760668,8.12790788485531,8.10268726155846,8.09147892965444,8.08714550802896,8.07248547920898,8.05830343465441,8.04524937263459,8.04379741944623,8.04347295222451,8.04232693604602,8.03738629903961,8.02541832759273,8.01955846013337,8.01933569871376,8.01655614430306,7.99033823417642,7.91557398445224,7.91398668670199,7.90763782011871,7.90307978997899,7.90286941667248,7.90286384996161,7.90157160692709,7.90032638290921,7.89981951360669,7.8999969633434,7.90005779985795,7.90026636901345,7.90031693847522,7.90159670402949,7.90182591349953,7.90389586797579,7.90526506090282,7.9053139675691,7.90901314918222,7.90929237609329,7.90942220695514,7.91529831102103,7.91562191472371,7.92085222769195,7.92450542085993,7.9291260277339,7.93033646365037,7.93256064201705,7.93337721169198,7.93573426304737,7.93683176079406,7.94176202998509,7.94844915919328,7.94887303435982,7.95251494634794,7.9568913153877,7.95734227150201,7.96394022503001,7.96540916516695,7.96904664687207,7.97341156016477,7.97611232351946,7.97713681508871,7.9774775033663,7.97822124466901,7.97887791637442,7.97911775211115,7.97867872846258,7.97865375520848,7.97617045673445,7.96596372846344,7.95602620279913,7.94808715773135,7.94746370468262,7.94337422431654,7.93454743907527,7.92458603182701,7.92278436902569,7.92200194262497,7.87738760219794,7.86603231916889,7.86391587450882,7.82703334319805,7.81177192730149,7.75045493107716,7.70272060545741,7.69095521609906,7.68637048783332,7.68586204506341,7.62300221954069,7.5946870470931,7.53287840600476,7.51113427555577,7.50512749294321,7.46561078425308,7.43077553091912,7.40884010765103,7.40642373548165,7.40137019558055,7.33466985954407,7.32213707660787,7.28771962390365,7.15705179782912,7.13383490001253,7.11946970174512,7.06075569392699,7.03300364002986,6.92155249182604,6.9128658739707,6.86615946725911,6.81272092818697,6.79218244054005,6.75726009866253,6.66873728914448,6.57160696777314,6.43539887348708,6.42653245314014,6.39145655968889,6.36010328560985,6.32398020231463,6.17802687041664,6.16066840325429,6.14554658144403,6.06017012059495,6.0530266345672,5.98469851261358,5.96910799722429,5.83943320468343,5.68675750188276,5.65835758160455,5.46462298557201,5.44070834723565,5.35158857829217,5.33885754275136,5.29846064548669,5.27043121501949,5.21531941214733,5.18238252197859,5.1679309426769,5.15992487602411,5.04067477701777,5.00395007773924,4.99372782489233,4.81124307444811,4.7918597730623,4.70506077653501,4.7010729350559,4.66501458781274,4.6477365793147,4.49404074819229,4.46513541921748,4.40740920411592,4.39677512374087,4.39405900696562,4.35831212168735,4.34544048802605,4.31408522525223,4.30765903893155,4.30512169650845,4.30045650349625,4.2932831030925,4.29246995561234,4.28752726932805,4.25048790812385,4.20598804453067,4.20066604226821,4.18908779497579,4.17261222600619,4.16851293138802,4.10871466382282,4.03220268793667,3.99648975424435,3.96123665593466,3.94792074166651,3.93764700935942,3.92266271580809,3.89696151058814,3.86776031163937,3.85832135075043,3.84506302602426,3.8431550021808,3.84281858802011,3.8393689450247,3.83809122954136,3.83722474757227,3.8370885666011,3.83557860336563,3.82839720068404,3.82753914251423,3.82711817085094,3.82668643558664,3.82883219833622,3.83043711530728,3.83312061736221,3.83391019615957,3.83513006080266,3.83527985316291,3.83624000421019,3.84371159805706,3.84532690144882,3.85032604025334,3.85343615325595,3.85742148536236,3.86328945341875,3.87682183810874,3.88549382394289,3.90030955179506,3.90110599823901,3.92978538137311,3.93632736012163,3.95613782943277,3.96804697907901,3.97290795171847,3.97610469016122,3.99070465879256,3.9965076591108,4.01056065511328,4.02753739554564,4.04254715935795,4.05981600901783,4.0659106287099,4.07310824849953,4.07425688839477],"type":"scatter","mode":"lines","showlegend":false,"line":{"fillcolor":"rgba(255,85,0,1)","color":"rgba(255,85,0,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1}},"base_url":"https://plot.ly"},"evals":["config.modeBarButtonsToAdd.0.click"],"jsHooks":{"render":[{"code":"function(el, x) { var ctConfig = crosstalk.var('plotlyCrosstalkOpts').set({\"on\":\"plotly_click\",\"persistent\":false,\"dynamic\":false,\"selectize\":false,\"opacityDim\":0.2,\"selected\":{\"opacity\":1}}); }","data":null}]}}</script>
+<p><br></p>
+<p>This text has some room to breathe. Alternatively, I could use <span class="pack">htmltools</span> and put <code>br()</code> in the code after the plot.</p>
+<p><span class="myclass" style="color:#66023C; font-size:150%; font-weight:600">This sentence is tyrian purple, bold, and has bigger font because I put <code>&lt;span style='color:#66023C; font-size:150%; font-weight:600'&gt;</code> before it and <code>&lt;/span&gt;</code> after it.</span></p>
+<p>Say you want to center and resize an image. Basic Markdown is too limited to do much more than display the image, so use some HTML instead.</p>
+<p>Here is the basic markdown image.</p>
+<p><code>![](img/R.ico)</code></p>
+<p><img src="img/R.ico" /></p>
+<p>Next we use HTML instead.</p>
+<p><code>&lt;img src=&quot;img/R.ico&quot; style=&quot;display:block; margin: 0 auto;&quot;&gt;</code></p>
+<p><img src="img/R.ico" style="display:block; margin: 0 auto;"></p>
+<p>The next thing you’ll want to do is hone your ASCII art skills because sometimes that’s the best way to display an image, like this ocean sunset.</p>
+<pre class="sunset"><code>           ^^                   @@@@@@@@@
+      ^^       ^^            @@@@@@@@@@@@@@@
+                           @@@@@@@@@@@@@@@@@@              ^^
+                          @@@@@@@@@@@@@@@@@@@@
+~~~~ ~~ ~~~~~ ~~~~~~~~ ~~ &amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp; ~~~~~~~ ~~~~~~~~~~~ ~~~
+~         ~~   ~  ~       ~~~~~~~~~~~~~~~~~~~~ ~       ~~     ~~ ~
+  ~      ~~      ~~ ~~ ~~  ~~~~~~~~~~~~~ ~~~~  ~     ~~~    ~ ~~~  ~ ~~
+  ~  ~~     ~         ~      ~~~~~~  ~~ ~~~       ~~ ~ ~~  ~~ ~
+~  ~       ~ ~      ~           ~~ ~~~~~~  ~      ~~  ~             ~~
+      ~             ~        ~      ~      ~~   ~             ~</code></pre>
+</section>
+<section id="css" class="level3">
+<h3>CSS</h3>
+<p>Recall the style section in some of the HTML examples above. For example, the part <code>style='color:#66023C; font-size:150%; font-weight:600'</code> changed the font. <span class="marginnote"> <strong>CSS</strong> stands for <strong>c</strong>ascading <strong>s</strong>tyle <strong>s</strong>heets</span>It’s actually CSS, and if we need to do the same thing each time, we can take an alternative approach to creating a style that would apply the same settings to all objects of the same class or HTML tag throughout the document.</p>
+<p>The first step is to create a <code>*.css</code> file that your R Markdown document can refer to. Let’s say we want to make every link <span style="color:dodgerblue">dodgerblue</span>. Links in HTML are tagged with the letter <strong><code>a</code></strong>, and to insert a link with HTML you can do something like:</p>
+<pre><code>&lt;a href=&#39;https://m-clark.github.io&gt;wowee zowee!&lt;/a&gt;</code></pre>
+<p>It would look like this: <a href='https://m-clark.github.io' style="color:dodgerblue">wowee zowee!</a>. If we want to change the color from the default setting for all links, we go into our CSS file.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb21-1" data-line-number="1">a {</a>
+<a class="sourceLine" id="cb21-2" data-line-number="2">  <span class="kw">color</span>: dodgerblue;</a>
+<a class="sourceLine" id="cb21-3" data-line-number="3">}</a></code></pre></div>
+<p>You can use hexadecimal, RGB and other representations of practically any color. CSS, like HTML, has a fairly simple syntax, but is very flexible and can do a ton of stuff you wouldn’t think of. With experience and looking at other people’s CSS, you’ll pick up the basics.</p>
+<p>Now that you have a CSS file. Note that you want to use it in the YAML section of your R Markdown document.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="fu">output:</span></a>
+<a class="sourceLine" id="cb22-2" data-line-number="2">  <span class="fu">html_document:</span></a>
+<a class="sourceLine" id="cb22-3" data-line-number="3">    <span class="fu">css:</span><span class="at"> mystyle.css</span></a></code></pre></div>
+<p>Now every link you create will be that color. We could add a subtle background to it, make them bold or whatever.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb23-1" data-line-number="1">a {</a>
+<a class="sourceLine" id="cb23-2" data-line-number="2">  <span class="kw">color</span>: dodgerblue;</a>
+<a class="sourceLine" id="cb23-3" data-line-number="3">  <span class="kw">background-color</span>: gray95;</a>
+<a class="sourceLine" id="cb23-4" data-line-number="4">  <span class="kw">font-weight</span>: <span class="dv">400</span>;</a>
+<a class="sourceLine" id="cb23-5" data-line-number="5">}</a></code></pre></div>
+<p>In a similar fashion, you could make images always display at 50% width by default.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb24-1" data-line-number="1">img {</a>
+<a class="sourceLine" id="cb24-2" data-line-number="2">  <span class="kw">width</span>: <span class="dv">50%</span>;</a>
+<a class="sourceLine" id="cb24-3" data-line-number="3">}</a></code></pre></div>
+</section>
+<section id="custom-classes" class="level3">
+<h3>Custom classes</h3>
+<p>You can also create custom classes. For example, all R functions in my documents are a specific color, as they are wrapped in a custom css class called ‘func’ as follows.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="fu">.func</span> {</a>
+<a class="sourceLine" id="cb25-2" data-line-number="2">  <span class="kw">color</span>: <span class="dv">#007199</span>;  </a>
+<a class="sourceLine" id="cb25-3" data-line-number="3">  <span class="kw">font-weight</span>: <span class="dv">500</span>;</a>
+<a class="sourceLine" id="cb25-4" data-line-number="4">}</a></code></pre></div>
+<p>Then I can do <code>&lt;span class=&quot;func&quot;&gt;crossprod&lt;/span&gt;</code> and the text of the function name, or any text of class func, will have the appropriate color and weight.</p>
+</section>
+</section>
+<section id="personal-templates" class="level2">
+<h2>Personal Templates</h2>
+<p>A common mantra in computer programming and beyond is DRY, or Don’t Repeat Yourself. If you start using R Markdown a lot, and there is a good chance of that, once you get some settings you use often, you’ll not want to start from scratch, but simply reuse them. While this can be done <a href="https://rmarkdown.rstudio.com/developer_document_templates.html">formally</a> by creating an R package, it can also be as simple as saving a file that just has the YAML and maybe some <span class="pack">knitr</span> options specified, and starting from that file each time. Same goes for CSS or other files you use often.</p>
+<p>Over time, these files and settings will grow, especially as you learn new options and want to tweak old. In the end, you may have very little to do to make the document look great the first time you knit it!</p>
+</section>
+<section id="the-rabbit-hole-goes-deep" class="level2">
+<h2>The Rabbit Hole Goes Deep</h2>
+<p>How much you want to get into customization is up to you. Using the developer tools of any web browser allows you to inspect what anyone else has done as far as styling with CSS. Here is an example of Chrome Developer Tools, which you can access through its menus.</p>
+<p><img src="img/chrome_dev.png" style="display:block; margin: 0 auto;" width=100% height=100%></p>
+<p>All browsers have this, making it easy to see exactly what’s going on with any webpage.</p>
+<p>For some of you, if you aren’t careful, you’ll spend an afternoon on an already finished document trying to make it look perfect. It takes very little effort to make a great looking document with R Markdown. Making it <em>perfect</em> is impossible. You have been warned.</p>
+
+</section>
+</section>
+<section id="comparison-to-alternatives" class="level1">
+<h1>Comparison to Alternatives</h1>
+<section id="pdf-latex" class="level2">
+<h2>PDF &amp; LaTeX</h2>
+<section id="latex" class="level3">
+<h3><span class="math inline">\(\LaTeX\)</span></h3>
+<p>If you’re reading a printed or pdf document and it appears to be massaging your eyeballs in both its look and feel, it likely was constructed with <span class="math inline">\(\LaTeX\)</span><a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>. <span class="math inline">\(\LaTeX\)</span>, along with its derivatives, is a type-setting system specifically designed for scientific or other technical documents by Donald Knuth <em>back in the 1970s</em>. If you aren’t familiar with it, you should know that whole disciplines have essentially required it for communication in their field for many years. What’s more, R has been <span class="math inline">\(\LaTeX\)</span>-able since the beginning via S expressions and code chunks, allowing one to weave the code and results together in one document. The following shows an example of <span class="math inline">\(\LaTeX\)</span> syntax.</p>
+<pre><code>\documentclass{article}
+\title{Use R Markdown in lieu of $\LaTeX$}
+\author{Me, Myself, and I}
+\date{November 5th}
+\begin{document}
+ 
+  \maketitle
+  Hello world!
+   
+  $$ E = mc^2 $$
+   
+  &lt;&lt;r chunk&gt;&gt;=
+  x = runif(10)
+  @
+  
+\end{document}</code></pre>
+<p><span class="math inline">\(\LaTeX\)</span> requires a <span class="math inline">\(\TeX\)</span> installation. But once you have that you can write a document using the syntax (<code>File/New File/R Sweave...</code>), with the end result typically being a PDF document (or e.g. Beamer slides). When the document is complete, it will look utterly beautiful, precisely because you had fine control over the look and feel of everything. Just like you can tell a PDF created originally in MS Word by its looks in a bad way, you can often tell if someone used <span class="math inline">\(\LaTeX\)</span> because of how nice the document looks. As for some examples, every R vignette that is PDF was created using <span class="math inline">\(\LaTeX\)</span> or, more recently R Markdown. Here is one <a href="https://cran.r-project.org/web/packages/brms/vignettes/brms_overview.pdf">example</a>. In addition, practically the vast majority of scientific texts are written with it.</p>
+<p>Unfortunately, <span class="math inline">\(\LaTeX\)</span> is also a complete pain in the ass. Your writing is constantly interrupted by the syntax even for the most minor things, you will pull your hair out trying to get images and tables the way you want, and so forth. Your document will look fantastic, but you will not feel better about yourself afterward.</p>
+</section>
+<section id="pdf-via-r-markdown" class="level3">
+<h3>PDF via R Markdown</h3>
+<p>The great thing about R Markdown is that you can use <span class="math inline">\(\LaTeX\)</span> syntax as much or little as you like, still get the same results, and, using the same <span class="math inline">\(\TeX\)</span> installation, produce a nice pretty pdf document. The following shows how to do the formula above in R Markdown, and what it produces.</p>
+<pre><code>$$ E = mc^2 $$</code></pre>
+<p><span class="math display">\[ E = mc^2 \]</span></p>
+<p>It’s exactly the same. Thus, for those who use <span class="math inline">\(\LaTeX\)</span>, their life just got extremely easier, because they can essentially create a <span class="math inline">\(\LaTeX\)</span> document without any explicit <span class="math inline">\(\LaTeX\)</span>. But if they do want to use it for some things, they can do so just as they did before.</p>
+<p>Once you’ve installed <span class="math inline">\(\TeX\)</span>, you’ll not need to use it directly, but will now be to knit documents to PDF<span class="marginnote">I suggest <a href="https://yihui.name/tinytex/">tinytex</a> for your TeX installation.</span>. With the <span class="math inline">\(\TeX\)</span> installation, you’ll also be able to intermingle standard text, <span class="math inline">\(\LaTeX\)</span>, and R code seamlessly in your R Markdown document.</p>
+<p>```latex Here is some text!</p>
+
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">x =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10</span>)</a></code></pre></div>
+<p><span class="math display">\[\mathrm{SomeFormula} = Q_{123}^2\]</span></p>
+
+<p>```</p>
+<p>The YAML for your document will look similar to an HMTL document.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb29-2" data-line-number="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Habits&quot;</span></a>
+<a class="sourceLine" id="cb29-3" data-line-number="3"><span class="fu">output:</span></a>
+<a class="sourceLine" id="cb29-4" data-line-number="4">  <span class="fu">pdf_document:</span></a>
+<a class="sourceLine" id="cb29-5" data-line-number="5">    <span class="fu">toc:</span><span class="at"> true</span></a>
+<a class="sourceLine" id="cb29-6" data-line-number="6">    <span class="fu">number_sections:</span><span class="at"> true</span></a>
+<a class="sourceLine" id="cb29-7" data-line-number="7"><span class="ot">---</span></a></code></pre></div>
+<p><span class="math inline">\(\LaTeX\)</span>-specific options are also available for those familiar with it.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb30-2" data-line-number="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Habits&quot;</span></a>
+<a class="sourceLine" id="cb30-3" data-line-number="3"><span class="fu">output:</span></a>
+<a class="sourceLine" id="cb30-4" data-line-number="4">  <span class="fu">pdf_document:</span></a>
+<a class="sourceLine" id="cb30-5" data-line-number="5">    <span class="fu">toc:</span><span class="at"> true</span></a>
+<a class="sourceLine" id="cb30-6" data-line-number="6">    <span class="fu">number_sections:</span><span class="at"> true</span></a>
+<a class="sourceLine" id="cb30-7" data-line-number="7">    <span class="fu">citation_package:</span><span class="at"> natbib</span></a>
+<a class="sourceLine" id="cb30-8" data-line-number="8">    <span class="fu">latex_engine:</span><span class="at"> xelatex</span></a>
+<a class="sourceLine" id="cb30-9" data-line-number="9">    <span class="fu">keep_tex:</span><span class="at"> true</span></a>
+<a class="sourceLine" id="cb30-10" data-line-number="10">    <span class="fu">includes:</span></a>
+<a class="sourceLine" id="cb30-11" data-line-number="11">      <span class="fu">in_header:</span><span class="at"> header.tex</span></a>
+<a class="sourceLine" id="cb30-12" data-line-number="12">      <span class="fu">before_body:</span><span class="at"> doc_prefix.tex</span></a>
+<a class="sourceLine" id="cb30-13" data-line-number="13">      <span class="fu">after_body:</span><span class="at"> doc_suffix.tex</span></a>
+<a class="sourceLine" id="cb30-14" data-line-number="14">    <span class="fu">template:</span><span class="at"> quarterly_report.tex</span></a>
+<a class="sourceLine" id="cb30-15" data-line-number="15"><span class="ot">---</span></a></code></pre></div>
+</section>
+<section id="tufte" class="level3">
+<h3>Tufte</h3>
+<p>One nice thing in the PDF department is the option of using Tufte styling. Edward Tufte did much to bring statistical graphics and presentation into forms far more suitable for communication and just simply more beautiful.<span class="marginnote">I would still recommend Tufte’s <em>The Visual Display of Quantitative Information</em>, as the ideas are still useful for printed work, and would possibly provide some decent ideas for visual display in any format.</span></p>
+<p>In the past, I used the Tufte handout and book classes for my PDF documents, because I liked the <span class="emph">sidenote</span> and <span class="emph">marginnote</span> capabilities. R Markdown offers Tufte stylings for PDF, which is great, and makes it easy for anyone to make their <span class="math inline">\(\LaTeX\)</span> approach to PDF even better. They are also offered for HTML, but very little developed at this point<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a>. I still like the marginnote approach, to the point I made my own CSS class to use them. Sidenotes, which were used to create footnotes at the point they are created rather than at the bottom of a page, are unnecessary with HTML, because a link is created that makes it easy to go back and forth from the footnote.</p>
+</section>
+<section id="a-final-word" class="level3">
+<h3>A final word</h3>
+<p>There are some who still seem to think using raw <span class="math inline">\(\LaTeX\)</span> is in fact necessary instead of R Markdown, but they are wrong. You can only do the same. It’s really not worth the hassle.</p>
+</section>
+</section>
+<section id="ms-word" class="level2">
+<h2>MS Word</h2>
+<p>Probably the most common tool I see people use for their scientific and related reporting is Microsoft Word. They fight it for all the ‘features’ it provides, then they fight it to get their images to look okay after pasting it from somewhere else, then they fight it early and often to get the tables just the way they like it. Even the slightest change to the data will result in having to redo practically everything. Because of all the pasting and finagling with numbers after changes, it’s almost guaranteed that errors will arise, and they regularly do. And finally, MS Word documents look like MS Word documents, even if you convert it to something else. In other words, unimpressive.</p>
+<p>People using Word directly are not engaged in reproducible research, and if they are coupling it with menu driven statistical analyses, their work is problematic from any scientific viewpoint<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a>. If you feel you must have a MS Word document, and you’re wrong about this, because excellent academic research is regularly done without it and always has been, know that you can still create a Word document as a final product with R Markdown<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a>.</p>
+<p>As might be obvious, you’ll need MS Word installed if you’re going to create such documents. I wouldn’t recommend this for anything, and so I will spend very little effort explaining to you how to do it.</p>
+<p>The main thing you need to know is how to use a template. MS Word defaults have been terrible since its inception, so after customizing a document to look the way you want, you can then use it as a template. Just specify the document you’ve created in the YAML as follows:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="fu">output:</span></a>
+<a class="sourceLine" id="cb31-2" data-line-number="2">  <span class="fu">word_document:</span></a>
+<a class="sourceLine" id="cb31-3" data-line-number="3">    <span class="fu">reference_docx:</span><span class="at"> my_template.docx</span></a></code></pre></div>
+<p>Even then it likely won’t be a 100% match. Besides that, some of the other typical things will apply, such as syntax highlighting and figure sizes. However, don’t be surprised that you lose a lot of functionality. MS Word is a <span class="emph hoverfoot" title="what you see is what you get">wysiwyg</span> text editor, and what you’re doing is definitely not merely text editing. While R Markdown can at least introduce some reproducibility to your word document, just know that it won’t even be the second-best option you could have chosen for scholarly or professional publication.</p>
+<section id="word-like-alternatives" class="level3">
+<h3>Word-like Alternatives</h3>
+<p>There are a couple more alternatives in the MS Word area. You can also output Rich Text Format or OpenDocument Text (ODT) format. In your YAML specify the following.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="fu">output:</span><span class="at"> rtf_document</span></a></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="fu">output:</span><span class="at"> odt_document</span></a></code></pre></div>
+<p>Don’t expect too much here. They are relatively little used and probably don’t have near the functionality. Again, the basic stuff should still work.</p>
+
+</section>
+</section>
+</section>
+<section id="summary" class="level1">
+<h1>Summary</h1>
+<p>At this point you should be ready to dive in with your own documents. Using the tools described will take some time to get used to, but the time you’ll gain in efficiency cannot be understated. What’s more, your work will be far more reproducible, a key goal for any quantitative endeavor. Best of Luck!</p>
+<p><br> <br></p>
+<p><img src="img/198R.png" width="250" style="display: block; margin: auto;" /></p>
+
+</section>
+<section id="exercise" class="level1">
+<h1>Exercise</h1>
+<ul>
+<li>Create an Rmd for HTML.</li>
+<li>Change some options. For example, choose a theme or add a table of contents.</li>
+<li>Add a chunk that does some statistical calculation</li>
+<li>Add a chunk that produces a visualization. Align it with the <code>fig.align</code> chunk option.</li>
+<li>Add a chunk like #2 but have the document not show the code, just the output.</li>
+<li>Add a chunk that <em>only</em> shows the code, but doesn’t actually run.</li>
+<li>Add a chunk that creates an R object. Then use that object in the text via inline R code.</li>
+<li>Italicize or bold some words.</li>
+<li>Add a line break via HTML. Bonus: use <span class="pack">htmltools</span> and the <code>br()</code> function to add a line break from an R chunk.</li>
+<li>Set an option that will be applied to the whole document.</li>
+<li>Bonus: create a *.css file, to set an option for your link color.</li>
+</ul>
+<p>For these, you’ll have to look it up, as I haven’t explicitly discussed it.</p>
+<ul>
+<li>Create a quoted block.</li>
+<li>Add a subtitle to your document</li>
+<li>Remove the # from the output</li>
+</ul>
+
+</section>
+<section class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>And since this journal still thinks it’s 1990, all the tables had to be at the end of the document, so they aren’t even near the text which refers to them.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>The answer is none, because none of them can seem to do it in a timely fashion, and even top journals such as Nature, Science, Lancet, and others have been known to actually delay and even refuse to do so even in the face of overwhelming evidence of problematic articles. See <a href="https://retractionwatch.com/the-retraction-watch-leaderboard/top-10-most-highly-cited-retracted-papers/">Retraction Watch</a> for some insight.<a href="#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p>You certainly will from those who don’t have paid access to journals.<a href="#fnref3" class="footnote-back">↩</a></p></li>
+<li id="fn4"><p>When I did slides more often I found revealjs the most viable format. The fact that it’s listed second among the slide formats on the R Markdown website yet not a default when choosing, while the base R Presentation isn’t even mentioned on the website, kind of speaks to how much the RStudio folks are interested in these formats.<a href="#fnref4" class="footnote-back">↩</a></p></li>
+<li id="fn5"><p>There is not yet a way within R Markdown that I’m aware of to load on demand as many websites do. However, waiting for things to load until you come to them is annoying at best, and I usually get tired of waiting and move on to other things.<a href="#fnref5" class="footnote-back">↩</a></p></li>
+<li id="fn6"><p>This global option in RStudio may not work at times.<a href="#fnref6" class="footnote-back">↩</a></p></li>
+<li id="fn7"><p>Changing <code>fig.width</code> for a <span class="pack">plotly</span> image seems to affect the height, while <code>fig.height</code> doesn’t do anything.<a href="#fnref7" class="footnote-back">↩</a></p></li>
+<li id="fn8"><p>For building website like documents, e.g. using <span class="pack">bookdown</span>, there is a <code>Clean All</code> option. However, all this does is delete files that get overwritten already, and so serves almost no purpose. It’d be nice if it nuked the cache.<a href="#fnref8" class="footnote-back">↩</a></p></li>
+<li id="fn9"><p>A better way to probably do this is with <code>cache.extra = tools::md5sum('myfile.csv')</code>. That will, for example, rebuild the cache if that csv file has changed.<a href="#fnref9" class="footnote-back">↩</a></p></li>
+<li id="fn10"><p>I haven’t yet figured out the utility in having figures and output breaking up the flow of code and text along with everything else going on. Just my opinion though.<a href="#fnref10" class="footnote-back">↩</a></p></li>
+<li id="fn11"><p>You can pronounce it lah-tek or lay-tek, just don’t pronounce it -teks or people who know better will look at you funny. The ‘tex’ is based on the Greek. Also, the stress is on the first syllable.<a href="#fnref11" class="footnote-back">↩</a></p></li>
+<li id="fn12"><p>They really are useless at the time of this document’s creation (2018-03-01), neither adhering to basic Tufte or web principles. Avoid it until updated.<a href="#fnref12" class="footnote-back">↩</a></p></li>
+<li id="fn13"><p>You shouldn’t be using MS Excel for statistical analysis, so why would you use MS Word to report it? While I’m thinking about it, let’s never forget the economists who brought failed austerity measures to many countries because people followed their advice based on their borked analysis in Excel in which they had ‘accidentally’ hidden some of the data. Regardless of the fact they made a mistake, or used problematic analysis, the more damning issue was using Excel for analysis in the first place.<a href="#fnref13" class="footnote-back">↩</a></p></li>
+<li id="fn14"><p>People sometimes tell me they have to use it because of a collaborator. I would suggest that they explain that it isn’t in the best interest of the research or its products to do so. If the person insists, their role in the research, and certainly the document, should be diminished.<a href="#fnref14" class="footnote-back">↩</a></p></li>
+</ol>
+</section>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["twitter", "facebook", "google"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"download": null,
+"toc": {
+"collapse": "section",
+"depth": 2,
+"scroll_highlight": true
+},
+"highlight": "pygments",
+"search": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "true";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

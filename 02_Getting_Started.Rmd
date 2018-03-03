@@ -37,7 +37,7 @@ Documents are what you'll probably use primarily, especially since they can be u
 <img src="img/presentation_opts.png" style="display:block; margin: 0 auto;" width=50%>
 <br>
 
-You can do slide-style presentations with R Markdown, with three options shown, though two are bizarrely absent.  Two shown are HTML based, and you should not even consider Beamer/pdf.  Slides are not for printing, and in fact, really don't work for text in general.  They should be very visual if they are to be effective.  The two notable formats not shown are [revealjs](http://rmarkdown.rstudio.com/revealjs_presentation_format.html)[^revealjs] and the kind you can create by going to `File/New File/R Presentation`, which is also revealjs but a different format.  I do not recommend the latter.
+You can do slide-style presentations with R Markdown, with three options shown, though two are bizarrely absent.  Two shown are HTML based, and you should not even consider Beamer/pdf (i.e. $\LaTeX$).  Slides are not for printing, and in fact, really don't work for text in general.  They should be very visual if they are to be effective.  The two notable formats not shown are [revealjs](http://rmarkdown.rstudio.com/revealjs_presentation_format.html)[^revealjs] and the kind you can create by going to `File/New File/R Presentation`, which is also revealjs but a different format.  I do not recommend the latter.  In addition, many seem to be really high on [xaringan](https://github.com/yihui/xaringan), which is based on <span class="emph">remarkjs</span>, but I am not sure what it offers the others.
 
 Creating a presentation is easy enough, and the following shows an example.
 
@@ -67,7 +67,7 @@ output: ioslides_presentation
 - Drink wine
 ```
 
-You should really question whether you need slides.  They are a highly restrictive format, do not work well with text, and often don't work well with interactive images.  Furthermore, their development doesn't appear to be as much of a priority for the RStudio crowd relative to other formats (rightly so in my opinion).  Furthermore, there is nothing substantive they offer that can't be done with standard HTML.
+You should really question whether you need slides.  They are a highly restrictive format, do not work well with text, and often don't work well with interactive images.  Furthermore, their development doesn't appear to be as much of a priority for the RStudio crowd relative to other formats (rightly so in my opinion).  And finally, there is nothing substantive they offer that can't be done with standard HTML.
 
 
 ## Shiny Apps
@@ -94,7 +94,7 @@ Templates are available for any number of things, and one can find plenty among 
 
 ## How to start
 
-The best way to get started with R Markdown is to see a document you like, copy the relevant parts for your own document, and get to it!  It really is the best way in my opinion.  Many people host their files on [GitHub](https://github.com), so you can just download it directly from there.  The author of <span class="pack">bookdown</span>, a particular format for R Markdown, actually suggests people simply clone his repository for his book that teaches bookdown, and go from there.  That's how I started using <span class="pack">bookdown</span>, which became my favored format for longer documents, and even presentations.
+The best way to get started with R Markdown is to see a document you like, copy the relevant parts for your own document, and get to it!  It really is the best way in my opinion.  Many people host their files on [GitHub](https://github.com), so you can just download it directly from there.  The author of <span class="pack">bookdown</span>, a particular format for R Markdown, actually suggests people simply clone his repository for his book that teaches bookdown, and go from there.  That's how I started using <span class="pack">bookdown</span>, which became my favored format for longer documents, and even presentations.  Now bookdown is available as a template as well.
 
 Again though, just see what others are doing, and then tailor it to your own needs.
 

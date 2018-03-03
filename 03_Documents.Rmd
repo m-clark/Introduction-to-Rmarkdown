@@ -2,7 +2,7 @@
 
 ## R Markdown files
 
-R Markdown files, with extension `*.Rmd`, are a combination of text, <span class="emph">chunks</span> of R code, and possibly other code, all within a single file. Various packages, e.g. <span class="pack">rmarkdown</span>, <span class="pack">knitr</span>, <span class="pack">pandoc</span>, etc., work behind the scenes to knit all those pieces into one coherent whole, in whatever format is desired.<span class="marginnote">Pandoc is the universal translator that takes various formats, particularly markup languages, and converts them into others.</span>  The <span class="pack">knitr</span> package is the driving force behind most of what is done to create the final product.
+R Markdown files, with extension `*.Rmd`, are a combination of text, <span class="emph">chunks</span> of R code, and possibly other code or syntax, all within a single file. Various packages, e.g. <span class="pack">rmarkdown</span>, <span class="pack">knitr</span>, <span class="pack">pandoc</span>, etc., work behind the scenes to knit all those pieces into one coherent whole, in whatever format is desired.<span class="marginnote">Pandoc is the universal translator that takes various formats, particularly markup languages, and converts them into others.</span>  The <span class="pack">knitr</span> package is the driving force behind most of what is done to create the final product.
 
 ### HTML
 
@@ -14,17 +14,20 @@ I personally do everything in HTML because it's the most flexible and easiest to
 Writing text in a R Markdown document is the same as anywhere else.  There are a couple things you'll use frequently though.
 
 - Headers: Specified #, ##, ### etc. corresponding to H1 H2 H3 etc.
-- Italics & bold:  \*word*\ for italics \*\*word\*\* for bold.  You can also use underscores (some flavors may require it).
-- Lists: Start with a - or 1. and make sure the first element is separated from preceding text by a full blank line. Then separate each element by a line.
+- Italics & bold:  \**word*\* for italics \*\***word**\*\* for bold.  You can also use underscores (some flavors may require it).
+- Lists: Start with a - or number, and make sure the first element is separated from any preceding text by a full blank line. Then separate each element by a line.
 
 ```
 Some *text*.
 
 - List item 1
 - List item 2
+
+1. item #1
+2. item #2
 ```
 
-That will pretty much cover most of your text needs.  For those that know HTML & CSS, you can use those throughout the text as you desire as well.  For example, sometimes I need some extra space after a plot and will put in a `<br>`.
+That will pretty much cover most of your basic text needs.  For those that know HTML & CSS, you can use those throughout the text as you desire as well.  For example, sometimes I need some extra space after a plot and will put in a `<br>`.
 
 ## Code
 ### Chunks
@@ -37,7 +40,7 @@ x = rnorm(10)
 ```")
 ```
 
-There is no limit to what you put in an R chunk.  I don't recommend it, but it could be hundreds of lines of code.  You can put these anywhere within the document.
+There is no limit to what you put in an R chunk.  I don't recommend it, but it could be hundreds of lines of code.  You can put these anywhere within the document.  Other languages, e.g. Python, can be used as well, as long as <span class="emph">knitr</span> knows where to look for the engine.
 
 ### In-line
 

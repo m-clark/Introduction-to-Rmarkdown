@@ -6,6 +6,6 @@ At this point you should be ready to dive in with your own documents.  Using the
 <br>
 <br>
 
-```{r rimg_end, fig.align='center',  out.width=250, echo=FALSE, include=identical(knitr:::pandoc_to(), 'html')}
+```{r rimg_end, fig.align='center',  out.width=200, echo=FALSE, include=T}
 knitr::include_graphics('img/198R.png', dpi = NA)
 ```

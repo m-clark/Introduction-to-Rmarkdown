@@ -57,7 +57,7 @@ library(magrittr); library(tidyverse); library(stringr); library(pander); librar
 
 # 
 
-```{r rimg, fig.align='center',  out.width=300, echo=FALSE, include=identical(knitr:::pandoc_to(), 'html')}
+```{r rimg, fig.align='center',  out.width=300, echo=FALSE, include=T}
 knitr::include_graphics('img/198R.png', dpi = NA)
 ```
 
