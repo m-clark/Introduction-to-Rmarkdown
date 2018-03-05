@@ -38,7 +38,7 @@ biblio-style: apalike
 link-citations: yes
 description: "An Introduction to RMarkdown"    
 cover-image: img/nineteeneightyR.png
-url: 'https\://m-clark.github.io/' 
+url: 'https\://m-clark.github.io/Introduction-to-Rmarkdown' 
 favicon: 'img/R.ico'
 github-repo:  m-clark/
 ---
