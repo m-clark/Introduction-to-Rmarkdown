@@ -1,7 +1,7 @@
 
 bookdown::gitbook:
  css: [css/standard_html.css, css/book.css]
- font-import: https://fonts.googleapis.com/css?family=Roboto|Open+Sans|Stalemate
+ font-import: https://fonts.googleapis.com/css?family=Roboto|Open+Sans|Stalemate|Alex+Brush
  font-family: 'Roboto'
  config:
    toc:

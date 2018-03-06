@@ -1,20 +1,29 @@
 # Exercise
 
 - Create an Rmd for HTML.
-- Change some options. For example, choose a theme or add a table of contents.
-- Add a chunk that does some statistical calculation
+- Change some configuration options. For example, choose a theme or add a table of contents.
+- Add a chunk that does some statistical calculation.
 - Add a chunk that produces a visualization.  Align it with the `fig.align` chunk option.
-- Add a chunk like #2 but have the document not show the code, just the output.
-- Add a chunk that *only* shows the code, but doesn't actually run.
-- Add a chunk that creates an R object. Then use that object in the text via inline R code.
+- Add a chunk similar to the previous but have the document not show the code, just the output.
+- Now Add a chunk that *only* shows the code, but doesn't actually run.
+- Add a chunk that creates an R object such as a set of numbers or text. Then use that object in the text via inline R code.
 - Italicize or bold some words.
-- Add a line break via HTML. Bonus: use <span class="pack">htmltools</span> and the `br()` function to add a line break from an R chunk.
+- Add a line break via HTML. Bonus: use <span class="pack">htmltools</span> and the `br()` function to add a line break from an R chunk.  See what happens when you simply put several line returns.
 - Set an option that will be applied to the whole document.
-- Bonus: create a *.css file, to set an option for your link color.
 
+
+## More
 
 For these, you'll have to look it up, as I haven't explicitly discussed it.
 
 - Create a quoted block.
 - Add a subtitle to your document
-- Remove the # from the output
+- Remove the # from the R outputs
+
+
+## Advanced
+
+For this you'd have to know a little CSS, but just doing it once will go quite a ways to helping you feel comfortable being creative with your own CSS files.
+
+- Create a *.css file to set an option for your link color. Don't forget to refer to it in you YAML.
+- Create a special class of links and add a link of that class.
