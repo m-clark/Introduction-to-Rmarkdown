@@ -33,7 +33,7 @@ I'm sure you've been wondering at this point, so what is that stuff anyway?  Tha
 
 For the purposes of starting out, all you really need to know is that YAML is like configuration code for your document.  You can see that it specifies what the output is, and whatever options you selected previously.  You can change the title, add a date etc.  There is a lot of other stuff too.  Here is the YAML for this document.
 
-<img src="../img/yaml.png" style="display:block; margin: 0 auto;" width='100%' height='150%'>
+<img src="img/yaml.png" style="display:block; margin: 0 auto;" width='100%' height='150%'>
 
 Clearly, there is a lot to play with, but it will depend on the type of document you're doing.  For example, the `always_allow_html: yes` is pointless for an HTML document, but would allow certain things to be (very likely poorly) attempted in a PDF or Word document.  Other options *only* make sense for bookdown documents.
 
