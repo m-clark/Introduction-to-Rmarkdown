@@ -305,7 +305,7 @@ data %&gt;%
 <div id="caching" class="section level2">
 <h2>Caching</h2>
 <p><span class="emph">Caching</span> is both a great thing and continuous source of frustration. First, what is it? Caching saves the output of your R chunks into compressed files (*.RData) into a folder in the directory of your current project (or some sub-directory of your choosing). The next time you compile the document, you don’t actually have to run any code, if the code hasn’t changed; it will just call the cached object. When your document has a lot of computations, or in the spirit of reproducibility, actually runs your models, this will save a lot of time.</p>
-<p><img src="img/cache.png" style="display:block; margin: 0 auto;" width=50%></p>
+<p><img src="img/cache.png" style="display:block; margin: 0 auto;" width=60%></p>
 <p>However, this is not a straightforward process. When things change, the cache for the chunk must change. But what about subsequent chunks that depend on those results? The following is from the <span class="pack">knitr</span> package author Yihui Xie:</p>
 <blockquote>
 <p>Let me repeat the three factors that can affect cache (any change on them will invalidate old cache):</p>

@@ -10,7 +10,7 @@ The goal is for you to be able to get started with your own document, and unders
 
 ### Prerequisites
 
-The only prerequisite is a basic understanding of R.  The code in the document won't be dwelt upon or really explained, as what the code is doesn't matter in this context.
+The only prerequisite is a basic understanding of R.  Much of the R code in the document won't be dwelt upon or really explained, as what the code does won't matter in many contexts.  This is definitely not a place where you will learn how to program in R or do statistics with it.
 
 Note the following color coding used in this document:
 
