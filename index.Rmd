@@ -36,11 +36,11 @@ documentclass: book
 # bibliography: refs.bib
 biblio-style: apalike
 link-citations: yes
-description: "An Introduction to RMarkdown"    
-cover-image: img/nineteeneightyR.png
-url: 'https\://m-clark.github.io/Introduction-to-Rmarkdown' 
+description: "This document will introduce participants to the basics of R Markdown. After an introduction to concepts related to reproducible programming and research, demonstrations of standard markdown, as well as overviews of different formats, will be provided, including exercises."    
+cover-image: 'img/nineteeneightyR.png'
+url: 'https\://m-clark.github.io/Introduction-to-Rmarkdown/' 
 favicon: 'img/R.ico'
-github-repo:  m-clark/
+github-repo:  'm-clark/Introduction-to-Rmarkdown/'
 ---
 
 ```{r setup, include=FALSE, cache=FALSE}
