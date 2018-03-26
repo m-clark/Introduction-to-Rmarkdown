@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Roboto+Condensed");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+@import url('https://fonts.googleapis.com/css?family=Stalemate|Alex+Brush');
+
+
+.emph {
+  color: #E32D00 ;  /*#ff5500 #D14300*/
+  font-weight: 500;
+}
+
+/* pack func and objclass colors initially come from hcl(seq(90,360, length.out=4), c=80, l=80); redone for contrast*/
+.pack {
+  color: #990071; /*#AC9CFF #e41a1c*/
+  font-weight: 500;
+}
+
+.func {
+  color: #007199;   /*#00CBB6; #984ea3; can just use `` instead*/
+  font-weight: 500;
+}
+
+.objclass {
+  color:  #947100;  /*#AAB400 #4daf4a; #FFC5D0*/
+  font-weight: 500;
+}
+
+a {
+  color: #1e90ff;  /*dodgerblue*/
+}
+
+body {
+  color: #585858; /*#595959 (i.e. gray35) provides recommended contrast ratio 7:1 on white; change 9s to 8s for offwhite;*/
+  background-color: #fffff8;
+  font-family: Roboto sans;
+}
+
+p {
+
+}
+
+.author {
+  font-variant: small-caps;
+}
+
+
+#TOC{
+  font-size: 75%;
+
+}
+
+.table {
+  margin: 0 auto;
+}
+
+
+.tocify ul, .tocify li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    width: 100%;
+    line-height: 30px;
+    background-color: #fffff9;
+}
+
+li.tocify-item.list-group-item.active {
+  background-color: rgb(97,151,213);             /* background of current section in toc */
+}
+
+h1, h2, h3, h4, h5 {
+  color:#990024;
+  font-family: 'Roboto Condensed';
+}
+
+.col2 {
+  columns: 2 200px;         /* number of columns and width in pixels*/
+  -webkit-columns: 2 200px; /* chrome, safari */
+  -moz-columns: 2 200px;    /* firefox */
+}
+.col3 {
+  columns: 3 100px;
+  -webkit-columns: 3 100px;
+  -moz-columns: 3 100px;
+}
+
+.plotly {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+/*.plotly html-widget {
+  width: 100%;
+}*/
+
+.d3heatmap {
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 75%;
+}
+
+
+div.datatables {
+  margin-left: auto;     /* to center them when full is not necessary. */
+  margin-right: 0;
+  width: 75%;
+}
+
+.dataTables_wrapper {
+  max-width: 65%;  /* for whatever reason, the wrapper is on a different width than the data table itself; and search bar floats beyond footer stuff
+}
+
+table {
+  /*margin: auto;*/
+}
+slides {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    -ms-perspective: 1000;
+    -o-perspective: 1000;
+    perspective: 1000;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: opacity 250ms ease-in;
+    -webkit-transition-delay: 100ms;
+    -moz-transition: opacity 250ms ease-in 100ms;
+    -o-transition: opacity 250ms ease-in 100ms;
+    transition: opacity 250ms ease-in 100ms;
+}
+
+
+slide {
+  background-color: #fffff8;
+}
+
+slides > slide {
+    display: none;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 26px;
+    color: #797979;
+    width: 1600px;
+    height: 1200px;
+    margin-left: -750px;
+    margin-top: -500px;
+    padding: 40px 60px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-transition: all 0.6s ease-in-out;
+    -moz-transition: all 0.6s ease-in-out;
+    -o-transition: all 0.6s ease-in-out;
+    transition: all 0.6s ease-in-out;
+}
+
+img {
+  background-color: transparent;
+}
+
+
+code {
+  box-sizing: border-box;
+  left: 0; /* This changes where the code chunk box actually starts */
+  /* padding: 10px 0 10px 60px; /* Change the last value here to move the text left or right */
+  position: relative;
+  width: 100%; /* This changes where the code chunk box ends on the right side */
+  font-family: 'Roboto Mono' 'Lucida Sans' Consolas monospace;
+  font-size: 100%; /*changes output size; and comments*/
+  /*border: 10px solid #ff5500;*/  /*code block and results border*/
+  /*background-color:#ff5500;*/   /* results background*/
+
+}
+
+pre {
+  box-sizing: border-box;
+  left: 0; /* This changes where the code chunk box actually starts */
+  /* padding: 10px 0 10px 60px; /* Change the last value here to move the text left or right */
+  position: relative;
+  /*width: 100%; /* This changes where the code chunk box ends on the right side */
+  font-family: 'Roboto Mono' 'Lucida Sans' Consolas monospace;
+  font-size: 75%; /*changes output size; and comments*/
+  border: 1px solid #ebebeb;  /*code block and results border*/
+  background-color:#ff5500;   /* results background*/
+  width: 100%;
+}
+
+pre .prettyprint lang-r {
+ 
+}
+
+article.smaller pre {
+    font-size: 100%;
+    line-height: 125%;
+    letter-spacing: 0;
+    background-color: #ebebeb40; 
+}
+
+article.smaller p, article.smaller ul, article.smaller ol {
+    font-size: 32px;
+    line-height: 24px;
+    letter-spacing: 0;
+}

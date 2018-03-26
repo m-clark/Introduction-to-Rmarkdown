@@ -1,0 +1,100 @@
+---
+title: "Getting Started with Shiny"
+runtime: shiny
+output: 
+  ioslides_presentation: 
+    logo: '../img/nineteeneightyR.png'
+    smaller: yes
+    df_print: kable
+css: 'shiny.css'
+---
+
+```{r setup, include=FALSE, cache=FALSE}
+knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F, comment=NA, R.options=list(width=220),   # code 
+                      dev.args=list(bg = 'transparent'), dev='svglite',                                 # viz
+                      fig.align='center', out.width='75%', fig.asp=.75,                 
+                      cache.rebuild=F, cache=T)                                                         # cache
+```
+
+```{r packages, include=FALSE, cache=FALSE}
+library(magrittr); library(tidyverse); library(stringr); library(pander); library(plotly); library(lazerhawk)
+```
+
+## Shiny 
+
+
+
+## Interactive Plot Code
+
+Input panel
+
+```{r eruptions_panel, eval=FALSE}
+inputPanel(
+  selectInput("n_breaks", label = "Number of bins:",
+              choices = c(10, 20, 35, 50), selected = 20),
+  
+  sliderInput("bw_adjust", label = "Bandwidth adjustment:",
+              min = 0.2, max = 2, value = 1, step = 0.2)
+)
+```
+
+## Interactive Plot Code
+
+Plot code
+
+```{r eruptions_plot, eval=FALSE}
+renderPlot({
+  ggplot(data=faithful) +
+    geom_histogram(aes(x=eruptions, y=..density..), 
+                   color='#ff5500', 
+                   fill='#ff550080', 
+                   bins=input$n_breaks) +
+    geom_density(aes(x=eruptions),
+                 adjust = input$bw_adjust,
+                 color='#00aaff') +
+    labs(x = "Duration (minutes)", y='', 
+         title= "Geyser eruption duration") +
+    theme_trueMinimal()
+})
+```
+
+
+## Interactive Plot
+
+```{r eruptions, cache=FALSE, echo=FALSE}
+inputPanel(
+  selectInput("n_breaks", label = "Number of bins:",
+              choices = c(10, 20, 35, 50), selected = 20),
+  
+  sliderInput("bw_adjust", label = "Bandwidth adjustment:",
+              min = 0.2, max = 2, value = 1, step = 0.2)
+)
+
+renderPlot({
+  # ggplotly(
+  ggplot(data=faithful) +
+    geom_histogram(aes(x=eruptions, y=..density..), color='#ff5500', fill='#ff550080', bins=input$n_breaks) +
+    geom_density(aes(x=eruptions),  adjust = input$bw_adjust, color='#00aaff') +
+    labs(x = "Duration (minutes)", y='', title= "Geyser eruption duration") +
+    theme_trueMinimal()
+  # )
+  
+})
+```
+
+
+
+## Bullets
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+## R Output
+
+```{r cars}
+describe_all(cars)[[1]]
+summary(cars)
+```
+
+
