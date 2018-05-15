@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2018-03-10">
+<meta name="date" content="2018-05-14">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -218,7 +218,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2>PDF &amp; LaTeX</h2>
 <div id="latex" class="section level3">
 <h3><span class="math inline">\(\LaTeX\)</span></h3>
-<p>If you’re reading a printed or pdf document and it appears to be massaging your eyeballs in both its look and feel, it likely was constructed with <span class="math inline">\(\LaTeX\)</span><a href="#fn11" class="footnoteRef" id="fnref11"><sup>11</sup></a>. <span class="math inline">\(\LaTeX\)</span>, along with its derivatives, is a type-setting system specifically designed for scientific or other technical documents by Donald Knuth <em>back in the 1970s</em>. If you aren’t familiar with it, you should know that whole disciplines have essentially required it for communication in their field for many years. What’s more, R has been <span class="math inline">\(\LaTeX\)</span>-able since the beginning via S expressions and code chunks (Sweave)<span class="marginnote">S -&gt; R, Sweave -&gt; knitr. Now you know.</span>, allowing one to weave the code and results together in one document. The following shows an example of <span class="math inline">\(\LaTeX\)</span> syntax.</p>
+<p>If you’re reading a printed or pdf document and it appears to be massaging your eyeballs in both its look and feel, it likely was constructed with <span class="math inline">\(\LaTeX\)</span><a href="#fn12" class="footnoteRef" id="fnref12"><sup>12</sup></a>. <span class="math inline">\(\LaTeX\)</span>, along with its derivatives, is a type-setting system specifically designed for scientific or other technical documents by Donald Knuth <em>back in the 1970s</em>. If you aren’t familiar with it, you should know that whole disciplines have essentially required it for communication in their field for many years. What’s more, R has been <span class="math inline">\(\LaTeX\)</span>-able since the beginning via S expressions and code chunks (Sweave)<span class="marginnote">S -&gt; R, Sweave -&gt; knitr. Now you know.</span>, allowing one to weave the code and results together in one document. The following shows an example of <span class="math inline">\(\LaTeX\)</span> syntax.</p>
 <pre><code>\documentclass{article}
 \title{Use R Markdown in lieu of $\LaTeX$}
 \author{Me, Myself, and I}
@@ -284,7 +284,7 @@ $$\mathrm{SomeFormula} = Q_{123}^2$$
 <div id="tufte" class="section level3">
 <h3>Tufte</h3>
 <p>One nice thing in the PDF department is the option of using Tufte styling. Edward Tufte did much to bring statistical graphics and presentation into forms far more suitable for communication and just simply more beautiful.<span class="marginnote">I would still recommend Tufte’s <em>The Visual Display of Quantitative Information</em>, as the ideas are still useful for printed work, and would possibly provide some decent ideas for visual display in any format.</span></p>
-<p>In the past, I used the Tufte handout and book classes for my PDF documents, because I liked the <span class="emph">sidenote</span> and <span class="emph">marginnote</span> capabilities. R Markdown offers Tufte stylings for PDF, which is great, and makes it easy for anyone to make their <span class="math inline">\(\LaTeX\)</span> approach to PDF even better. They are also offered for HTML, but very little developed at this point<a href="#fn12" class="footnoteRef" id="fnref12"><sup>12</sup></a>. I still like the marginnote approach, to the point I made my own CSS class to use them. Sidenotes, which were used to create footnotes at the point they are created rather than at the bottom of a page, are unnecessary with HTML, because a link is created that makes it easy to go back and forth from the footnote.</p>
+<p>In the past, I used the Tufte handout and book classes for my PDF documents, because I liked the <span class="emph">sidenote</span> and <span class="emph">marginnote</span> capabilities. R Markdown offers Tufte stylings for PDF, which is great, and makes it easy for anyone to make their <span class="math inline">\(\LaTeX\)</span> approach to PDF even better. They are also offered for HTML, but very little developed at this point<a href="#fn13" class="footnoteRef" id="fnref13"><sup>13</sup></a>. I still like the marginnote approach, to the point I made my own CSS class to use them. Sidenotes, which were used to create footnotes at the point they are created rather than at the bottom of a page, are unnecessary with HTML, because a link is created that makes it easy to go back and forth from the footnote.</p>
 </div>
 <div id="a-final-word" class="section level3">
 <h3>A final word</h3>
@@ -294,7 +294,7 @@ $$\mathrm{SomeFormula} = Q_{123}^2$$
 <div id="ms-word" class="section level2">
 <h2>MS Word</h2>
 <p>Probably the most common tool I see people use for their scientific and related reporting is Microsoft Word. They fight it for all the ‘features’ it provides, then they fight it to get their images to look okay after pasting it from somewhere else, then they fight it early and often to get the tables just the way they like it. Even the slightest change to the data will result in having to redo practically everything. Because of all the pasting and finagling with numbers after changes, it’s almost guaranteed that errors will arise, and they regularly do. And finally, MS Word documents look like MS Word documents, even if you convert it to something else. In other words, unimpressive.</p>
-<p>People using Word directly are not engaged in reproducible research, and if they are coupling it with menu driven statistical analyses, their work is problematic from any scientific viewpoint<a href="#fn13" class="footnoteRef" id="fnref13"><sup>13</sup></a>. If you feel you must have a MS Word document, and you’re wrong about this, because excellent academic research is regularly done without it and always has been, know that you can still create a Word document as a final product with R Markdown<a href="#fn14" class="footnoteRef" id="fnref14"><sup>14</sup></a>.</p>
+<p>People using Word directly are not engaged in reproducible research, and if they are coupling it with menu driven statistical analyses, their work is problematic from any scientific viewpoint<a href="#fn14" class="footnoteRef" id="fnref14"><sup>14</sup></a>. If you feel you must have a MS Word document, and you’re wrong about this, because excellent academic research is regularly done without it and always has been, know that you can still create a Word document as a final product with R Markdown<a href="#fn15" class="footnoteRef" id="fnref15"><sup>15</sup></a>.</p>
 <p>As might be obvious, you’ll need MS Word installed if you’re going to create such documents. I wouldn’t recommend this for anything, and so I will spend very little effort explaining to you how to do it.</p>
 <p>The main thing you need to know is how to use a template. MS Word defaults have been terrible since its inception, so after customizing a document to look the way you want, you can then use it as a template. Just specify the document you’ve created in the YAML as follows:</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">output:</span>
@@ -313,11 +313,11 @@ $$\mathrm{SomeFormula} = Q_{123}^2$$
 </div>
 <div class="footnotes">
 <hr />
-<ol start="11">
-<li id="fn11"><p>You can pronounce it lah-tek or lay-tek, just don’t pronounce it -teks or people who know better will look at you funny. The ‘tex’ is based on the Greek. Also, the stress is on the first syllable.<a href="comparison-to-alternatives.html#fnref11">↩</a></p></li>
-<li id="fn12"><p>They really are useless at the time of this document’s creation (2018-03-01), neither adhering to basic Tufte or web principles. Avoid it until updated.<a href="comparison-to-alternatives.html#fnref12">↩</a></p></li>
-<li id="fn13"><p>You shouldn’t be using MS Excel for statistical analysis, so why would you use MS Word to report it? While I’m thinking about it, let’s never forget the economists who brought failed austerity measures to many countries because people followed their advice based on their borked analysis in Excel in which they had ‘accidentally’ hidden some of the data. Regardless of the fact they made a mistake, or used problematic analysis, the more damning issue was using Excel for analysis in the first place.<a href="comparison-to-alternatives.html#fnref13">↩</a></p></li>
-<li id="fn14"><p>People sometimes tell me they have to use it because of a collaborator. I would suggest that they explain that it isn’t in the best interest of the research or its products to do so. If the person insists, their role in the research, and certainly the document, should be diminished.<a href="comparison-to-alternatives.html#fnref14">↩</a></p></li>
+<ol start="12">
+<li id="fn12"><p>You can pronounce it lah-tek or lay-tek, just don’t pronounce it -teks or people who know better will look at you funny. The ‘tex’ is based on the Greek. Also, the stress is on the first syllable.<a href="comparison-to-alternatives.html#fnref12">↩</a></p></li>
+<li id="fn13"><p>They really are useless at the time of this document’s creation (2018-03-01), neither adhering to basic Tufte or web principles. Avoid it until updated.<a href="comparison-to-alternatives.html#fnref13">↩</a></p></li>
+<li id="fn14"><p>You shouldn’t be using MS Excel for statistical analysis, so why would you use MS Word to report it? While I’m thinking about it, let’s never forget the economists who brought failed austerity measures to many countries because people followed their advice based on their borked analysis in Excel in which they had ‘accidentally’ hidden some of the data. Regardless of the fact they made a mistake, or used problematic analysis, the more damning issue was using Excel for analysis in the first place.<a href="comparison-to-alternatives.html#fnref14">↩</a></p></li>
+<li id="fn15"><p>People sometimes tell me they have to use it because of a collaborator. I would suggest that they explain that it isn’t in the best interest of the research or its products to do so. If the person insists, their role in the research, and certainly the document, should be diminished.<a href="comparison-to-alternatives.html#fnref15">↩</a></p></li>
 </ol>
 </div>
             </section>

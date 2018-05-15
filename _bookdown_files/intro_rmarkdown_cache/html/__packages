@@ -15,3 +15,5 @@ lazerhawk
 xml2
 rvest
 bindrcpp
+broom
+kableExtra

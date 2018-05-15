@@ -38,13 +38,12 @@ Consider the following example. This code, which is clearly delimited from the t
 * item 4
 ```
 
-So, we have a statement explaining the code, followed by the code itself. We actually don't need a code comment, because the text explains the code in everyday language.  This is a simple example but gets at the essence of the approach.  In the document you're reading right now, there is a delineation for the code itself, but this isn't visible. However, it's clear what the code part is and what the text part is.  
+So, we have a statement explaining the code, followed by the code itself. We actually don't need a code comment, because the text explains the code in everyday language.  This is a simple example, but it gets at the essence of the approach.  In the document you're reading right now, there is a delineation for the code itself, but this isn't visible. However, it's clear what the code part is and what the text part is.  
 
 The following table shows the results of a regression analysis.
 
-```{r lm_demo,echo=FALSE}
-summary(lm(mpg ~ wt, mtcars)) %>% 
-  pander(round=3)
+```{r lm_demo, echo=FALSE}
+lm(mpg ~ wt, mtcars) %>% summary() %>% pander(round=3)
 ```
 
 So, imagine a paper in which the previous text content explains the results while the analysis code resides right where the text is.  You didn't see the code, but you saw some nicely formatted results. I personally didn't format anything however, those are using default settings.  Here is the underlying code.
@@ -65,13 +64,13 @@ The idea of literate programming, i.e. creating human-understandable programs, c
 
 The ideas of <span class="emph">replicability</span> and <span class="emph">reproducible research</span> are hot topics in various disciplines of late.  To begin, neither is precisely defined, and depending on the definition one selects, possibly unlikely or even impossible.  They are more ideals to strive for, or goals for certain aspects of the research process.  For example, nothing is exactly replicable, if only because time will have passed, and with it some things will have changed about the process since the initial research was conducted- the people involved, the data collection approach, the analytical tools, etc.  However, we can replicate some things, possibly even exactly, and thus make the results reproducible.
 
-Our focus will be on the data analysis side.  Let's start with the following scenario. Various versions of a data set are used leading up to analysis, and after several iterations, `finaldata7` is now spread across the computers of the faculty advisor, two graduate students and one undergrad. Two of those finaldata7 data sets, specifically named `finaldata7a` and `finaldata7b`, are slightly different from the other two and each other.  The undergraduate, who helped with the processing of finaldata2 through finaldata6, has graduated and no longer resides in the same state, nor likely cares any more about the project.  Some of the data processing was done with menus in a software package that shall not be named.
+Our focus will be on data analysis in particular.  Let's start with the following scenario. Various versions of a data set are used leading up to analysis, and after several iterations, `finaldata7` is now spread across the computers of the faculty advisor, two graduate students and one undergrad. Two of those finaldata7 data sets, specifically named `finaldata7a` and `finaldata7b`, are slightly different from the other two and each other.  The undergraduate, who helped with the processing of finaldata2 through finaldata6, has graduated and no longer resides in the same state, nor likely cares any more about the project.  Some of the data processing was done with menus in a software package that shall not be named.
 
 The script that did the final analysis, called `model.Results.C`, calls the data using a directory location which no longer exists (and refers only to `finaldata7`).  It does several more data processing steps, but has no comments that would indicate why any of them are being done.  Some of the variables are named things like PDQ and V3, but there is no document that would say what those mean.
 
 When writing their research document in Microsoft Word, all the values from the analyses were copied and pasted into the tables and text[^intheback].  The variable names in the document have no exact match to any of the names in any of the data objects.  Furthermore, no reference was provided in the text regarding what software or specific packages were used for the analysis.  
 
-And now, several months later, after the final draft of the document was written, sent to the journal, and the reviewers have made their comments on the paper, it's time to dive back into the analysis.  Now, what do you think the odds are that this research group could even reproduce the values reported in the main analysis of the paper?
+And now, several months later, after the final draft of the document was written and sent to the journal, and the reviewers have eventually made their comments on the paper, it's time to dive back into the analysis.  Now, what do you think the odds are that this research group could even reproduce the values reported in the main analysis of the paper?
 
 Sadly, up until a couple years ago this was not uncommon, and even certain issues just described are still very common.  Such an approach is essentially the antithesis of replicability and reproducible research.  Anything that was only done with menus cannot be replicated, and without sufficient documentation it's not clear what was done even when there is potentially reproducible code.  The naming of files, variables and other objects was done poorly, so it will take unnecessary effort to figure out what was done, to what, and when.  And even after most things get squared away, there is still a chance the numbers won't match what was in the paper anyway.
 
@@ -86,9 +85,9 @@ In summary, truly reproducible data analysis requires:
 - Standard means of distribution
 - Literate programming practices
 
-As an example, one could start their research as an RStudio project using Git for version control, write their research products using R Markdown, set seeds for random variables, and use <span class="pack">packrat</span> to keep the packages used in analysis specific to the project.  Doing so would make it essentially *impossible* not to reproduce the previous results at any stage.
+As an example, one could start their research as an RStudio project using Git for version control, write their research products using R Markdown, set seeds for random variables, and use <span class="pack">packrat</span> to keep the packages used in analysis specific to the project.  Doing so would make it essentially *impossible* not to reproduce the previous results at any stage, even years later.
 
-  
+
 ## Dynamic data analysis & report generation
 
 Sometimes the goal is to create an expression of the analysis that is not only to be disseminated to a particular audience, but one which possibly will change over time, as the data itself evolves temporally.  In this dynamic setting, the document must be able to handle changes with minimal effort.  
@@ -135,17 +134,17 @@ Let's recap the issues with traditional approaches:
 <span class="marginnote">Some journals still charge extra for color plots. First, there obviously is no cost for color for electronic documents, which is how the vast majority of research articles are accessed. They often don't ask whether you actually want it printed in color (they'll simply want to charge you for any color plots you have), nor do they seem to care that you can use color schemes that would look fine in black and white.  This situation is ridiculous.</span>
 The case for using a markdown approach is now years old and well established. Unfortunately many, but not all, journals are still print-oriented, because their income depends on the assumption of print, not to mention a closed-source, broken, and un-scientific system of review and publication that dates [back to the 17th century](https://www.npr.org/sections/health-shots/2018/02/24/586184355/scientists-aim-to-pull-peer-review-out-of-the-17th-century).  Consider the fact that you could blog about your research while conducting it, present preliminary results in your blog via R Markdown (because your blog itself is done via R Markdown), get regular feedback from peers along the way via your site's comment system, and all this before you'd ever send it off to a journal.  Now ask yourself what a print-oriented journal actually offers you? When was the last time you actually opened a print version of a journal? How often do you go to a journal site to look for something as opposed to a simple web search or using Google Scholar?  How many journals do adequate retractions when problems are found[^retract]? Is it possible you may actually get more eyeballs and clicks on your work just having it on your own website[^noaccess] or [tweeting about it](https://www.altmetric.com/about-altmetrics/what-are-altmetrics/)?
 
-The current paradigm is going to change because it has to, and there is practically no justification for the traditional approach to academic publication. Indeed, the change is underway, with some outlets requiring pre-registration, code, and other changes to the usual send-a-pdf-and-we'll-get-back-to-you approach.  You might as well be using tools and an approach that will already accommodate such change.
+The current paradigm is going to change because it has to, and there is practically no justification for the traditional approach to academic publication. Indeed, the change is already well underway, with some outlets requiring pre-registration, code, and other changes to the usual send-a-pdf-and-we'll-get-back-to-you approach.  You might as well be using tools and an approach that will already accommodate such change[^nobel].
 
 For more on tools for reproducible research in R, see the [task view](https://cran.r-project.org/web/views/ReproducibleResearch.html).
 
 
 [^intheback]: And since the journal they are submitting to still thinks it's 1990, all the tables had to be at the end of the document, so they aren't even near the text which refers to them.
 
-
-
 [^layteks]: You can pronounce it lah-tek or lay-tek, just don't pronounce it -teks or people who know better will look at you funny.  The 'tex' is based on the Greek.  Also, the stress is on the first syllable.
 
 [^retract]: The answer is none, because none of them can seem to do it in a timely fashion, and even top journals such as Nature, Science, Lancet, and others have been known to actually delay and even refuse to do so even in the face of overwhelming evidence of problematic articles. See [Retraction Watch](https://retractionwatch.com/the-retraction-watch-leaderboard/top-10-most-highly-cited-retracted-papers/) for some insight. 
 
 [^noaccess]: You certainly will from those who don't have paid access to journals.
+
+[^nobel]: Nobel prize-winning research groups are using [interactive reproducible research practices](https://hub.mybinder.org/user/losc-tutorial-l-_event_tutorial-s6sl5re6/notebooks/index.ipynb), so you should feel okay about using it for your stuff.
