@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2018-05-14">
+<meta name="date" content="2018-05-15">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -219,7 +219,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>R Markdown files, with extension <code>*.Rmd</code>, are a combination of text, <span class="emph">chunks</span> of R code, and possibly other code or syntax, all within a single file. Various packages, e.g. <span class="pack">rmarkdown</span>, <span class="pack">knitr</span>, <span class="pack">pandoc</span>, etc., work behind the scenes to knit all those pieces into one coherent whole, in whatever format is desired.<span class="marginnote">Pandoc is the universal translator that takes various formats, particularly markup languages, and converts them into others.</span> The <span class="pack">knitr</span> package is the driving force behind most of what is done to create the final product.</p>
 <div id="html" class="section level3">
 <h3>HTML</h3>
-<p>I personally do everything in HTML because it’s the most flexible and easiest to get things looking the way you want. Presumably at some point, these will simply be the default that people both use and expect in the academic realm, as there is little additional value that one can get with PDF or MS Word, and often notably less. Furthermore, academia is an anachronism. How much do you use PDF and Word for <em>anything</em> else relative to HTML?</p>
+<p>I personally do everything in HTML because it’s the most flexible and easiest to get things looking the way you want. Presumably at some point, these will simply be the default that people both use and expect in the academic realm, as there is little additional value that one can get with PDF or MS Word, and often notably less. Furthermore, academia is an anachronism. How much do you use PDF and Word for <em>anything</em> else relative to HTML (i.e. the web)?</p>
 </div>
 </div>
 <div id="text" class="section level2">
@@ -228,9 +228,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li>Headers: Specified #, ##, ### etc. corresponding to H1 H2 H3 etc.</li>
 <li>Italics &amp; bold: *<em>word</em>* for italics **<strong>word</strong>** for bold. You can also use underscores (some flavors may require it).</li>
-<li>Links: <code>[some_text](http://webaddress)</code></li>
+<li>Links: <code>[some_text](http://webaddress.com)</code></li>
 <li>Image: <code>![alt-text](img_location)</code></li>
-<li>Lists: Start with a - or number, and make sure the first element is separated from any preceding text by a full blank line. Then separate each element by a line.</li>
+<li>Lists: Start with a dash or number, and make sure the first element is separated from any preceding text by a full blank line. Then separate each element by a line.</li>
 </ul>
 <pre><code>Some *text*.
 
@@ -249,7 +249,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>```{r}
 x = rnorm(10)
 ```</code></pre>
-<p>There is no limit to what you put in an R chunk. I don’t recommend it, but it could be hundreds of lines of code. You can put these anywhere within the document. Other languages, e.g. Python, can be used as well, as long as <span class="emph">knitr</span> knows where to look for the engine.</p>
+<p>There is no limit to what you put in an R chunk. I don’t recommend it, but it could be hundreds of lines of code. You can put these anywhere within the document. Other languages, e.g. Python, can be used as well, as long as <span class="emph">knitr</span> knows where to look for the engine for the code you want to insert.</p>
 </div>
 <div id="in-line" class="section level3">
 <h3>In-line</h3>
@@ -273,7 +273,7 @@ x = rnorm(10)
 <h3>Running code</h3>
 <p>You don’t have to knit the document to run the code, and often you’ll be using the results as you write the document. You can run a single chunk or multiple chunks. Use the shortcuts instead of the menu.</p>
 <p><img src="img/run_chunk.png" style="display:block; margin: 0 auto;" width=75%></p>
-<p>By default, when you knit the document all code will be run. Depending on a variety of factors, this may or may not be what you want to do, especially if it is time-consuming to do so. We’ll talk about how to deal with this issue in the next section.</p>
+<p>By default, when you knit the document all code will be run. Depending on a variety of factors, this may or may not be what you want to do, especially if it is time-consuming to do so. We’ll talk about how to deal with this issue in the next part.</p>
 </div>
 </div>
 <div id="multiple-documents" class="section level2">

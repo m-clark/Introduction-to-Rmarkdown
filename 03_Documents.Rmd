@@ -6,7 +6,7 @@ R Markdown files, with extension `*.Rmd`, are a combination of text, <span class
 
 ### HTML
 
-I personally do everything in HTML because it's the most flexible and easiest to get things looking the way you want.  Presumably at some point, these will simply be the default that people both use and expect in the academic realm, as there is little additional value that one can get with PDF or MS Word, and often notably less.  Furthermore, academia is an anachronism.  How much do you use PDF and Word for *anything* else relative to HTML?
+I personally do everything in HTML because it's the most flexible and easiest to get things looking the way you want.  Presumably at some point, these will simply be the default that people both use and expect in the academic realm, as there is little additional value that one can get with PDF or MS Word, and often notably less.  Furthermore, academia is an anachronism.  How much do you use PDF and Word for *anything* else relative to HTML (i.e. the web)?
 
 
 ## Text
@@ -15,9 +15,9 @@ Writing text in a R Markdown document is the same as anywhere else.  There are a
 
 - Headers: Specified #, ##, ### etc. corresponding to H1 H2 H3 etc.
 - Italics & bold:  \**word*\* for italics \*\***word**\*\* for bold.  You can also use underscores (some flavors may require it).
-- Links: `[some_text](http://webaddress)`
+- Links: `[some_text](http://webaddress.com)`
 - Image: `![alt-text](img_location)`
-- Lists: Start with a - or number, and make sure the first element is separated from any preceding text by a full blank line. Then separate each element by a line.
+- Lists: Start with a dash or number, and make sure the first element is separated from any preceding text by a full blank line. Then separate each element by a line.
 
 ```
 Some *text*.
@@ -42,7 +42,7 @@ x = rnorm(10)
 ```")
 ```
 
-There is no limit to what you put in an R chunk.  I don't recommend it, but it could be hundreds of lines of code.  You can put these anywhere within the document.  Other languages, e.g. Python, can be used as well, as long as <span class="emph">knitr</span> knows where to look for the engine.
+There is no limit to what you put in an R chunk.  I don't recommend it, but it could be hundreds of lines of code.  You can put these anywhere within the document.  Other languages, e.g. Python, can be used as well, as long as <span class="emph">knitr</span> knows where to look for the engine for the code you want to insert.
 
 ### In-line
 
@@ -77,7 +77,7 @@ You don't have to knit the document to run the code, and often you'll be using t
 
 <img src="img/run_chunk.png" style="display:block; margin: 0 auto;" width=75%>
 
-By default, when you knit the document all code will be run.  Depending on a variety of factors, this may or may not be what you want to do, especially if it is time-consuming to do so.  We'll talk about how to deal with this issue in the next section.
+By default, when you knit the document all code will be run.  Depending on a variety of factors, this may or may not be what you want to do, especially if it is time-consuming to do so.  We'll talk about how to deal with this issue in the next part.
 
 ## Multiple documents
 
