@@ -203,12 +203,21 @@ i {
     width: 75%;                 /*fiddle with this relative to marginnote; div.sourceCode should be the same*/
 }
 
-
+/* Here is where you can specify thing that kable will ignore */
 .book .book-body .page-wrapper .page-inner section.normal table {
   max-width: 50%;
   margin-left: 0;
   font-size: 80%;
 }
+
+.book .book-body .page-wrapper .page-inner section.normal table .table-striped .table-condensed {
+  margin-left: 0;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal table tbody tr:nth-child(odd), 
+.book .book-body .page-wrapper .page-inner section.normal table tbody tr:nth-child(even) {
+    background-color: #fafafa80;
+  }
 
 div.sourceCode.r {
   width: 75%;
@@ -272,3 +281,4 @@ a:focus,  a:hover {
     cursor: pointer;
 }
 */
+

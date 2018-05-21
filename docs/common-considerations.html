@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2018-05-15">
+<meta name="date" content="2018-05-21">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -217,7 +217,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>In creating a document there several things that consistently come up that you’ll want to be aware of, and we’ll visit some of those here.</p>
 <div id="using-html" class="section level2">
 <h2>Using HTML</h2>
-<p>The first thing to do is simply get used to HTML as your primary output. Unless you know something is to be printed you won’t gain anything but an uglier and/or less flexible document without having to put notably more effort into development.</p>
+<p>The first thing to do is simply get used to HTML as your primary output. Unless you know something is to be printed in a traditional format, you won’t gain anything but an uglier and/or less flexible document without having to put notably more effort into development. This is especially the case when the code is the focus, and you’re using R Markdown as you would a normal R script, albeit in more organized fashion.</p>
 </div>
 <div id="chunk-options" class="section level2">
 <h2>Chunk options</h2>
@@ -229,12 +229,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 <div id="setup-to-apply-to-all" class="section level3">
 <h3>Setup to apply to all</h3>
-<p>Then there are other options that I set at the beginning of a document. The reason for doing so is because I will rarely, if ever, want these options changed. As such, I specify them at the beginning, and only change them as need be for specific chunks.</p>
+<p>Then there are other options that I set at the beginning of a document. The reason for doing so is because I will rarely, if ever, want these options changed. As such, I create a chunk to specify them at the beginning, and only change them as need be for specific chunks. <em>Any</em> option you would specify for a specific chunk can be defined here and applied to all by default.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">echo =</span> T, <span class="dt">message=</span>F, <span class="dt">warning=</span>F, <span class="dt">error=</span>F, 
                       <span class="dt">comment=</span><span class="ot">NA</span>, <span class="dt">cache=</span>T, <span class="dt">R.options=</span><span class="kw">list</span>(<span class="dt">width=</span><span class="dv">220</span>), 
                       <span class="dt">fig.align=</span><span class="st">&#39;center&#39;</span>, <span class="dt">out.width=</span><span class="st">&#39;75%&#39;</span>, <span class="dt">fig.asp=</span>.<span class="dv">75</span>)</code></pre></div>
 <p>These options do things like make sure messages, warnings, and errors don’t show up in the document.<span class="marginnote">You can still get errors, and they will keep your document from compiling.</span> Note that any specific chunk options will override these. So, you’ll always have fine control over how things work.</p>
-<p>You can also specify options for the way <span class="pack">knitr</span> itself works. For example, Rmd documents by default ignore the fact that you are using an RStudio project, and instead work from wherever the Rmd file is. Using <code>root.dir</code> can correct this. There is also a global option you can set via the tools menu<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a>.</p>
+<p>You can also specify options for the way <span class="pack">knitr</span> itself works. For example, <code>*.Rmd</code> documents by default ignore the fact that you are using an RStudio project, and instead work from wherever the Rmd file is. Using <code>root.dir</code> can correct this. There is also a global option you can set via the tools menu<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span>opts_knit<span class="op">$</span><span class="kw">set</span>(<span class="dt">root.dir =</span> <span class="st">&#39;../&#39;</span>, <span class="dt">child =</span> <span class="st">&#39;someotherdoc.Rmd&#39;</span>)</code></pre></div>
 </div>
 </div>
@@ -246,17 +246,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Where to begin? There are many, many ways to manipulate an image that is produced by your R code, and this is not necessarily a good thing. Thankfully, the default settings may be enough, but in my experience it rarely is.</p>
 <div id="html-vs.others" class="section level4">
 <h4>HTML vs. Others</h4>
-<p>To begin, there are different systems for PDF or MS Word vs. HTML-based documents. For non-HTML, the chunk options of <code>fig.width</code> and <code>fig.height</code> generally used for figure dimensions. Oddly, these are expressed in inches, but at least it is easy enough to manipulate to your liking. These will not affect interactive and possibly other images in HTML documents except in unexpected ways<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a>. You can also supply <code>fig.width</code> plus <code>fig.asp</code> which will produce a height that is <code>fig.width*fig.asp</code>. There is also <code>fig.dim</code>, which will take the two values you would have specified for <code>fig.width</code> and <code>fig.height</code>. If you supply <code>fig.dim</code> with <code>fig.asp</code>, the latter will be ignored. If expressing size in inches doesn’t make sense to you, you can use <code>dpi</code>, which will allow you to know think of <code>dpi*inches</code> as what to expect in terms of pixels. You also have <code>fig.align</code> with options like ‘left’ and ‘center’, but it apparently has no effect on <span class="pack">htmlwidgets</span> and similar packages that rely on other languages like JavaScript.</p>
+<p>To begin, there are different systems for PDF or MS Word vs. HTML-based documents. For non-HTML, the chunk options of <code>fig.width</code> and <code>fig.height</code> are generally used for figure dimensions. Oddly, these are expressed in inches, but at least it is easy enough to manipulate to your liking. While you can use them in HTML for static images as those produced by ggplot2, there isn’t a reason I can think of to express the size in inches for an electornic display. Furthermore, these settings will not affect interactive and possibly other images in HTML documents except in unexpected ways<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a>.</p>
+<p>You can also supply <code>fig.width</code> plus <code>fig.asp</code> which will produce a height that is <code>fig.width*fig.asp</code>. There is also <code>fig.dim</code>, which will take the two values you would have specified for <code>fig.width</code> and <code>fig.height</code>. If you supply <code>fig.dim</code> with <code>fig.asp</code>, the latter will be ignored. If expressing size in inches doesn’t make sense to you, you can use <code>dpi</code>, which will allow you to know think of <code>dpi*inches</code> as what to expect in terms of pixels. You also have <code>fig.align</code> with options like ‘left’ and ‘center’, but it apparently has no effect on <span class="pack">htmlwidgets</span> and similar packages that rely on other languages like JavaScript.</p>
 <p>Isn’t this fun? Here is some more.</p>
-<p>The <code>out.width</code> and <code>out.height</code> options are geared toward HTML-based visualization, and are expressed in pixels, or perhaps most usefully, percentages, but they will also affect other documents via <span class="math inline">\(\LaTeX\)</span>. There is also <code>out.extra</code> that will apply additional arguments (e.g. css/img styling). These <code>out.*</code> can also apply to <span class="math inline">\(\LaTeX\)</span> figures but I can’t figure out why. I also find that <code>out.height</code> actually does nothing in many cases. What’s more, you can use them alongside <code>fig.width</code> and <code>fig.height</code> to ensure you’ll have utterly no idea what will be produced in the finished product. The option <code>fig.retina</code> will only work for HTML documents, and will scale your image such that it will “change the chunk option dpi to dpi * fig.retina, and out.width to fig.width * dpi / fig.retina internally; for example, the physical size of an image is doubled and its display size is halved when fig.retina = 2”. It might not have any discernible effect that you can actually see in the document depending on your default settings, but would allow viewers to zoom without loss of clarity, though they could do that with an <strong>svg</strong> image anyway. You may specify the image output type, *.png or *.svg for example, with <code>fig.dev</code>.</p>
+<p>The <code>out.width</code> and <code>out.height</code> options are geared toward HTML-based visualization, and are expressed in pixels, or perhaps most usefully, percentages. There is also <code>out.extra</code> that will apply additional arguments (e.g. css/img styling). These <code>out.*</code> can also apply to PDF/<span class="math inline">\(\LaTeX\)</span> figures (but I can’t figure out why). I also find that <code>out.height</code> actually does nothing in many cases. What’s more, you can use them alongside <code>fig.width</code> and <code>fig.height</code> to ensure you’ll have utterly no idea what will be produced in the finished product. The option <code>fig.retina</code> will only work for HTML documents, and will scale your image such that it will “change the chunk option dpi to dpi * fig.retina, and out.width to fig.width * dpi / fig.retina internally; for example, the physical size of an image is doubled and its display size is halved when fig.retina = 2”. It might not have any discernible effect that you can actually see in the document depending on your default settings, but would allow viewers to zoom without loss of clarity, though they could do that with an <strong>svg</strong> image anyway. You may specify the image output type, *.png or *.svg for example, with <code>fig.dev</code>.</p>
 <p>In the following, all of these arguments might have an effect on the resulting image.</p>
-<pre><code>``{r, fig.width=3, fig.height=4, out.width=&#39;30%&#39;, fig.retina=2}
+<pre><code>```{r, fig.width=3, fig.height=4, out.width=&#39;30%&#39;, fig.retina=2}
 library(plotly)
 data %&gt;% 
   plot_ly(width=500) %&gt;% # in pixels!
   add_markers(~x, ~y)
-``</code></pre>
-<p>In short, for my typical usage, having all these options is nice, but mostly just confusing, because all I ever really need to specify is width, height and alignment. See the summary for a simplified approach. In addition, there are many other options, e.g. captions, that may come in handy.</p>
+```</code></pre>
+<!-- ````markdown -->
+<!-- ```{r, fig.width=3, fig.height=4, out.width='30%', fig.retina=2} -->
+<!-- library(plotly) -->
+<!-- data %>% -->
+<!--   plot_ly(width=500) %>% # in pixels! -->
+<!--   add_markers(~x, ~y) -->
+<!-- ``` -->
+<!-- ```` -->
+<!-- This is neat, now all my text is blue because of that ridiculous hack to show an r chunk-->
+<p>In short, for my typical usage, having all these options is nice, but mostly just confusing, because all I ever really need to specify is width, height and alignment. See the <a href="common-considerations.html#image-summary">summary</a> for a simplified approach. In addition, there are many other options, e.g. captions, that may come in handy.</p>
 <!-- ```{r} -->
 <!-- # fig.width default -->
 <!-- library(plotly) -->
@@ -281,7 +291,7 @@ data %&gt;%
 </div>
 <div id="package-options" class="section level4">
 <h4>Package options</h4>
-<p>As depicted in the above example, you often can modify the display settings of the plot with options of the visualization package you’re using. This will possibly override, or merely interact with, the chunk options, so use with caution.</p>
+<p>As depicted in the <span class="pack">plotly</span> example above, you often can modify the display settings of the plot with options of the visualization package you’re using. This will possibly override, or merely interact with, the chunk options, so use with caution.</p>
 </div>
 </div>
 <div id="markdown" class="section level3">
@@ -317,7 +327,8 @@ data %&gt;%
 </ul>
 </blockquote>
 <p>I’ll add that you also don’t typically cache an interactive visualization. You’ll often get a message to that effect if you try.</p>
-<p>However, things often don’t work the way you expect with caching. If something unexpected happens, and if you’re naming the chunks, you can easily find and delete the offending files. You can also rebuild the cache as needed by setting <code>cache-rebuild</code> to true. However, if you delete or change the name of the chunk, those files will have to be explicitly removed, because they’ll never be called again. There is a <code>depends-on</code> chunk option that will allow you to update a cache if whatever previous chunk a chunk depends on has changed. In theory. In practice, you should probably just put <code>auto.dep</code> to true and let <span class="pack">knitr</span> sort out such dependencies, and even then issues may arise. Finally, some packages simply don’t work well with caching, or the process of generating a document in general.<span class="marginnote">If you ever use <span class="pack">DiagrammeR</span> for visualization, let me save you a lot of headache and tell you to never cache the chunks where you use it. The results are mind-boggling if you do, but will sometimes miraculously fail even when you don’t. Be prepared to constantly delete your cache to see the correct figure.</span> Just know that as great a feature this is, odd things will happen at some point. When something about your document starts breaking or doing unexpected things, if you can’t see a code problem, assume it’s a cache problem, and delete and/or rebuild.</p>
+<p>However, things often don’t work the way you expect with caching. If something unexpected happens, and if you’re naming the chunks, you can easily find and delete the offending files. You can also rebuild the cache as needed by setting <code>cache-rebuild</code> to true, even just for a specific chunk. However, if you delete or change the name of the chunk, those files will have to be explicitly removed, because they’ll never be called again. There is a <code>depends-on</code> chunk option that will allow you to update a cache if whatever previous chunk a chunk depends on has changed. In theory. In practice, you should probably just put <code>auto.dep</code> to true and let <span class="pack">knitr</span> sort out such dependencies, though even then issues may arise. Finally, some packages simply don’t work well with caching, or the process of generating a document in general.<span class="marginnote">If you ever use <span class="pack">DiagrammeR</span> for visualization, let me save you a lot of headache and tell you to never cache the chunks where you use it. The results are mind-boggling if you do, but will sometimes miraculously fail even when you don’t. Be prepared to constantly delete your cache to see the correct figure.</span> Just know that as great a feature as caching is, odd things will happen at some point. When something about your document starts breaking or doing unexpected things, if you can’t see a code problem, assume it’s a cache problem, and delete and/or rebuild.</p>
+<p><br> <img src="img/cache_clear.png" style="display:block; margin: 0 auto;" width=75%> <br></p>
 <p>I usually set cache to true, otherwise I’d be waiting minutes for some documents to compile every time. I set that as an option at the beginning of the document, but at various points in development I’ll set <code>cache-rebuild=TRUE</code> to refresh everything<a href="#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a>, and at times I’ll set it to rebuild specific chunks (e.g. the code might not change, but the underlying object has)<a href="#fn10" class="footnoteRef" id="fnref10"><sup>10</sup></a>. I’ve gotten to where I will set cache to false as an option for the (entire) current page I’m working on, so that I don’t have to rebuild everything, but for something in a more fluid stage, I probably don’t want to cache at all.</p>
 </div>
 <div id="cleaning-up-output" class="section level2">
@@ -435,23 +446,419 @@ Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre
 <td align="right">3</td>
 <td align="right">1</td>
 </tr>
-<tr class="odd">
-<td><br></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
+</tbody>
+</table>
+<p><br></p>
+<p>That was easy! Now use <span class="pack">kableExtra</span> to do some more fun stuff.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">arrange</span>(mpg) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">round</span>(<span class="dv">2</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">mpg =</span> <span class="kw">factor</span>(mpg)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate_if</span>(is.numeric, <span class="cf">function</span>(x) {
+    <span class="kw">cell_spec</span>(x, <span class="dt">bold =</span> T, 
+              <span class="dt">color =</span> <span class="kw">spec_color</span>(x, <span class="dt">end =</span> <span class="fl">0.9</span>, <span class="dt">option =</span> <span class="st">&#39;plasma&#39;</span>, <span class="dt">direction =</span> <span class="op">-</span><span class="dv">1</span>),
+              <span class="dt">font_size =</span> <span class="kw">spec_font_size</span>(x))
+  }) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">mpg =</span> <span class="kw">cell_spec</span>(
+    mpg, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">bold =</span> T,
+    <span class="dt">background =</span> <span class="kw">spec_color</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">end =</span> <span class="fl">0.9</span>, <span class="dt">option =</span> <span class="st">&quot;viridis&quot;</span>, <span class="dt">direction =</span> <span class="op">-</span><span class="dv">1</span>)
+  )) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">kable</span>(<span class="dt">format=</span><span class="st">&#39;html&#39;</span>, <span class="dt">escape =</span> F, <span class="dt">align =</span> <span class="st">&quot;c&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">kable_styling</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="dt">full_width =</span> F, <span class="dt">position=</span><span class="st">&#39;left&#39;</span>)</code></pre></div>
+<table class="table table-striped" style="width: auto !important; ">
+<thead>
+<tr>
+<th style="text-align:center;">
+mpg
+</th>
+<th style="text-align:center;">
+cyl
+</th>
+<th style="text-align:center;">
+disp
+</th>
+<th style="text-align:center;">
+hp
+</th>
+<th style="text-align:center;">
+drat
+</th>
+<th style="text-align:center;">
+wt
+</th>
+<th style="text-align:center;">
+qsec
+</th>
+<th style="text-align:center;">
+vs
+</th>
+<th style="text-align:center;">
+am
+</th>
+<th style="text-align:center;">
+gear
+</th>
+<th style="text-align:center;">
+carb
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: white;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(187, 223, 39, 1);">14.3</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(13, 8, 135, 1);font-size: 16px;">8</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(13, 8, 135, 1);font-size: 16px;">360</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(13, 8, 135, 1);font-size: 16px;">245</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(214, 85, 109, 1);font-size: 11px;">3.21</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(13, 8, 135, 1);font-size: 16px;">3.57</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(252, 206, 37, 1);font-size: 8px;">15.84</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(252, 206, 37, 1);font-size: 8px;">0</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(252, 206, 37, 1);font-size: 8px;">0</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(252, 206, 37, 1);font-size: 8px;">3</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(13, 8, 135, 1);font-size: 16px;">4</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: white;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(123, 209, 81, 1);">18.1</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(191, 57, 132, 1);font-size: 12px;">6</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(199, 66, 124, 1);font-size: 12px;">225</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(240, 128, 79, 1);font-size: 10px;">105</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(252, 206, 37, 1);font-size: 8px;">2.76</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(56, 4, 154, 1);font-size: 15px;">3.46</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(159, 25, 157, 1);font-size: 13px;">20.22</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(13, 8, 135, 1);font-size: 16px;">1</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(252, 206, 37, 1);font-size: 8px;">0</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(252, 206, 37, 1);font-size: 8px;">3</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(252, 206, 37, 1);font-size: 8px;">1</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: white;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(66, 190, 113, 1);">18.7</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(13, 8, 135, 1);font-size: 16px;">8</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(13, 8, 135, 1);font-size: 16px;">360</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(160, 26, 156, 1);font-size: 13px;">175</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(224, 99, 99, 1);font-size: 11px;">3.15</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(63, 4, 156, 1);font-size: 15px;">3.44</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(248, 148, 65, 1);font-size: 9px;">17.02</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(252, 206, 37, 1);font-size: 8px;">0</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(252, 206, 37, 1);font-size: 8px;">0</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(252, 206, 37, 1);font-size: 8px;">3</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(225, 100, 98, 1);font-size: 11px;">2</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: white;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(34, 168, 132, 1);">19.2</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(191, 57, 132, 1);font-size: 12px;">6</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(240, 128, 79, 1);font-size: 10px;">167.6</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(225, 100, 98, 1);font-size: 11px;">123</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(13, 8, 135, 1);font-size: 16px;">3.92</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(63, 4, 156, 1);font-size: 15px;">3.44</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(222, 96, 101, 1);font-size: 11px;">18.3</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(13, 8, 135, 1);font-size: 16px;">1</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(252, 206, 37, 1);font-size: 8px;">0</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(13, 8, 135, 1);font-size: 16px;">4</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(13, 8, 135, 1);font-size: 16px;">4</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: white;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(33, 145, 140, 1);">21</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(191, 57, 132, 1);font-size: 12px;">6</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(244, 136, 73, 1);font-size: 10px;">160</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(236, 119, 84, 1);font-size: 10px;">110</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(24, 6, 139, 1);font-size: 16px;">3.9</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(240, 127, 79, 1);font-size: 10px;">2.62</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(253, 175, 49, 1);font-size: 9px;">16.46</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(252, 206, 37, 1);font-size: 8px;">0</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(13, 8, 135, 1);font-size: 16px;">1</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(13, 8, 135, 1);font-size: 16px;">4</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(13, 8, 135, 1);font-size: 16px;">4</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: white;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(42, 120, 142, 1);">21</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(191, 57, 132, 1);font-size: 12px;">6</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(244, 136, 73, 1);font-size: 10px;">160</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(236, 119, 84, 1);font-size: 10px;">110</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(24, 6, 139, 1);font-size: 16px;">3.9</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(203, 70, 121, 1);font-size: 12px;">2.88</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(248, 148, 65, 1);font-size: 9px;">17.02</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(252, 206, 37, 1);font-size: 8px;">0</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(13, 8, 135, 1);font-size: 16px;">1</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(13, 8, 135, 1);font-size: 16px;">4</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(13, 8, 135, 1);font-size: 16px;">4</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: white;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(53, 96, 141, 1);">21.4</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(191, 57, 132, 1);font-size: 12px;">6</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(166, 32, 152, 1);font-size: 13px;">258</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(236, 119, 84, 1);font-size: 10px;">110</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(235, 117, 87, 1);font-size: 10px;">3.08</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(129, 4, 167, 1);font-size: 14px;">3.21</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(189, 54, 134, 1);font-size: 12px;">19.44</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(13, 8, 135, 1);font-size: 16px;">1</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(252, 206, 37, 1);font-size: 8px;">0</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(252, 206, 37, 1);font-size: 8px;">3</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(252, 206, 37, 1);font-size: 8px;">1</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: white;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(65, 68, 135, 1);">22.8</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(252, 206, 37, 1);font-size: 8px;">4</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(252, 206, 37, 1);font-size: 8px;">108</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(248, 148, 65, 1);font-size: 9px;">93</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(45, 5, 149, 1);font-size: 16px;">3.85</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(252, 206, 37, 1);font-size: 8px;">2.32</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(213, 84, 109, 1);font-size: 11px;">18.61</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(13, 8, 135, 1);font-size: 16px;">1</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(13, 8, 135, 1);font-size: 16px;">1</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(13, 8, 135, 1);font-size: 16px;">4</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(252, 206, 37, 1);font-size: 8px;">1</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: white;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(72, 36, 117, 1);">22.8</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(252, 206, 37, 1);font-size: 8px;">4</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(251, 161, 57, 1);font-size: 9px;">140.8</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(247, 144, 68, 1);font-size: 9px;">95</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(13, 8, 135, 1);font-size: 16px;">3.92</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(145, 14, 163, 1);font-size: 13px;">3.15</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(13, 8, 135, 1);font-size: 16px;">22.9</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(13, 8, 135, 1);font-size: 16px;">1</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(252, 206, 37, 1);font-size: 8px;">0</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(13, 8, 135, 1);font-size: 16px;">4</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(225, 100, 98, 1);font-size: 11px;">2</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: white;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: rgba(68, 1, 84, 1);">24.4</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(252, 206, 37, 1);font-size: 8px;">4</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(249, 153, 62, 1);font-size: 9px;">146.7</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(252, 206, 37, 1);font-size: 8px;">62</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(99, 0, 167, 1);font-size: 14px;">3.69</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(135, 7, 166, 1);font-size: 14px;">3.19</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(167, 33, 150, 1);font-size: 13px;">20</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(13, 8, 135, 1);font-size: 16px;">1</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(252, 206, 37, 1);font-size: 8px;">0</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(13, 8, 135, 1);font-size: 16px;">4</span>
+</td>
+<td style="text-align:center;">
+<span style=" font-weight: bold;    color: rgba(225, 100, 98, 1);font-size: 11px;">2</span>
+</td>
 </tr>
 </tbody>
 </table>
-<p>That was easy! For interactivity and a lot more options to play with, consider the <span class="pack">DT</span> package.</p>
+<p><br></p>
+<p>For interactivity and more options to play with, consider the <span class="pack">DT</span> package.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">DT<span class="op">::</span><span class="kw">datatable</span>(mtcars, 
               <span class="dt">class =</span> <span class="st">&#39;nowrap&#39;</span>,
               <span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">autoWidth =</span> <span class="ot">TRUE</span>,
@@ -461,7 +868,8 @@ Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre
 <p><br></p>
 <p><span class="marginnote">Often after displaying tables and figures you’ll want to put an extra line with &lt;br&gt; to give some more space before your next bit of text.</span> Even model objects can go straight to publication-ready tables with no effort on your part. The <span class="pack">broom</span> package works with many common model objects to convert their output to a <span class="objclass">data.frame</span> via <span class="func">tidy</span>. Then you can use <span class="pack">kable</span> or another package to pretty it up.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">broom<span class="op">::</span><span class="kw">tidy</span>(<span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>wt, mtcars)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</code></pre></div>
+<span class="st">  </span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&#39;markdown&#39;</span>, <span class="dt">digits =</span> <span class="dv">2</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">kable_styling</span>(<span class="kw">c</span>(<span class="st">&#39;basic&#39;</span>, <span class="st">&#39;condensed&#39;</span>), <span class="dt">position =</span> <span class="st">&#39;center&#39;</span>)</code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -487,16 +895,10 @@ Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre
 <td align="right">-9.56</td>
 <td align="right">0</td>
 </tr>
-<tr class="odd">
-<td align="left"><br></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-</tr>
 </tbody>
 </table>
-<p>The <span class="pack">pander</span> package provides more control over tables, but also can work with some model objects directly.</p>
+<p><br></p>
+<p>The <span class="pack">pander</span> package also provides more control over tables, but also can work with some model objects directly.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>wt, mtcars) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">summary</span>() <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span>pander<span class="op">::</span><span class="kw">pander</span>(<span class="dt">round=</span><span class="dv">2</span>, <span class="dt">justify=</span><span class="st">&#39;lrrrr&#39;</span>, <span class="dt">caption=</span><span class="st">&#39;Regression results&#39;</span>)</code></pre></div>
@@ -560,15 +962,15 @@ Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre
 </tbody>
 </table>
 <p><br></p>
-<p>For converting such things to <span class="math inline">\(\LaTeX\)</span> syntax, you will want to look at <span class="pack">xtable</span>, <span class="pack">stargazer</span>, and <span class="pack">Hmisc</span>.<span class="marginnote">Even if you don’t need interactivity, I would add <span class="pack">DT</span> to your regular toolbox for tables, especially for HTML documents.</span></p>
-<p>In summary, you can get to publication ready results with figures, tables and text by just using the standard options or available packages, without having to go through the usual tedium. That alone should be enough to start using R Markdown for many people.</p>
+<p>For converting such things to <span class="math inline">\(\LaTeX\)</span> syntax, you will want to look at <span class="pack">xtable</span>, <span class="pack">stargazer</span>, and <span class="pack">Hmisc</span> packages.<span class="marginnote">Even if you don’t need interactivity, I would add <span class="pack">DT</span> to your regular toolbox for tables, especially for HTML documents.</span></p>
+<p>In summary, you can get to publication-ready results with figures, tables and text by just using the standard options or available packages, without having to go through the usual tedium of trying to format indivudal cells, copy-pasting, and settling for resized images that look like crap. That alone should be enough to start using R Markdown for many people.</p>
 
 </div>
 </div>
 <div class="footnotes">
 <hr />
 <ol start="7">
-<li id="fn7"><p>This global option in RStudio may not work at times.<a href="common-considerations.html#fnref7">↩</a></p></li>
+<li id="fn7"><p>This global option in RStudio seems to be ignored in some situations.<a href="common-considerations.html#fnref7">↩</a></p></li>
 <li id="fn8"><p>Changing <code>fig.width</code> for a <span class="pack">plotly</span> image seems to affect the height, while <code>fig.height</code> doesn’t do anything.<a href="common-considerations.html#fnref8">↩</a></p></li>
 <li id="fn9"><p>For building website like documents, e.g. using <span class="pack">bookdown</span>, there is a <code>Clean All</code> option. However, all this does is delete files that get overwritten already, and so serves almost no purpose except to get rid of old files that are no longer part of the document.<a href="common-considerations.html#fnref9">↩</a></p></li>
 <li id="fn10"><p>A better way to probably do this is with <code>cache.extra = tools::md5sum('myfile.csv')</code>. That will, for example, rebuild the cache if that csv file has changed.<a href="common-considerations.html#fnref10">↩</a></p></li>

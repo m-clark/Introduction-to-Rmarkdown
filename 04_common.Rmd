@@ -4,7 +4,7 @@ In creating a document there several things that consistently come up that you'l
 
 ## Using HTML
 
-The first thing to do is simply get used to HTML as your primary output.  Unless you know something is to be printed you won't gain anything but an uglier and/or less flexible document without having to put notably more effort into development.  
+The first thing to do is simply get used to HTML as your primary output.  Unless you know something is to be printed in a traditional format, you won't gain anything but an uglier and/or less flexible document without having to put notably more effort into development. This is especially the case when the code is the focus, and you're using R Markdown as you would a normal R script, albeit in more organized fashion.  
 
 ## Chunk options
 
@@ -16,7 +16,7 @@ A ridiculous number of [options](https://yihui.name/knitr/options/) are availabl
 
 ### Setup to apply to all
 
-Then there are other options that I set at the beginning of a document. The reason for doing so is because I will rarely, if ever, want these options changed.  As such, I specify them at the beginning, and only change them as need be for specific chunks.
+Then there are other options that I set at the beginning of a document. The reason for doing so is because I will rarely, if ever, want these options changed.  As such, I create a chunk to specify them at the beginning, and only change them as need be for specific chunks.  *Any* option you would specify for a specific chunk can be defined here and applied to all by default.
 
 ```{r knit_opts, eval=FALSE}
 knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F, 
@@ -26,7 +26,7 @@ knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F,
 
 These options do things like make sure messages, warnings, and errors don't show up in the document.<span class="marginnote">You can still get errors, and they will keep your document from compiling.</span> Note that any specific chunk options will override these.  So, you'll always have fine control over how things work.
 
-You can also specify options for the way <span class="pack">knitr</span> itself works.  For example, Rmd documents by default ignore the fact that you are using an RStudio project, and instead work from wherever the Rmd file is. Using `root.dir` can correct this.  There is also a global option you can set via the tools menu[^rmdrstudio].
+You can also specify options for the way <span class="pack">knitr</span> itself works.  For example, `*.Rmd` documents by default ignore the fact that you are using an RStudio project, and instead work from wherever the Rmd file is. Using `root.dir` can correct this.  There is also a global option you can set via the tools menu[^rmdrstudio].
 
 ```{r knit_opts2, eval=FALSE}
 knitr::opts_knit$set(root.dir = '../', child = 'someotherdoc.Rmd')
@@ -43,25 +43,41 @@ Where to begin?  There are many, many ways to manipulate an image that is produc
 
 #### HTML vs. Others
 
-To begin, there are different systems for PDF or MS Word vs. HTML-based documents. For non-HTML, the chunk options of `fig.width` and `fig.height` generally used for figure dimensions. Oddly, these are expressed in inches, but at least it is easy enough to manipulate to your liking.  These will not affect interactive and possibly other images in HTML documents except in unexpected ways[^widthplotly].  You can also supply `fig.width` plus `fig.asp` which will produce a height that is `fig.width*fig.asp`.  There is also `fig.dim`, which will take the two values you would have specified for `fig.width` and `fig.height`.  If you supply `fig.dim` with `fig.asp`, the latter will be ignored.  If expressing size in inches doesn't make sense to you, you can use `dpi`, which will allow you to know think of `dpi*inches` as what to expect in terms of pixels.  You also have `fig.align` with options like 'left' and 'center', but it apparently has no effect on <span class="pack">htmlwidgets</span> and similar packages that rely on other languages like JavaScript.
+To begin, there are different systems for PDF or MS Word vs. HTML-based documents. For non-HTML, the chunk options of `fig.width` and `fig.height` are generally used for figure dimensions. Oddly, these are expressed in inches, but at least it is easy enough to manipulate to your liking.  While you can use them in HTML for static images as those produced by ggplot2, there isn't a reason I can think of to express the size in inches for an electornic display.  Furthermore, these settings will not affect interactive and possibly other images in HTML documents except in unexpected ways[^widthplotly].  
+
+You can also supply `fig.width` plus `fig.asp` which will produce a height that is `fig.width*fig.asp`.  There is also `fig.dim`, which will take the two values you would have specified for `fig.width` and `fig.height`.  If you supply `fig.dim` with `fig.asp`, the latter will be ignored.  If expressing size in inches doesn't make sense to you, you can use `dpi`, which will allow you to know think of `dpi*inches` as what to expect in terms of pixels.  You also have `fig.align` with options like 'left' and 'center', but it apparently has no effect on <span class="pack">htmlwidgets</span> and similar packages that rely on other languages like JavaScript.
 
 Isn't this fun?  Here is some more.
 
-The `out.width` and `out.height` options are geared toward HTML-based visualization, and are expressed in pixels, or perhaps most usefully, percentages, but they will also affect other documents via $\LaTeX$.  There is also `out.extra` that will apply additional arguments (e.g. css/img styling).  These `out.*` can also apply to $\LaTeX$ figures but I can't figure out why.   I also find that `out.height` actually does nothing in many cases. What's more, you can use them alongside `fig.width` and `fig.height` to ensure you'll have utterly no idea what will be produced in the finished product.  The option `fig.retina` will only work for HTML documents, and will scale your image such that it will "change the chunk option dpi to dpi * fig.retina, and out.width to fig.width * dpi / fig.retina internally; for example, the physical size of an image is doubled and its display size is halved when fig.retina = 2". It might not have any discernible effect that you can actually see in the document depending on your default settings, but would allow viewers to zoom without loss of clarity, though they could do that with an **svg** image anyway.  You may specify the image output type, \*.png or \*.svg for example, with `fig.dev`.
+The `out.width` and `out.height` options are geared toward HTML-based visualization, and are expressed in pixels, or perhaps most usefully, percentages.  There is also `out.extra` that will apply additional arguments (e.g. css/img styling).  These `out.*` can also apply to PDF/$\LaTeX$ figures (but I can't figure out why).   I also find that `out.height` actually does nothing in many cases. What's more, you can use them alongside `fig.width` and `fig.height` to ensure you'll have utterly no idea what will be produced in the finished product.  The option `fig.retina` will only work for HTML documents, and will scale your image such that it will "change the chunk option dpi to dpi * fig.retina, and out.width to fig.width * dpi / fig.retina internally; for example, the physical size of an image is doubled and its display size is halved when fig.retina = 2". It might not have any discernible effect that you can actually see in the document depending on your default settings, but would allow viewers to zoom without loss of clarity, though they could do that with an **svg** image anyway.  You may specify the image output type, \*.png or \*.svg for example, with `fig.dev`.
 
 
 In the following, all of these arguments might have an effect on the resulting image.
 
-```
-``{r, fig.width=3, fig.height=4, out.width='30%', fig.retina=2}
+```{r figcrazy, echo=FALSE, results='markup'}
+cat("```{r, fig.width=3, fig.height=4, out.width='30%', fig.retina=2}
 library(plotly)
 data %>% 
   plot_ly(width=500) %>% # in pixels!
   add_markers(~x, ~y)
-``
+```")
 ```
 
-In short, for my typical usage, having all these options is nice, but mostly just confusing, because all I ever really need to specify is width, height and alignment.  See the summary for a simplified approach.  In addition, there are many other options, e.g. captions, that may come in handy. 
+
+
+<!-- ````markdown -->
+<!-- `r ''````{r, fig.width=3, fig.height=4, out.width='30%', fig.retina=2} -->
+<!-- library(plotly) -->
+<!-- data %>% -->
+<!--   plot_ly(width=500) %>% # in pixels! -->
+<!--   add_markers(~x, ~y) -->
+<!-- ``` -->
+<!-- ```` -->
+
+<!-- This is neat, now all my text is blue because of that ridiculous hack to show an r chunk-->
+
+
+In short, for my typical usage, having all these options is nice, but mostly just confusing, because all I ever really need to specify is width, height and alignment.  See the [summary][Image Summary] for a simplified approach.  In addition, there are many other options, e.g. captions, that may come in handy. 
 
 
 <!-- ```{r} -->
@@ -91,7 +107,7 @@ In short, for my typical usage, having all these options is nice, but mostly jus
 
 #### Package options
 
-As depicted in the above example, you often can modify the display settings of the plot with options of the visualization package you're using.  This will possibly override, or merely interact with, the chunk options, so use with caution.
+As depicted in the <span class="pack">plotly</span> example above, you often can modify the display settings of the plot with options of the visualization package you're using.  This will possibly override, or merely interact with, the chunk options, so use with caution.
 
 
 ### Markdown
@@ -136,7 +152,11 @@ However, this is not a straightforward process.  When things change, the cache f
 
 I'll add that you also don't typically cache an interactive visualization.  You'll often get a message to that effect if you try.
 
-However, things often don't work the way you expect with caching.  If something unexpected happens, and if you're naming the chunks, you can easily find and delete the offending files.  You can also rebuild the cache as needed by setting `cache-rebuild` to true. However, if you delete or change the name of the chunk, those files will have to be explicitly removed, because they'll never be called again.  There is a `depends-on` chunk option that will allow you to update a cache if whatever previous chunk a chunk depends on has changed. In theory. In practice, you should probably just put `auto.dep` to true and let <span class="pack">knitr</span> sort out such dependencies, and even then issues may arise. Finally, some packages simply don't work well with caching, or the process of generating a document in general.<span class="marginnote">If you ever use <span class="pack">DiagrammeR</span> for visualization, let me save you a lot of headache and tell you to never cache the chunks where you use it. The results are mind-boggling if you do, but will sometimes miraculously fail even when you don't. Be prepared to constantly delete your cache to see the correct figure.</span> Just know that as great a feature this is, odd things will happen at some point.  When something about your document starts breaking or doing unexpected things, if you can't see a code problem, assume it's a cache problem, and delete and/or rebuild.
+However, things often don't work the way you expect with caching.  If something unexpected happens, and if you're naming the chunks, you can easily find and delete the offending files.  You can also rebuild the cache as needed by setting `cache-rebuild` to true, even just for a specific chunk. However, if you delete or change the name of the chunk, those files will have to be explicitly removed, because they'll never be called again.  There is a `depends-on` chunk option that will allow you to update a cache if whatever previous chunk a chunk depends on has changed. In theory. In practice, you should probably just put `auto.dep` to true and let <span class="pack">knitr</span> sort out such dependencies, though even then issues may arise. Finally, some packages simply don't work well with caching, or the process of generating a document in general.<span class="marginnote">If you ever use <span class="pack">DiagrammeR</span> for visualization, let me save you a lot of headache and tell you to never cache the chunks where you use it. The results are mind-boggling if you do, but will sometimes miraculously fail even when you don't. Be prepared to constantly delete your cache to see the correct figure.</span> Just know that as great a feature as caching is, odd things will happen at some point.  When something about your document starts breaking or doing unexpected things, if you can't see a code problem, assume it's a cache problem, and delete and/or rebuild.
+
+<br>
+<img src="img/cache_clear.png" style="display:block; margin: 0 auto;" width=75%>
+<br>
 
 I usually set cache to true, otherwise I'd be waiting minutes for some documents to compile every time.  I set that as an option at the beginning of the document, but at various points in development I'll set `cache-rebuild=TRUE` to refresh everything[^cleandoc], and at times I'll  set it to rebuild specific chunks (e.g. the code might not change, but the underlying object has)[^checksum].  I've gotten to where I will set cache to false as an option for the (entire) current page I'm working on, so that I don't have to rebuild everything, but for something in a more fluid stage, I probably don't want to cache at all.
 
@@ -154,9 +174,33 @@ One can start with <span class="pack">knitr's</span> <span class="func">kable</s
 ```{r kable}
 knitr::kable(head(mtcars))
 ```
+
 <br>
 
-That was easy! For interactivity and a lot more options to play with, consider the <span class="pack">DT</span> package.
+That was easy! Now use <span class="pack">kableExtra</span> to do some more fun stuff.
+
+```{r kableExtra}
+mtcars %>%
+  slice(1:10) %>% 
+  arrange(mpg) %>% 
+  round(2) %>% 
+  mutate(mpg = factor(mpg)) %>% 
+  mutate_if(is.numeric, function(x) {
+    cell_spec(x, bold = T, 
+              color = spec_color(x, end = 0.9, option = 'plasma', direction = -1),
+              font_size = spec_font_size(x))
+  }) %>%
+  mutate(mpg = cell_spec(
+    mpg, color = "white", bold = T,
+    background = spec_color(1:10, end = 0.9, option = "viridis", direction = -1)
+  )) %>%
+  kable(format='html', escape = F, align = "c") %>%
+  kable_styling("striped", "condensed", full_width = F, position='left')
+```
+
+<br>
+
+For interactivity and more options to play with, consider the <span class="pack">DT</span> package.
 
 ```{r dt}
 DT::datatable(mtcars, 
@@ -173,11 +217,12 @@ Even model objects can go straight to publication-ready tables with no effort on
 
 ```{r broom_kable, out.width='50%'}
 broom::tidy(lm(mpg ~ wt, mtcars)) %>% 
-  knitr::kable(digits = 2)
+  kable(format = 'markdown', digits = 2) %>% 
+  kable_styling(c('basic', 'condensed'), position = 'center')
 ```
 <br>
 
-The <span class="pack">pander</span> package provides more control over tables, but also can work with some model objects directly.
+The <span class="pack">pander</span> package also provides more control over tables, but also can work with some model objects directly.
 
 ```{r broom_pander, out.width='50%'}
 lm(mpg ~ wt, mtcars) %>% 
@@ -187,10 +232,10 @@ lm(mpg ~ wt, mtcars) %>%
 
 <br>
 
-For converting such things to $\LaTeX$ syntax, you will want to look at <span class="pack">xtable</span>, <span class="pack">stargazer</span>, and <span class="pack">Hmisc</span>.<span class="marginnote">Even if you don't need interactivity, I would add <span class="pack">DT</span> to your regular toolbox for tables, especially for HTML documents.</span>
+For converting such things to $\LaTeX$ syntax, you will want to look at <span class="pack">xtable</span>, <span class="pack">stargazer</span>, and <span class="pack">Hmisc</span> packages.<span class="marginnote">Even if you don't need interactivity, I would add <span class="pack">DT</span> to your regular toolbox for tables, especially for HTML documents.</span>
 
 
-In summary, you can get to publication ready results with figures, tables and text by just using the standard options or available packages, without having to go through the usual tedium.  That alone should be enough to start using R Markdown for many people.  
+In summary, you can get to publication-ready results with figures, tables and text by just using the standard options or available packages, without having to go through the usual tedium of trying to format indivudal cells, copy-pasting, and settling for resized images that look like crap.  That alone should be enough to start using R Markdown for many people.  
 
 
 [^widthplotly]: Changing `fig.width` for a <span class="pack">plotly</span> image seems to affect the height, while `fig.height` doesn't do anything.
@@ -199,4 +244,4 @@ In summary, you can get to publication ready results with figures, tables and te
 
 [^checksum]: A better way to probably do this is with `cache.extra = tools::md5sum('myfile.csv')`. That will, for example, rebuild the cache if that csv file has changed.
 
-[^rmdrstudio]: This global option in RStudio may not work at times.
+[^rmdrstudio]: This global option in RStudio seems to be ignored in some situations.
