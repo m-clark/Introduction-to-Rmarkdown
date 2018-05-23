@@ -203,7 +203,10 @@ i {
     width: 75%;                 /*fiddle with this relative to marginnote; div.sourceCode should be the same*/
 }
 
-/* Here is where you can specify thing that kable will ignore */
+/* 
+Here is where you can specify things that kable will ignore or bootstrap table options will override when they shouldn't, 
+like adding striping even when not asked for.
+*/
 .book .book-body .page-wrapper .page-inner section.normal table {
   max-width: 50%;
   margin-left: 0;
@@ -214,10 +217,17 @@ i {
   margin-left: 0;
 }
 
+/*
+.book .book-body .page-wrapper .page-inner section.normal table tr:nth-child(2n) {
+    background-color: inherit;
+}
+*/
+
 .book .book-body .page-wrapper .page-inner section.normal table tbody tr:nth-child(odd), 
 .book .book-body .page-wrapper .page-inner section.normal table tbody tr:nth-child(even) {
     background-color: #fafafa80;
   }
+
 
 div.sourceCode.r {
   width: 75%;

@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F, comment=NA, R.opt
 ```
 
 ```{r packages, include=FALSE, cache=FALSE}
-library(magrittr); library(tidyverse); library(stringr); library(pander); library(plotly); library(lazerhawk)
+library(magrittr); library(tidyverse); library(stringr); library(kableExtra); library(plotly); library(lazerhawk)
 ```
 
 ## Shiny 
@@ -84,17 +84,31 @@ renderPlot({
 
 
 
-## Bullets
+## Basic Markdown
+
+No change
 
 - Bullet 1
 - Bullet 2
-- Bullet 3
+
+\**italics*\*
+
+\*\***bold**\*\*
+
+\# H1
+
+\# H2
+
 
 ## R Output
 
 ```{r cars}
-describe_all(cars)[[1]]
-summary(cars)
+summary(cars) %>% kable( )
+```
+
+
+```{r mtcars}
+describe_all_num(mtcars) %>% DT::datatable()
 ```
 
 

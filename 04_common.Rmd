@@ -170,9 +170,10 @@ head(mtcars)
 ```
 
 One can start with <span class="pack">knitr's</span> <span class="func">kable</span> to create simple tables that look much better.
+<span class="marginnote">Your tables will look a little different due to my CSS settings.</span>
 
 ```{r kable}
-knitr::kable(head(mtcars))
+kable(head(mtcars))
 ```
 
 <br>
@@ -191,11 +192,11 @@ mtcars %>%
               font_size = spec_font_size(x))
   }) %>%
   mutate(mpg = cell_spec(
-    mpg, color = "white", bold = T,
-    background = spec_color(1:10, end = 0.9, option = "viridis", direction = -1)
+    mpg, color = 'white', bold = T,
+    background = spec_color(1:10, end = 0.9, option = 'viridis', direction = -1)
   )) %>%
-  kable(format='html', escape = F, align = "c") %>%
-  kable_styling("striped", "condensed", full_width = F, position='left')
+  kable(format='html', escape = F, align = 'c') %>%
+  kable_styling(c('condensed', 'basic'), full_width = F, position='left')
 ```
 
 <br>
@@ -235,7 +236,7 @@ lm(mpg ~ wt, mtcars) %>%
 For converting such things to $\LaTeX$ syntax, you will want to look at <span class="pack">xtable</span>, <span class="pack">stargazer</span>, and <span class="pack">Hmisc</span> packages.<span class="marginnote">Even if you don't need interactivity, I would add <span class="pack">DT</span> to your regular toolbox for tables, especially for HTML documents.</span>
 
 
-In summary, you can get to publication-ready results with figures, tables and text by just using the standard options or available packages, without having to go through the usual tedium of trying to format indivudal cells, copy-pasting, and settling for resized images that look like crap.  That alone should be enough to start using R Markdown for many people.  
+In summary, you can get to publication-ready results with figures, tables and text by just using the standard options or available packages, without having to go through the usual tedium of trying to format indivudal cells, copy-pasting, and settling for resized images that look like poor.  That alone should be enough to start using R Markdown for many people.  
 
 
 [^widthplotly]: Changing `fig.width` for a <span class="pack">plotly</span> image seems to affect the height, while `fig.height` doesn't do anything.

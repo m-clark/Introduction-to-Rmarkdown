@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2018-05-21">
+<meta name="date" content="2018-05-22">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -342,8 +342,8 @@ Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
 Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
 Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
 Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
-<p>One can start with <span class="pack">knitr’s</span> <span class="func">kable</span> to create simple tables that look much better.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">head</span>(mtcars))</code></pre></div>
+<p>One can start with <span class="pack">knitr’s</span> <span class="func">kable</span> to create simple tables that look much better. <span class="marginnote">Your tables will look a little different due to my CSS settings.</span></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">kable</span>(<span class="kw">head</span>(mtcars))</code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -461,12 +461,12 @@ Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre
               <span class="dt">font_size =</span> <span class="kw">spec_font_size</span>(x))
   }) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">mpg =</span> <span class="kw">cell_spec</span>(
-    mpg, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">bold =</span> T,
-    <span class="dt">background =</span> <span class="kw">spec_color</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">end =</span> <span class="fl">0.9</span>, <span class="dt">option =</span> <span class="st">&quot;viridis&quot;</span>, <span class="dt">direction =</span> <span class="op">-</span><span class="dv">1</span>)
+    mpg, <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">bold =</span> T,
+    <span class="dt">background =</span> <span class="kw">spec_color</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">end =</span> <span class="fl">0.9</span>, <span class="dt">option =</span> <span class="st">&#39;viridis&#39;</span>, <span class="dt">direction =</span> <span class="op">-</span><span class="dv">1</span>)
   )) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">kable</span>(<span class="dt">format=</span><span class="st">&#39;html&#39;</span>, <span class="dt">escape =</span> F, <span class="dt">align =</span> <span class="st">&quot;c&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">kable_styling</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="dt">full_width =</span> F, <span class="dt">position=</span><span class="st">&#39;left&#39;</span>)</code></pre></div>
-<table class="table table-striped" style="width: auto !important; ">
+<span class="st">  </span><span class="kw">kable</span>(<span class="dt">format=</span><span class="st">&#39;html&#39;</span>, <span class="dt">escape =</span> F, <span class="dt">align =</span> <span class="st">&#39;c&#39;</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">kable_styling</span>(<span class="kw">c</span>(<span class="st">&#39;condensed&#39;</span>, <span class="st">&#39;basic&#39;</span>), <span class="dt">full_width =</span> F, <span class="dt">position=</span><span class="st">&#39;left&#39;</span>)</code></pre></div>
+<table class="table table-condensed" style="width: auto !important; ">
 <thead>
 <tr>
 <th style="text-align:center;">
@@ -963,7 +963,7 @@ carb
 </table>
 <p><br></p>
 <p>For converting such things to <span class="math inline">\(\LaTeX\)</span> syntax, you will want to look at <span class="pack">xtable</span>, <span class="pack">stargazer</span>, and <span class="pack">Hmisc</span> packages.<span class="marginnote">Even if you don’t need interactivity, I would add <span class="pack">DT</span> to your regular toolbox for tables, especially for HTML documents.</span></p>
-<p>In summary, you can get to publication-ready results with figures, tables and text by just using the standard options or available packages, without having to go through the usual tedium of trying to format indivudal cells, copy-pasting, and settling for resized images that look like crap. That alone should be enough to start using R Markdown for many people.</p>
+<p>In summary, you can get to publication-ready results with figures, tables and text by just using the standard options or available packages, without having to go through the usual tedium of trying to format indivudal cells, copy-pasting, and settling for resized images that look like poor. That alone should be enough to start using R Markdown for many people.</p>
 
 </div>
 </div>

@@ -19,7 +19,7 @@ As a first step, simply play around with the <span class="emph">themes</span> yo
 
 As another example, choose a new code style with the syntax highlighting.  If you have headings in your current document, go ahead and turn on table of contents.
 
-For many of the things you do, these changing the defaults this way may be enough. So be familiar with your options.  
+For many of the documents you create, changing the defaults this way may be enough. So be familiar with your options.  
 
 After making your selections, now see what has changed at the top of your document.  You might see something like the following.
 
@@ -37,7 +37,7 @@ For the purposes of starting out, all you really need to know is that YAML is li
 
 Clearly, there is a lot to play with, but it will depend on the type of document you're doing.  For example, the `always_allow_html: yes` is pointless for an HTML document, but would allow certain things to be (very likely poorly) attempted in a PDF or Word document.  Other options *only* make sense for bookdown documents.
 
-There a lot more available too, as YAML is a programming syntax all its own. So how deep you want to get into is up to you.  The best way, just like learning R Markdown generally, is to simply see what others do and apply to your own.  It may take a bit of trial and error, but you'll eventually get the hang of it.
+There a lot more available too, as YAML is a programming syntax all its own, so how deep you want to get into it is up to you.  The best way, just like learning R Markdown generally, is to simply see what others do and apply it to your own document.  It may take a bit of trial and error, but you'll eventually get the hang of it.
 
 ## HTML & CSS
 
@@ -55,7 +55,7 @@ mgcv::gamSim(verbose = F) %>%
   theme_plotly()
 ```
 
-Even with a return line between this line and the plot, this text is smack against is. I do not prefer this.
+Even with a return line between this line you are reading and the plot, this text is smack against it. I do not prefer this.
 
 
 This fix is easy, just add `<br>` after the R chunk that creates the plot to add a line break.
@@ -84,16 +84,22 @@ Here is the basic markdown image.
 
 ![](img/R.ico)
 
-Next we use HTML instead.
+Next we use HTML instead.  This will produce a centered image that is slightly smaller.
 
-`<img src="img/R.ico" style="display:block; margin: 0 auto;">`
+`<img src="img/R.ico" style="display: block; margin: 0 auto;" width=40px>`
 
-<img src="img/R.ico" style="display:block; margin: 0 auto;">
+<img src="img/R.ico" style="display:block; margin: 0 auto;" width=40px>
+
+While the `src` and `width` are self-explanatory, the style part is where you can do one-off CSS styling, which we'll talk about next.  In this example, it serves to center the image. Taking `display: block` out will default to left-alignment within the part of the page (container) the image resides in.
+
+`<img src="img/R.ico" style="margin: 0 auto;" width=40px>`
+
+<img src="img/R.ico" style="margin: 0 auto;" width=40px>
+
+The next thing you'll want to do is hone your ASCII art skills, because sometimes that's the best way to display an image, like this ocean sunset.
 
 
-The next thing you'll want to do is hone your ASCII art skills because sometimes that's the best way to display an image, like this ocean sunset.
-
-```{sunset, eval=FALSE}
+```
            ^^                   @@@@@@@@@
       ^^       ^^            @@@@@@@@@@@@@@@
                            @@@@@@@@@@@@@@@@@@              ^^
@@ -104,6 +110,7 @@ The next thing you'll want to do is hone your ASCII art skills because sometimes
   ~  ~~     ~         ~      ~~~~~~  ~~ ~~~       ~~ ~ ~~  ~~ ~
 ~  ~       ~ ~      ~           ~~ ~~~~~~  ~      ~~  ~             ~~
       ~             ~        ~      ~      ~~   ~             ~
+
 ```
 
 
@@ -161,7 +168,7 @@ img {
 
 ### Custom classes
 
-You can also create custom classes.  For example, all R functions in my documents are a specific color, as they are wrapped in a custom css class called 'func' as follows.
+You can also create custom classes.  For example, all R functions in my documents are a specific color, as they are wrapped in a custom css class I created called 'func' as follows. <span class="marginnote">In CSS, tags like **a**, **table**, and **img**, have no marker, classes are denoted with **.classname**, and IDs are note with **#idname**.</span>
 
 ```css
 .func {
@@ -186,6 +193,7 @@ How much you want to get into customization is up to you.  Using the developer t
 
 <img src="img/chrome_dev.png" style="display:block; margin: 0 auto;" width=100% height=100%>
 
+<br>
 
 All browsers have this, making it easy to see exactly what's going on with any webpage.
 
