@@ -235,8 +235,22 @@ lm(mpg ~ wt, mtcars) %>%
 
 For converting such things to $\LaTeX$ syntax, you will want to look at <span class="pack">xtable</span>, <span class="pack">stargazer</span>, and <span class="pack">Hmisc</span> packages.<span class="marginnote">Even if you don't need interactivity, I would add <span class="pack">DT</span> to your regular toolbox for tables, especially for HTML documents.</span>
 
+## Other Stuff
+
+Some other things that may be very common depending on your typical output include the following.
+
+- Footnotes
+- Citations and References
+- Merging multiple `*.Rmd` files into a single document
+
+As such minutia goes beyond introductory level detail and may not be of interest to all, see the [appendix][appendix] if interested.
+
+
 
 In summary, you can get to publication-ready results with figures, tables and text by just using the standard options or available packages, without having to go through the usual tedium of trying to format indivudal cells, copy-pasting, and settling for resized images that look like poor.  That alone should be enough to start using R Markdown for many people.  
+
+
+
 
 
 [^widthplotly]: Changing `fig.width` for a <span class="pack">plotly</span> image seems to affect the height, while `fig.height` doesn't do anything.

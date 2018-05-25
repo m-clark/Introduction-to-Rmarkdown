@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   <link rel="shortcut icon" href="img/R.ico" type="image/x-icon">
-<link rel="prev" href="summary.html">
-<link rel="next" href="appendix.html">
+<link rel="prev" href="exercise.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -224,61 +224,74 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="exercise" class="section level1">
-<h1>Exercise</h1>
-<div id="getting-started-1" class="section level2">
-<h2>Getting started</h2>
-<ul>
-<li>Create an <code>*.Rmd</code> for HTML.</li>
-<li>Now change some configuration options: choose a theme and add a table of contents. For the latter, create some headings/sections and sub-sections so that you can see your configuration in action.</li>
-</ul>
+<div id="appendix" class="section level1">
+<h1>Appendix</h1>
+<div id="footnotes" class="section level2">
+<h2>Footnotes</h2>
+<p>Footnotes are very straightforward. To add one just put <code>[^myfootnote]</code> where needed (the name is arbitrary) then, somewhere in your document add the following.</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="ot">[^myfootnote]</span>:  Yadda blah yadda.</code></pre></div>
+<p>The usual practice is to put them at the end of the document. It doesn’t matter what order you put them in, they will be displayed/numbered as they appear in the actual text.</p>
 </div>
-<div id="adding-code" class="section level2">
-<h2>Adding code</h2>
-<ul>
-<li>Add a chunk that does the following statistical calculation. <code>summary(mtcars)</code></li>
-<li>Add a chunk that produces a visualization. If you need an example, create a density plot of the population total variable from the <span class="objclass">midwest</span> data set in the <span class="pack">ggplot2</span> package. Now align it with the <code>fig.align</code> chunk option.</li>
-<li>Add a chunk similar to the previous but have the resulting document hide the code, just showing the visualization.</li>
-<li>Now add a chunk that <em>only</em> shows the code, but doesn’t actually run it.</li>
-<li>Add a chunk that creates an R object such as a set of numbers or text. Then use that object in the text via inline R code. For example, show only the first element of the object in a sentence.</li>
-<li><strong>Bonus</strong>: Set a chunk option that will be applied to the whole document. For example, make the default figure alignment be centered, or have the default be to hide the code.</li>
-</ul>
+<div id="citations-and-references" class="section level2">
+<h2>Citations and References</h2>
+<div id="references-bibliography" class="section level3">
+<h3>References &amp; Bibliography</h3>
+<p>Assuming you have a reference file somewhere adding them to the text of the document is very easy. Many formats of the file are acceptable, such as BibTeX, EndNote, and more. For example if using BibTeX and the file is <code>refs.bib</code>, then just note the file in the YAML section.</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">bibliography:</span><span class="at"> refs.bib</span>
+<span class="fu">biblio-style:</span><span class="at"> apalike</span>
+<span class="fu">link-citations:</span><span class="at"> yes</span></code></pre></div>
+<p>The style can be anything you want, but will take some extra steps to use. Consult the R Markdown page.</p>
+<p>Now, somewhere in your document, put an empty References header like so:</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># References</span></code></pre></div>
+<p>The references you cite will magically appear in the references section when you knit the document.</p>
 </div>
-<div id="dealing-with-text" class="section level2">
-<h2>Dealing with text</h2>
-<ul>
-<li>Italicize or bold some words.</li>
-<li>Add a hyperlink.</li>
-<li>Add a line break via HTML. Bonus: use <span class="pack">htmltools</span> and the <code>br()</code> function to add a line break within an R chunk. See what happens when you simply put several line returns.</li>
-<li>Change your output to PDF.</li>
-</ul>
+<div id="citations" class="section level3">
+<h3>Citations</h3>
+<p>Now that your document has some references</p>
+<p>Blah blah <span class="citation">[see @doe99, pp. 33-35; also @smith04, ch. 1]</span>.</p>
+<p>Blah blah <span class="citation">[@doe99, pp. 33-35, 38-39 and *passim*]</span>.</p>
+<p>Blah blah <span class="citation">[@smith04; @doe99]</span>.</p>
+<p>A minus sign (-) before the @ will suppress mention of the author in the citation. This can be useful when the author is already mentioned in the text:</p>
+<p>Smith says blah <span class="citation">[-@smith04]</span>.</p>
+<p>You can also write an in-text citation, as follows:</p>
+<p><span class="citation">@smith04</span> says blah.</p>
+<p><span class="citation">@smith04 [p. 33]</span> says blah.</p>
 </div>
-<div id="more" class="section level2">
-<h2>More</h2>
-<p>For these, you’ll have to look it up, as I haven’t explicitly discussed it.</p>
-<ul>
-<li>Create a quoted block.</li>
-<li>Add a subtitle to your document</li>
-<li>Remove the # from the R chunk outputs</li>
-</ul>
 </div>
-<div id="advanced" class="section level2">
-<h2>Advanced</h2>
-<p>For this you’d have to know a little CSS, but just doing it once will go quite a ways to helping you feel comfortable being creative with your own CSS files.</p>
-<ul>
-<li>Create a <code>*.css</code> file to set an option for your link color. Don’t forget to refer to it in your YAML configuration section of the Rmd file.</li>
-<li>Create a special class of links and add a link of that class.</li>
-</ul>
+<div id="multiple-documents-1" class="section level2">
+<h2>Multiple Documents</h2>
 
 </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="summary.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="appendix.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="exercise.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

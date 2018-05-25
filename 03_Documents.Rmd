@@ -34,7 +34,7 @@ That will pretty much cover most of your basic text needs.  For those that know 
 ## Code
 ### Chunks
 
-Along with text, the most common thing you'll have is code.  The code resides in a <span class="emph">chunk</span>, and looks like this.
+Along with text, the most common thing you'll have is code.  The code resides in a <span class="emph">chunk</span>, and looks like this.  You can add it to your document with the `Insert` menu in the upper right of your Rmd file, but as you'll be needing to do this all the time, instead you'll want to use the keyboard shortcut of Ctrl/Cmd + Alt/Option + I[^macshortcuts].
 
 ```{r rchunk, echo=FALSE, results='markup'}
 cat("```{r}
@@ -92,3 +92,5 @@ For more involved collaborations, I would suggest partitioning the sections into
 
 
 [^preload]: There is not yet a way within R Markdown that I'm aware of to load on demand as many websites do.  However, waiting for things to load until you come to them is annoying at best, and I usually get tired of waiting and move on to other things.
+
+[^macshortcuts]: As with RStudio in general, Mac shortcuts for R Markdown documents will deviate from the Windows/Linux ones (in mostly unfortunate/inefficient ways).
