@@ -4,9 +4,9 @@
 
 R Markdown files, with extension `*.Rmd`, are a combination of text, <span class="emph">chunks</span> of R code, and possibly other code or syntax, all within a single file. Various packages, e.g. <span class="pack">rmarkdown</span>, <span class="pack">knitr</span>, <span class="pack">pandoc</span>, etc., work behind the scenes to knit all those pieces into one coherent whole, in whatever format is desired.<span class="marginnote">Pandoc is the universal translator that takes various formats, particularly markup languages, and converts them into others.</span>  The <span class="pack">knitr</span> package is the driving force behind most of what is done to create the final product.
 
-### HTML
+#### HTML
 
-I personally do everything in HTML because it's the most flexible and easiest to get things looking the way you want.  Presumably at some point, these will simply be the default that people both use and expect in the academic realm, as there is little additional value that one can get with PDF or MS Word, and often notably less.  Furthermore, academia is an anachronism.  How much do you use PDF and Word for *anything* else relative to HTML (i.e. the web)?
+I personally do everything in HTML because it's the most flexible and easiest to get things looking the way you want.  Presumably at some point, these will simply be the default that people both use and expect in the academic realm and beyond, as there is little additional value that one can get with PDF or MS Word, and often notably less.  Furthermore, academia is an anachronism.  How much do you engage PDF and Word for *anything* else relative to HTML (i.e. the web)?
 
 
 ## Text
@@ -81,7 +81,7 @@ By default, when you knit the document all code will be run.  Depending on a var
 
 ## Multiple documents
 
-A single `.Rmd` file can call others, referred to as <span class="emph">child documents</span>, and when you knit that document you'll have one single document with the content from all of them.  You may want to consider other formats, such as <span class="emph">bookdown</span>, rather than doing this.  Scrolling a lot is sometimes problematic, and not actually required for the presentation of material.  It also makes the content take longer to load, because everything has to load[^preload].
+A single `.Rmd` file can call others, referred to as <span class="emph">child documents</span>, and when you knit that document you'll have one single document with the content from all of them.  You may want to consider other formats, such as <span class="emph">bookdown</span>, rather than doing this.  Scrolling a lot is sometimes problematic, and not actually required for the presentation of material.  It also makes the content take longer to load, because everything has to load[^preload].  See the [appendix][appendix] for details.
 
 
 ## Collaboration

@@ -26,7 +26,7 @@ knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F,
 
 These options do things like make sure messages, warnings, and errors don't show up in the document.<span class="marginnote">You can still get errors, and they will keep your document from compiling.</span> Note that any specific chunk options will override these.  So, you'll always have fine control over how things work.
 
-You can also specify options for the way <span class="pack">knitr</span> itself works.  For example, `*.Rmd` documents by default ignore the fact that you are using an RStudio project, and instead work from wherever the Rmd file is. Using `root.dir` can correct this.  There is also a global option you can set via the tools menu[^rmdrstudio].
+You can also specify options for the way <span class="pack">knitr</span> itself works.  For example, `*.Rmd` documents by default ignore the fact that you are using an RStudio project, and instead work from wherever the `*.Rmd` file is. Using `root.dir` can correct this.  There is also a global option you can set via the tools menu[^rmdrstudio].
 
 ```{r knit_opts2, eval=FALSE}
 knitr::opts_knit$set(root.dir = '../', child = 'someotherdoc.Rmd')
@@ -43,7 +43,7 @@ Where to begin?  There are many, many ways to manipulate an image that is produc
 
 #### HTML vs. Others
 
-To begin, there are different systems for PDF or MS Word vs. HTML-based documents. For non-HTML, the chunk options of `fig.width` and `fig.height` are generally used for figure dimensions. Oddly, these are expressed in inches, but at least it is easy enough to manipulate to your liking.  While you can use them in HTML for static images as those produced by ggplot2, there isn't a reason I can think of to express the size in inches for an electornic display.  Furthermore, these settings will not affect interactive and possibly other images in HTML documents except in unexpected ways[^widthplotly].  
+To begin, there are different systems for PDF or MS Word vs. HTML-based documents. For non-HTML, the chunk options of `fig.width` and `fig.height` are generally used for figure dimensions. Oddly, these are expressed in inches, but at least it is easy enough to manipulate to your liking.  While you can use them in HTML for static images as those produced by ggplot2, there isn't a reason I can think of to express the size in inches for an electronic display.  Furthermore, these settings will not affect interactive and possibly other images in HTML documents except in unexpected ways[^widthplotly].  
 
 You can also supply `fig.width` plus `fig.asp` which will produce a height that is `fig.width*fig.asp`.  There is also `fig.dim`, which will take the two values you would have specified for `fig.width` and `fig.height`.  If you supply `fig.dim` with `fig.asp`, the latter will be ignored.  If expressing size in inches doesn't make sense to you, you can use `dpi`, which will allow you to know think of `dpi*inches` as what to expect in terms of pixels.  You also have `fig.align` with options like 'left' and 'center', but it apparently has no effect on <span class="pack">htmlwidgets</span> and similar packages that rely on other languages like JavaScript.
 
@@ -247,7 +247,7 @@ As such minutia goes beyond introductory level detail and may not be of interest
 
 
 
-In summary, you can get to publication-ready results with figures, tables and text by just using the standard options or available packages, without having to go through the usual tedium of trying to format indivudal cells, copy-pasting, and settling for resized images that look like poor.  That alone should be enough to start using R Markdown for many people.  
+In summary, you can get to publication-ready results with figures, tables and text by just using the standard options or available packages, without having to go through the usual tedium of trying to format individual cells, copy-pasting, and settling for re-sized images that look like poor.  That alone should be enough to start using R Markdown for many people.  
 
 
 
@@ -257,6 +257,6 @@ In summary, you can get to publication-ready results with figures, tables and te
 
 [^cleandoc]: For building website like documents, e.g. using <span class="pack">bookdown</span>, there is a `Clean All` option. However, all this does is delete files that get overwritten already, and so serves almost no purpose except to get rid of old files that are no longer part of the document.
 
-[^checksum]: A better way to probably do this is with `cache.extra = tools::md5sum('myfile.csv')`. That will, for example, rebuild the cache if that csv file has changed.
+[^checksum]: A better way to probably do this is with `cache.extra = tools::md5sum('myfile.csv')`. That will, for example, rebuild the cache if that `*.csv` file has changed.
 
 [^rmdrstudio]: This global option in RStudio seems to be ignored in some situations.

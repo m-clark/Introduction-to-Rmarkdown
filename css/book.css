@@ -17,7 +17,7 @@
     background-color: #fffff8;
     color: #585858;
     padding: 5px 15px;
-    font-family: Roboto;
+    font-family: Roboto, 'Helvetica Neue', Arial, sans;
     font-size: 100%;
     word-wrap: break-word;
     overflow: hidden;
@@ -248,7 +248,7 @@ div.sourceCode.r {
   margin-top: 0;
   margin-bottom: 0;
   font-size: 66%;
-  line-height: 1;
+  line-height: 1.2em;
   vertical-align: baseline;
   position: relative; 
 }
@@ -292,3 +292,6 @@ a:focus,  a:hover {
 }
 */
 
+.references {
+ font-family: "Big Caslon", "Palatino", serif; 
+}

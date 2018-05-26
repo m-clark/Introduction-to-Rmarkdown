@@ -3,7 +3,7 @@ title: <span style="font-size:125%; font-family:Roboto; font-style:normal">Intro
 subtitle: <span style="font-size:125%; font-style:normal; font-variant:small-caps; font-family:'Open Sans'"></span>
 author:  |
   <span style="font-size:125%; font-style:normal; font-variant:small-caps; font-family:'Open Sans'">Michael Clark</span> <br>
-  <span class="" style="font-size:75%">https://m-clark.github.io</span><br><br>
+  <span class="" style="font-size:75%">https://m-clark.github.io/workshops</span><br><br>
   <img src="img/CSCAR_logos/signature-acronym.png" style="width:30%; padding:10px 0;" alt="University of Michigan: CSCAR"> <br>
   <img src="img/ARC_logos/ARC-acronym-signature.png" style="width:21%; padding:10px 0;" alt="University of Michigan: Advanced Research Computing"> 
 
@@ -33,7 +33,7 @@ output:
 always_allow_html: yes
 
 documentclass: book
-# bibliography: refs.bib
+bibliography: refs.bib
 biblio-style: apalike
 link-citations: yes
 description: "This document will introduce participants to the basics of R Markdown. After an introduction to concepts related to reproducible programming and research, demonstrations of standard markdown, as well as overviews of different formats, will be provided, including exercises."    
@@ -41,6 +41,8 @@ cover-image: 'img/nineteeneightyR.png'
 url: 'https\://m-clark.github.io/Introduction-to-Rmarkdown/' 
 favicon: 'img/R.ico'
 github-repo:  'm-clark/Introduction-to-Rmarkdown/'
+nocite: | 
+  @rstudio2018, @knuth1992literate, @xie2018
 ---
 
 ```{r setup, include=FALSE, cache=FALSE}
@@ -52,7 +54,7 @@ knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F, comment=NA, R.opt
 
 ```{r packages, include=FALSE, cache=FALSE}
 library(magrittr); library(tidyverse); library(stringr); library(pander); 
-library(broom); library(kableExtra); library(plotly); library(lazerhawk)
+library(broom); library(kableExtra); library(plotly); library(lazerhawk); library(htmltools)
 ```
 
 

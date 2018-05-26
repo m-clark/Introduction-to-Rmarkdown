@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2018-05-25">
+<meta name="date" content="2018-05-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,14 +47,15 @@
 
 
 <script src="libs/htmlwidgets-1.0/htmlwidgets.js"></script>
-<script src="libs/datatables-binding-0.2/datatables.js"></script>
-<link href="libs/dt-core-1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.10.12/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.10.12/js/jquery.dataTables.min.js"></script>
-<script src="libs/plotly-binding-4.7.1/plotly.js"></script>
-<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.4/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<script src="libs/plotly-binding-4.7.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/plotlyjs-1.29.2/plotly-htmlwidgets.css" rel="stylesheet" />
 <script src="libs/plotlyjs-1.29.2/plotly-latest.min.js"></script>
 
@@ -135,9 +136,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#how-to-start"><i class="fa fa-check"></i>How to start</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="standard-documents.html"><a href="standard-documents.html"><i class="fa fa-check"></i>Standard Documents</a><ul>
-<li class="chapter" data-level="" data-path="standard-documents.html"><a href="standard-documents.html#r-markdown-files"><i class="fa fa-check"></i>R Markdown files</a><ul>
-<li class="chapter" data-level="" data-path="standard-documents.html"><a href="standard-documents.html#html"><i class="fa fa-check"></i>HTML</a></li>
-</ul></li>
+<li class="chapter" data-level="" data-path="standard-documents.html"><a href="standard-documents.html#r-markdown-files"><i class="fa fa-check"></i>R Markdown files</a></li>
 <li class="chapter" data-level="" data-path="standard-documents.html"><a href="standard-documents.html#text"><i class="fa fa-check"></i>Text</a></li>
 <li class="chapter" data-level="" data-path="standard-documents.html"><a href="standard-documents.html#code"><i class="fa fa-check"></i>Code</a><ul>
 <li class="chapter" data-level="" data-path="standard-documents.html"><a href="standard-documents.html#chunks"><i class="fa fa-check"></i>Chunks</a></li>
@@ -203,6 +202,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#multiple-documents-1"><i class="fa fa-check"></i>Multiple Documents</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li class='after'"><a href="https://m-clark.github.io/"><img src="img/mc.png" style="width:50%; padding:0px 0; display:block; margin: 0 auto;" alt="MC logo"></a></li>
 <li class='after'"><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="width:50%; border-width:0; display:block; margin: 0 auto;" src="img/ccbysa.png" /></a></li>
@@ -239,7 +239,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Each of these may mean slightly different things depending on the context and background of the person using them, so one should take care to note precisely what is meant. We’ll examine a couple of these concepts, or at least my particular version of them.</p>
 <div id="how-to-read-this-chapter" class="section level2">
 <h2>How to read this chapter</h2>
-<p>While you are looking at this section, collapse the menu (the button next to the magnifying glass), and snap the document to one side of your screen. Now open <a href="https://raw.githubusercontent.com/m-clark/Introduction-to-Rmarkdown/master/01_concepts.Rmd">this version of it</a>, or save it to your computer and open it in RStudio so you can get the syntax highlighting. Then snap it to the other side of the screen. See the R Markdown used to create this section will get you well on your way to understanding how to use R Markdown.</p>
+<p><span class="marginnote">If you are actually in the workshop, just look at the screen at the front of the room for the finished product, and have the raw <code>*.Rmd</code> file on your screen.</span> While you are looking at this section, collapse the menu (the button next to the magnifying glass), and snap the document to one side of your screen. Now open <a href="https://raw.githubusercontent.com/m-clark/Introduction-to-Rmarkdown/master/01_concepts.Rmd">this version of it</a>, or save it to your computer and open it in RStudio so you can get the syntax highlighting. Then snap it to the other side of the screen. See the R Markdown used to create this section will get you well on your way to understanding how to use R Markdown.</p>
 </div>
 <div id="literate-programming" class="section level2">
 <h2>Literate Programming</h2>
@@ -363,7 +363,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Wasteful if printed</li>
 <li>Often very difficult to get figures/tables to look as desired</li>
 </ul>
-<p><span class="marginnote">Some journals still charge extra for color plots. First, there obviously is no cost for color for electronic documents, which is how the vast majority of research articles are accessed. They often don’t ask whether you actually want it printed in color (they’ll simply want to charge you for any color plots you have), nor do they seem to care that you can use color schemes that would look fine in black and white. This situation is ridiculous.</span> The case for using a markdown approach is now years old and well established. Unfortunately many, but not all, journals are still print-oriented, because their income depends on the assumption of print, not to mention a closed-source, broken, and un-scientific system of review and publication that dates <a href="https://www.npr.org/sections/health-shots/2018/02/24/586184355/scientists-aim-to-pull-peer-review-out-of-the-17th-century">back to the 17th century</a>. Consider the fact that you could blog about your research while conducting it, present preliminary results in your blog via R Markdown (because your blog itself is done via R Markdown), get regular feedback from peers along the way via your site’s comment system, and all this before you’d ever send it off to a journal. Now ask yourself what a print-oriented journal actually offers you? When was the last time you actually opened a print version of a journal? How often do you go to a journal site to look for something as opposed to a simple web search or using Google Scholar? How many journals do adequate retractions when problems are found<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>? Is it possible you may actually get more eyeballs and clicks on your work just having it on your own website<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> or <a href="https://www.altmetric.com/about-altmetrics/what-are-altmetrics/">tweeting about it</a>?</p>
+<p><span class="marginnote">Some journals still charge extra for color plots. First, there obviously is no cost for color for electronic documents, which is how the vast majority of research articles are accessed. They often don’t ask whether you actually want it printed in color (they’ll simply want to charge you for any color plots you have), nor do they seem to care that you can use color schemes that would look fine in black and white. This situation is ridiculous.</span> The case for using a markdown approach is now years old and well established. Unfortunately many, but not all, journals are still print-oriented, because their income depends on the assumption of print, not to mention a closed-source, broken, and anti-scientific system of review and publication that dates <a href="https://www.npr.org/sections/health-shots/2018/02/24/586184355/scientists-aim-to-pull-peer-review-out-of-the-17th-century">back to the 17th century</a>. Consider the fact that you could blog about your research while conducting it, present preliminary results in your blog via R Markdown (because your blog itself is done via R Markdown), get regular feedback from peers along the way via your site’s comment system, and all this before you’d ever send it off to a journal. Now ask yourself what a print-oriented journal actually offers you? When was the last time you actually opened a print version of a journal? How often do you go to a journal site to look for something as opposed to a simple web search or using Google Scholar? How many journals do adequate retractions when problems are found<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>? Is it possible you may actually get more eyeballs and clicks on your work just having it on your own website<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> or <a href="https://www.altmetric.com/about-altmetrics/what-are-altmetrics/">tweeting about it</a>?</p>
 <p>The current paradigm is going to change because it has to, and there is practically no justification for the traditional approach to academic publication. Indeed, the change is already well underway, with some outlets requiring pre-registration, code, and other changes to the usual send-a-pdf-and-we’ll-get-back-to-you approach. You might as well be using tools and an approach that will already accommodate such change<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>.</p>
 <p>For more on tools for reproducible research in R, see the <a href="https://cran.r-project.org/web/views/ReproducibleResearch.html">task view</a>.</p>
 

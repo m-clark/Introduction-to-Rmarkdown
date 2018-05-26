@@ -10,10 +10,11 @@ dplyr
 stringr
 forcats
 pander
+broom
+kableExtra
 plotly
 lazerhawk
+htmltools
 xml2
 rvest
 bindrcpp
-broom
-kableExtra

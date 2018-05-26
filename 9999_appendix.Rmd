@@ -2,7 +2,7 @@
 
 ## Footnotes
 
-Footnotes are very straightforward.  To add one just put `[^myfootnote]` where needed (the name is arbitrary) then, somewhere in your document add the following.
+Footnotes are very straightforward.  To add one just put `[^myfootnote]` where needed (the name is arbitrary). Then, somewhere in your document add the following.
 
 ```markdown
 [^myfootnote]:  Yadda blah yadda.
@@ -23,7 +23,7 @@ biblio-style: apalike
 link-citations: yes
 ```
 
-The style can be anything you want, but will take some extra steps to use.  Consult the R Markdown page.
+The style can be anything you want, but will take some extra steps to use.  Consult the R Markdown page for how to use custom styles.
 
 Now, somewhere in your document, put an empty References header like so:
 
@@ -31,30 +31,63 @@ Now, somewhere in your document, put an empty References header like so:
 # References
 ```
 
-The references you cite will magically appear in the references section when you knit the document.
+The references you cite will magically appear in the references section when you knit the document.  Note that <span class="emph">bookdown</span> documents, of which this is one, also put them at the bottom of the page where the citation occurs.
 
 ### Citations
 
-Now that your document has some references
+Now that your document has some references, you'll want to cite them! In the refs.bib file for example, we have the following entry:
+
+```bibtex
+@book{clark2018rmd,
+  title={Introduction to R Markdown},
+  author={Clark, Michael},
+  year={2018}
+}
+```
+
+For example, if we type the following:
+
+`Blah blah [see @clark2018rmd, pp. 33-35; also @barthelme1981balloon].`
+
+It will produce:
+
+Blah blah [see @clark2018rmd, pp. 33-35; also @barthelme1981balloon].
 
 
-Blah blah [see @doe99, pp. 33-35; also @smith04, ch. 1].
+Use a minus sign (-) before the @ to suppress mention of the author in the citation. T
 
-Blah blah [@doe99, pp. 33-35, 38-39 and *passim*].
+`Clark says blah [-@clark2018rmd].`
 
-Blah blah [@smith04; @doe99].
-
-A minus sign (-) before the @ will suppress mention of the author in the citation. This can be useful when the author is already mentioned in the text:
-
-Smith says blah [-@smith04].
+Clark says blah [-@clark2018rmd].
 
 You can also write an in-text citation, as follows:
 
-@smith04 says blah.
+`@barthelme1981balloon says blah.`
 
-@smith04 [p. 33] says blah.
+@barthelme1981balloon says blah.
 
+`@barthelme1981balloon [p. 33] says blah.`
+
+@barthelme1981balloon [p. 33] says blah.
 
 
 ## Multiple Documents
 
+If you're writing a lengthy document, for example, an academic article, you'll not want to have a single `*.Rmd` file for the whole thing, no more than you want a single R script to do all the data preparation and analysis for it.  For one thing, only one section is data heavy, and you wouldn't want to have to do a lot of processing every time you make a change to the document (though caching would help there). In addition, if there is a problem with one section, you can still put the document together by just ignoring the problematic part.  A more compelling reason regards collaboration.  Your colleague can write the introduction while you work on the results, and the final paper can then be put together without conflict.
+
+The best way to accomplish this is to think of your document like you would a website.  The `index.Rmd` file has the YAML and other settings, and it will also be where the other files come together.  For example a paper with an introduction, results, and discussion section might have this in the index file.
+
+```{r multidoc, echo=FALSE, results='markup', results='hold'}
+cat("```{r, child='introduction.Rmd'}
+```\n\n")
+cat("```{r, child='results.Rmd'}
+```\n\n")
+cat("```{r, child='discussion.Rmd'}
+```")
+```
+
+You work on the individual sections separately, and when you knit the index file, all will come together.  What's more, if you're creating an HTML document, you now can put this index file, which is the complete document, on the web for easy access.  For example, if the document is placed in a folder like `mydoc`, then one could go to `www.someplace.net/mydoc/` and view the document.
+
+
+
+# References
