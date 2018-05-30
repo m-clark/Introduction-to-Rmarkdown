@@ -127,13 +127,15 @@ The first step is to create a `*.css` file that your R Markdown document can ref
 <a href='https://m-clark.github.io>wowee zowee!</a>
 ```
 
-It would look like this: <a href='https://m-clark.github.io' style="color:dodgerblue">wowee zowee!</a>.  If we want to change the color from the default setting for all links, we go into our CSS file.
+It would look like this: <a href='https://m-clark.github.io'>wowee zowee!</a>.  If we want to change the color from the default setting for all links, we go into our CSS file.
 
 ```css
 a {
   color: dodgerblue;
 }
 ```
+
+Now our links would look like this: <a href='https://m-clark.github.io' style="color:dodgerblue">wowee zowee!</a>
 
 You can use hexadecimal, RGB and other representations of practically any color. CSS, like HTML, has a fairly simple syntax, but is very flexible and can do a ton of stuff you wouldn't think of.  With experience and looking at other people's CSS, you'll pick up the basics.
 

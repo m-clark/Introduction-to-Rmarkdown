@@ -19,3 +19,8 @@ Note the following color coding used in this document:
 - <span class="func">function</span>
 - <span class="objclass">object/class</span>
 - [link]()
+
+
+## Note
+
+This document is created with R Markdown via the <span class="pack">bookdown</span> package.

@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2018-05-26">
+<meta name="date" content="2018-05-29">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -61,41 +61,69 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="css/book.css" type="text/css" />
@@ -119,6 +147,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a><ul>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#goals"><i class="fa fa-check"></i>Goals</a></li>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#prerequisites"><i class="fa fa-check"></i>Prerequisites</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#note"><i class="fa fa-check"></i>Note</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="concepts.html"><a href="concepts.html"><i class="fa fa-check"></i>Concepts</a><ul>
 <li class="chapter" data-level="" data-path="concepts.html"><a href="concepts.html#how-to-read-this-chapter"><i class="fa fa-check"></i>How to read this chapter</a></li>
@@ -202,6 +231,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#multiple-documents-1"><i class="fa fa-check"></i>Multiple Documents</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="web-standards.html"><a href="web-standards.html"><i class="fa fa-check"></i>Web Standards</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li class='after'"><a href="https://m-clark.github.io/"><img src="img/mc.png" style="width:50%; padding:0px 0; display:block; margin: 0 auto;" alt="MC logo"></a></li>
@@ -239,7 +269,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Each of these may mean slightly different things depending on the context and background of the person using them, so one should take care to note precisely what is meant. We’ll examine a couple of these concepts, or at least my particular version of them.</p>
 <div id="how-to-read-this-chapter" class="section level2">
 <h2>How to read this chapter</h2>
-<p><span class="marginnote">If you are actually in the workshop, just look at the screen at the front of the room for the finished product, and have the raw <code>*.Rmd</code> file on your screen.</span> While you are looking at this section, collapse the menu (the button next to the magnifying glass), and snap the document to one side of your screen. Now open <a href="https://raw.githubusercontent.com/m-clark/Introduction-to-Rmarkdown/master/01_concepts.Rmd">this version of it</a>, or save it to your computer and open it in RStudio so you can get the syntax highlighting. Then snap it to the other side of the screen. See the R Markdown used to create this section will get you well on your way to understanding how to use R Markdown.</p>
+<p><span class="marginnote">If you are actually in the workshop, just look at the screen at the front of the room for the finished product, and have the raw <code>*.Rmd</code> file on your screen.</span>
+While you are looking at this section, collapse the menu (the button next to the magnifying glass), and snap the document to one side of your screen. Now open <a href="https://raw.githubusercontent.com/m-clark/Introduction-to-Rmarkdown/master/01_concepts.Rmd">this version of it</a>, or save it to your computer and open it in RStudio so you can get the syntax highlighting. Then snap it to the other side of the screen. See the R Markdown used to create this section will get you well on your way to understanding how to use R Markdown.</p>
 </div>
 <div id="literate-programming" class="section level2">
 <h2>Literate Programming</h2>
@@ -247,7 +278,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <blockquote>
 <p>I believe that the time is ripe for significantly better documentation of programs, and that we can best achieve this by considering programs to be works of literature. <br> ~ Donald Knuth (1984)</p>
 </blockquote>
-<p><span class="marginnote">You might wonder why, given that such an idea was around even before MS Word, how the latter took over in most, but certainly not all, disciplines in academia, especially given that MS Word was only very recently remotely viable as a means for scientific communication, and many would say still isn’t.</span> The interweaving of code and text is something you already do in normal scripting. Comments in code are not only useful, they are practically required. But in a program script, almost all the emphasis is on the code. With literate programming, we focus on the text, and the code exists to help facilitate our ability to tell a (data-driven) story.</p>
+<p><span class="marginnote">You might wonder why, given that such an idea was around even before MS Word, how the latter took over in most, but certainly not all, disciplines in academia, especially given that MS Word was only very recently remotely viable as a means for scientific communication, and many would say still isn’t.</span>
+The interweaving of code and text is something you already do in normal scripting. Comments in code are not only useful, they are practically required. But in a program script, almost all the emphasis is on the code. With literate programming, we focus on the text, and the code exists to help facilitate our ability to tell a (data-driven) story.</p>
 <p>In the early days, the idea was largely to communicate the idea of the computer program itself. Now, at least in the context we’ll be discussing, our usage of literate programming is to generate results that tell the story in a completely human-oriented fashion, possibly without any reference to the code at all. However, the document, in whatever format, does not exist independently of the code, and cannot be generated without it.</p>
 <p>Consider the following example. This code, which is clearly delimited from the text via background and font style, shows how to do an unordered list in markdown using two different methods. Either a <code>-</code> or a <code>*</code> will denote a list item.</p>
 <pre><code>- item 1
@@ -257,13 +289,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 * item 4</code></pre>
 <p>So, we have a statement explaining the code, followed by the code itself. We actually don’t need a code comment, because the text explains the code in everyday language. This is a simple example, but it gets at the essence of the approach. In the document you’re reading right now, there is a delineation for the code itself, but this isn’t visible. However, it’s clear what the code part is and what the text part is.</p>
 <p>The following table shows the results of a regression analysis.</p>
-<table style="width:86%;">
+<table style="width:88%;">
 <colgroup>
 <col width="25%" />
 <col width="15%" />
 <col width="18%" />
 <col width="13%" />
-<col width="13%" />
+<col width="15%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -291,13 +323,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<table style="width:86%;">
+<table style="width:88%;">
 <caption>Fitting linear model: mpg ~ wt</caption>
 <colgroup>
 <col width="20%" />
 <col width="30%" />
 <col width="12%" />
-<col width="22%" />
+<col width="23%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -317,9 +349,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tbody>
 </table>
 <p>So, imagine a paper in which the previous text content explains the results while the analysis code resides right where the text is. You didn’t see the code, but you saw some nicely formatted results. I personally didn’t format anything however, those are using default settings. Here is the underlying code.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>wt, mtcars) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">summary</span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">pander</span>()</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>wt, mtcars) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="st">  </span><span class="kw">summary</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="st">  </span><span class="kw">pander</span>()</a></code></pre></div>
 <p>Here we see the code, but it isn’t evaluated, because the goal of the text here is not the result, but to understand the code. Nothing is copied and pasted, and the code and text both reside in the same document.</p>
 <p>The idea of literate programming, i.e. creating human-understandable programs, can extend beyond reports or slides that you might put together for an analysis, and in fact be used for any setting in which you have to write code at all.</p>
 </div>
@@ -328,7 +360,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>The ideas of <span class="emph">replicability</span> and <span class="emph">reproducible research</span> are hot topics in various disciplines of late. To begin, neither is precisely defined, and depending on the definition one selects, possibly unlikely or even impossible. They are more ideals to strive for, or goals for certain aspects of the research process. For example, nothing is exactly replicable, if only because time will have passed, and with it some things will have changed about the process since the initial research was conducted- the people involved, the data collection approach, the analytical tools, etc. However, we can replicate some things, possibly even exactly, and thus make the results reproducible.</p>
 <p>Our focus will be on data analysis in particular. Let’s start with the following scenario. Various versions of a data set are used leading up to analysis, and after several iterations, <code>finaldata7</code> is now spread across the computers of the faculty advisor, two graduate students and one undergrad. Two of those finaldata7 data sets, specifically named <code>finaldata7a</code> and <code>finaldata7b</code>, are slightly different from the other two and each other. The undergraduate, who helped with the processing of finaldata2 through finaldata6, has graduated and no longer resides in the same state, nor likely cares any more about the project. Some of the data processing was done with menus in a software package that shall not be named.</p>
 <p>The script that did the final analysis, called <code>model.Results.C</code>, calls the data using a directory location which no longer exists (and refers only to <code>finaldata7</code>). It does several more data processing steps, but has no comments that would indicate why any of them are being done. Some of the variables are named things like PDQ and V3, but there is no document that would say what those mean.</p>
-<p>When writing their research document in Microsoft Word, all the values from the analyses were copied and pasted into the tables and text<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>. The variable names in the document have no exact match to any of the names in any of the data objects. Furthermore, no reference was provided in the text regarding what software or specific packages were used for the analysis.</p>
+<p>When writing their research document in Microsoft Word, all the values from the analyses were copied and pasted into the tables and text<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. The variable names in the document have no exact match to any of the names in any of the data objects. Furthermore, no reference was provided in the text regarding what software or specific packages were used for the analysis.</p>
 <p>And now, several months later, after the final draft of the document was written and sent to the journal, and the reviewers have eventually made their comments on the paper, it’s time to dive back into the analysis. Now, what do you think the odds are that this research group could even reproduce the values reported in the main analysis of the paper?</p>
 <p>Sadly, up until a couple years ago this was not uncommon, and even certain issues just described are still very common. Such an approach is essentially the antithesis of replicability and reproducible research. Anything that was only done with menus cannot be replicated, and without sufficient documentation it’s not clear what was done even when there is potentially reproducible code. The naming of files, variables and other objects was done poorly, so it will take unnecessary effort to figure out what was done, to what, and when. And even after most things get squared away, there is still a chance the numbers won’t match what was in the paper anyway.</p>
 <p>While certain tools like Box, Dropbox, Google drive etc. have perhaps helped somewhat, people generally don’t use them for <span class="emph">version control</span>, and they are not geared toward academic research specifically. However, using proper naming procedures, the approach of literate programming, and utilizing proper documentation, all could go a long way even with those tools.</p>
@@ -363,8 +395,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Wasteful if printed</li>
 <li>Often very difficult to get figures/tables to look as desired</li>
 </ul>
-<p><span class="marginnote">Some journals still charge extra for color plots. First, there obviously is no cost for color for electronic documents, which is how the vast majority of research articles are accessed. They often don’t ask whether you actually want it printed in color (they’ll simply want to charge you for any color plots you have), nor do they seem to care that you can use color schemes that would look fine in black and white. This situation is ridiculous.</span> The case for using a markdown approach is now years old and well established. Unfortunately many, but not all, journals are still print-oriented, because their income depends on the assumption of print, not to mention a closed-source, broken, and anti-scientific system of review and publication that dates <a href="https://www.npr.org/sections/health-shots/2018/02/24/586184355/scientists-aim-to-pull-peer-review-out-of-the-17th-century">back to the 17th century</a>. Consider the fact that you could blog about your research while conducting it, present preliminary results in your blog via R Markdown (because your blog itself is done via R Markdown), get regular feedback from peers along the way via your site’s comment system, and all this before you’d ever send it off to a journal. Now ask yourself what a print-oriented journal actually offers you? When was the last time you actually opened a print version of a journal? How often do you go to a journal site to look for something as opposed to a simple web search or using Google Scholar? How many journals do adequate retractions when problems are found<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>? Is it possible you may actually get more eyeballs and clicks on your work just having it on your own website<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> or <a href="https://www.altmetric.com/about-altmetrics/what-are-altmetrics/">tweeting about it</a>?</p>
-<p>The current paradigm is going to change because it has to, and there is practically no justification for the traditional approach to academic publication. Indeed, the change is already well underway, with some outlets requiring pre-registration, code, and other changes to the usual send-a-pdf-and-we’ll-get-back-to-you approach. You might as well be using tools and an approach that will already accommodate such change<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>.</p>
+<p><span class="marginnote">Some journals still charge extra for color plots. First, there obviously is no cost for color for electronic documents, which is how the vast majority of research articles are accessed. They often don’t ask whether you actually want it printed in color (they’ll simply want to charge you for any color plots you have), nor do they seem to care that you can use color schemes that would look fine in black and white. This situation is ridiculous.</span>
+The case for using a markdown approach is now years old and well established. Unfortunately many, but not all, journals are still print-oriented, because their income depends on the assumption of print, not to mention a closed-source, broken, and anti-scientific system of review and publication that dates <a href="https://www.npr.org/sections/health-shots/2018/02/24/586184355/scientists-aim-to-pull-peer-review-out-of-the-17th-century">back to the 17th century</a>. Consider the fact that you could blog about your research while conducting it, present preliminary results in your blog via R Markdown (because your blog itself is done via R Markdown), get regular feedback from peers along the way via your site’s comment system, and all this before you’d ever send it off to a journal. Now ask yourself what a print-oriented journal actually offers you? When was the last time you actually opened a print version of a journal? How often do you go to a journal site to look for something as opposed to a simple web search or using Google Scholar? How many journals do adequate retractions when problems are found<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>? Is it possible you may actually get more eyeballs and clicks on your work just having it on your own website<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> or <a href="https://www.altmetric.com/about-altmetrics/what-are-altmetrics/">tweeting about it</a>?</p>
+<p>The current paradigm is going to change because it has to, and there is practically no justification for the traditional approach to academic publication. Indeed, the change is already well underway, with some outlets requiring pre-registration, code, and other changes to the usual send-a-pdf-and-we’ll-get-back-to-you approach. You might as well be using tools and an approach that will already accommodate such change<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>.</p>
 <p>For more on tools for reproducible research in R, see the <a href="https://cran.r-project.org/web/views/ReproducibleResearch.html">task view</a>.</p>
 
 </div>
@@ -372,10 +405,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="footnotes">
 <hr />
 <ol start="1">
-<li id="fn1"><p>And since the journal they are submitting to still thinks it’s 1990, all the tables had to be at the end of the document, so they aren’t even near the text which refers to them.<a href="concepts.html#fnref1">↩</a></p></li>
-<li id="fn2"><p>The answer is none, because none of them can seem to do it in a timely fashion, and even top journals such as Nature, Science, Lancet, and others have been known to actually delay and even refuse to do so even in the face of overwhelming evidence of problematic articles. See <a href="https://retractionwatch.com/the-retraction-watch-leaderboard/top-10-most-highly-cited-retracted-papers/">Retraction Watch</a> for some insight.<a href="concepts.html#fnref2">↩</a></p></li>
-<li id="fn3"><p>You certainly will from those who don’t have paid access to journals.<a href="concepts.html#fnref3">↩</a></p></li>
-<li id="fn4"><p>Nobel prize-winning research groups are using <a href="https://hub.mybinder.org/user/losc-tutorial-l-_event_tutorial-s6sl5re6/notebooks/index.ipynb">interactive reproducible research practices</a>, so you should feel okay about using it for your stuff.<a href="concepts.html#fnref4">↩</a></p></li>
+<li id="fn1"><p>And since the journal they are submitting to still thinks it’s 1990, all the tables had to be at the end of the document, so they aren’t even near the text which refers to them.<a href="concepts.html#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>The answer is none, because none of them can seem to do it in a timely fashion, and even top journals such as Nature, Science, Lancet, and others have been known to actually delay and even refuse to do so even in the face of overwhelming evidence of problematic articles. See <a href="https://retractionwatch.com/the-retraction-watch-leaderboard/top-10-most-highly-cited-retracted-papers/">Retraction Watch</a> for some insight.<a href="concepts.html#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p>You certainly will from those who don’t have paid access to journals.<a href="concepts.html#fnref3" class="footnote-back">↩</a></p></li>
+<li id="fn4"><p>Nobel prize-winning research groups are using <a href="https://hub.mybinder.org/user/losc-tutorial-l-_event_tutorial-s6sl5re6/notebooks/index.ipynb">interactive reproducible research practices</a>, so you should feel okay about using it for your stuff.<a href="concepts.html#fnref4" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
             </section>
@@ -430,7 +463,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

@@ -15,3 +15,5 @@ plotly
 lazerhawk
 bindrcpp
 kableExtra
+leaflet
+tidyext

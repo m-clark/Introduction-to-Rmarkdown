@@ -88,6 +88,14 @@ cat("```{r, child='discussion.Rmd'}
 
 You work on the individual sections separately, and when you knit the index file, all will come together.  What's more, if you're creating an HTML document, you now can put this index file, which is the complete document, on the web for easy access.  For example, if the document is placed in a folder like `mydoc`, then one could go to `www.someplace.net/mydoc/` and view the document.
 
+# Web Standards
+
+When creating an HTML document or site and customizing things as you like, you should consider accessibility issues at some point. Not everyone interacts with the web the same way. For example, roughly 10% of people see [color differently](https://en.wikipedia.org/wiki/Color_blindness) from 'normal'.  Also, if your font is too light to read, or your visualizations don't distinguish points of interest for a certain group of people, your document is less effective at communicating your ideas.
+
+As a simple example, when we changed the link color to dodgerblue, it might not have seemed like much, but the color was no longer sufficient contrast at the lowest web standards.  Nor was my original color when the gray background was added.  The default link color for my documents is just fine though.
+
+You can get a [browser extension](https://www.deque.com/axe/) to see what problems your page has once it's on the web.    This is where your `*.css` file will come in handy, fixing 100 problems with one line of code.  Then you have a template you can use from there on out.  As you'll be using HTML more and more the more you use R Markdown, things like this become more important.  You won't likely be able to deal with every issue that arises, but you'll want to consider them.
+
 
 
 # References

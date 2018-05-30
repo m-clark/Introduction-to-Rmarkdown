@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2018-05-26">
+<meta name="date" content="2018-05-29">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -61,41 +61,69 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="css/book.css" type="text/css" />
@@ -119,6 +147,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a><ul>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#goals"><i class="fa fa-check"></i>Goals</a></li>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#prerequisites"><i class="fa fa-check"></i>Prerequisites</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#note"><i class="fa fa-check"></i>Note</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="concepts.html"><a href="concepts.html"><i class="fa fa-check"></i>Concepts</a><ul>
 <li class="chapter" data-level="" data-path="concepts.html"><a href="concepts.html#how-to-read-this-chapter"><i class="fa fa-check"></i>How to read this chapter</a></li>
@@ -202,6 +231,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#multiple-documents-1"><i class="fa fa-check"></i>Multiple Documents</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="web-standards.html"><a href="web-standards.html"><i class="fa fa-check"></i>Web Standards</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li class='after'"><a href="https://m-clark.github.io/"><img src="img/mc.png" style="width:50%; padding:0px 0; display:block; margin: 0 auto;" alt="MC logo"></a></li>
@@ -231,7 +261,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2>Output options</h2>
 <p>The basic document comes with several options to apply to your output. You’ll find a cog wheel in the toolbar area underneath the tabs.</p>
 <p><img src="img/knitr_output_opts.png" style="display:block; margin: 0 auto;" width='50%'></p>
-<p>Note that the inline vs. console stuff mostly just has to do with the actual .Rmd file, not the output, so we’re going to ignore it<a href="#fn12" class="footnoteRef" id="fnref12"><sup>12</sup></a>. Within the options you can apply some default settings to images, code, and more.</p>
+<p>Note that the inline vs. console stuff mostly just has to do with the actual .Rmd file, not the output, so we’re going to ignore it<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a>. Within the options you can apply some default settings to images, code, and more.</p>
 <div id="themes-etc." class="section level3">
 <h3>Themes etc.</h3>
 <p>As a first step, simply play around with the <span class="emph">themes</span> you already have available. For quick, one-off documents that you want to share without a lot of fuss, choosing one of these will make your document look good without breaking a sweat.</p>
@@ -267,10 +297,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Say you want to center and resize an image. Basic Markdown is too limited to do much more than display the image, so use some HTML instead.</p>
 <p>Here is the basic markdown image.</p>
 <p><code>![](img/R.ico)</code></p>
-<div class="figure">
-<img src="img/R.ico" />
-
-</div>
+<p><img src="img/R.ico" /></p>
 <p>Next we use HTML instead. This will produce a centered image that is slightly smaller.</p>
 <p><code>&lt;img src=&quot;img/R.ico&quot; style=&quot;display: block; margin: 0 auto;&quot; width=40px&gt;</code></p>
 <p><img src="img/R.ico" style="display:block; margin: 0 auto;" width=40px></p>
@@ -295,33 +322,34 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Recall the style section in some of the HTML examples above. For example, the part <code>style='color:#66023C; font-size:150%; font-weight:600'</code> changed the font. <span class="marginnote"> <strong>CSS</strong> stands for <strong>c</strong>ascading <strong>s</strong>tyle <strong>s</strong>heets</span>It’s actually CSS, and if we need to do the same thing each time, we can take an alternative approach to creating a style that would apply the same settings to all objects of the same class or HTML tag throughout the document.</p>
 <p>The first step is to create a <code>*.css</code> file that your R Markdown document can refer to. Let’s say we want to make every link <span style="color:dodgerblue">dodgerblue</span>. Links in HTML are tagged with the letter <strong><code>a</code></strong>, and to insert a link with HTML you can do something like:</p>
 <pre><code>&lt;a href=&#39;https://m-clark.github.io&gt;wowee zowee!&lt;/a&gt;</code></pre>
-<p>It would look like this: <a href='https://m-clark.github.io' style="color:dodgerblue">wowee zowee!</a>. If we want to change the color from the default setting for all links, we go into our CSS file.</p>
-<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">a <span class="kw">{</span>
-  <span class="kw">color:</span> dodgerblue<span class="kw">;</span>
-<span class="kw">}</span></code></pre></div>
+<p>It would look like this: <a href='https://m-clark.github.io'>wowee zowee!</a>. If we want to change the color from the default setting for all links, we go into our CSS file.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb22-1" data-line-number="1">a {</a>
+<a class="sourceLine" id="cb22-2" data-line-number="2">  <span class="kw">color</span>: dodgerblue;</a>
+<a class="sourceLine" id="cb22-3" data-line-number="3">}</a></code></pre></div>
+<p>Now our links would look like this: <a href='https://m-clark.github.io' style="color:dodgerblue">wowee zowee!</a></p>
 <p>You can use hexadecimal, RGB and other representations of practically any color. CSS, like HTML, has a fairly simple syntax, but is very flexible and can do a ton of stuff you wouldn’t think of. With experience and looking at other people’s CSS, you’ll pick up the basics.</p>
 <p>Now that you have a CSS file. Note that you want to use it in the YAML section of your R Markdown document.</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">output:</span>
-  <span class="fu">html_document:</span>
-    <span class="fu">css:</span><span class="at"> mystyle.css</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="fu">output:</span></a>
+<a class="sourceLine" id="cb23-2" data-line-number="2">  <span class="fu">html_document:</span></a>
+<a class="sourceLine" id="cb23-3" data-line-number="3">    <span class="fu">css:</span><span class="at"> mystyle.css</span></a></code></pre></div>
 <p>Now every link you create will be that color. We could add a subtle background to it, make them bold or whatever.</p>
-<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">a <span class="kw">{</span>
-  <span class="kw">color:</span> dodgerblue<span class="kw">;</span>
-  <span class="kw">background-color:</span> <span class="dt">#f2f2f2</span><span class="kw">;</span>
-  <span class="kw">font-weight:</span> <span class="dt">800</span><span class="kw">;</span>
-<span class="kw">}</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb24-1" data-line-number="1">a {</a>
+<a class="sourceLine" id="cb24-2" data-line-number="2">  <span class="kw">color</span>: dodgerblue;</a>
+<a class="sourceLine" id="cb24-3" data-line-number="3">  <span class="kw">background-color</span>: <span class="dv">#f2f2f2</span>;</a>
+<a class="sourceLine" id="cb24-4" data-line-number="4">  <span class="kw">font-weight</span>: <span class="dv">800</span>;</a>
+<a class="sourceLine" id="cb24-5" data-line-number="5">}</a></code></pre></div>
 <p>Now it becomes <a href='https://m-clark.github.io' style="color:dodgerblue; background: #f2f2f2;font-weight: 800;">wowee zowee!</a>. In a similar fashion, you could make images always display at 50% width by default.</p>
-<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">img <span class="kw">{</span>
-  <span class="kw">width:</span> <span class="dt">50%</span><span class="kw">;</span>
-<span class="kw">}</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb25-1" data-line-number="1">img {</a>
+<a class="sourceLine" id="cb25-2" data-line-number="2">  <span class="kw">width</span>: <span class="dv">50%</span>;</a>
+<a class="sourceLine" id="cb25-3" data-line-number="3">}</a></code></pre></div>
 </div>
 <div id="custom-classes" class="section level3">
 <h3>Custom classes</h3>
 <p>You can also create custom classes. For example, all R functions in my documents are a specific color, as they are wrapped in a custom css class I created called ‘func’ as follows. <span class="marginnote">In CSS, tags like <strong>a</strong>, <strong>table</strong>, and <strong>img</strong>, have no marker, classes are denoted with <strong>.classname</strong>, and IDs are note with <strong>#idname</strong>.</span></p>
-<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="fl">.func</span> <span class="kw">{</span>
-  <span class="kw">color:</span> <span class="dt">#007199</span><span class="kw">;</span>  
-  <span class="kw">font-weight:</span> <span class="dt">500</span><span class="kw">;</span>
-<span class="kw">}</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="fu">.func</span> {</a>
+<a class="sourceLine" id="cb26-2" data-line-number="2">  <span class="kw">color</span>: <span class="dv">#007199</span>;  </a>
+<a class="sourceLine" id="cb26-3" data-line-number="3">  <span class="kw">font-weight</span>: <span class="dv">500</span>;</a>
+<a class="sourceLine" id="cb26-4" data-line-number="4">}</a></code></pre></div>
 <p>Then I can do <code>&lt;span class=&quot;func&quot;&gt;crossprod&lt;/span&gt;</code> and the text of the function name, or any text of class func, will have the appropriate color and weight.</p>
 </div>
 </div>
@@ -343,7 +371,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="footnotes">
 <hr />
 <ol start="12">
-<li id="fn12"><p>I haven’t yet figured out the utility in having figures and output breaking up the flow of code and text along with everything else going on, especially since they’ll be precisely where they need to be in the final product. Just my opinion though.<a href="customization-configuration.html#fnref12">↩</a></p></li>
+<li id="fn12"><p>I haven’t yet figured out the utility in having figures and output breaking up the flow of code and text along with everything else going on, especially since they’ll be precisely where they need to be in the final product. Just my opinion though.<a href="customization-configuration.html#fnref12" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
             </section>
@@ -398,7 +426,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

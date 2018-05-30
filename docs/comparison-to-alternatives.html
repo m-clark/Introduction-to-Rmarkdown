@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2018-05-26">
+<meta name="date" content="2018-05-29">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -61,41 +61,69 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="css/book.css" type="text/css" />
@@ -119,6 +147,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a><ul>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#goals"><i class="fa fa-check"></i>Goals</a></li>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#prerequisites"><i class="fa fa-check"></i>Prerequisites</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#note"><i class="fa fa-check"></i>Note</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="concepts.html"><a href="concepts.html"><i class="fa fa-check"></i>Concepts</a><ul>
 <li class="chapter" data-level="" data-path="concepts.html"><a href="concepts.html#how-to-read-this-chapter"><i class="fa fa-check"></i>How to read this chapter</a></li>
@@ -202,6 +231,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#multiple-documents-1"><i class="fa fa-check"></i>Multiple Documents</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="web-standards.html"><a href="web-standards.html"><i class="fa fa-check"></i>Web Standards</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li class='after'"><a href="https://m-clark.github.io/"><img src="img/mc.png" style="width:50%; padding:0px 0; display:block; margin: 0 auto;" alt="MC logo"></a></li>
@@ -230,7 +260,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2>PDF &amp; LaTeX</h2>
 <div id="latex" class="section level3">
 <h3><span class="math inline">\(\LaTeX\)</span></h3>
-<p>If you’re reading a printed or PDF document and it appears to be massaging your eyeballs in both its look and feel, it likely was constructed with <span class="math inline">\(\LaTeX\)</span><a href="#fn13" class="footnoteRef" id="fnref13"><sup>13</sup></a>. <span class="math inline">\(\LaTeX\)</span>, along with its derivatives, is a type-setting system specifically designed for scientific or other technical documents by Donald Knuth <em>back in the 1970s</em>. If you aren’t familiar with it, you should know that whole academic disciplines have essentially required it for communication in their field for many years. What’s more, R has been <span class="math inline">\(\LaTeX\)</span>-able since the beginning, via S expressions and code chunks (Sweave)<span class="marginnote">S -&gt; R, Sweave -&gt; knitr. Now you know.</span>, allowing one to weave the code and results together in one document. The following shows an example of <span class="math inline">\(\LaTeX\)</span> syntax.</p>
+<p>If you’re reading a printed or PDF document and it appears to be massaging your eyeballs in both its look and feel, it likely was constructed with <span class="math inline">\(\LaTeX\)</span><a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a>. <span class="math inline">\(\LaTeX\)</span>, along with its derivatives, is a type-setting system specifically designed for scientific or other technical documents by Donald Knuth <em>back in the 1970s</em>. If you aren’t familiar with it, you should know that whole academic disciplines have essentially required it for communication in their field for many years. What’s more, R has been <span class="math inline">\(\LaTeX\)</span>-able since the beginning, via S expressions and code chunks (Sweave)<span class="marginnote">S -&gt; R, Sweave -&gt; knitr. Now you know.</span>, allowing one to weave the code and results together in one document. The following shows an example of <span class="math inline">\(\LaTeX\)</span> syntax.</p>
 <pre><code>\documentclass{article}
 \title{Use R Markdown in lieu of $\LaTeX$}
 \author{Me, Myself, and I}
@@ -277,34 +307,34 @@ We should forget about small efficiencies, say about 97% of the time: premature 
 
 \pagebreak</code></pre>
 <p>As noted, the YAML for your document will look similar to an HMTL document.</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
-<span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Habits&quot;</span>
-<span class="fu">output:</span>
-  <span class="fu">pdf_document:</span>
-    <span class="fu">toc:</span><span class="at"> true</span>
-    <span class="fu">number_sections:</span><span class="at"> true</span>
-<span class="ot">---</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb30-2" data-line-number="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Habits&quot;</span></a>
+<a class="sourceLine" id="cb30-3" data-line-number="3"><span class="fu">output:</span></a>
+<a class="sourceLine" id="cb30-4" data-line-number="4">  <span class="fu">pdf_document:</span></a>
+<a class="sourceLine" id="cb30-5" data-line-number="5">    <span class="fu">toc:</span><span class="at"> true</span></a>
+<a class="sourceLine" id="cb30-6" data-line-number="6">    <span class="fu">number_sections:</span><span class="at"> true</span></a>
+<a class="sourceLine" id="cb30-7" data-line-number="7"><span class="ot">---</span></a></code></pre></div>
 <p><span class="math inline">\(\LaTeX\)</span>-specific options are also available for those familiar with it.</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
-<span class="fu">title:</span><span class="at"> </span><span class="st">&quot;&quot;</span>
-<span class="fu">output:</span>
-  <span class="fu">pdf_document:</span>
-    <span class="fu">toc:</span><span class="at"> true</span>
-    <span class="fu">number_sections:</span><span class="at"> true</span>
-    <span class="fu">citation_package:</span><span class="at"> natbib</span>
-    <span class="fu">latex_engine:</span><span class="at"> xelatex</span>
-    <span class="fu">keep_tex:</span><span class="at"> true</span>
-    <span class="fu">includes:</span>
-      <span class="fu">in_header:</span><span class="at"> header.tex</span>
-      <span class="fu">before_body:</span><span class="at"> doc_prefix.tex</span>
-      <span class="fu">after_body:</span><span class="at"> doc_suffix.tex</span>
-    <span class="fu">template:</span><span class="at"> quarterly_report.tex</span>
-<span class="ot">---</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb31-2" data-line-number="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;&quot;</span></a>
+<a class="sourceLine" id="cb31-3" data-line-number="3"><span class="fu">output:</span></a>
+<a class="sourceLine" id="cb31-4" data-line-number="4">  <span class="fu">pdf_document:</span></a>
+<a class="sourceLine" id="cb31-5" data-line-number="5">    <span class="fu">toc:</span><span class="at"> true</span></a>
+<a class="sourceLine" id="cb31-6" data-line-number="6">    <span class="fu">number_sections:</span><span class="at"> true</span></a>
+<a class="sourceLine" id="cb31-7" data-line-number="7">    <span class="fu">citation_package:</span><span class="at"> natbib</span></a>
+<a class="sourceLine" id="cb31-8" data-line-number="8">    <span class="fu">latex_engine:</span><span class="at"> xelatex</span></a>
+<a class="sourceLine" id="cb31-9" data-line-number="9">    <span class="fu">keep_tex:</span><span class="at"> true</span></a>
+<a class="sourceLine" id="cb31-10" data-line-number="10">    <span class="fu">includes:</span></a>
+<a class="sourceLine" id="cb31-11" data-line-number="11">      <span class="fu">in_header:</span><span class="at"> header.tex</span></a>
+<a class="sourceLine" id="cb31-12" data-line-number="12">      <span class="fu">before_body:</span><span class="at"> doc_prefix.tex</span></a>
+<a class="sourceLine" id="cb31-13" data-line-number="13">      <span class="fu">after_body:</span><span class="at"> doc_suffix.tex</span></a>
+<a class="sourceLine" id="cb31-14" data-line-number="14">    <span class="fu">template:</span><span class="at"> quarterly_report.tex</span></a>
+<a class="sourceLine" id="cb31-15" data-line-number="15"><span class="ot">---</span></a></code></pre></div>
 </div>
 <div id="tufte" class="section level3">
 <h3>Tufte</h3>
 <p>One nice thing in the PDF department is the option of using Tufte styling. Edward Tufte did much to bring statistical graphics and presentation into forms far more suitable for communication and just simply more beautiful.<span class="marginnote">I would still recommend Tufte’s <em>The Visual Display of Quantitative Information</em>, as the ideas are still useful for printed work, and would possibly provide some decent ideas for visual display in any format.</span></p>
-<p>In the past, I used the Tufte handout and book classes for my PDF documents, because I liked the <span class="emph">sidenote</span> and <span class="emph">marginnote</span> capabilities. R Markdown offers Tufte styling for PDF, which is great, and makes it easy for anyone to make their <span class="math inline">\(\LaTeX\)</span> approach to PDF even better. They are also offered for HTML, but very little developed at this point<a href="#fn14" class="footnoteRef" id="fnref14"><sup>14</sup></a>. I still like the marginnote approach, to the point I made my own CSS class to use them. Sidenotes, which were used to create footnotes at the point they are created rather than at the bottom of a page, are unnecessary with HTML, because a link is created that makes it easy to go back and forth from the footnote.</p>
+<p>In the past, I used the Tufte handout and book classes for my PDF documents, because I liked the <span class="emph">sidenote</span> and <span class="emph">marginnote</span> capabilities. R Markdown offers Tufte styling for PDF, which is great, and makes it easy for anyone to make their <span class="math inline">\(\LaTeX\)</span> approach to PDF even better. They are also offered for HTML, but very little developed at this point<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a>. I still like the marginnote approach, to the point I made my own CSS class to use them. Sidenotes, which were used to create footnotes at the point they are created rather than at the bottom of a page, are unnecessary with HTML, because a link is created that makes it easy to go back and forth from the footnote.</p>
 </div>
 <div id="a-final-word" class="section level3">
 <h3>A final word</h3>
@@ -313,18 +343,18 @@ We should forget about small efficiencies, say about 97% of the time: premature 
 </div>
 <div id="ms-word" class="section level2">
 <h2>MS Word</h2>
-<p>Probably the most common tool I see people use for their scientific and related reporting is Microsoft Word. They fight it for all the ‘features’ it provides, then they fight it to get their images to look okay after pasting them from somewhere else, then they fight it early and often to get the tables just the way they like it, until just settling on something that gets the job done. Even the slightest change to the data will result in having to redo practically everything. Because of all the pasting and finagling with numbers after changes, it’s almost guaranteed that errors will arise, and they regularly do. And finally, MS Word documents look like MS Word documents, even if you convert it to something else. In other words, unimpressive. People using Word directly are not engaged in reproducible research, and if they are coupling it with menu driven statistical analyses, their work is problematic from any scientific viewpoint<a href="#fn15" class="footnoteRef" id="fnref15"><sup>15</sup></a>.</p>
-<p>If you feel you must have a MS Word document, and you’re wrong about this, because excellent academic research is regularly done without it and always has been, know that you can still create a Word document as a final product with R Markdown<a href="#fn16" class="footnoteRef" id="fnref16"><sup>16</sup></a>. Just select the Word option when creating your R Markdown document, or switch to it when you want via the Knit drop-down menu. As might be obvious, you’ll need MS Word installed if you’re going to create such documents. While this will at least bring reproducibility to your MS Word experience, I wouldn’t recommend using it for anything, and so I will spend very little effort explaining to you how to do it<a href="#fn17" class="footnoteRef" id="fnref17"><sup>17</sup></a>.</p>
+<p>Probably the most common tool I see people use for their scientific and related reporting is Microsoft Word. They fight it for all the ‘features’ it provides, then they fight it to get their images to look okay after pasting them from somewhere else, then they fight it early and often to get the tables just the way they like it, until just settling on something that gets the job done. Even the slightest change to the data will result in having to redo practically everything. Because of all the pasting and finagling with numbers after changes, it’s almost guaranteed that errors will arise, and they regularly do. And finally, MS Word documents look like MS Word documents, even if you convert it to something else. In other words, unimpressive. People using Word directly are not engaged in reproducible research, and if they are coupling it with menu driven statistical analyses, their work is problematic from any scientific viewpoint<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a>.</p>
+<p>If you feel you must have a MS Word document, and you’re wrong about this, because excellent academic research is regularly done without it and always has been, know that you can still create a Word document as a final product with R Markdown<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a>. Just select the Word option when creating your R Markdown document, or switch to it when you want via the Knit drop-down menu. As might be obvious, you’ll need MS Word installed if you’re going to create such documents. While this will at least bring reproducibility to your MS Word experience, I wouldn’t recommend using it for anything, and so I will spend very little effort explaining to you how to do it<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a>.</p>
 <p>The main thing you need to know is how to use a template. MS Word defaults have been terrible since its inception, so after customizing a document to look the way you want, you can then use it as a template. Just specify the document you’ve created in the YAML as follows:</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">output:</span>
-  <span class="fu">word_document:</span>
-    <span class="fu">reference_docx:</span><span class="at"> my_template.docx</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="fu">output:</span></a>
+<a class="sourceLine" id="cb32-2" data-line-number="2">  <span class="fu">word_document:</span></a>
+<a class="sourceLine" id="cb32-3" data-line-number="3">    <span class="fu">reference_docx:</span><span class="at"> my_template.docx</span></a></code></pre></div>
 <p>Even then it likely won’t be a 100% match, because again, we’re talking about a product that doesn’t work that well with many of its own commonly used features. Besides that though, some of the other typical things R Markdown aspects will apply, such as syntax highlighting and figure sizes. However, don’t be surprised that you lose a lot of functionality. MS Word is a <span class="emph hoverfoot" title="what you see is what you get">wysiwyg</span> text editor, and what you’re doing is definitely not merely text editing. While R Markdown can at least introduce some reproducibility to your word document, just know that it won’t even be the second-best option you could have chosen for scholarly or professional publication.</p>
 <div id="word-like-alternatives" class="section level3">
 <h3>Word-like Alternatives</h3>
 <p>There are a couple more alternatives in the MS Word area. You can also output Rich Text Format or OpenDocument Text (ODT) format. Specify the following in your YAML.</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">output:</span><span class="at"> rtf_document</span></code></pre></div>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">output:</span><span class="at"> odt_document</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="fu">output:</span><span class="at"> rtf_document</span></a></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="fu">output:</span><span class="at"> odt_document</span></a></code></pre></div>
 <p>Don’t expect too much here. They are relatively little used, and probably don’t have near the functionality. Again though, the basic stuff should still work.</p>
 
 </div>
@@ -333,11 +363,11 @@ We should forget about small efficiencies, say about 97% of the time: premature 
 <div class="footnotes">
 <hr />
 <ol start="13">
-<li id="fn13"><p>You can pronounce it lah-tek or lay-tek, just don’t pronounce it -teks or people who know better will look at you funny. The ‘tex’ is based on the Greek. Also, the stress is on the first syllable.<a href="comparison-to-alternatives.html#fnref13">↩</a></p></li>
-<li id="fn14"><p>They really are useless at the time of this document’s creation (2018-03-01), neither adhering to basic Tufte or web principles. Avoid it until updated.<a href="comparison-to-alternatives.html#fnref14">↩</a></p></li>
-<li id="fn15"><p>You shouldn’t be using MS Excel for statistical analysis, so why would you use MS Word to report it?<a href="comparison-to-alternatives.html#fnref15">↩</a></p></li>
-<li id="fn16"><p>People sometimes tell me they have to use it because of a collaborator. I would suggest that they explain that it isn’t in the best interest of the research or its products to do so. If the person insists, their role in the research, and certainly the document, should be diminished.<a href="comparison-to-alternatives.html#fnref16">↩</a></p></li>
-<li id="fn17"><p>I will also admit that I simply don’t use it myself, and so don’t have much to report.<a href="comparison-to-alternatives.html#fnref17">↩</a></p></li>
+<li id="fn13"><p>You can pronounce it lah-tek or lay-tek, just don’t pronounce it -teks or people who know better will look at you funny. The ‘tex’ is based on the Greek. Also, the stress is on the first syllable.<a href="comparison-to-alternatives.html#fnref13" class="footnote-back">↩</a></p></li>
+<li id="fn14"><p>They really are useless at the time of this document’s creation (2018-03-01), neither adhering to basic Tufte or web principles. Avoid it until updated.<a href="comparison-to-alternatives.html#fnref14" class="footnote-back">↩</a></p></li>
+<li id="fn15"><p>You shouldn’t be using MS Excel for statistical analysis, so why would you use MS Word to report it?<a href="comparison-to-alternatives.html#fnref15" class="footnote-back">↩</a></p></li>
+<li id="fn16"><p>People sometimes tell me they have to use it because of a collaborator. I would suggest that they explain that it isn’t in the best interest of the research or its products to do so. If the person insists, their role in the research, and certainly the document, should be diminished.<a href="comparison-to-alternatives.html#fnref16" class="footnote-back">↩</a></p></li>
+<li id="fn17"><p>I will also admit that I simply don’t use it myself, and so don’t have much to report.<a href="comparison-to-alternatives.html#fnref17" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
             </section>
@@ -392,7 +422,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

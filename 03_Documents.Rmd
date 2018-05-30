@@ -6,7 +6,7 @@ R Markdown files, with extension `*.Rmd`, are a combination of text, <span class
 
 #### HTML
 
-I personally do everything in HTML because it's the most flexible and easiest to get things looking the way you want.  Presumably at some point, these will simply be the default that people both use and expect in the academic realm and beyond, as there is little additional value that one can get with PDF or MS Word, and often notably less.  Furthermore, academia is an anachronism.  How much do you engage PDF and Word for *anything* else relative to HTML (i.e. the web)?
+I personally do everything in HTML because it's the most flexible and easiest to get things looking the way you want.  Presumably at some point, these will simply be the default that people both use and expect in the academic realm and beyond, as there is little additional value that one can get with PDF or MS Word, and often notably less.  Furthermore, academia is an anachronism.  How much do you engage PDF and Word for *anything* else relative to how much you make use of HTML (i.e. the web)?
 
 
 ## Text

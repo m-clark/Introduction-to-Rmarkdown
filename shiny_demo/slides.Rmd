@@ -17,7 +17,8 @@ knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F, comment=NA, R.opt
 ```
 
 ```{r packages, include=FALSE, cache=FALSE}
-library(magrittr); library(tidyverse); library(stringr); library(kableExtra); library(plotly); library(lazerhawk)
+library(magrittr); library(tidyverse); library(stringr); library(kableExtra); 
+library(plotly); library(tidyext)
 ```
 
 ## Shiny 
@@ -103,12 +104,34 @@ No change
 ## R Output
 
 ```{r cars}
-summary(cars) %>% kable( )
+cars %>% num_by(everything()) %>%  kable(digits = 2)
 ```
 
+<br>
 
 ```{r mtcars}
 describe_all_num(mtcars) %>% DT::datatable()
+```
+
+
+## More interesting
+
+```{r leaflet, eval=FALSE}
+library(leaflet)
+leaflet() %>% 
+  addTiles() %>% 
+  setView(-83.5, 43, zoom = 7) %>% 
+  addProviderTiles(providers$NASAGIBS.ViirsEarthAtNight2012)
+```
+
+## More interesting
+
+```{r leaflet_show, echo=FALSE}
+library(leaflet)
+leaflet() %>% 
+  addTiles() %>% 
+  setView(-83.5, 43, zoom = 7) %>% 
+  addProviderTiles(providers$NASAGIBS.ViirsEarthAtNight2012)
 ```
 
 

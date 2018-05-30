@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto|Open+Sans|Stalemate");
+@import url("https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Open+Sans|Stalemate");
 
 .book  {
   background-color: #fffff8;
@@ -243,7 +243,7 @@ div.sourceCode.r {
   float: right;
   clear: right;
   margin-right: -27.5%;
-  color: #858585;   /*blockquote color*/
+  color: #757575;   
   width: 25%;
   margin-top: 0;
   margin-bottom: 0;
@@ -256,6 +256,7 @@ div.sourceCode.r {
 .book .book-body .page-wrapper .page-inner section.normal .footnotes p, ol {
   width: 100%;
   font-size: 90%;
+  color: #757575;
 }
 
 

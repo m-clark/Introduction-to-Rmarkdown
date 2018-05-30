@@ -4,19 +4,19 @@ In creating a document there several things that consistently come up that you'l
 
 ## Using HTML
 
-The first thing to do is simply get used to HTML as your primary output.  Unless you know something is to be printed in a traditional format, you won't gain anything but an uglier and/or less flexible document without having to put notably more effort into development. This is especially the case when the code is the focus, and you're using R Markdown as you would a normal R script, albeit in more organized fashion.  
+The first thing to do is simply get used to HTML as your primary output.  Unless you know the document is to be printed in a traditional format, you won't gain anything by using the non-HTML outputs but an uglier and/or less flexible document without having to put notably more effort into development. This is especially the case when the code is the focus, and you're using R Markdown as you would a normal R script, albeit in more organized fashion.  
 
 ## Chunk options
 
-A ridiculous number of [options](https://yihui.name/knitr/options/) are available to you for each, or all chunks.  Spend a little time to see what all is available.  The options I commonly use are: 
+A ridiculous number of [options](https://yihui.name/knitr/options/) are available to you for each chunk.  Spend a little time to see what all is available.  The options I commonly use are: 
 
-- `echo`: controls whether and how you want to *show* your code
-- `eval`: controls whether and how you want to *run* your code
+- `echo`: Controls whether and how you want to *show* your code. It can be logical (TRUE/FALSE), or a numeric specifying specific line numbers.
+- `eval`: Controls whether and how you want to *run* your code. It can be logical (TRUE/FALSE), or a numeric specifying specific line numbers.
 - figure controls: `fig.*` `out.* `etc.
 
 ### Setup to apply to all
 
-Then there are other options that I set at the beginning of a document. The reason for doing so is because I will rarely, if ever, want these options changed.  As such, I create a chunk to specify them at the beginning, and only change them as need be for specific chunks.  *Any* option you would specify for a specific chunk can be defined here and applied to all by default.
+Then there are other options that I set at the beginning of a document. The reason for doing so is because I will rarely, if ever, want these options changed.  As such, I create a chunk to specify these options at the beginning, and only change them as need be for specific chunks.  *Any* option you would specify for a specific chunk can be defined here and applied to all by default.
 
 ```{r knit_opts, eval=FALSE}
 knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F, 
@@ -128,7 +128,7 @@ The typical way to insert an image is with HTML.  This allows you to specify all
 <img src="img/myimage.png" style="display:block; margin: 0 auto;">
 ```
 
-This should probably be your default approach to inserting images in your document that aren't produced by R code. 
+Compared to the markdown approach, this should probably be your default approach to inserting images in your document that aren't produced by R code. 
 
 ### Image summary
 
