@@ -88,7 +88,7 @@ cat("```{r, child='discussion.Rmd'}
 
 You work on the individual sections separately, and when you knit the index file, all will come together.  What's more, if you're creating an HTML document, you now can put this index file, which is the complete document, on the web for easy access.  For example, if the document is placed in a folder like `mydoc`, then one could go to `www.someplace.net/mydoc/` and view the document.
 
-# Web Standards
+## Web Standards
 
 When creating an HTML document or site and customizing things as you like, you should consider accessibility issues at some point. Not everyone interacts with the web the same way. For example, roughly 10% of people see [color differently](https://en.wikipedia.org/wiki/Color_blindness) from 'normal'.  Also, if your font is too light to read, or your visualizations don't distinguish points of interest for a certain group of people, your document is less effective at communicating your ideas.
 

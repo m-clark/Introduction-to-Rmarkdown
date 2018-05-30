@@ -46,7 +46,8 @@
 
 
 
-<script src="libs/htmlwidgets-1.0/htmlwidgets.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<script src="libs/htmlwidgets-1.2/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
 <script src="libs/datatables-binding-0.4/datatables.js"></script>
 <link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
@@ -61,73 +62,45 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css/book.css" type="text/css" />
-<link rel="stylesheet" href="css/standard_html.css" type="text/css" />
+<link rel="stylesheet" href="css\book.css" type="text/css" />
+<link rel="stylesheet" href="css\standard_html.css" type="text/css" />
 </head>
 
 <body>
@@ -232,8 +205,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#citations"><i class="fa fa-check"></i>Citations</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#multiple-documents-1"><i class="fa fa-check"></i>Multiple Documents</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#web-standards"><i class="fa fa-check"></i>Web Standards</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="web-standards.html"><a href="web-standards.html"><i class="fa fa-check"></i>Web Standards</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li class='after'"><a href="https://m-clark.github.io/"><img src="img/mc.png" style="width:50%; padding:0px 0; display:block; margin: 0 auto;" alt="MC logo"></a></li>
@@ -274,12 +247,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="setup-to-apply-to-all" class="section level3">
 <h3>Setup to apply to all</h3>
 <p>Then there are other options that I set at the beginning of a document. The reason for doing so is because I will rarely, if ever, want these options changed. As such, I create a chunk to specify these options at the beginning, and only change them as need be for specific chunks. <em>Any</em> option you would specify for a specific chunk can be defined here and applied to all by default.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">echo =</span> T, <span class="dt">message=</span>F, <span class="dt">warning=</span>F, <span class="dt">error=</span>F, </a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">                      <span class="dt">comment=</span><span class="ot">NA</span>, <span class="dt">cache=</span>T, <span class="dt">R.options=</span><span class="kw">list</span>(<span class="dt">width=</span><span class="dv">220</span>), </a>
-<a class="sourceLine" id="cb8-3" data-line-number="3">                      <span class="dt">fig.align=</span><span class="st">&#39;center&#39;</span>, <span class="dt">out.width=</span><span class="st">&#39;75%&#39;</span>, <span class="dt">fig.asp=</span>.<span class="dv">75</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">echo =</span> T, <span class="dt">message=</span>F, <span class="dt">warning=</span>F, <span class="dt">error=</span>F, 
+                      <span class="dt">comment=</span><span class="ot">NA</span>, <span class="dt">cache=</span>T, <span class="dt">R.options=</span><span class="kw">list</span>(<span class="dt">width=</span><span class="dv">220</span>), 
+                      <span class="dt">fig.align=</span><span class="st">&#39;center&#39;</span>, <span class="dt">out.width=</span><span class="st">&#39;75%&#39;</span>, <span class="dt">fig.asp=</span>.<span class="dv">75</span>)</code></pre></div>
 <p>These options do things like make sure messages, warnings, and errors don’t show up in the document.<span class="marginnote">You can still get errors, and they will keep your document from compiling.</span> Note that any specific chunk options will override these. So, you’ll always have fine control over how things work.</p>
-<p>You can also specify options for the way <span class="pack">knitr</span> itself works. For example, <code>*.Rmd</code> documents by default ignore the fact that you are using an RStudio project, and instead work from wherever the <code>*.Rmd</code> file is. Using <code>root.dir</code> can correct this. There is also a global option you can set via the tools menu<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">knitr<span class="op">::</span>opts_knit<span class="op">$</span><span class="kw">set</span>(<span class="dt">root.dir =</span> <span class="st">&#39;../&#39;</span>, <span class="dt">child =</span> <span class="st">&#39;someotherdoc.Rmd&#39;</span>)</a></code></pre></div>
+<p>You can also specify options for the way <span class="pack">knitr</span> itself works. For example, <code>*.Rmd</code> documents by default ignore the fact that you are using an RStudio project, and instead work from wherever the <code>*.Rmd</code> file is. Using <code>root.dir</code> can correct this. There is also a global option you can set via the tools menu<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span>opts_knit<span class="op">$</span><span class="kw">set</span>(<span class="dt">root.dir =</span> <span class="st">&#39;../&#39;</span>, <span class="dt">child =</span> <span class="st">&#39;someotherdoc.Rmd&#39;</span>)</code></pre></div>
 </div>
 </div>
 <div id="image-options" class="section level2">
@@ -290,7 +263,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Where to begin? There are many, many ways to manipulate an image that is produced by your R code, and this is not necessarily a good thing. Thankfully, the default settings may be enough, but in my experience it rarely is.</p>
 <div id="html-vs.others" class="section level4">
 <h4>HTML vs. Others</h4>
-<p>To begin, there are different systems for PDF or MS Word vs. HTML-based documents. For non-HTML, the chunk options of <code>fig.width</code> and <code>fig.height</code> are generally used for figure dimensions. Oddly, these are expressed in inches, but at least it is easy enough to manipulate to your liking. While you can use them in HTML for static images as those produced by ggplot2, there isn’t a reason I can think of to express the size in inches for an electronic display. Furthermore, these settings will not affect interactive and possibly other images in HTML documents except in unexpected ways<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>.</p>
+<p>To begin, there are different systems for PDF or MS Word vs. HTML-based documents. For non-HTML, the chunk options of <code>fig.width</code> and <code>fig.height</code> are generally used for figure dimensions. Oddly, these are expressed in inches, but at least it is easy enough to manipulate to your liking. While you can use them in HTML for static images as those produced by ggplot2, there isn’t a reason I can think of to express the size in inches for an electronic display. Furthermore, these settings will not affect interactive and possibly other images in HTML documents except in unexpected ways<a href="#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a>.</p>
 <p>You can also supply <code>fig.width</code> plus <code>fig.asp</code> which will produce a height that is <code>fig.width*fig.asp</code>. There is also <code>fig.dim</code>, which will take the two values you would have specified for <code>fig.width</code> and <code>fig.height</code>. If you supply <code>fig.dim</code> with <code>fig.asp</code>, the latter will be ignored. If expressing size in inches doesn’t make sense to you, you can use <code>dpi</code>, which will allow you to know think of <code>dpi*inches</code> as what to expect in terms of pixels. You also have <code>fig.align</code> with options like ‘left’ and ‘center’, but it apparently has no effect on <span class="pack">htmlwidgets</span> and similar packages that rely on other languages like JavaScript.</p>
 <p>Isn’t this fun? Here is some more.</p>
 <p>The <code>out.width</code> and <code>out.height</code> options are geared toward HTML-based visualization, and are expressed in pixels, or perhaps most usefully, percentages. There is also <code>out.extra</code> that will apply additional arguments (e.g. css/img styling). These <code>out.*</code> can also apply to PDF/<span class="math inline">\(\LaTeX\)</span> figures (but I can’t figure out why). I also find that <code>out.height</code> actually does nothing in many cases. What’s more, you can use them alongside <code>fig.width</code> and <code>fig.height</code> to ensure you’ll have utterly no idea what will be produced in the finished product. The option <code>fig.retina</code> will only work for HTML documents, and will scale your image such that it will “change the chunk option dpi to dpi * fig.retina, and out.width to fig.width * dpi / fig.retina internally; for example, the physical size of an image is doubled and its display size is halved when fig.retina = 2”. It might not have any discernible effect that you can actually see in the document depending on your default settings, but would allow viewers to zoom without loss of clarity, though they could do that with an <strong>svg</strong> image anyway. You may specify the image output type, *.png or *.svg for example, with <code>fig.dev</code>.</p>
@@ -372,15 +345,13 @@ data %&gt;%
 </blockquote>
 <p>I’ll add that you also don’t typically cache an interactive visualization. You’ll often get a message to that effect if you try.</p>
 <p>However, things often don’t work the way you expect with caching. If something unexpected happens, and if you’re naming the chunks, you can easily find and delete the offending files. You can also rebuild the cache as needed by setting <code>cache-rebuild</code> to true, even just for a specific chunk. However, if you delete or change the name of the chunk, those files will have to be explicitly removed, because they’ll never be called again. There is a <code>depends-on</code> chunk option that will allow you to update a cache if whatever previous chunk a chunk depends on has changed. In theory. In practice, you should probably just put <code>auto.dep</code> to true and let <span class="pack">knitr</span> sort out such dependencies, though even then issues may arise. Finally, some packages simply don’t work well with caching, or the process of generating a document in general.<span class="marginnote">If you ever use <span class="pack">DiagrammeR</span> for visualization, let me save you a lot of headache and tell you to never cache the chunks where you use it. The results are mind-boggling if you do, but will sometimes miraculously fail even when you don’t. Be prepared to constantly delete your cache to see the correct figure.</span> Just know that as great a feature as caching is, odd things will happen at some point. When something about your document starts breaking or doing unexpected things, if you can’t see a code problem, assume it’s a cache problem, and delete and/or rebuild.</p>
-<p><br>
-<img src="img/cache_clear.png" style="display:block; margin: 0 auto;" width=75%>
-<br></p>
-<p>I usually set cache to true, otherwise I’d be waiting minutes for some documents to compile every time. I set that as an option at the beginning of the document, but at various points in development I’ll set <code>cache-rebuild=TRUE</code> to refresh everything<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a>, and at times I’ll set it to rebuild specific chunks (e.g. the code might not change, but the underlying object has)<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>. I’ve gotten to where I will set cache to false as an option for the (entire) current page I’m working on, so that I don’t have to rebuild everything, but for something in a more fluid stage, I probably don’t want to cache at all.</p>
+<p><br> <img src="img/cache_clear.png" style="display:block; margin: 0 auto;" width=75%> <br></p>
+<p>I usually set cache to true, otherwise I’d be waiting minutes for some documents to compile every time. I set that as an option at the beginning of the document, but at various points in development I’ll set <code>cache-rebuild=TRUE</code> to refresh everything<a href="#fn10" class="footnoteRef" id="fnref10"><sup>10</sup></a>, and at times I’ll set it to rebuild specific chunks (e.g. the code might not change, but the underlying object has)<a href="#fn11" class="footnoteRef" id="fnref11"><sup>11</sup></a>. I’ve gotten to where I will set cache to false as an option for the (entire) current page I’m working on, so that I don’t have to rebuild everything, but for something in a more fluid stage, I probably don’t want to cache at all.</p>
 </div>
 <div id="cleaning-up-output" class="section level2">
 <h2>Cleaning up output</h2>
 <p>Several packages are available to make your R results look better. Here’s a default <span class="objclass">data.frame</span>, ugly.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">head</span>(mtcars)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(mtcars)</code></pre></div>
 <pre><code>                   mpg cyl disp  hp drat    wt  qsec vs am gear carb
 Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
 Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
@@ -388,131 +359,297 @@ Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
 Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
 Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
 Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
-<p>One can start with <span class="pack">knitr’s</span> <span class="func">kable</span> to create simple tables that look much better.
-<span class="marginnote">Your tables will look a little different due to my CSS settings.</span></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">kable</span>(<span class="kw">head</span>(mtcars))</a></code></pre></div>
+<p>One can start with <span class="pack">knitr’s</span> <span class="func">kable</span> to create simple tables that look much better. <span class="marginnote">Your tables will look a little different due to my CSS settings.</span></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">kable</span>(<span class="kw">head</span>(mtcars))</code></pre></div>
 <table>
 <thead>
-<tr class="header">
-<th></th>
-<th align="right">mpg</th>
-<th align="right">cyl</th>
-<th align="right">disp</th>
-<th align="right">hp</th>
-<th align="right">drat</th>
-<th align="right">wt</th>
-<th align="right">qsec</th>
-<th align="right">vs</th>
-<th align="right">am</th>
-<th align="right">gear</th>
-<th align="right">carb</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+mpg
+</th>
+<th style="text-align:right;">
+cyl
+</th>
+<th style="text-align:right;">
+disp
+</th>
+<th style="text-align:right;">
+hp
+</th>
+<th style="text-align:right;">
+drat
+</th>
+<th style="text-align:right;">
+wt
+</th>
+<th style="text-align:right;">
+qsec
+</th>
+<th style="text-align:right;">
+vs
+</th>
+<th style="text-align:right;">
+am
+</th>
+<th style="text-align:right;">
+gear
+</th>
+<th style="text-align:right;">
+carb
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td>Mazda RX4</td>
-<td align="right">21.0</td>
-<td align="right">6</td>
-<td align="right">160</td>
-<td align="right">110</td>
-<td align="right">3.90</td>
-<td align="right">2.620</td>
-<td align="right">16.46</td>
-<td align="right">0</td>
-<td align="right">1</td>
-<td align="right">4</td>
-<td align="right">4</td>
+<tr>
+<td style="text-align:left;">
+Mazda RX4
+</td>
+<td style="text-align:right;">
+21.0
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+160
+</td>
+<td style="text-align:right;">
+110
+</td>
+<td style="text-align:right;">
+3.90
+</td>
+<td style="text-align:right;">
+2.620
+</td>
+<td style="text-align:right;">
+16.46
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
 </tr>
-<tr class="even">
-<td>Mazda RX4 Wag</td>
-<td align="right">21.0</td>
-<td align="right">6</td>
-<td align="right">160</td>
-<td align="right">110</td>
-<td align="right">3.90</td>
-<td align="right">2.875</td>
-<td align="right">17.02</td>
-<td align="right">0</td>
-<td align="right">1</td>
-<td align="right">4</td>
-<td align="right">4</td>
+<tr>
+<td style="text-align:left;">
+Mazda RX4 Wag
+</td>
+<td style="text-align:right;">
+21.0
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+160
+</td>
+<td style="text-align:right;">
+110
+</td>
+<td style="text-align:right;">
+3.90
+</td>
+<td style="text-align:right;">
+2.875
+</td>
+<td style="text-align:right;">
+17.02
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
 </tr>
-<tr class="odd">
-<td>Datsun 710</td>
-<td align="right">22.8</td>
-<td align="right">4</td>
-<td align="right">108</td>
-<td align="right">93</td>
-<td align="right">3.85</td>
-<td align="right">2.320</td>
-<td align="right">18.61</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">4</td>
-<td align="right">1</td>
+<tr>
+<td style="text-align:left;">
+Datsun 710
+</td>
+<td style="text-align:right;">
+22.8
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+108
+</td>
+<td style="text-align:right;">
+93
+</td>
+<td style="text-align:right;">
+3.85
+</td>
+<td style="text-align:right;">
+2.320
+</td>
+<td style="text-align:right;">
+18.61
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
 </tr>
-<tr class="even">
-<td>Hornet 4 Drive</td>
-<td align="right">21.4</td>
-<td align="right">6</td>
-<td align="right">258</td>
-<td align="right">110</td>
-<td align="right">3.08</td>
-<td align="right">3.215</td>
-<td align="right">19.44</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">3</td>
-<td align="right">1</td>
+<tr>
+<td style="text-align:left;">
+Hornet 4 Drive
+</td>
+<td style="text-align:right;">
+21.4
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+258
+</td>
+<td style="text-align:right;">
+110
+</td>
+<td style="text-align:right;">
+3.08
+</td>
+<td style="text-align:right;">
+3.215
+</td>
+<td style="text-align:right;">
+19.44
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
 </tr>
-<tr class="odd">
-<td>Hornet Sportabout</td>
-<td align="right">18.7</td>
-<td align="right">8</td>
-<td align="right">360</td>
-<td align="right">175</td>
-<td align="right">3.15</td>
-<td align="right">3.440</td>
-<td align="right">17.02</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">3</td>
-<td align="right">2</td>
+<tr>
+<td style="text-align:left;">
+Hornet Sportabout
+</td>
+<td style="text-align:right;">
+18.7
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+360
+</td>
+<td style="text-align:right;">
+175
+</td>
+<td style="text-align:right;">
+3.15
+</td>
+<td style="text-align:right;">
+3.440
+</td>
+<td style="text-align:right;">
+17.02
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
 </tr>
-<tr class="even">
-<td>Valiant</td>
-<td align="right">18.1</td>
-<td align="right">6</td>
-<td align="right">225</td>
-<td align="right">105</td>
-<td align="right">2.76</td>
-<td align="right">3.460</td>
-<td align="right">20.22</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">3</td>
-<td align="right">1</td>
+<tr>
+<td style="text-align:left;">
+Valiant
+</td>
+<td style="text-align:right;">
+18.1
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+225
+</td>
+<td style="text-align:right;">
+105
+</td>
+<td style="text-align:right;">
+2.76
+</td>
+<td style="text-align:right;">
+3.460
+</td>
+<td style="text-align:right;">
+20.22
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
 </tr>
 </tbody>
 </table>
 <p><br></p>
 <p>That was easy! Now use <span class="pack">kableExtra</span> to do some more fun stuff.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">mtcars <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="st">  </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb16-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(mpg) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb16-4" data-line-number="4"><span class="st">  </span><span class="kw">round</span>(<span class="dv">2</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb16-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">mpg =</span> <span class="kw">factor</span>(mpg)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb16-6" data-line-number="6"><span class="st">  </span><span class="kw">mutate_if</span>(is.numeric, <span class="cf">function</span>(x) {</a>
-<a class="sourceLine" id="cb16-7" data-line-number="7">    <span class="kw">cell_spec</span>(x, <span class="dt">bold =</span> T, </a>
-<a class="sourceLine" id="cb16-8" data-line-number="8">              <span class="dt">color =</span> <span class="kw">spec_color</span>(x, <span class="dt">end =</span> <span class="fl">0.9</span>, <span class="dt">option =</span> <span class="st">&#39;plasma&#39;</span>, <span class="dt">direction =</span> <span class="dv">-1</span>),</a>
-<a class="sourceLine" id="cb16-9" data-line-number="9">              <span class="dt">font_size =</span> <span class="kw">spec_font_size</span>(x))</a>
-<a class="sourceLine" id="cb16-10" data-line-number="10">  }) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb16-11" data-line-number="11"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">mpg =</span> <span class="kw">cell_spec</span>(</a>
-<a class="sourceLine" id="cb16-12" data-line-number="12">    mpg, <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">bold =</span> T,</a>
-<a class="sourceLine" id="cb16-13" data-line-number="13">    <span class="dt">background =</span> <span class="kw">spec_color</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">end =</span> <span class="fl">0.9</span>, <span class="dt">option =</span> <span class="st">&#39;viridis&#39;</span>, <span class="dt">direction =</span> <span class="dv">-1</span>)</a>
-<a class="sourceLine" id="cb16-14" data-line-number="14">  )) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb16-15" data-line-number="15"><span class="st">  </span><span class="kw">kable</span>(<span class="dt">format=</span><span class="st">&#39;html&#39;</span>, <span class="dt">escape =</span> F, <span class="dt">align =</span> <span class="st">&#39;c&#39;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb16-16" data-line-number="16"><span class="st">  </span><span class="kw">kable_styling</span>(<span class="kw">c</span>(<span class="st">&#39;condensed&#39;</span>, <span class="st">&#39;basic&#39;</span>), <span class="dt">full_width =</span> F, <span class="dt">position=</span><span class="st">&#39;left&#39;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">arrange</span>(mpg) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">round</span>(<span class="dv">2</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">mpg =</span> <span class="kw">factor</span>(mpg)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate_if</span>(is.numeric, <span class="cf">function</span>(x) {
+    <span class="kw">cell_spec</span>(x, <span class="dt">bold =</span> T, 
+              <span class="dt">color =</span> <span class="kw">spec_color</span>(x, <span class="dt">end =</span> <span class="fl">0.9</span>, <span class="dt">option =</span> <span class="st">&#39;plasma&#39;</span>, <span class="dt">direction =</span> <span class="op">-</span><span class="dv">1</span>),
+              <span class="dt">font_size =</span> <span class="kw">spec_font_size</span>(x))
+  }) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">mpg =</span> <span class="kw">cell_spec</span>(
+    mpg, <span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">bold =</span> T,
+    <span class="dt">background =</span> <span class="kw">spec_color</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">end =</span> <span class="fl">0.9</span>, <span class="dt">option =</span> <span class="st">&#39;viridis&#39;</span>, <span class="dt">direction =</span> <span class="op">-</span><span class="dv">1</span>)
+  )) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">kable</span>(<span class="dt">format=</span><span class="st">&#39;html&#39;</span>, <span class="dt">escape =</span> F, <span class="dt">align =</span> <span class="st">&#39;c&#39;</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">kable_styling</span>(<span class="kw">c</span>(<span class="st">&#39;condensed&#39;</span>, <span class="st">&#39;basic&#39;</span>), <span class="dt">full_width =</span> F, <span class="dt">position=</span><span class="st">&#39;left&#39;</span>)</code></pre></div>
 <table class="table table-condensed" style="width: auto !important; ">
 <thead>
 <tr>
@@ -906,18 +1043,17 @@ carb
 </table>
 <p><br></p>
 <p>For interactivity and more options to play with, consider the <span class="pack">DT</span> package.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">DT<span class="op">::</span><span class="kw">datatable</span>(mtcars, </a>
-<a class="sourceLine" id="cb17-2" data-line-number="2">              <span class="dt">class =</span> <span class="st">&#39;nowrap&#39;</span>,</a>
-<a class="sourceLine" id="cb17-3" data-line-number="3">              <span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">autoWidth =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb17-4" data-line-number="4">                             <span class="dt">columnDefs=</span><span class="kw">list</span>(<span class="kw">list</span>(<span class="dt">width=</span><span class="st">&#39;150px&#39;</span>, <span class="dt">targets=</span><span class="dv">0</span>))))</a></code></pre></div>
-<div id="htmlwidget-356a48f6baf679dd4b58" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-356a48f6baf679dd4b58">{"x":{"filter":"none","data":[["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant","Duster 360","Merc 240D","Merc 230","Merc 280","Merc 280C","Merc 450SE","Merc 450SL","Merc 450SLC","Cadillac Fleetwood","Lincoln Continental","Chrysler Imperial","Fiat 128","Honda Civic","Toyota Corolla","Toyota Corona","Dodge Challenger","AMC Javelin","Camaro Z28","Pontiac Firebird","Fiat X1-9","Porsche 914-2","Lotus Europa","Ford Pantera L","Ferrari Dino","Maserati Bora","Volvo 142E"],[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2,17.8,16.4,17.3,15.2,10.4,10.4,14.7,32.4,30.4,33.9,21.5,15.5,15.2,13.3,19.2,27.3,26,30.4,15.8,19.7,15,21.4],[6,6,4,6,8,6,8,4,4,6,6,8,8,8,8,8,8,4,4,4,4,8,8,8,8,4,4,4,8,6,8,4],[160,160,108,258,360,225,360,146.7,140.8,167.6,167.6,275.8,275.8,275.8,472,460,440,78.7,75.7,71.1,120.1,318,304,350,400,79,120.3,95.1,351,145,301,121],[110,110,93,110,175,105,245,62,95,123,123,180,180,180,205,215,230,66,52,65,97,150,150,245,175,66,91,113,264,175,335,109],[3.9,3.9,3.85,3.08,3.15,2.76,3.21,3.69,3.92,3.92,3.92,3.07,3.07,3.07,2.93,3,3.23,4.08,4.93,4.22,3.7,2.76,3.15,3.73,3.08,4.08,4.43,3.77,4.22,3.62,3.54,4.11],[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44,3.44,4.07,3.73,3.78,5.25,5.424,5.345,2.2,1.615,1.835,2.465,3.52,3.435,3.84,3.845,1.935,2.14,1.513,3.17,2.77,3.57,2.78],[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3,18.9,17.4,17.6,18,17.98,17.82,17.42,19.47,18.52,19.9,20.01,16.87,17.3,15.41,17.05,18.9,16.7,16.9,14.5,15.5,14.6,18.6],[0,0,1,1,0,1,0,1,1,1,1,0,0,0,0,0,0,1,1,1,1,0,0,0,0,1,0,1,0,0,0,1],[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1],[4,4,4,3,3,3,3,4,4,4,4,3,3,3,3,3,3,4,4,4,3,3,3,3,3,4,5,5,5,5,5,4],[4,4,1,1,2,1,4,2,2,4,4,3,3,3,4,4,4,1,2,1,1,2,2,4,2,1,2,2,4,6,8,2]],"container":"<table class=\"nowrap\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>mpg<\/th>\n      <th>cyl<\/th>\n      <th>disp<\/th>\n      <th>hp<\/th>\n      <th>drat<\/th>\n      <th>wt<\/th>\n      <th>qsec<\/th>\n      <th>vs<\/th>\n      <th>am<\/th>\n      <th>gear<\/th>\n      <th>carb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":true,"columnDefs":[{"width":"150px","targets":0},{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">DT<span class="op">::</span><span class="kw">datatable</span>(mtcars, 
+              <span class="dt">class =</span> <span class="st">&#39;nowrap&#39;</span>,
+              <span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">autoWidth =</span> <span class="ot">TRUE</span>,
+                             <span class="dt">columnDefs=</span><span class="kw">list</span>(<span class="kw">list</span>(<span class="dt">width=</span><span class="st">&#39;150px&#39;</span>, <span class="dt">targets=</span><span class="dv">0</span>))))</code></pre></div>
+<div id="htmlwidget-a8b9909c0669407ed049" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a8b9909c0669407ed049">{"x":{"filter":"none","data":[["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant","Duster 360","Merc 240D","Merc 230","Merc 280","Merc 280C","Merc 450SE","Merc 450SL","Merc 450SLC","Cadillac Fleetwood","Lincoln Continental","Chrysler Imperial","Fiat 128","Honda Civic","Toyota Corolla","Toyota Corona","Dodge Challenger","AMC Javelin","Camaro Z28","Pontiac Firebird","Fiat X1-9","Porsche 914-2","Lotus Europa","Ford Pantera L","Ferrari Dino","Maserati Bora","Volvo 142E"],[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2,17.8,16.4,17.3,15.2,10.4,10.4,14.7,32.4,30.4,33.9,21.5,15.5,15.2,13.3,19.2,27.3,26,30.4,15.8,19.7,15,21.4],[6,6,4,6,8,6,8,4,4,6,6,8,8,8,8,8,8,4,4,4,4,8,8,8,8,4,4,4,8,6,8,4],[160,160,108,258,360,225,360,146.7,140.8,167.6,167.6,275.8,275.8,275.8,472,460,440,78.7,75.7,71.1,120.1,318,304,350,400,79,120.3,95.1,351,145,301,121],[110,110,93,110,175,105,245,62,95,123,123,180,180,180,205,215,230,66,52,65,97,150,150,245,175,66,91,113,264,175,335,109],[3.9,3.9,3.85,3.08,3.15,2.76,3.21,3.69,3.92,3.92,3.92,3.07,3.07,3.07,2.93,3,3.23,4.08,4.93,4.22,3.7,2.76,3.15,3.73,3.08,4.08,4.43,3.77,4.22,3.62,3.54,4.11],[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44,3.44,4.07,3.73,3.78,5.25,5.424,5.345,2.2,1.615,1.835,2.465,3.52,3.435,3.84,3.845,1.935,2.14,1.513,3.17,2.77,3.57,2.78],[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3,18.9,17.4,17.6,18,17.98,17.82,17.42,19.47,18.52,19.9,20.01,16.87,17.3,15.41,17.05,18.9,16.7,16.9,14.5,15.5,14.6,18.6],[0,0,1,1,0,1,0,1,1,1,1,0,0,0,0,0,0,1,1,1,1,0,0,0,0,1,0,1,0,0,0,1],[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1],[4,4,4,3,3,3,3,4,4,4,4,3,3,3,3,3,3,4,4,4,3,3,3,3,3,4,5,5,5,5,5,4],[4,4,1,1,2,1,4,2,2,4,4,3,3,3,4,4,4,1,2,1,1,2,2,4,2,1,2,2,4,6,8,2]],"container":"<table class=\"nowrap\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>mpg<\/th>\n      <th>cyl<\/th>\n      <th>disp<\/th>\n      <th>hp<\/th>\n      <th>drat<\/th>\n      <th>wt<\/th>\n      <th>qsec<\/th>\n      <th>vs<\/th>\n      <th>am<\/th>\n      <th>gear<\/th>\n      <th>carb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":true,"columnDefs":[{"width":"150px","targets":0},{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <p><br></p>
-<p><span class="marginnote">Often after displaying tables and figures you’ll want to put an extra line with &lt;br&gt; to give some more space before your next bit of text.</span>
-Even model objects can go straight to publication-ready tables with no effort on your part. The <span class="pack">broom</span> package works with many common model objects to convert their output to a <span class="objclass">data.frame</span> via <span class="func">tidy</span>. Then you can use <span class="pack">kable</span> or another package to pretty it up.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1">broom<span class="op">::</span><span class="kw">tidy</span>(<span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>wt, mtcars)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb18-2" data-line-number="2"><span class="st">  </span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&#39;markdown&#39;</span>, <span class="dt">digits =</span> <span class="dv">2</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb18-3" data-line-number="3"><span class="st">  </span><span class="kw">kable_styling</span>(<span class="kw">c</span>(<span class="st">&#39;basic&#39;</span>, <span class="st">&#39;condensed&#39;</span>), <span class="dt">position =</span> <span class="st">&#39;center&#39;</span>)</a></code></pre></div>
+<p><span class="marginnote">Often after displaying tables and figures you’ll want to put an extra line with &lt;br&gt; to give some more space before your next bit of text.</span> Even model objects can go straight to publication-ready tables with no effort on your part. The <span class="pack">broom</span> package works with many common model objects to convert their output to a <span class="objclass">data.frame</span> via <span class="func">tidy</span>. Then you can use <span class="pack">kable</span> or another package to pretty it up.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">broom<span class="op">::</span><span class="kw">tidy</span>(<span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>wt, mtcars)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&#39;markdown&#39;</span>, <span class="dt">digits =</span> <span class="dv">2</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">kable_styling</span>(<span class="kw">c</span>(<span class="st">&#39;basic&#39;</span>, <span class="st">&#39;condensed&#39;</span>), <span class="dt">position =</span> <span class="st">&#39;center&#39;</span>)</code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -947,16 +1083,16 @@ Even model objects can go straight to publication-ready tables with no effort on
 </table>
 <p><br></p>
 <p>The <span class="pack">pander</span> package also provides more control over tables, but also can work with some model objects directly.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>wt, mtcars) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb19-2" data-line-number="2"><span class="st">  </span><span class="kw">summary</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb19-3" data-line-number="3"><span class="st">  </span>pander<span class="op">::</span><span class="kw">pander</span>(<span class="dt">round=</span><span class="dv">2</span>, <span class="dt">justify=</span><span class="st">&#39;lrrrr&#39;</span>, <span class="dt">caption=</span><span class="st">&#39;Regression results&#39;</span>)</a></code></pre></div>
-<table style="width:88%;">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>wt, mtcars) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">summary</span>() <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>pander<span class="op">::</span><span class="kw">pander</span>(<span class="dt">round=</span><span class="dv">2</span>, <span class="dt">justify=</span><span class="st">&#39;lrrrr&#39;</span>, <span class="dt">caption=</span><span class="st">&#39;Regression results&#39;</span>)</code></pre></div>
+<table style="width:86%;">
 <colgroup>
 <col width="25%" />
 <col width="15%" />
 <col width="18%" />
 <col width="13%" />
-<col width="15%" />
+<col width="13%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -984,13 +1120,13 @@ Even model objects can go straight to publication-ready tables with no effort on
 </tr>
 </tbody>
 </table>
-<table style="width:88%;">
+<table style="width:86%;">
 <caption>Regression results</caption>
 <colgroup>
 <col width="20%" />
 <col width="30%" />
 <col width="12%" />
-<col width="23%" />
+<col width="22%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1028,10 +1164,10 @@ Even model objects can go straight to publication-ready tables with no effort on
 <div class="footnotes">
 <hr />
 <ol start="8">
-<li id="fn8"><p>This global option in RStudio seems to be ignored in some situations.<a href="common-considerations.html#fnref8" class="footnote-back">↩</a></p></li>
-<li id="fn9"><p>Changing <code>fig.width</code> for a <span class="pack">plotly</span> image seems to affect the height, while <code>fig.height</code> doesn’t do anything.<a href="common-considerations.html#fnref9" class="footnote-back">↩</a></p></li>
-<li id="fn10"><p>For building website like documents, e.g. using <span class="pack">bookdown</span>, there is a <code>Clean All</code> option. However, all this does is delete files that get overwritten already, and so serves almost no purpose except to get rid of old files that are no longer part of the document.<a href="common-considerations.html#fnref10" class="footnote-back">↩</a></p></li>
-<li id="fn11"><p>A better way to probably do this is with <code>cache.extra = tools::md5sum('myfile.csv')</code>. That will, for example, rebuild the cache if that <code>*.csv</code> file has changed.<a href="common-considerations.html#fnref11" class="footnote-back">↩</a></p></li>
+<li id="fn8"><p>This global option in RStudio seems to be ignored in some situations.<a href="common-considerations.html#fnref8">↩</a></p></li>
+<li id="fn9"><p>Changing <code>fig.width</code> for a <span class="pack">plotly</span> image seems to affect the height, while <code>fig.height</code> doesn’t do anything.<a href="common-considerations.html#fnref9">↩</a></p></li>
+<li id="fn10"><p>For building website like documents, e.g. using <span class="pack">bookdown</span>, there is a <code>Clean All</code> option. However, all this does is delete files that get overwritten already, and so serves almost no purpose except to get rid of old files that are no longer part of the document.<a href="common-considerations.html#fnref10">↩</a></p></li>
+<li id="fn11"><p>A better way to probably do this is with <code>cache.extra = tools::md5sum('myfile.csv')</code>. That will, for example, rebuild the cache if that <code>*.csv</code> file has changed.<a href="common-considerations.html#fnref11">↩</a></p></li>
 </ol>
 </div>
             </section>
@@ -1086,7 +1222,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
