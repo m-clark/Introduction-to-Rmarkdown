@@ -30,6 +30,9 @@ As you can see right away, you have your choice of several types of formats, som
 
 Documents are what you'll probably use primarily, especially since they can be used in place of normal R scripts. You have the choice of HTML, PDF and MS Word.  The main thing you'll want to do is make your choice early, because it is not really possible to have the document look like you'd want in all formats simultaneously.  As these are the focus of this document, more detail is forthcoming. 
 
+### R Notebooks
+
+Many are using <span class="emph">R Notebooks</span> as their primary scripting tool, and these are definitely something to consider for your own approach.  While there are some drawbacks in efficiency, many like the feel of them.  In my experience, they lack the smooth approach of Jupyter Notebooks, and they really aren't as suited to publishable work as the standard R Markdown document (at least I've had issues). Having your output inline also means you may be looking at stale results that don't reflect previous data changes, and it's easy for a few lines of code to become what would be equivalent to several printed pages of output.  Again though, they might be useful for some purposes.
 
 ## Presentations
 

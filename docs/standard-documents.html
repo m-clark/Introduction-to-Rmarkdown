@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2018-05-29">
+<meta name="date" content="2018-05-30">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -158,7 +158,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i>Getting Started</a><ul>
 <li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#what-is-markdown"><i class="fa fa-check"></i>What is Markdown?</a></li>
-<li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#documents"><i class="fa fa-check"></i>Documents</a></li>
+<li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#documents"><i class="fa fa-check"></i>Documents</a><ul>
+<li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#r-notebooks"><i class="fa fa-check"></i>R Notebooks</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#presentations"><i class="fa fa-check"></i>Presentations</a></li>
 <li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#shiny-apps"><i class="fa fa-check"></i>Shiny Apps</a></li>
 <li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#templates"><i class="fa fa-check"></i>Templates</a></li>
@@ -174,7 +176,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="standard-documents.html"><a href="standard-documents.html#running-code"><i class="fa fa-check"></i>Running code</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="standard-documents.html"><a href="standard-documents.html#multiple-documents"><i class="fa fa-check"></i>Multiple documents</a></li>
-<li class="chapter" data-level="" data-path="standard-documents.html"><a href="standard-documents.html#collaboration"><i class="fa fa-check"></i>Collaboration</a></li>
+<li class="chapter" data-level="" data-path="standard-documents.html"><a href="standard-documents.html#sharing-code-collaboration"><i class="fa fa-check"></i>Sharing Code &amp; Collaboration</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="common-considerations.html"><a href="common-considerations.html"><i class="fa fa-check"></i>Common Considerations</a><ul>
 <li class="chapter" data-level="" data-path="common-considerations.html"><a href="common-considerations.html#using-html"><i class="fa fa-check"></i>Using HTML</a></li>
@@ -322,10 +324,10 @@ x = rnorm(10)
 <h2>Multiple documents</h2>
 <p>A single <code>.Rmd</code> file can call others, referred to as <span class="emph">child documents</span>, and when you knit that document you’ll have one single document with the content from all of them. You may want to consider other formats, such as <span class="emph">bookdown</span>, rather than doing this. Scrolling a lot is sometimes problematic, and not actually required for the presentation of material. It also makes the content take longer to load, because everything has to load<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>. See the <a href="appendix.html#appendix">appendix</a> for details.</p>
 </div>
-<div id="collaboration" class="section level2">
-<h2>Collaboration</h2>
-<p><span class="emph">R Notebooks</span> are a format one can use that might be more suitable for collaboration. They are identical to the standard HTML document in most respects, but chunks will by default print output in the Rmd file itself. For example, a graduate student could write up a notebook, and their advisor could then look at the document, change the code as needed etc. Of course, you could just do this with a standard R script as well.</p>
-<p>For more involved collaborations, I would suggest partitioning the sections into their own document, then use version control to merge respective contributions. Such a process was designed for code, but there’s no reason it wouldn’t work for a document in general, and in my experience, it has quite well.</p>
+<div id="sharing-code-collaboration" class="section level2">
+<h2>Sharing Code &amp; Collaboration</h2>
+<p><span class="emph">R Notebooks</span> are a format one can use that might be more suitable for code collaboration. They are identical to the standard HTML document in most respects, but chunks will by default print output in the Rmd file itself. For example, a graduate student could write up a notebook, and their advisor could then look at the document, change the code as needed etc. Of course, you could just do this with a standard R script as well. Some prefer the inline output however.</p>
+<p>For more involved collaborations, I would suggest partitioning the sections into their own document, then use version control to merge respective contributions. Such a process was designed for software development, but there’s no reason it wouldn’t work for a document in general, and in my experience, it has quite well.</p>
 
 </div>
 </div>

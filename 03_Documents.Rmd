@@ -84,11 +84,11 @@ By default, when you knit the document all code will be run.  Depending on a var
 A single `.Rmd` file can call others, referred to as <span class="emph">child documents</span>, and when you knit that document you'll have one single document with the content from all of them.  You may want to consider other formats, such as <span class="emph">bookdown</span>, rather than doing this.  Scrolling a lot is sometimes problematic, and not actually required for the presentation of material.  It also makes the content take longer to load, because everything has to load[^preload].  See the [appendix][appendix] for details.
 
 
-## Collaboration
+## Sharing Code & Collaboration
 
-<span class="emph">R Notebooks</span> are a format one can use that might be more suitable for collaboration.  They are identical to the standard HTML document in most respects, but chunks will by default print output in the Rmd file itself.  For example, a graduate student could write up a notebook, and their advisor could then look at the document, change the code as needed etc. Of course, you could just do this with a standard R script as well.
+<span class="emph">R Notebooks</span> are a format one can use that might be more suitable for code collaboration.  They are identical to the standard HTML document in most respects, but chunks will by default print output in the Rmd file itself.  For example, a graduate student could write up a notebook, and their advisor could then look at the document, change the code as needed etc. Of course, you could just do this with a standard R script as well.  Some prefer the inline output however.
 
-For more involved collaborations, I would suggest partitioning the sections into their own document, then use version control to merge respective contributions.  Such a process was designed for code, but there's no reason it wouldn't work for a document in general, and in my experience, it has quite well.
+For more involved collaborations, I would suggest partitioning the sections into their own document, then use version control to merge respective contributions.  Such a process was designed for software development, but there's no reason it wouldn't work for a document in general, and in my experience, it has quite well.
 
 
 [^preload]: There is not yet a way within R Markdown that I'm aware of to load on demand as many websites do.  However, waiting for things to load until you come to them is annoying at best, and I usually get tired of waiting and move on to other things.
