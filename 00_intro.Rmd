@@ -25,4 +25,4 @@ Note the following color coding used in this document:
 
 This document is created with R Markdown via the <span class="pack">bookdown</span> package.
 
-If you are actually attending the workshop, please sign in [here](https://goo.gl/forms/s3vZIRlgFha65jEN2).
+If you are actually attending the workshop, please sign in [here](https://goo.gl/forms/cb8wE11O6dFYVdOC2).
