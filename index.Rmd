@@ -1,48 +1,25 @@
 ---
 title: <span style="font-size:125%; font-family:Roboto; font-style:normal">Introduction to R Markdown</span>
-subtitle: <span style="font-size:125%; font-style:normal; font-variant:small-caps; font-family:'Open Sans'"></span>
 author:  |
-  <span style="font-size:125%; font-style:normal; font-variant:small-caps; font-family:'Open Sans'">Michael Clark</span> <br>
-  <span class="" style="font-size:75%">https://m-clark.github.io/workshops</span><br><br>
-  <img src="img/CSCAR_logos/signature-acronym.png" style="width:30%; padding:10px 0;" alt="University of Michigan: CSCAR"> <br>
-  <img src="img/ARC_logos/ARC-acronym-signature.png" style="width:21%; padding:10px 0;" alt="University of Michigan: Advanced Research Computing"> 
-
-date: <span style="font-style:normal;font-family:'Open Sans'">`r Sys.Date()`</span>
+  <span class="noem">Michael Clark</span> 
+  <a href='https://m-clark.github.io/'>m-clark.github.io</a>
+  <img class='arc' src="img/CSCAR_logos/signature-acronym.png" alt="University of Michigan: CSCAR">
+  <img class='cscar' src="img/ARC_logos/ARC-acronym-signature.png" alt="University of Michigan: Advanced Research Computing"> 
+date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output:
-  bookdown::gitbook:
-    css: [css/book.css, css/standard_html.css, 'https://use.fontawesome.com/releases/v5.0.13/css/all.css']
-    highlight: pygments
-    number_sections: false
-    config:
-      toc:
-        depth: 2
-        collapse: section
-        scroll_highlight: yes
-      edit : null
-      download: null
-      search: yes
-      sharing:
-        facebook: no
-        twitter: no
-        google: no
-        weibo: no
-        instapper: no
-        vk: no
-        all: ['twitter', 'facebook', 'google']
+  bookdown::gitbook
 always_allow_html: yes
-
 documentclass: book
 bibliography: refs.bib
 biblio-style: apalike
-link-citations: yes
 description: "This document will introduce participants to the basics of R Markdown. After an introduction to concepts related to reproducible programming and research, demonstrations of standard markdown, as well as overviews of different formats, will be provided, including exercises."    
 cover-image: 'img/nineteeneightyR.png'
 url: 'https\://m-clark.github.io/Introduction-to-Rmarkdown/' 
 favicon: 'img/R.ico'
 github-repo:  'm-clark/Introduction-to-Rmarkdown/'
 nocite: | 
-  @rstudio2018, @knuth1992literate, @xie2018
+  @rstudio2018, @knuth1992literate, @xie2018, @xie2018b
 ---
 
 ```{r setup, include=FALSE, cache=FALSE}
@@ -58,15 +35,14 @@ library(broom); library(kableExtra); library(plotly); library(lazerhawk); librar
 ```
 
 
-# 
+##### {-}
 
-```{r rimg, fig.align='center',  out.width=300, echo=FALSE, include=T}
+
+
+```{r rimg, fig.align='center',  out.width=200, echo=FALSE, cache=FALSE}
 knitr::include_graphics('img/198R.png', dpi = NA)
 ```
 
-```{r ccimg, fig.align='center',  out.width=0, fig.show='hide', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html')}
-# knitr::include_graphics('img/ccbysa.png', dpi = NA)
-knitr::include_graphics('img/mc.png', dpi = NA)
+```{r ccimg, fig.align='center', out.width=0, fig.show='hide', echo=FALSE}
+knitr::include_graphics('img/mc_logo.png', dpi = NA)
 ```
-
-

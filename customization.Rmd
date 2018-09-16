@@ -84,17 +84,25 @@ Here is the basic markdown image.
 
 ![](img/R.ico)
 
+A little more functionality has been added to the default approach, such that you can add some options in the following manner (no spaces!).
+
+`![](img/R.ico){width=25%}`
+
+![](img/R.ico){width=25%}
+
+
 Next we use HTML instead.  This will produce a centered image that is slightly smaller.
 
 `<img src="img/R.ico" style="display: block; margin: 0 auto;" width=40px>`
 
 <img src="img/R.ico" style="display:block; margin: 0 auto;" width=40px>
 
-While the `src` and `width` are self-explanatory, the style part is where you can do one-off CSS styling, which we'll talk about next.  In this example, it serves to center the image. Taking `display: block` out will default to left-alignment within the part of the page (container) the image resides in.
+While the `src` and `width` are self-explanatory, the style part is where you can do one-off CSS styling, which we'll talk about next.  In this example, it serves to center the image. Taking `display: block` out and changing the margins to 0 will default to left-alignment within the part of the page (container) the image resides in.
 
-`<img src="img/R.ico" style="margin: 0 auto;" width=40px>`
+`<img src="img/R.ico" style="margin: 0 0;" width=40px>`
 
-<img src="img/R.ico" style="margin: 0 auto;" width=40px>
+<img src="img/R.ico" style="margin: 0 0;" width=40px>
+
 
 The next thing you'll want to do is hone your ASCII art skills, because sometimes that's the best way to display an image, like this ocean sunset.
 

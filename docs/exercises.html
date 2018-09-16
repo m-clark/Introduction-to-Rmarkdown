@@ -24,15 +24,15 @@
 
 
 
-<meta name="date" content="2018-05-30">
+<meta name="date" content="2018-09-16">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   <link rel="shortcut icon" href="img/R.ico" type="image/x-icon">
-<link rel="prev" href="appendix.html">
-<link rel="next" href="references.html">
+<link rel="prev" href="summary.html">
+<link rel="next" href="appendix.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -62,45 +62,73 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="css\book.css" type="text/css" />
-<link rel="stylesheet" href="css\standard_html.css" type="text/css" />
+<link rel="stylesheet" href="css/book.css" type="text/css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" type="text/css" />
 </head>
 
 <body>
@@ -113,10 +141,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li class='before'"><a href="https://m-clark.github.io/Introduction-to-Rmarkdown/">Introduction to R Markdown</a></li>
+<li class='before'><a href="./">Introduction to R Markdown</a></li>
 
 <li class="divider"></li>
-<li><a href="index.html#section"></a></li>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a><ul>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#goals"><i class="fa fa-check"></i>Goals</a></li>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#prerequisites"><i class="fa fa-check"></i>Prerequisites</a></li>
@@ -166,37 +193,37 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="common-considerations.html"><a href="common-considerations.html#cleaning-up-output"><i class="fa fa-check"></i>Cleaning up output</a></li>
 <li class="chapter" data-level="" data-path="common-considerations.html"><a href="common-considerations.html#other-stuff"><i class="fa fa-check"></i>Other Stuff</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html"><i class="fa fa-check"></i>Customization &amp; Configuration</a><ul>
-<li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#output-options"><i class="fa fa-check"></i>Output options</a><ul>
-<li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#themes-etc."><i class="fa fa-check"></i>Themes etc.</a></li>
+<li class="chapter" data-level="" data-path="customization.html"><a href="customization.html"><i class="fa fa-check"></i>Customization &amp; Configuration</a><ul>
+<li class="chapter" data-level="" data-path="customization.html"><a href="customization.html#output-options"><i class="fa fa-check"></i>Output options</a><ul>
+<li class="chapter" data-level="" data-path="customization.html"><a href="customization.html#themes-etc."><i class="fa fa-check"></i>Themes etc.</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#yaml"><i class="fa fa-check"></i>YAML</a></li>
-<li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#html-css"><i class="fa fa-check"></i>HTML &amp; CSS</a><ul>
-<li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#html-1"><i class="fa fa-check"></i>HTML</a></li>
-<li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#css"><i class="fa fa-check"></i>CSS</a></li>
-<li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#custom-classes"><i class="fa fa-check"></i>Custom classes</a></li>
+<li class="chapter" data-level="" data-path="customization.html"><a href="customization.html#yaml"><i class="fa fa-check"></i>YAML</a></li>
+<li class="chapter" data-level="" data-path="customization.html"><a href="customization.html#html-css"><i class="fa fa-check"></i>HTML &amp; CSS</a><ul>
+<li class="chapter" data-level="" data-path="customization.html"><a href="customization.html#html-1"><i class="fa fa-check"></i>HTML</a></li>
+<li class="chapter" data-level="" data-path="customization.html"><a href="customization.html#css"><i class="fa fa-check"></i>CSS</a></li>
+<li class="chapter" data-level="" data-path="customization.html"><a href="customization.html#custom-classes"><i class="fa fa-check"></i>Custom classes</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#personal-templates"><i class="fa fa-check"></i>Personal Templates</a></li>
-<li class="chapter" data-level="" data-path="customization-configuration.html"><a href="customization-configuration.html#the-rabbit-hole-goes-deep"><i class="fa fa-check"></i>The Rabbit Hole Goes Deep</a></li>
+<li class="chapter" data-level="" data-path="customization.html"><a href="customization.html#personal-templates"><i class="fa fa-check"></i>Personal Templates</a></li>
+<li class="chapter" data-level="" data-path="customization.html"><a href="customization.html#the-rabbit-hole-goes-deep"><i class="fa fa-check"></i>The Rabbit Hole Goes Deep</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html"><i class="fa fa-check"></i>Comparison to Alternatives</a><ul>
-<li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html#pdf-latex"><i class="fa fa-check"></i>PDF &amp; LaTeX</a><ul>
-<li><a href="comparison-to-alternatives.html#latex"><span class="math inline">\(\LaTeX\)</span></a></li>
-<li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html#pdf-via-r-markdown"><i class="fa fa-check"></i>PDF via R Markdown</a></li>
-<li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html#tufte"><i class="fa fa-check"></i>Tufte</a></li>
-<li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html#a-final-word"><i class="fa fa-check"></i>A final word</a></li>
+<li class="chapter" data-level="" data-path="alternative-outputs.html"><a href="alternative-outputs.html"><i class="fa fa-check"></i>Comparison to Alternatives</a><ul>
+<li class="chapter" data-level="" data-path="alternative-outputs.html"><a href="alternative-outputs.html#pdf-latex"><i class="fa fa-check"></i>PDF &amp; LaTeX</a><ul>
+<li><a href="alternative-outputs.html#latex"><span class="math inline">\(\LaTeX\)</span></a></li>
+<li class="chapter" data-level="" data-path="alternative-outputs.html"><a href="alternative-outputs.html#pdf-via-r-markdown"><i class="fa fa-check"></i>PDF via R Markdown</a></li>
+<li class="chapter" data-level="" data-path="alternative-outputs.html"><a href="alternative-outputs.html#tufte"><i class="fa fa-check"></i>Tufte</a></li>
+<li class="chapter" data-level="" data-path="alternative-outputs.html"><a href="alternative-outputs.html#a-final-word"><i class="fa fa-check"></i>A final word</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html#ms-word"><i class="fa fa-check"></i>MS Word</a><ul>
-<li class="chapter" data-level="" data-path="comparison-to-alternatives.html"><a href="comparison-to-alternatives.html#word-like-alternatives"><i class="fa fa-check"></i>Word-like Alternatives</a></li>
+<li class="chapter" data-level="" data-path="alternative-outputs.html"><a href="alternative-outputs.html#ms-word"><i class="fa fa-check"></i>MS Word</a><ul>
+<li class="chapter" data-level="" data-path="alternative-outputs.html"><a href="alternative-outputs.html#word-like-alternatives"><i class="fa fa-check"></i>Word-like Alternatives</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i>Summary</a></li>
-<li class="chapter" data-level="" data-path="exercise.html"><a href="exercise.html"><i class="fa fa-check"></i>Exercise</a><ul>
-<li class="chapter" data-level="" data-path="exercise.html"><a href="exercise.html#getting-started-1"><i class="fa fa-check"></i>Getting started</a></li>
-<li class="chapter" data-level="" data-path="exercise.html"><a href="exercise.html#adding-code"><i class="fa fa-check"></i>Adding code</a></li>
-<li class="chapter" data-level="" data-path="exercise.html"><a href="exercise.html#dealing-with-text"><i class="fa fa-check"></i>Dealing with text</a></li>
-<li class="chapter" data-level="" data-path="exercise.html"><a href="exercise.html#more"><i class="fa fa-check"></i>More</a></li>
-<li class="chapter" data-level="" data-path="exercise.html"><a href="exercise.html#advanced"><i class="fa fa-check"></i>Advanced</a></li>
+<li class="chapter" data-level="" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i>Exercise</a><ul>
+<li class="chapter" data-level="" data-path="exercises.html"><a href="exercises.html#getting-started-1"><i class="fa fa-check"></i>Getting started</a></li>
+<li class="chapter" data-level="" data-path="exercises.html"><a href="exercises.html#adding-code"><i class="fa fa-check"></i>Adding code</a></li>
+<li class="chapter" data-level="" data-path="exercises.html"><a href="exercises.html#dealing-with-text"><i class="fa fa-check"></i>Dealing with text</a></li>
+<li class="chapter" data-level="" data-path="exercises.html"><a href="exercises.html#more"><i class="fa fa-check"></i>More</a></li>
+<li class="chapter" data-level="" data-path="exercises.html"><a href="exercises.html#advanced"><i class="fa fa-check"></i>Advanced</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a><ul>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#footnotes"><i class="fa fa-check"></i>Footnotes</a></li>
@@ -205,12 +232,31 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#citations"><i class="fa fa-check"></i>Citations</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#multiple-documents-1"><i class="fa fa-check"></i>Multiple Documents</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#web-standards"><i class="fa fa-check"></i>Web Standards</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="web-standards.html"><a href="web-standards.html"><i class="fa fa-check"></i>Web Standards</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#references"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
-<li class='after'"><a href="https://m-clark.github.io/"><img src="img/mc.png" style="width:50%; padding:0px 0; display:block; margin: 0 auto;" alt="MC logo"></a></li>
-<li class='after'"><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="width:50%; border-width:0; display:block; margin: 0 auto;" src="img/ccbysa.png" /></a></li>
+<li class='after'">
+   <a href="https://m-clark.github.io/">
+      <img src="img/mc_logo.png" style="width:25%; padding:0px 0; display:block; margin: 0 auto;" alt="MC logo">
+   </a>
+</li>
+<li class='after'">
+   <div style='text-align:center'>
+      <a href="https://github.com/m-clark/">
+         <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+      </a>
+   </div>
+</li>
+<li class='after'">
+   <div style='text-align:center'>
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+         <i class="fab fa-creative-commons fa-lg"></i>
+         <i class="fab fa-creative-commons-by fa-lg"></i>
+         <i class="fab fa-creative-commons-sa fa-lg"></i>
+      </a>
+   </div>
+</li>
 
 </ul>
 
@@ -229,19 +275,61 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="web-standards" class="section level1">
-<h1>Web Standards</h1>
-<p>When creating an HTML document or site and customizing things as you like, you should consider accessibility issues at some point. Not everyone interacts with the web the same way. For example, roughly 10% of people see <a href="https://en.wikipedia.org/wiki/Color_blindness">color differently</a> from ‘normal’. Also, if your font is too light to read, or your visualizations don’t distinguish points of interest for a certain group of people, your document is less effective at communicating your ideas.</p>
-<p>As a simple example, when we changed the link color to dodgerblue, it might not have seemed like much, but the color was no longer sufficient contrast at the lowest web standards. Nor was my original color when the gray background was added. The default link color for my documents is just fine though.</p>
-<p>You can get a <a href="https://www.deque.com/axe/">browser extension</a> to see what problems your page has once it’s on the web. This is where your <code>*.css</code> file will come in handy, fixing 100 problems with one line of code. Then you have a template you can use from there on out. As you’ll be using HTML more and more the more you use R Markdown, things like this become more important. You won’t likely be able to deal with every issue that arises, but you’ll want to consider them.</p>
+<div id="exercise" class="section level1">
+<h1>Exercise</h1>
+<div id="getting-started-1" class="section level2">
+<h2>Getting started</h2>
+<ul>
+<li>Create an <code>*.Rmd</code> for HTML.</li>
+<li>Now change some configuration options: choose a theme and add a table of contents. For the latter, create some headings/sections and sub-sections so that you can see your configuration in action.</li>
+</ul>
+</div>
+<div id="adding-code" class="section level2">
+<h2>Adding code</h2>
+<ul>
+<li>Add a chunk that does the following statistical calculation. <code>summary(mtcars)</code></li>
+<li>Add a chunk that produces a visualization. If you need an example, create a density plot of the population total variable from the <span class="objclass">midwest</span> data set in the <span class="pack">ggplot2</span> package. Now align it with the <code>fig.align</code> chunk option.</li>
+<li>Add a chunk similar to the previous but have the resulting document hide the code, just showing the visualization.</li>
+<li>Now add a chunk that <em>only</em> shows the code, but doesn’t actually run it.</li>
+<li>Add a chunk that creates an R object such as a set of numbers or text. Then use that object in the text via inline R code. For example, show only the first element of the object in a sentence.</li>
+<li><strong>Bonus</strong>: Set a chunk option that will be applied to the whole document. For example, make the default figure alignment be centered, or have the default be to hide the code.</li>
+</ul>
+</div>
+<div id="dealing-with-text" class="section level2">
+<h2>Dealing with text</h2>
+<ul>
+<li>Italicize or bold some words.</li>
+<li>Add a hyperlink.</li>
+<li>Add a line break via HTML. Bonus: use <span class="pack">htmltools</span> and the <code>br()</code> function to add a line break within an R chunk. See what happens when you simply put several line returns.</li>
+<li>Change your output to PDF.</li>
+</ul>
+</div>
+<div id="more" class="section level2">
+<h2>More</h2>
+<p>For these, you’ll have to look it up, as I haven’t explicitly discussed it.</p>
+<ul>
+<li>Create a quoted block.</li>
+<li>Add a subtitle to your document</li>
+<li>Remove the # from the R chunk outputs</li>
+</ul>
+</div>
+<div id="advanced" class="section level2">
+<h2>Advanced</h2>
+<p>For this you’d have to know a little CSS, but just doing it once will go quite a ways to helping you feel comfortable being creative with your own CSS files.</p>
+<ul>
+<li>Create a <code>*.css</code> file to set an option for your link color. Don’t forget to refer to it in your YAML configuration section of the Rmd file.</li>
+<li>Create a special class of links and add a link of that class.</li>
+</ul>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="appendix.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="summary.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="appendix.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -263,7 +351,7 @@ gitbook.start({
 "weibo": false,
 "instapper": false,
 "vk": false,
-"all": ["twitter", "facebook", "google"]
+"all": ["twitter", "facebook", "google", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -277,6 +365,8 @@ gitbook.start({
 "depth": 2,
 "scroll_highlight": true
 },
+"df_print": "kable",
+"highlight": "pygments",
 "search": true
 });
 });
@@ -287,7 +377,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
