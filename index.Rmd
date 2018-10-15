@@ -2,7 +2,7 @@
 title: <span style="font-size:125%; font-family:Roboto; font-style:normal">Introduction to R Markdown</span>
 author:  |
   <span class="noem">Michael Clark</span> 
-  <a href='https://m-clark.github.io/'>m-clark.github.io</a>
+  https://m-clark.github.io/
   <img class='arc' src="img/CSCAR_logos/signature-acronym.png" alt="University of Michigan: CSCAR">
   <img class='cscar' src="img/ARC_logos/ARC-acronym-signature.png" alt="University of Michigan: Advanced Research Computing"> 
 date: "`r Sys.Date()`"

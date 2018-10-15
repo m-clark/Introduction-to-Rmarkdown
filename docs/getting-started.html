@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2018-09-16">
+<meta name="date" content="2018-10-15">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -159,7 +159,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i>Getting Started</a><ul>
 <li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#what-is-markdown"><i class="fa fa-check"></i>What is Markdown?</a></li>
 <li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#documents"><i class="fa fa-check"></i>Documents</a><ul>
+<li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#standard-html"><i class="fa fa-check"></i>Standard HTML</a></li>
 <li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#r-notebooks"><i class="fa fa-check"></i>R Notebooks</a></li>
+<li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#radix"><i class="fa fa-check"></i>Radix</a></li>
+<li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#bookdown"><i class="fa fa-check"></i>Bookdown</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#presentations"><i class="fa fa-check"></i>Presentations</a></li>
 <li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#shiny-apps"><i class="fa fa-check"></i>Shiny Apps</a></li>
@@ -296,9 +299,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <br></p>
 <p>As you can see right away, you have your choice of several types of formats, some of which will be of interest to you as you get more used to using R Markdown.</p>
 <p>Documents are what you’ll probably use primarily, especially since they can be used in place of normal R scripts. You have the choice of HTML, PDF and MS Word. The main thing you’ll want to do is make your choice early, because it is not really possible to have the document look like you’d want in all formats simultaneously. As these are the focus of this document, more detail is forthcoming.</p>
+<div id="standard-html" class="section level3">
+<h3>Standard HTML</h3>
+<p>As mentioned, the default, and likely most commonly used document for R Markdown is the standard, single-page HTML document. It is highly flexible, and works well for short or longer works. Some of the other different formats are variations of it. You will probably want to get comfortable with it before moving on to other types of formats, but it will serve you well even as you advance your R Markdown skills.</p>
+</div>
 <div id="r-notebooks" class="section level3">
 <h3>R Notebooks</h3>
 <p>Many are using <span class="emph">R Notebooks</span> as their primary scripting tool, and these are definitely something to consider for your own approach. While there are some drawbacks in efficiency, many like the feel of them. In my experience, they lack the smooth approach of Jupyter Notebooks, and they really aren’t as suited to publishable work as the standard R Markdown document (at least I’ve had issues). Having your output inline also means you may be looking at stale results that don’t reflect previous data changes, and it’s easy for a few lines of code to become what would be equivalent to several printed pages of output. Again though, they might be useful for some purposes.</p>
+</div>
+<div id="radix" class="section level3">
+<h3>Radix</h3>
+<p>One of the newer formats for R Markdown is the <span class="emph">Radix</span> template. It is specifically suited toward scientific publishing, and very visually appealing. Along with some subtle alternative default settings relative to the standard html document, it has asides (marginal presentation), hover-over citations and footnotes, easy incorporation of metadata (e.g. license, author contribution), and other useful things that are, or should be, common to a scientific publication. You can even create a website with it (as I have)!</p>
+</div>
+<div id="bookdown" class="section level3">
+<h3>Bookdown</h3>
+<p>You’re reading the output of a <span class="emph">Bookdown</span> template now. You might not think you will have that much to say, but if you are using a standard html document and it tends to get notably long, you might prefer the bookdown format to the constant scrolling. You could even use it for a slide-like presentation, but with a lot more flexibility. Many R publications, and more all the time, are being published via bookdown rather than traditional print (or both). See <a href="https://bookdown.org/">bookdown.org</a> and my own website for more examples.</p>
 </div>
 </div>
 <div id="presentations" class="section level2">
