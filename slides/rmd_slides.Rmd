@@ -1,0 +1,395 @@
+---
+title: "Introduction to R Markdown"
+subtitle: ""
+author: "Michael Clark"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    css: [default, metropolis, metropolis-fonts, slides.css, ]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+
+knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F, comment=NA, R.options=list(width=220),   # code 
+                      dev.args=list(bg = 'transparent'), dev='svglite',                                 # viz
+                      fig.align='center', out.width='75%', fig.asp=.75)                                                         # cache
+
+library(kableExtra)
+```
+
+
+background-image: url("../img/RMarkdownOutputFormats.png")
+class: center, top, inverse
+
+# R Markdown
+
+---
+
+# Concepts
+
+
+<span class="emph">Reproducible research</span>
+
+<span class="emph">Replicable science</span>
+
+<span class="emph">Reproducible data analysis</span>
+
+<span class="emph">Dynamic data analysis</span>
+
+<span class="emph">Dynamic report generation</span>
+
+<span class="emph">Literate programming</span>
+
+---
+
+class: inverse, center, middle
+
+# Getting Started
+---
+
+# Getting Started
+
+Markdown
+
+Documents
+
+Presentations
+
+Shiny Apps
+
+Templates
+
+How to start
+
+---
+
+#  Markdown
+
+<img src="../img/Markdown-mark.svg" style="display:block; margin: 0 auto;" width=25%>
+
+Basic Markdown looks something like this
+
+
+```
+# TITLE
+
+## Subtitle
+
+Some text that is *emphasized*.
+
+**BOLD text.**
+
+- List item 1
+- List item 2
+
+1. item #1
+2. item #2
+```
+
+
+---
+
+# Documents
+
+`File/New File/R Markdown...`
+
+<img src="../img/new_markdown.png" style="display:block; margin: 0 auto;" width=50%>
+
+
+---
+
+# Documents
+
+Standard HTML
+
+R Notebooks
+
+Radix
+
+Bookdown
+
+---
+
+# Presentations
+
+<img src="../img/presentation_opts.png" style="display:block; margin: 0 auto;" width=33%>
+
+
+Make your own presentations with just basic markdown syntax.  
+
+- HTML/javascript: revealjs, remarkjs
+
+- PDF/Beamer: avoid
+
+- Power point: ??
+
+---
+
+# Shiny Apps
+
+<img src="../img/shiny_opts.png" style="display:block; margin: 0 auto;" width=50%>
+
+
+---
+
+# Templates
+
+<img src="../img/template_opts.png" style="display:block; margin: 0 auto;" width=50%>
+
+
+---
+class: center, middle
+
+
+# <h1 style="color: #23373B">How to start</h1>
+
+### Steal it, change it, post it!
+
+
+---
+class: inverse, center, middle
+
+# Standard Documents
+
+---
+
+# Standard Documents
+
+R Markdown files, with extension *.Rmd, are a combination of text, chunks of R code, and possibly other code or syntax, all within a single file. Various packages, e.g. rmarkdown, knitr, pandoc, etc., work behind the scenes to knit all those pieces into one coherent whole, in whatever format is desired.Pandoc is the universal translator that takes various formats, particularly markup languages, and converts them into others. The knitr package is the driving force behind most of what is done to create the final product.
+
+HTML
+
+PDF
+
+MS Word
+
+---
+
+# HTML
+
+Most flexible
+
+Displays everything as it should
+
+Little *good* reason to use something else
+
+---
+
+# Text
+
+Writing text in a R Markdown document is the same as anywhere else.  There are a couple things you'll use frequently though.
+
+- Headers: Specified `#`, `##`, `###` etc. corresponding to H1 H2 H3 etc.
+- Italics & bold:  \**word*\* for italics \*\***word**\*\* for bold.
+    -  You can also use underscores (some flavors may require it).
+- Links: `[some_text](http://webaddress.com)`
+- Image: `![alt-text](img_location)`
+- Lists: Start with a dash or number, and make sure the first element is separated from any preceding text by a full blank line. Then separate each element by a line.
+
+---
+
+# Code
+
+
+
+```{r rchunk0, eval=FALSE}
+x = rnorm(10)
+
+ggplot(aes(x, y), mydata) +
+  geom_point()
+```
+
+---
+
+# Chunks
+
+The most common thing after text is code
+
+The code resides in a <span class="emph">chunk</span>, and looks like this
+
+
+```{r rchunk, echo=FALSE, results='markup'}
+cat("```{r}
+x = rnorm(10)
+```")
+```
+
+You can add it to your document with the `Insert` menu in the upper right of your Rmd file, but as you'll be needing to do this all the time, instead you'll want to use the keyboard shortcut of Ctrl/Cmd + Alt/Option + I.
+
+---
+
+# In-line
+
+R code doesn't have to be in a chunk.  You can put it right in the middle of a sentence.
+
+```{r rinline, results='markup', echo=FALSE}
+x = rnorm(10)
+cat("Here is a sentence whose sum is `r 2 + 2`.")
+cat("This sentence has a value of `r x[1]`.")
+```
+
+When you knit the document, it will look like ordinary text because you aren't using an R chunk:
+
+Here is a sentence whose sum is `r 2 + 2`.
+
+This sentence has a value of `r x[1]`.
+
+This effect of this in scientific reporting cannot be understated.  
+
+---
+
+class: inverse, center, middle
+
+# Be reproducible!
+
+
+---
+
+# Labels
+
+
+All chunks should be given a label. 
+
+This makes it easy to find it within your document because there are two outlines available to you. 
+
+- One that shows your text headers (to the right)
+- One that you can click to reveal that will also show your chunks (bottom left)
+
+<img src="../img/chunk_outline.png" style="display:block; margin: 0 auto;" width=50%>
+
+---
+
+
+# Running Code
+
+You don't have to knit the document to run the code, and often you'll be using the results as you write the document. You can run a single chunk or multiple chunks.  Use the shortcuts instead of the menu.
+
+<img src="../img/run_chunk.png" style="display:block; margin: 0 auto;" width=50%>
+
+By default, when you knit the document all code will be run.  Depending on a variety of factors, this may or may not be what you want to do, especially if it is time-consuming to do so.  We'll talk about how to deal with this issue in the next part.
+
+---
+
+# Other stuff
+
+Multiple documents
+
+Sharing and Collaboration 
+
+
+---
+
+class: inverse, center, middle
+
+# Common Considerations
+
+---
+
+# Common Considerations
+
+Using HTML
+
+Chunk options
+
+Image options
+
+Caching
+
+Cleaning up output
+
+---
+
+# Using HTML
+
+The first thing to do is simply get used to HTML as your primary output.  
+- Unless you know the document is to be printed in a traditional format
+
+---
+
+# Chunk options
+
+A ridiculous number of [options](https://yihui.name/knitr/options/) are available to you for each chunk.  
+
+Spend a little time to see what all is available.  
+
+The options I commonly use are: 
+
+- `echo`: Controls whether and how you want to *show* your code. It can be logical (TRUE/FALSE), or a numeric specifying specific line numbers.
+- `eval`: Controls whether and how you want to *run* your code. It can be logical (TRUE/FALSE), or a numeric specifying specific line numbers.
+- figure controls: `fig.*` `out.*` etc.
+---
+
+# Image options
+
+R graphics (HTML vs. Others)
+
+- `fig.width` and `fig.height` (in inches)
+- `fig.width` plus `fig.asp` (height = `fig.width*fig.asp`)
+- `fig.align` (no effect on interactive)
+- `fig.dim` (vector of width and height values)
+- `dpi` (`dpi*inches` = pixels)
+- `out.width` and `out.height` (geared toward HTML-based visualization- pixels or percentages)
+- `out.extra`
+
+
+Markdown
+
+- `![alt-text](img/myimage.png)`
+
+HTML
+
+- `<img src="img/myimage.png" style="display:block; margin: 0 auto;">`
+
+---
+
+# Caching
+
+<span class="emph">Caching</span> is both a great thing and continuous source of frustration.  First, what is it?  Caching saves the output of your R chunks into compressed files (*.RData) into a folder in the directory of your current project (or some sub-directory of your choosing).  The next time you compile the document, you don't actually have to run any code, if the code hasn't changed; it will just call the cached object.  When your document has a lot of computations, or in the spirit of reproducibility, actually runs your models, this will save a lot of time.
+
+<img src="../img/cache.png" style="display:block; margin: 0 auto;" width=50%>
+
+
+---
+
+# Cleaning up output
+
+Several packages are available to make your R results look better.  Here's a default <span class="objclass">data.frame</span>, ugly. 
+
+```{r dataframe}
+head(mtcars)
+```
+
+One can start with <span class="pack">knitr's</span> <span class="func">kable</span> to create simple tables that look much better.
+<span class="marginnote">Your tables will look a little different due to my CSS settings.</span>
+
+```{r kable}
+kable(head(mtcars))
+```
+
+---
+
+# Cleaning up output
+
+The <span class="pack">pander</span> package also provides more control over tables, but also can work with some model objects directly.
+
+```{r broom_pander, out.width='50%'}
+lm(mpg ~ wt, mtcars) %>% 
+  summary() %>% 
+  pander::pander(round=2, justify='lrrrr', caption='Regression results')
+```
+
+---
+
+# Other stuff
+
+Some other things that may be very common:
+- Footnotes
+- Citations and References
+- Merging multiple `*.Rmd` files into a single document
+

@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Introduction to R Markdown</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Michael Clark" />
+    <meta name="date" content="2018-11-07" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="slides.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Introduction to R Markdown
+### Michael Clark
+### 2018-11-07
+
+---
+
+
+
+
+
+background-image: url("../img/RMarkdownOutputFormats.png")
+class: center, top, inverse
+
+# R Markdown
+
+---
+
+# Concepts
+
+
+&lt;span class="emph"&gt;Reproducible research&lt;/span&gt;
+
+&lt;span class="emph"&gt;Replicable science&lt;/span&gt;
+
+&lt;span class="emph"&gt;Reproducible data analysis&lt;/span&gt;
+
+&lt;span class="emph"&gt;Dynamic data analysis&lt;/span&gt;
+
+&lt;span class="emph"&gt;Dynamic report generation&lt;/span&gt;
+
+&lt;span class="emph"&gt;Literate programming&lt;/span&gt;
+
+---
+
+class: inverse, center, middle
+
+# Getting Started
+---
+
+# Getting Started
+
+Markdown
+
+Documents
+
+Presentations
+
+Shiny Apps
+
+Templates
+
+How to start
+
+---
+
+#  Markdown
+
+&lt;img src="../img/Markdown-mark.svg" style="display:block; margin: 0 auto;" width=25%&gt;
+
+Basic Markdown looks something like this
+
+
+```
+# TITLE
+
+## Subtitle
+
+Some text that is *emphasized*.
+
+**BOLD text.**
+
+- List item 1
+- List item 2
+
+1. item #1
+2. item #2
+```
+
+
+---
+
+# Documents
+
+`File/New File/R Markdown...`
+
+&lt;img src="../img/new_markdown.png" style="display:block; margin: 0 auto;" width=50%&gt;
+
+
+---
+
+# Documents
+
+Standard HTML
+
+R Notebooks
+
+Radix
+
+Bookdown
+
+---
+
+# Presentations
+
+&lt;img src="../img/presentation_opts.png" style="display:block; margin: 0 auto;" width=33%&gt;
+
+
+Make your own presentations with just basic markdown syntax.  
+
+- HTML/javascript: revealjs, remarkjs
+
+- PDF/Beamer: avoid
+
+- Power point: ??
+
+---
+
+# Shiny Apps
+
+&lt;img src="../img/shiny_opts.png" style="display:block; margin: 0 auto;" width=50%&gt;
+
+
+---
+
+# Templates
+
+&lt;img src="../img/template_opts.png" style="display:block; margin: 0 auto;" width=50%&gt;
+
+
+---
+class: center, middle
+
+
+# &lt;h1 style="color: #23373B"&gt;How to start&lt;/h1&gt;
+
+### Steal it, change it, post it!
+
+
+---
+class: inverse, center, middle
+
+# Standard Documents
+
+---
+
+# Standard Documents
+
+R Markdown files, with extension *.Rmd, are a combination of text, chunks of R code, and possibly other code or syntax, all within a single file. Various packages, e.g. rmarkdown, knitr, pandoc, etc., work behind the scenes to knit all those pieces into one coherent whole, in whatever format is desired.Pandoc is the universal translator that takes various formats, particularly markup languages, and converts them into others. The knitr package is the driving force behind most of what is done to create the final product.
+
+HTML
+
+PDF
+
+MS Word
+
+---
+
+# HTML
+
+Most flexible
+
+Displays everything as it should
+
+Little *good* reason to use something else
+
+---
+
+# Text
+
+Writing text in a R Markdown document is the same as anywhere else.  There are a couple things you'll use frequently though.
+
+- Headers: Specified `#`, `##`, `###` etc. corresponding to H1 H2 H3 etc.
+- Italics &amp; bold:  \**word*\* for italics \*\***word**\*\* for bold.
+    -  You can also use underscores (some flavors may require it).
+- Links: `[some_text](http://webaddress.com)`
+- Image: `![alt-text](img_location)`
+- Lists: Start with a dash or number, and make sure the first element is separated from any preceding text by a full blank line. Then separate each element by a line.
+
+---
+
+# Code
+
+
+
+
+```r
+x = rnorm(10)
+
+ggplot(aes(x, y), mydata) +
+  geom_point()
+```
+
+---
+
+# Chunks
+
+The most common thing after text is code
+
+The code resides in a &lt;span class="emph"&gt;chunk&lt;/span&gt;, and looks like this
+
+
+
+````
+```{r}
+x = rnorm(10)
+```
+````
+
+You can add it to your document with the `Insert` menu in the upper right of your Rmd file, but as you'll be needing to do this all the time, instead you'll want to use the keyboard shortcut of Ctrl/Cmd + Alt/Option + I.
+
+---
+
+# In-line
+
+R code doesn't have to be in a chunk.  You can put it right in the middle of a sentence.
+
+
+```
+Here is a sentence whose sum is `r 2 + 2`.
+```
+
+```
+This sentence has a value of `r x[1]`.
+```
+
+When you knit the document, it will look like ordinary text because you aren't using an R chunk:
+
+Here is a sentence whose sum is 4.
+
+This sentence has a value of -0.577498.
+
+This effect of this in scientific reporting cannot be understated.  
+
+---
+
+class: inverse, center, middle
+
+# Be reproducible!
+
+
+---
+
+# Labels
+
+
+All chunks should be given a label. 
+
+This makes it easy to find it within your document because there are two outlines available to you. 
+
+- One that shows your text headers (to the right)
+- One that you can click to reveal that will also show your chunks (bottom left)
+
+&lt;img src="../img/chunk_outline.png" style="display:block; margin: 0 auto;" width=50%&gt;
+
+---
+
+
+# Running Code
+
+You don't have to knit the document to run the code, and often you'll be using the results as you write the document. You can run a single chunk or multiple chunks.  Use the shortcuts instead of the menu.
+
+&lt;img src="../img/run_chunk.png" style="display:block; margin: 0 auto;" width=50%&gt;
+
+By default, when you knit the document all code will be run.  Depending on a variety of factors, this may or may not be what you want to do, especially if it is time-consuming to do so.  We'll talk about how to deal with this issue in the next part.
+
+---
+
+# Other stuff
+
+Multiple documents
+
+Sharing and Collaboration 
+
+
+---
+
+class: inverse, center, middle
+
+# Common Considerations
+
+---
+
+# Common Considerations
+
+Using HTML
+
+Chunk options
+
+Image options
+
+Caching
+
+Cleaning up output
+
+---
+
+# Using HTML
+
+The first thing to do is simply get used to HTML as your primary output.  
+- Unless you know the document is to be printed in a traditional format
+
+---
+
+# Chunk options
+
+A ridiculous number of [options](https://yihui.name/knitr/options/) are available to you for each chunk.  
+
+Spend a little time to see what all is available.  
+
+The options I commonly use are: 
+
+- `echo`: Controls whether and how you want to *show* your code. It can be logical (TRUE/FALSE), or a numeric specifying specific line numbers.
+- `eval`: Controls whether and how you want to *run* your code. It can be logical (TRUE/FALSE), or a numeric specifying specific line numbers.
+- figure controls: `fig.*` `out.*` etc.
+---
+
+# Image options
+
+R graphics (HTML vs. Others)
+
+- `fig.width` and `fig.height` (in inches)
+- `fig.width` plus `fig.asp` (height = `fig.width*fig.asp`)
+- `fig.align` (no effect on interactive)
+- `fig.dim` (vector of width and height values)
+- `dpi` (`dpi*inches` = pixels)
+- `out.width` and `out.height` (geared toward HTML-based visualization- pixels or percentages)
+- `out.extra`
+
+
+Markdown
+
+- `![alt-text](img/myimage.png)`
+
+HTML
+
+- `&lt;img src="img/myimage.png" style="display:block; margin: 0 auto;"&gt;`
+
+---
+
+# Caching
+
+&lt;span class="emph"&gt;Caching&lt;/span&gt; is both a great thing and continuous source of frustration.  First, what is it?  Caching saves the output of your R chunks into compressed files (*.RData) into a folder in the directory of your current project (or some sub-directory of your choosing).  The next time you compile the document, you don't actually have to run any code, if the code hasn't changed; it will just call the cached object.  When your document has a lot of computations, or in the spirit of reproducibility, actually runs your models, this will save a lot of time.
+
+&lt;img src="../img/cache.png" style="display:block; margin: 0 auto;" width=50%&gt;
+
+
+---
+
+# Cleaning up output
+
+Several packages are available to make your R results look better.  Here's a default &lt;span class="objclass"&gt;data.frame&lt;/span&gt;, ugly. 
+
+
+```r
+head(mtcars)
+```
+
+```
+                   mpg cyl disp  hp drat    wt  qsec vs am gear carb
+Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
+```
+
+One can start with &lt;span class="pack"&gt;knitr's&lt;/span&gt; &lt;span class="func"&gt;kable&lt;/span&gt; to create simple tables that look much better.
+&lt;span class="marginnote"&gt;Your tables will look a little different due to my CSS settings.&lt;/span&gt;
+
+
+```r
+kable(head(mtcars))
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; mpg &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; cyl &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; disp &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; hp &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; drat &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; wt &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; qsec &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; vs &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; am &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; gear &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; carb &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Mazda RX4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 21.0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 160 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 110 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.90 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.620 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 16.46 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Mazda RX4 Wag &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 21.0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 160 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 110 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.90 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.875 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 17.02 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Datsun 710 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 22.8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 108 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 93 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.85 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.320 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 18.61 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Hornet 4 Drive &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 21.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 258 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 110 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.08 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.215 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 19.44 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Hornet Sportabout &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 18.7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 360 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 175 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.15 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.440 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 17.02 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Valiant &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 18.1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 225 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 105 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.76 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.460 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 20.22 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+# Cleaning up output
+
+The &lt;span class="pack"&gt;pander&lt;/span&gt; package also provides more control over tables, but also can work with some model objects directly.
+
+
+```r
+lm(mpg ~ wt, mtcars) %&gt;% 
+  summary() %&gt;% 
+  pander::pander(round=2, justify='lrrrr', caption='Regression results')
+```
+
+
+--------------------------------------------------------------
+&amp;nbsp;              Estimate   Std. Error   t value   Pr(&gt;|t|)
+----------------- ---------- ------------ --------- ----------
+**(Intercept)**        37.29         1.88     19.86          0
+
+**wt**                 -5.34         0.56     -9.56          0
+--------------------------------------------------------------
+
+
+--------------------------------------------------------------
+ Observations   Residual Std. Error   `\(R^2\)`    Adjusted `\(R^2\)` 
+-------------- --------------------- -------- ----------------
+      32               3.046          0.7528       0.7446     
+--------------------------------------------------------------
+
+Table: Regression results
+
+---
+
+# Other stuff
+
+Some other things that may be very common:
+- Footnotes
+- Citations and References
+- Merging multiple `*.Rmd` files into a single document
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

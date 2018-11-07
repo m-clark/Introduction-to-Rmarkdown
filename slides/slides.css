@@ -1,0 +1,30 @@
+.title-slide {
+  background-image: url("img/RMarkdownOutputFormats.png");
+  background-size: cover;
+}
+
+.title-slide h1 {
+  color: #FF550080;
+}
+
+.title-slide h2, .title-slide h3 {
+  color: gray; 
+  line-height: 1.5em;
+}
+
+body { 
+  font-family: 'Roboto', 'Palatino Linotype', 'Book Antiqua', Palatino, 'Microsoft YaHei', 'Songti SC', serif; 
+}
+
+p {
+  font-family: 'Roboto';
+  font-size: 150%;
+  color: #23373B;
+}
+
+.emph {
+  color: #FF5500;
+}
+
+.large { font-size: 130% }  /* then do .large[text]*/
+.small { font-size: 70% }
