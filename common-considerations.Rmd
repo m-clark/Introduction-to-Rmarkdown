@@ -115,10 +115,10 @@ As depicted in the <span class="pack">plotly</span> example above, you often can
 Markdown provides a basic way to insert images into the document as follows.
 
 ```
-![alt-text](img/myimage.png)
+![alt-text](img/myimage.png){width=50%}
 ```
 
-It's identical to a link, just with an exclamation point. Unfortunately, that's it. You can't specify anything about the image, so it's rarely going to be useful.
+It's identical to a link, just with an exclamation point. 
 
 ### img
 

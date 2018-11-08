@@ -3,12 +3,13 @@
   <head>
     <title>Introduction to R Markdown</title>
     <meta charset="utf-8">
-    <meta name="date" content="2018-11-07" />
+    <meta name="date" content="2018-11-08" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../css/book.css" type="text/css" />
+    <link rel="stylesheet" href="..\css\book.css" type="text/css" />
     <link rel="stylesheet" href="slides.css" type="text/css" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -16,9 +17,12 @@ class: center, middle, inverse, title-slide
 
 # Introduction to R Markdown
 ### Michael Clark <br> <span style="font-size: 75%"><a href="https://m-clark.github.io/" class="uri">https://m-clark.github.io/</a></span> <br><br> <img class='arc' src="../img/CSCAR_logos/signature-acronym.png" alt="University of Michigan: CSCAR"> <img class='cscar' src="../img/ARC_logos/ARC-acronym-signature.png" alt="University of Michigan: Advanced Research Computing"> <br>
-### 2018-11-07
+### 2018-11-08
 
 ---
+
+
+
 
 
 
@@ -213,13 +217,28 @@ class: inverse, center, middle
 
 # Standard Documents
 
-R Markdown files, with extension *.Rmd, are a combination of text, chunks of R code, and possibly other code or syntax, all within a single file. Various packages, e.g. rmarkdown, knitr, pandoc, etc., work behind the scenes to knit all those pieces into one coherent whole, in whatever format is desired.Pandoc is the universal translator that takes various formats, particularly markup languages, and converts them into others. The knitr package is the driving force behind most of what is done to create the final product.
+.pull-left[
+R Markdown files
 
-HTML
+- extension *.Rmd
 
-PDF
+Combination of:
 
-MS Word
+- text
+- chunks of R code
+- possibly other code or syntax
+- all within a single file
+]
+
+.pull-right[
+.small[
+Various packages, e.g. &lt;span class="pack"&gt;rmarkdown&lt;/span&gt;, &lt;span class="pack"&gt;knitr&lt;/span&gt;, &lt;span class="pack"&gt;pandoc&lt;/span&gt;, etc., work behind the scenes to knit all those pieces into one coherent whole, in whatever format is desired.&lt;span class="marginnote"&gt;Pandoc is the universal translator that takes various formats, particularly markup languages, and converts them into others.&lt;/span&gt;  The &lt;span class="pack"&gt;knitr&lt;/span&gt; package is the driving force behind most of what is done to create the final product.
+]
+
+
+.center[HTML - PDF - MS Word]
+]
+
 
 ---
 
@@ -231,31 +250,46 @@ Displays everything as it should
 
 Little *good* reason to use something else
 
+Few limitations:
+- single page
+- dashboards
+- websites
+- interactive applications
+
 ---
 
 # Text
 
-Writing text in a R Markdown document is the same as anywhere else.  There are a couple things you'll use frequently though.
+Writing text in a R Markdown document is the same as anywhere else
+
+There are a couple things you'll use frequently though:
 
 - Headers: Specified `#`, `##`, `###` etc. corresponding to H1 H2 H3 etc.
 - Italics &amp; bold:  \**word*\* for italics \*\***word**\*\* for bold.
     -  You can also use underscores (some flavors may require it).
 - Links: `[some_text](http://webaddress.com)`
 - Image: `![alt-text](img_location)`
-- Lists: Start with a dash or number, and make sure the first element is separated from any preceding text by a full blank line. Then separate each element by a line.
+- Lists: Start with a dash or number, then separate each element by a line.
 
 ---
+class: inverse, middle
 
 # Code
-
 
 
 
 ```r
 x = rnorm(10)
 
-ggplot(aes(x, y), mydata) +
-  geom_point()
+
+model = lm(y ~ x + z, mydata)
+
+library(tidyverse)
+
+mydata %&gt;% 
+  ggplot(aes(x, y)) +
+  geom_point() + 
+  theme_minimal()
 ```
 
 ---
@@ -266,13 +300,14 @@ The most common thing after text is code
 
 The code resides in a &lt;span class="emph"&gt;chunk&lt;/span&gt;, and looks like this
 
-
+.larger[
 
 ````
-```{r}
+```{r chunk_name, chunk_option_1, chunk_option_2,...}
 x = rnorm(10)
 ```
 ````
+]
 
 You can add it to your document with the `Insert` menu in the upper right of your Rmd file, but as you'll be needing to do this all the time, instead you'll want to use the keyboard shortcut of Ctrl/Cmd + Alt/Option + I.
 
@@ -291,11 +326,11 @@ Here is a sentence whose sum is `r 2 + 2`.
 This sentence has a value of `r x[1]`.
 ```
 
-When you knit the document, it will look like ordinary text because you aren't using an R chunk:
+When you knit the document, it will look like ordinary text:
 
 Here is a sentence whose sum is 4.
 
-This sentence has a value of 0.223064.
+This sentence has a value of -0.5238498.
 
 This effect of this in scientific reporting cannot be understated.  
 
@@ -311,25 +346,37 @@ class: inverse, center, middle
 # Labels
 
 
-All chunks should be given a label. 
+All chunks should be given a label
 
-This makes it easy to find it within your document because there are two outlines available to you. 
+This makes it easy to find it within your document because there are two outlines available to you:
 
 - One that shows your text headers (to the right)
-- One that you can click to reveal that will also show your chunks (bottom left)
+- One that you can click to show your chunks (bottom left)
 
-&lt;img src="../img/chunk_outline.png" style="display:block; margin: 0 auto;" width=50%&gt;
+&lt;img src="../img/chunk_outline.png" style="display:block; margin: 0 auto;" width=75%&gt;
 
 ---
 
 
 # Running Code
 
-You don't have to knit the document to run the code, and often you'll be using the results as you write the document. You can run a single chunk or multiple chunks.  Use the shortcuts instead of the menu.
+You don't have to knit the document to run the code
+
+Run a single chunk or multiple chunks via shortcuts
 
 &lt;img src="../img/run_chunk.png" style="display:block; margin: 0 auto;" width=50%&gt;
 
-By default, when you knit the document all code will be run.  Depending on a variety of factors, this may or may not be what you want to do, especially if it is time-consuming to do so.  We'll talk about how to deal with this issue in the next part.
+---
+
+# Running Code
+
+When you knit the document *all* code will be run by default
+
+This may or may not be what you want 
+- May be very time-consuming to do so  
+
+We'll talk about how to deal with this later
+
 
 ---
 
@@ -690,7 +737,7 @@ class: inverse, middle, center
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"highlightStyle": "github",
+"highlightStyle": "solarized-dark",
 "highlightLines": true,
 "countIncrementalSlides": false
 });
@@ -727,7 +774,7 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
 (function () {
   var script = document.createElement('script');
   script.type = 'text/javascript';
-  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
   if (location.protocol !== 'file:' && /^https?:/.test(script.src))
     script.src  = script.src.replace(/^https?:/, '');
   document.getElementsByTagName('head')[0].appendChild(script);
