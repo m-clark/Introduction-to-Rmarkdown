@@ -1,11 +1,15 @@
 ---
 title: "Introduction to R Markdown"
 subtitle: ""
-author: "Michael Clark"
+author:   | 
+  Michael Clark <br>
+  <span class="" style="font-size: 75%" >https://m-clark.github.io/</span> <br><br>
+  <img class='arc' src="../img/CSCAR_logos/signature-acronym.png" alt="University of Michigan: CSCAR">
+  <img class='cscar' src="../img/ARC_logos/ARC-acronym-signature.png" alt="University of Michigan: Advanced Research Computing">  <br>
 date: "`r Sys.Date()`"
 output:
   xaringan::moon_reader:
-    css: [default, metropolis, metropolis-fonts, slides.css, ]
+    css: [../css/book.css, slides.css, default, metropolis, metropolis-fonts, ]
     lib_dir: libs
     nature:
       highlightStyle: github
@@ -48,6 +52,51 @@ class: center, top, inverse
 
 ---
 
+# Concepts
+
+## Literate Programming
+
+> I believe that the time is ripe for significantly better documentation of programs, and that we can best achieve this by considering programs to be works of literature. <br> ~ Donald Knuth (1984)
+
+Interweaving code and text to tell a data story
+
+---
+ 
+# Concepts
+
+## Replicability and Reproducibility
+.pull-left[
+- Crisis!
+- Not precisely defined
+- Ideals/Goals
+
+
+- Reproducible data analysis requires:
+    - Data
+    - Code
+    - Clear documentation
+        - data *and* code
+    - Version control
+    - Standard means of distribution
+    - Literate programming practices
+]
+
+.pull-right[
+<img src="../img/octocat.png" style="display:block; margin: 0 auto;">
+]
+
+---
+class: center, middle
+
+# Concepts
+
+Dynamic Data Analysis
+
+<span class="emph">Science as software development</span>
+
+
+---
+
 class: inverse, center, middle
 
 # Getting Started
@@ -83,7 +132,7 @@ Basic Markdown looks something like this
 
 Some text that is *emphasized*.
 
-**BOLD text.**
+ **BOLD text.**
 
 - List item 1
 - List item 2
@@ -124,9 +173,7 @@ Bookdown
 Make your own presentations with just basic markdown syntax.  
 
 - HTML/javascript: revealjs, remarkjs
-
 - PDF/Beamer: avoid
-
 - Power point: ??
 
 ---
@@ -135,21 +182,30 @@ Make your own presentations with just basic markdown syntax.
 
 <img src="../img/shiny_opts.png" style="display:block; margin: 0 auto;" width=50%>
 
+<span class="emph">Shiny</span> is an inherently interactive format 
+
+Used for the creation of websites and applications
+
 
 ---
 
 # Templates
 
-<img src="../img/template_opts.png" style="display:block; margin: 0 auto;" width=50%>
+<img src="../img/template_opts.png" style="display:block; margin: 0 auto;" width=40%>
 
+Templates are available for any number of things, and one can find plenty among specific packages. 
+
+- After package installation, the template becomes available
+
+You can also create your own
 
 ---
 class: center, middle
 
 
-# <h1 style="color: #23373B">How to start</h1>
+# <h1 style="color: #23373B">How to start...</h1>
 
-### Steal it, change it, post it!
+Steal it, change it, post it!
 
 
 ---

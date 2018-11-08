@@ -23,8 +23,10 @@ p {
 }
 
 .emph {
-  color: #FF5500;
+  color: #FF5500BF;
 }
 
-.large { font-size: 130% }  /* then do .large[text]*/
-.small { font-size: 70% }
+.large { font-size: 125% }  /* then do .large[text]*/
+.small { font-size: 75% }
+.larger { font-size: 150% }  /* then do .large[text]*/
+.smaller { font-size: 50% }
