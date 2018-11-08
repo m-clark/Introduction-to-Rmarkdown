@@ -330,7 +330,7 @@ When you knit the document, it will look like ordinary text:
 
 Here is a sentence whose sum is 4.
 
-This sentence has a value of -0.5238498.
+This sentence has a value of -1.8174005.
 
 This effect of this in scientific reporting cannot be understated.  
 
@@ -414,19 +414,22 @@ Cleaning up output
 The first thing to do is simply get used to HTML as your primary output.  
 - Unless you know the document is to be printed in a traditional format
 
+Notably more flexible than PDF and Word
+
+
 ---
 
 # Chunk options
 
-A ridiculous number of [options](https://yihui.name/knitr/options/) are available to you for each chunk.  
+A ridiculous number of options are available to you for each chunk
 
-Spend a little time to see what all is available.  
+Spend a little time to see what all is available
 
 The options I commonly use are: 
 
 - `echo`: Controls whether and how you want to *show* your code. It can be logical (TRUE/FALSE), or a numeric specifying specific line numbers.
 - `eval`: Controls whether and how you want to *run* your code. It can be logical (TRUE/FALSE), or a numeric specifying specific line numbers.
-- figure controls: `fig.*` `out.*` etc.
+- graphical controls: `fig.*` `out.*` etc.
 
 ---
 
@@ -442,6 +445,9 @@ R graphics (HTML vs. Others)
 - `out.width` and `out.height` (geared toward HTML-based visualization- pixels or percentages)
 - `out.extra`
 
+---
+
+# Image options
 
 Markdown
 
@@ -449,7 +455,7 @@ Markdown
 
 HTML
 
-- `&lt;img src="img/myimage.png" style="display:block; margin: 0 auto;"&gt;`
+- `&lt;img src="img/myimage.png" style="display:block; margin: 0 auto;  width:25%"&gt;`
 
 ---
 
