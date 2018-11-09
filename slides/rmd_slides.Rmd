@@ -694,10 +694,10 @@ Completely unnecessary with Markdown
 All formulas work the same (MathJax)
 
 ```
-$y  \sim \mathcal{N}(0, 1)$
+$$y  \sim \mathcal{N}(0, 1)$$
 ```
 
-$y  \sim \mathcal{N}(0, 1)$
+$$y  \sim \mathcal{N}(0, 1)$$
 
 
 
@@ -705,6 +705,8 @@ $y  \sim \mathcal{N}(0, 1)$
 
 
 # MS Word
+
+<img src='../img/word.png' style="display:block; margin: 0 auto; width:25%">
 
 MS Word is still required by many journals
 
@@ -724,12 +726,11 @@ Some nice features...
 
 but many are better implemented via other means
 
-<img src='../img/word.png' style="display:block; margin: 0 auto; width:25%">
 
 
 ---
 
-background-image: url('../img/tiger.svg')
+background-image: url('../img/nineteeneightyR.png')
 class: inverse, center
 
 # Wrap up and exercise!

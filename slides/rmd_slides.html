@@ -7,7 +7,7 @@
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../css/book.css" type="text/css" />
+    <link rel="stylesheet" href="..\css\book.css" type="text/css" />
     <link rel="stylesheet" href="slides.css" type="text/css" />
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
@@ -341,7 +341,7 @@ When you knit the document, it will look like ordinary text:
 
 Here is a sentence whose sum is 4.
 
-This sentence has a value of 1.8735395.
+This sentence has a value of 0.538407.
 
 This effect of this in scientific reporting cannot be understated.  
 
@@ -802,10 +802,10 @@ Completely unnecessary with Markdown
 All formulas work the same (MathJax)
 
 ```
-$y  \sim \mathcal{N}(0, 1)$
+$$y  \sim \mathcal{N}(0, 1)$$
 ```
 
-`\(y  \sim \mathcal{N}(0, 1)\)`
+`$$y  \sim \mathcal{N}(0, 1)$$`
 
 
 
@@ -813,6 +813,8 @@ $y  \sim \mathcal{N}(0, 1)$
 
 
 # MS Word
+
+&lt;img src='../img/word.png' style="display:block; margin: 0 auto; width:25%"&gt;
 
 MS Word is still required by many journals
 
@@ -832,12 +834,11 @@ Some nice features...
 
 but many are better implemented via other means
 
-&lt;img src='../img/word.png' style="display:block; margin: 0 auto; width:25%"&gt;
 
 
 ---
 
-background-image: url('../img/tiger.svg')
+background-image: url('../img/nineteeneightyR.png')
 class: inverse, center
 
 # Wrap up and exercise!
@@ -881,7 +882,7 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
 (function () {
   var script = document.createElement('script');
   script.type = 'text/javascript';
-  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
   if (location.protocol !== 'file:' && /^https?:/.test(script.src))
     script.src  = script.src.replace(/^https?:/, '');
   document.getElementsByTagName('head')[0].appendChild(script);
