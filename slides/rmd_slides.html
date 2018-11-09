@@ -3,11 +3,11 @@
   <head>
     <title>Introduction to R Markdown</title>
     <meta charset="utf-8">
-    <meta name="date" content="2018-11-08" />
+    <meta name="date" content="2018-11-09" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
-    <link rel="stylesheet" href="..\css\book.css" type="text/css" />
+    <link rel="stylesheet" href="../css/book.css" type="text/css" />
     <link rel="stylesheet" href="slides.css" type="text/css" />
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
@@ -16,8 +16,8 @@
 class: center, middle, inverse, title-slide
 
 # Introduction to R Markdown
-### Michael Clark <br> <span style="font-size: 75%"><a href="https://m-clark.github.io/" class="uri">https://m-clark.github.io/</a></span> <br><br> <img class='arc' src="../img/CSCAR_logos/signature-acronym.png" alt="University of Michigan: CSCAR"> <img class='cscar' src="../img/ARC_logos/ARC-acronym-signature.png" alt="University of Michigan: Advanced Research Computing"> <br>
-### 2018-11-08
+### Michael Clark <br> <span style="font-size: 75%"><a href="https://m-clark.github.io/Introduction-to-Rmarkdown/" class="uri">https://m-clark.github.io/Introduction-to-Rmarkdown/</a></span> <br><br> <!-- <img class='arc' src="../img/CSCAR_logos/signature-acronym.png" alt="University of Michigan: CSCAR"> --> <!-- <img class='cscar' src="../img/ARC_logos/ARC-acronym-signature.png" alt="University of Michigan: Advanced Research Computing">  <br> -->
+### 2018-11-09
 
 ---
 
@@ -86,14 +86,17 @@ Interweaving code and text to tell a data story
 ]
 
 ---
-class: center, middle
+class: center
 
 # Concepts
 
+&lt;br&gt;&lt;br&gt;
+
+.larger[
 Dynamic Data Analysis
 
-&lt;span class="emph"&gt;Science as software development&lt;/span&gt;
-
+&lt;span class="emph"&gt;Science as Software Development&lt;/span&gt;
+]
 
 ---
 
@@ -118,11 +121,11 @@ How to start
 
 ---
 
+class: center
+
 #  Markdown
 
 &lt;img src="../img/Markdown-mark.svg" style="display:block; margin: 0 auto;" width=25%&gt;
-
-Basic Markdown looks something like this
 
 
 ```
@@ -217,8 +220,7 @@ class: inverse, center, middle
 
 # Standard Documents
 
-.pull-left[
-R Markdown files
+.pull-left[R Markdown files
 
 - extension *.Rmd
 
@@ -228,15 +230,16 @@ Combination of:
 - chunks of R code
 - possibly other code or syntax
 - all within a single file
-]
-
-.pull-right[
-.small[
-Various packages, e.g. &lt;span class="pack"&gt;rmarkdown&lt;/span&gt;, &lt;span class="pack"&gt;knitr&lt;/span&gt;, &lt;span class="pack"&gt;pandoc&lt;/span&gt;, etc., work behind the scenes to knit all those pieces into one coherent whole, in whatever format is desired.&lt;span class="marginnote"&gt;Pandoc is the universal translator that takes various formats, particularly markup languages, and converts them into others.&lt;/span&gt;  The &lt;span class="pack"&gt;knitr&lt;/span&gt; package is the driving force behind most of what is done to create the final product.
-]
-
 
 .center[HTML - PDF - MS Word]
+]
+
+
+.pull-right[
+&lt;br&gt;
+.smaller[
+Various packages, e.g. &lt;span class="pack"&gt;rmarkdown&lt;/span&gt;, &lt;span class="pack"&gt;knitr&lt;/span&gt;, &lt;span class="pack"&gt;pandoc&lt;/span&gt;, etc., work behind the scenes to knit all those pieces into one coherent whole, in whatever format is desired. Pandoc is the universal translator that takes various formats, particularly markup languages, and converts them into others.  The &lt;span class="pack"&gt;knitr&lt;/span&gt; package is the driving force behind most of what is done to create the final product.
+]
 ]
 
 
@@ -250,26 +253,30 @@ Displays everything as it should
 
 Little *good* reason to use something else
 
-Few limitations:
+Few limitations, create anything from:
 - single page
 - dashboards
 - websites
 - interactive applications
+- and more!
 
 ---
 
 # Text
 
-Writing text in a R Markdown document is the same as anywhere else
+Text in with R Markdown is the same as anywhere else
 
 There are a couple things you'll use frequently though:
 
 - Headers: Specified `#`, `##`, `###` etc. corresponding to H1 H2 H3 etc.
-- Italics &amp; bold:  \**word*\* for italics \*\***word**\*\* for bold.
-    -  You can also use underscores (some flavors may require it).
+- Italics &amp; bold:  `*word*` for *italics* `**word**` for **bold**
+    -  You can also use underscores (some flavors may require it)
 - Links: `[some_text](http://webaddress.com)`
 - Image: `![alt-text](img_location)`
-- Lists: Start with a dash or number, then separate each element by a line.
+- Lists: Start with a dash or number, then separate each element by a line
+    - `- unordered list item`
+    - `1. first list item`
+
 
 ---
 class: inverse, middle
@@ -280,6 +287,10 @@ class: inverse, middle
 
 ```r
 x = rnorm(10)
+
+mydata %&gt;% 
+  group_by(g) %&gt;% 
+  summarise(result = mean(myvar))
 
 
 model = lm(y ~ x + z, mydata)
@@ -300,7 +311,7 @@ The most common thing after text is code
 
 The code resides in a &lt;span class="emph"&gt;chunk&lt;/span&gt;, and looks like this
 
-.larger[
+.large[
 
 ````
 ```{r chunk_name, chunk_option_1, chunk_option_2,...}
@@ -330,7 +341,7 @@ When you knit the document, it will look like ordinary text:
 
 Here is a sentence whose sum is 4.
 
-This sentence has a value of -1.8174005.
+This sentence has a value of 1.8735395.
 
 This effect of this in scientific reporting cannot be understated.  
 
@@ -461,16 +472,32 @@ HTML
 
 # Caching
 
-&lt;span class="emph"&gt;Caching&lt;/span&gt; is both a great thing and continuous source of frustration.  First, what is it?  Caching saves the output of your R chunks into compressed files (*.RData) into a folder in the directory of your current project (or some sub-directory of your choosing).  The next time you compile the document, you don't actually have to run any code, if the code hasn't changed; it will just call the cached object.  When your document has a lot of computations, or in the spirit of reproducibility, actually runs your models, this will save a lot of time.
 
-&lt;img src="../img/cache.png" style="display:block; margin: 0 auto;" width=50%&gt;
+&lt;span class="emph"&gt;Caching&lt;/span&gt; is both a great thing and continuous source of frustration.  
 
+First, what is it?  
+ 
+Caching saves the output of your R chunks into compressed files (`*.RData`) 
+  - E.g. a folder in the directory of your current project
+
+The next time you compile the document, you don't actually have to run any code, if the code hasn't changed; it will just call the cached object.
+
+
+---
+
+# Caching
+
+When your document has a lot of computations, or in the spirit of reproducibility, actually runs your models, this will save a lot of time.
+
+&lt;img src="../img/cache.png" style="display:block; margin: 0 auto;" width=75%&gt;
 
 ---
 
 # Cleaning up output
 
-Several packages are available to make your R results look better.  Here's a default &lt;span class="objclass"&gt;data.frame&lt;/span&gt;, ugly. 
+Several packages are available to make your R results look better
+
+Here's a default &lt;span class="objclass"&gt;data.frame&lt;/span&gt; (ugly)
 
 
 ```r
@@ -486,6 +513,10 @@ Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
 Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
 Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
 ```
+
+---
+
+# Cleaning up output
 
 One can start with &lt;span class="pack"&gt;knitr's&lt;/span&gt; &lt;span class="func"&gt;kable&lt;/span&gt; to create simple tables that look much better.
 &lt;span class="marginnote"&gt;Your tables will look a little different due to my CSS settings.&lt;/span&gt;
@@ -607,11 +638,16 @@ kable(head(mtcars))
 The &lt;span class="pack"&gt;pander&lt;/span&gt; package also provides more control over tables, but also can work with some model objects directly.
 
 
+.small[
+
 ```r
 lm(mpg ~ wt, mtcars) %&gt;% 
   summary() %&gt;% 
   pander::pander(round=2, justify='lrrrr', caption='Regression results')
 ```
+]
+
+&lt;img src="../img/pander_lm_output.png" style="display:block; margin: 0 auto;"&gt;
 
 ---
 
@@ -621,6 +657,8 @@ Some other things that may be very common:
 - Footnotes
 - Citations and References
 - Merging multiple `*.Rmd` files into a single document
+
+Many things to do with R Markdown
 
 ---
 
@@ -636,20 +674,15 @@ The basic document comes with several options to apply to your output.
 
 - You'll find a cog wheel in the toolbar area underneath the tabs.
 
-&lt;img src="../img/knitr_output_opts.png" style="display:block; margin: 0 auto;" width=50%&gt;
-
-
---- 
-
-&lt;!-- something is broken here so leave empty --&gt;
+&lt;img src="../img/knitr_output_opts.png" style="display:block; margin: 0 auto;" width=80%&gt;
 
 ---
 
 # Themes etc.
 
-As a first step, simply play around with the &lt;span class="emph"&gt;themes&lt;/span&gt; you already have available.  
+Play around with the &lt;span class="emph"&gt;themes&lt;/span&gt; you already have  
 
-Choosing one of these will make your document look good without breaking a sweat.
+These can make your doc look good with little effort
 
 &lt;img src="../img/theme_dropdown.png" style="display:block; margin: 0 auto;" width='50%'&gt;
 
@@ -657,57 +690,97 @@ Choosing one of these will make your document look good without breaking a sweat
 
 # Themes etc.
 
-For many of the documents you create, changing the defaults this way may be enough. So be familiar with your options.  
+Changing the defaults this way may be enough
+- So be familiar with your options
 
-After making your selections, now see what has changed at the top of your document.  You might see something like the following.
+After making your selections, see what has changed  
 
-&lt;img src="../img/selected_options.png" style="display:block; margin: 0 auto;" width='50%'&gt;
+You might see something like the following:
+
+&lt;img src="../img/selected_options.png" style="display:block; margin: 0 auto;" width='75%'&gt;
 
 
 ---
 
 # YAML
 
-For the purposes of starting out, all you really need to know is that YAML is like configuration code for your document.  You can see that it specifies what the output is, and whatever options you selected previously.  You can change the title, add a date etc.  There is a lot of other stuff too.  Here is the YAML for this document.
+&lt;span class="emph"&gt;YAML&lt;/span&gt; 
+- configuration code for your document
 
-&lt;img src="../img/yaml.png" style="display:block; margin: 0 auto;" width='100%' height='150%'&gt;
+Specifies what the output is various options 
+
+You can change the title, add a date etc.  
+
+There is a lot of other stuff too
 
 ---
+
+# YAML
+
+Here is YAML I once had for the main document:
+
+&lt;img src="../img/yaml.png" style="display:block; margin: 0 auto;" width='75%'&gt;
+
+---
+
 class: center, middle
 
-# HTML &amp; CSS
+# 
+
+.larger[HTML &amp; CSS]
 
 
-Basic stuff can go a long way.
+Basic stuff can go a long way
 
 ---
 
-## HTML
+# HTML
 
-Knowing some basic HTML can add little things to your document to make it look better.
+A little HTML can help make your document look better
 
-## CSS
+- `&lt;br&gt;` 
 
+- `&lt;img&gt;` 
 
-Recall the style section in some of the HTML examples above. For example, the part `style='color:#66023C; font-size:150%; font-weight:600'` changed the font.  &lt;span class="marginnote"&gt; **CSS** stands for **c**ascading **s**tyle **s**heets&lt;/span&gt;It's actually CSS, and if we need to do the same thing each time, we can take an alternative approach to creating a style that would apply the same settings to all objects of the same class or HTML tag throughout the document.
+- `&lt;span&gt;`
 
-The first step is to create a `*.css` file that your R Markdown document can refer to. 
+---
+
+# CSS
+
+Cascading Style Sheets
+
+R Markdown formats come with their own
+
+Add _your_ own with just a couple tweaks
+- Create a `*.css` file that your R Markdown document can refer to
 
 ---
 
 # Personal Templates
 
-A common mantra in computer programming and beyond is DRY, or Don't Repeat Yourself.  If you start using R Markdown a lot, and there is a good chance of that, once you get some settings you use often, you'll not want to start from scratch, but simply reuse them.  While this can be done [formally](https://rmarkdown.rstudio.com/developer_document_templates.html) by creating an R package, it can also be as simple as saving a file that just has the YAML and maybe some &lt;span class="pack"&gt;knitr&lt;/span&gt; options specified, and starting from that file each time.  Same goes for CSS or other files you use often. 
+Common mantra in computer programming:
 
-Over time, these files and settings will grow, especially as you learn new options and want to tweak old.  In the end, you may have very little to do to make the document look great the first time you knit it!
+&lt;div class="emph" style="text-align: center; font-size:200%"&gt;Don't Repeat Yourself!&lt;/div&gt;
+
+&lt;img src="../img/DRY.png" style="display:block; margin: 0 auto;" width=50%&gt;
+
+Save a basic `*.Rmd` file with your common settings
+
+Over time, these files and settings will grow
+- Making things easy for you!
 
 ---
 
 # The Rabbit Hole Goes Deep
 
-How much you want to get into customization is up to you.  Using the developer tools of any web browser allows you to inspect what anyone else has done as far as styling with CSS.  Here is an example of Chrome Developer Tools, which you can access through its menus.
+Customization has no end
 
-&lt;img src="../img/chrome_dev.png" style="display:block; margin: 0 auto;" width=100% height=100%&gt;
+Any web browser allows you to inspect others' work
+- Developer tools
+- Use their CSS
+
+&lt;img src="../img/chrome_dev.png" style="display:block; margin: 0 auto;" width=80% height=80%&gt;
 
 
 --- 
@@ -720,24 +793,52 @@ class: inverse, middle, center
 
 # PDF &amp; LaTeX
 
-`\(\LaTeX\)` was the gold-standard for scientific reporting for a long time
+`\(\LaTeX\)`
+
+- the gold-standard for scientific reporting for a long time
+
+Completely unnecessary with Markdown
+
+All formulas work the same (MathJax)
+
+```
+$y  \sim \mathcal{N}(0, 1)$
+```
+
+`\(y  \sim \mathcal{N}(0, 1)\)`
 
 
 
 ---
+
 
 # MS Word
 
-MS Word is sadly still required by journals that have not kept up with the times
+MS Word is still required by many journals
 
-It seems easy to use
-- until you want to stray from defaults
 
-While it has some nice features, these are all met or actually better implemented via other means
+--
+It seems easy to use...
+
+--
+
+until you want to stray from defaults
+
+--
+
+Some nice features...
+
+--
+
+but many are better implemented via other means
+
+&lt;img src='../img/word.png' style="display:block; margin: 0 auto; width:25%"&gt;
+
 
 ---
 
-class: inverse, middle, center
+background-image: url('../img/tiger.svg')
+class: inverse, center
 
 # Wrap up and exercise!
     </textarea>
@@ -780,7 +881,7 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
 (function () {
   var script = document.createElement('script');
   script.type = 'text/javascript';
-  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
   if (location.protocol !== 'file:' && /^https?:/.test(script.src))
     script.src  = script.src.replace(/^https?:/, '');
   document.getElementsByTagName('head')[0].appendChild(script);
