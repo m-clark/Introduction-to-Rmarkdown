@@ -207,7 +207,7 @@ For interactivity and more options to play with, consider the <span class="pack"
 DT::datatable(mtcars, 
               class = 'nowrap',
               options = list(autoWidth = TRUE,
-                             columnDefs=list(list(width='150px', targets=0))))
+                             columnDefs=list(list(width='50%', targets=0))))
 ```
 
 <br>

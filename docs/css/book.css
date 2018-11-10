@@ -66,6 +66,7 @@
     word-wrap: break-word;
     overflow: hidden;
     line-height: 1.7;
+    width: 133%;                    /*adjusted for inclusion of marginnotes widens main block*/
     text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
@@ -224,6 +225,7 @@ i {
     margin: 0 0 1.275em;
     padding: .85em 1em;
     background: #fafafa;
+    width: 60%;  /*match this to p width*/
 }
 
 
@@ -255,7 +257,16 @@ h1, h2, h3, h4, h5 {
   font-family: 'Roboto Condensed';
 }
 
-/* notes */
+/* marginnote, sidenotes, footnotes */
+.book .book-body .page-wrapper .page-inner section.normal .marginnote span.mjx-chtml, span.mjx-block {
+    display: block;
+    font-size: 80%;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal .footnotes p, ol {
+  width: 100%;
+  font-size: 90%;
+}
 
 .img-note {
   vertical-align: central;
@@ -267,11 +278,19 @@ h1, h2, h3, h4, h5 {
 }
 
 
+.book .book-body .page-wrapper .page-inner section.normal dl,
+.book .book-body .page-wrapper .page-inner section.normal ol,
+.book .book-body .page-wrapper .page-inner section.normal p,
+.book .book-body .page-wrapper .page-inner section.normal ul {
+    margin-top: 0;
+    margin-bottom: .85em;
+    width: 60%;                 /*fiddle with this relative to marginnote; div.sourceCode should be the same*/
+}
 
 /* marginnotes */
 .book .book-body .page-wrapper .page-inner section.normal .marginnote span.mjx-chtml, span.mjx-block {
     display: block;
-    font-size: 80%;
+    font-size: 60%;
 }
 
 .book .book-body .page-wrapper .page-inner section.normal .marginnote {
@@ -416,6 +435,13 @@ table {
   margin: auto;
 }
 
+.book .book-body .page-wrapper .page-inner section.normal table {
+  max-width: 50%;
+  margin-left: 7.5%;
+  font-size: 75%;
+}
+
+
 .book .book-body .page-wrapper .page-inner section.normal table tr:nth-child(2n) {
     background-color: white;
 }
@@ -423,4 +449,12 @@ table {
 div.datatables {
     margin-left: auto;     /* to center them when full is not necessary. */
     margin-right: auto;
+}
+
+.dataTables_wrapper {
+    position: relative;
+    clear: both;
+    width: 66%;  /* set based on section.normal p width */
+    *zoom: 1;
+    zoom: 1;
 }
